@@ -56,6 +56,7 @@ class _LandingPage extends State<LandingPage> {
   @override
   Widget build(BuildContext context) {
     print(max);
+    print(MediaQuery.of(context).size.height/20);
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Center(
@@ -71,9 +72,11 @@ class _LandingPage extends State<LandingPage> {
               child: buildFutureBuilder(),
             ),
             Container(
-              padding: const EdgeInsets.only(left: 40, right: 40),
+              
+              
+              padding: EdgeInsets.only(top: MediaQuery.of(context).size.height/2,left: 40, right: 40),
               child: Align(  
-              alignment: Alignment.center,
+              alignment: Alignment.topCenter,
 
               child: TextFormField(
                 controller: pinyinController,
@@ -124,7 +127,7 @@ class _LandingPage extends State<LandingPage> {
           hanzi = normalList[0];
 
           return Container(
-            padding: const EdgeInsets.only(top: 250, left: 60, right: 60),
+            padding: EdgeInsets.only(top: MediaQuery.of(context).size.height/5, left: 60, right: 60),
             child: Align(
               alignment: Alignment.topCenter,
               child: Column(
