@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mysql1/mysql1.dart';
+import 'package:pinyinpal/databasecontrol.dart';
 import 'package:pinyinpal/home.dart';
 import 'package:pinyinpal/popups.dart';
 
@@ -7,40 +7,6 @@ void main() {
   runApp(const MainApp());
 }
 
-class DataBaseIntegration {
-  static var settings = ConnectionSettings(
-    host: 'mydatabase.cr8csc4s4i51.eu-north-1.rds.amazonaws.com',
-    port: 3306,
-    user: 'admin',
-    password: '*****',
-    db: 'hsk',
-  );
-
-  static Future<List> connectToDB(int counter) async {
-    List<String> items = ['...', '...', '...'];
-    var conn = await MySqlConnection.connect(settings);
-    var results = await conn.query('select simplified, pinyin_tones, translation from hsk.vocabulary where id = ' + counter.toString());
-    for (var row in results) {
-      items[0] = row[0];
-      items[1] = row[1];
-    }
-    ;
-    await conn.close();
-    return items;
-  }
-
-  static Future<int> getDBsize() async {
-    int size = 0;
-    var conn = await MySqlConnection.connect(settings);
-    var results = await conn.query('select count(id) from hsk.vocabulary');
-    for (var row in results) {
-      size = row[0];
-    }
-    ;
-    await conn.close();
-    return size;
-  }
-}
 
 class MainApp extends StatelessWidget {
   const MainApp({Key? key});
@@ -55,6 +21,7 @@ class MainApp extends StatelessWidget {
 
 class LandingPage extends StatefulWidget {
   const LandingPage({Key? key});
+  
 
   @override
   State<LandingPage> createState() => _LandingPage();
@@ -91,25 +58,13 @@ class _LandingPage extends State<LandingPage> {
     print(max);
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 108, 29, 29),
-        title: Text(
-          "HANZI BROWSER",
-          style: TextStyle(
-            color: Color.fromARGB(255, 255, 255, 255),
-            fontSize: 25,
-          ),
-        ),
-      ),
       body: Center(
         child: Stack(
           children: <Widget>[
             Container(
               decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/images/blackboard.jpg"),
-                  fit: BoxFit.cover,
-                ),
+
+                color: Color.fromARGB(255, 26, 26, 26),
               ),
             ),
             Container(
@@ -122,8 +77,21 @@ class _LandingPage extends State<LandingPage> {
 
               child: TextFormField(
                 controller: pinyinController,
+                onFieldSubmitted: (value) {
+
+                  if(pinyinController.text == hanzi){
+                    AnswerDialog.successPopup(context, hanzi);
+                  }
+                  else{
+                    AnswerDialog.failurePopup(context, hanzi);
+                  }
+                  print(hanzi);
+
+                  _incrementCounter();
+                  
+                },
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Color.fromARGB(255, 0, 0, 0), fontSize: 20,),
+                style: TextStyle(color: Color.fromARGB(255, 0, 0, 0), fontSize: 20, fontFamily: 'LibreFranklin'),
                 decoration: const InputDecoration(
                   fillColor: Colors.white,
                   border: OutlineInputBorder(),
@@ -134,22 +102,7 @@ class _LandingPage extends State<LandingPage> {
             ),
             Align(
               alignment: Alignment.bottomCenter,
-              child: IconButton(
-                padding: const EdgeInsets.only(bottom: 40, left: 40, right: 40),
-                icon: Image.asset('assets/images/enter.png'),
-                iconSize: 10,
-                onPressed: () {
-                  
-                  if(pinyinController.text == hanzi){
-                    AnswerDialog.successPopup(context);
-                  }
-                  else{
-                    AnswerDialog.failurePopup(context);
-                  }
 
-                  _incrementCounter();
-                },
-              ),
             )
           ],
         ),
@@ -171,29 +124,25 @@ class _LandingPage extends State<LandingPage> {
           hanzi = normalList[0];
 
           return Container(
+            padding: const EdgeInsets.only(top: 250, left: 60, right: 60),
             child: Align(
               alignment: Alignment.topCenter,
               child: Column(
                 children: <Widget>[
                   Text(
-                    normalList[0],
+                    normalList[2],
                     style: TextStyle(
-                      color: Color.fromARGB(255, 212, 184, 4),
-                      fontSize: 50,
+                      fontFamily: 'LibreFranklin',
+                      color: Color.fromARGB(255, 255, 255, 255),
+                      fontSize: 45,
                     ),
                   ),
-                  Text(
-                    normalList[1],
-                    style: TextStyle(
-                      color: Color.fromARGB(255, 212, 184, 4),
-                      fontSize: 50,
-                    ),
-                  ),
+
                   Text(
                     "Size: " + (max - count).toString(),
                     style: TextStyle(
-                      color: Color.fromARGB(255, 212, 184, 4),
-                      fontSize: 50,
+                      color: Color.fromARGB(255, 255, 255, 255),
+                      fontSize: 45,
                     ),
                   ),
                 ],

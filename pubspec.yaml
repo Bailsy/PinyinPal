@@ -17,6 +17,11 @@ dev_dependencies:
   flutter_lints: ^2.0.0
 
 flutter:
+  fonts:
+  - family: LibreFranklin
+    fonts:
+    - asset: assets/fonts/LibreFranklin-SemiBold.ttf
+    - asset: assets/fonts/LibreFranklin-Bold.ttf
   uses-material-design: true
   assets:
     - assets/images/
