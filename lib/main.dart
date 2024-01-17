@@ -1,9 +1,10 @@
 import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:pinyinpal/databasecontrol.dart';
 import 'package:pinyinpal/home.dart';
 import 'package:pinyinpal/popups.dart';
+import 'dart:ui';
+
 
 void main() {
   runApp(const MainApp());
@@ -29,9 +30,8 @@ class LandingPage extends StatefulWidget {
   State<LandingPage> createState() => _LandingPage();
 }
 
-class _LandingPage extends State<LandingPage> with AutomaticKeepAliveClientMixin {
-  @override
-  bool get wantKeepAlive => true;
+class _LandingPage extends State<LandingPage>  {
+
   final TextEditingController pinyinController = TextEditingController();
   @override
   void dispose() {
@@ -41,14 +41,19 @@ class _LandingPage extends State<LandingPage> with AutomaticKeepAliveClientMixin
   int count = 0;
   int max = 0;
   double height = 0;
-  double width = 0;
+  int wrong = 0;
+  int right = 0;
   String hanzi = "nothing";
 
   @override
   void initState() {
     super.initState();
+    _incrementCounter();
     Future<int> futureMax = DataBaseIntegration.getDBsize();
     futureMax.then((intResult) {max = intResult;});
+    var physicalScreenSize = window.physicalSize;
+    height = physicalScreenSize.height/2;
+    print(height);
   }
 
 
@@ -60,13 +65,12 @@ class _LandingPage extends State<LandingPage> with AutomaticKeepAliveClientMixin
 
   @override
   Widget build(BuildContext context) {
-    
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Center(
         child: Stack(
           children: <Widget>[
-            Container(child: getScreenHeight()),
             Container(
               decoration: const BoxDecoration(
                 color: Color.fromARGB(255, 26, 26, 26),
@@ -77,24 +81,21 @@ class _LandingPage extends State<LandingPage> with AutomaticKeepAliveClientMixin
             ),
             Container(
               
-              
-              padding: EdgeInsets.only(bottom: height/2,left: 40, right: 40),
+              padding: EdgeInsets.only(top: height/3,left: 40, right: 40),
               child: Align(  
-              alignment: Alignment.bottomCenter,
+              alignment: Alignment.topCenter,
 
               child: TextFormField(
                 controller: pinyinController,
                 onFieldSubmitted: (value) {
-
                   if(pinyinController.text == hanzi){
                     AnswerDialog.successPopup(context, hanzi);
                   }
                   else{
                     AnswerDialog.failurePopup(context, hanzi);
                   }
-
                   _incrementCounter();
-                  
+                  pinyinController.clear();
                 },
                 textAlign: TextAlign.center,
                 style: const TextStyle(color: Color.fromARGB(255, 0, 0, 0), fontSize: 20, fontFamily: 'LibreFranklin'),
@@ -112,14 +113,7 @@ class _LandingPage extends State<LandingPage> with AutomaticKeepAliveClientMixin
     );
   }
 
-  Widget getScreenHeight(){
-    return LayoutBuilder(
-  builder: (context, constraints) { 
-    height = constraints.maxHeight;
-    throw Exception('Screen Height cannot be returned');
-  },
-);
-  }
+
 
 
   Widget buildFutureBuilder() {
@@ -151,7 +145,7 @@ class _LandingPage extends State<LandingPage> with AutomaticKeepAliveClientMixin
                   ),
 
                   Text(
-                    "Size: " + (max - count).toString(),
+                    (count).toString(),
                     style: TextStyle(
                       color: Color.fromARGB(255, 255, 255, 255),
                       fontSize: 45,
