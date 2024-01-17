@@ -1,22 +1,22 @@
 import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:pinyinpal/databasecontrol.dart';
+import 'package:pinyinpal/finishedset.dart';
 import 'package:pinyinpal/home.dart';
 import 'package:pinyinpal/popups.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'dart:ui';
-
 
 void main() {
   runApp(const MainApp());
 }
 
-
 class MainApp extends StatelessWidget {
   const MainApp({Key? key});
-
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: HomePage(),
     );
   }
@@ -24,25 +24,25 @@ class MainApp extends StatelessWidget {
 
 class LandingPage extends StatefulWidget {
   const LandingPage({Key? key});
-  
 
   @override
   State<LandingPage> createState() => _LandingPage();
 }
 
-class _LandingPage extends State<LandingPage>  {
-
+class _LandingPage extends State<LandingPage> {
   final TextEditingController pinyinController = TextEditingController();
+
   @override
   void dispose() {
     pinyinController.dispose();
     super.dispose();
   }
+
   int count = 0;
   int max = 0;
   double height = 0;
-  int wrong = 0;
-  int right = 0;
+  int correct = 0;
+  int incorrect = 0;
   String hanzi = "nothing";
 
   @override
@@ -50,12 +50,13 @@ class _LandingPage extends State<LandingPage>  {
     super.initState();
     _incrementCounter();
     Future<int> futureMax = DataBaseIntegration.getDBsize();
-    futureMax.then((intResult) {max = intResult;});
+    futureMax.then((intResult) {
+      max = intResult;
+    });
     var physicalScreenSize = window.physicalSize;
-    height = physicalScreenSize.height/2;
+    height = physicalScreenSize.height / 2;
     print(height);
   }
-
 
   void _incrementCounter() {
     setState(() {
@@ -65,7 +66,6 @@ class _LandingPage extends State<LandingPage>  {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Center(
@@ -80,31 +80,37 @@ class _LandingPage extends State<LandingPage>  {
               child: buildFutureBuilder(),
             ),
             Container(
-              
-              padding: EdgeInsets.only(top: height/3,left: 40, right: 40),
-              child: Align(  
-              alignment: Alignment.topCenter,
-
-              child: TextFormField(
-                controller: pinyinController,
-                onFieldSubmitted: (value) {
-                  if(pinyinController.text == hanzi){
-                    AnswerDialog.successPopup(context, hanzi);
-                  }
-                  else{
-                    AnswerDialog.failurePopup(context, hanzi);
-                  }
-                  _incrementCounter();
-                  pinyinController.clear();
-                },
-                textAlign: TextAlign.center,
-                style: const TextStyle(color: Color.fromARGB(255, 0, 0, 0), fontSize: 20, fontFamily: 'LibreFranklin'),
-                decoration: const InputDecoration(
-                  fillColor: Colors.white,
-                  border: OutlineInputBorder(),
-                  filled: true,
+              padding: EdgeInsets.only(top: height / 3, left: 40, right: 40),
+              child: Align(
+                alignment: Alignment.topCenter,
+                child: TextFormField(
+                  controller: pinyinController,
+                  onFieldSubmitted: (value) {
+                    //when the enter button is pressed on the keyboard this is the text which will be printed
+                    if(count == 20){
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => FinishedSet(Tcorrect: correct, Tincorrect: incorrect,)));
+                    }
+                    if (pinyinController.text == hanzi) {
+                      correct++;
+                      AnswerDialog.successPopup(context, hanzi);
+                    } else {
+                      incorrect++;
+                      AnswerDialog.failurePopup(context, hanzi);
+                    }
+                    _incrementCounter();
+                    pinyinController.clear();
+                  },
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                      color: Color.fromARGB(255, 0, 0, 0),
+                      fontSize: 20,
+                      fontFamily: 'LibreFranklin'),
+                  decoration: const InputDecoration(
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    filled: true,
+                  ),
                 ),
-               ),
               ),
             ),
           ],
@@ -112,9 +118,6 @@ class _LandingPage extends State<LandingPage>  {
       ),
     );
   }
-
-
-
 
   Widget buildFutureBuilder() {
     return FutureBuilder(
@@ -130,24 +133,30 @@ class _LandingPage extends State<LandingPage>  {
           hanzi = normalList[0];
 
           return Container(
-            padding: EdgeInsets.only(top: height/5, left: 60, right: 60),
+            padding: EdgeInsets.only(top: height / 5, left: 60, right: 60),
             child: Align(
               alignment: Alignment.topCenter,
               child: Column(
                 children: <Widget>[
-                  Text(
-                    normalList[2],
-                    style: TextStyle(
-                      fontFamily: 'LibreFranklin',
-                      color: Color.fromARGB(255, 255, 255, 255),
-                      fontSize: 45,
+                  Container(
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(
+                        minWidth:  300.0,
+                        maxWidth: 300.0,
+                        minHeight: 30.0,
+                        maxHeight: 100.0,
+                      ),
+                      child: AutoSizeText(
+                        normalList[2],
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 30.0, fontFamily: 'LibreFranklin',color: Color.fromARGB(255, 255, 255, 255)),
+                      ),
                     ),
                   ),
-
                   Text(
                     (count).toString(),
                     style: TextStyle(
-                      color: Color.fromARGB(255, 255, 255, 255),
+                      color:  Color.fromARGB(255, 255, 255, 255),
                       fontSize: 45,
                     ),
                   ),
