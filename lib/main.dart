@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:pinyinpal/databasecontrol.dart';
 import 'package:pinyinpal/home.dart';
@@ -27,7 +29,9 @@ class LandingPage extends StatefulWidget {
   State<LandingPage> createState() => _LandingPage();
 }
 
-class _LandingPage extends State<LandingPage> {
+class _LandingPage extends State<LandingPage> with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
   final TextEditingController pinyinController = TextEditingController();
   @override
   void dispose() {
@@ -36,16 +40,17 @@ class _LandingPage extends State<LandingPage> {
   }
   int count = 0;
   int max = 0;
+  double height = 0;
+  double width = 0;
   String hanzi = "nothing";
 
   @override
   void initState() {
     super.initState();
-    //perform initialisation tasks here
     Future<int> futureMax = DataBaseIntegration.getDBsize();
     futureMax.then((intResult) {max = intResult;});
-
   }
+
 
   void _incrementCounter() {
     setState(() {
@@ -55,16 +60,15 @@ class _LandingPage extends State<LandingPage> {
 
   @override
   Widget build(BuildContext context) {
-    print(max);
-    print(MediaQuery.of(context).size.height/20);
+    
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Center(
         child: Stack(
           children: <Widget>[
+            Container(child: getScreenHeight()),
             Container(
               decoration: const BoxDecoration(
-
                 color: Color.fromARGB(255, 26, 26, 26),
               ),
             ),
@@ -74,9 +78,9 @@ class _LandingPage extends State<LandingPage> {
             Container(
               
               
-              padding: EdgeInsets.only(top: MediaQuery.of(context).size.height/2,left: 40, right: 40),
+              padding: EdgeInsets.only(bottom: height/2,left: 40, right: 40),
               child: Align(  
-              alignment: Alignment.topCenter,
+              alignment: Alignment.bottomCenter,
 
               child: TextFormField(
                 controller: pinyinController,
@@ -88,13 +92,12 @@ class _LandingPage extends State<LandingPage> {
                   else{
                     AnswerDialog.failurePopup(context, hanzi);
                   }
-                  print(hanzi);
 
                   _incrementCounter();
                   
                 },
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Color.fromARGB(255, 0, 0, 0), fontSize: 20, fontFamily: 'LibreFranklin'),
+                style: const TextStyle(color: Color.fromARGB(255, 0, 0, 0), fontSize: 20, fontFamily: 'LibreFranklin'),
                 decoration: const InputDecoration(
                   fillColor: Colors.white,
                   border: OutlineInputBorder(),
@@ -103,15 +106,21 @@ class _LandingPage extends State<LandingPage> {
                ),
               ),
             ),
-            Align(
-              alignment: Alignment.bottomCenter,
-
-            )
           ],
         ),
       ),
     );
   }
+
+  Widget getScreenHeight(){
+    return LayoutBuilder(
+  builder: (context, constraints) { 
+    height = constraints.maxHeight;
+    throw Exception('Screen Height cannot be returned');
+  },
+);
+  }
+
 
   Widget buildFutureBuilder() {
     return FutureBuilder(
@@ -127,7 +136,7 @@ class _LandingPage extends State<LandingPage> {
           hanzi = normalList[0];
 
           return Container(
-            padding: EdgeInsets.only(top: MediaQuery.of(context).size.height/5, left: 60, right: 60),
+            padding: EdgeInsets.only(top: height/5, left: 60, right: 60),
             child: Align(
               alignment: Alignment.topCenter,
               child: Column(
