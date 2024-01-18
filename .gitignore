@@ -28,3 +28,29 @@ doc/api/
 
 #
 android/gradle/wrapper/
+
+# IDE/Editor Files
+.vscode/
+.idea/
+*.iml
+
+# Build Output
+/build/
+/web/build/
+
+# Dependency Directories
+/vendor/
+
+# Generated Files
+/generated/
+
+# Operating System Files
+Thumbs.db
+.DS_Store
+
+# Exclude macOS, Windows, Linux, and web directories
+macos/
+windows/
+linux/
+web/
+.idea/

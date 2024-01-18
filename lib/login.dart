@@ -256,7 +256,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           padding: EdgeInsets.all(16.0),
                           child: Text(
                             'Submit',
-                            style: TextStyle(fontSize: 18.0),
+                            style: TextStyle(fontSize: 18.0, color: Colors.white),
                           ),
                         ),
                         style: ButtonStyle(
