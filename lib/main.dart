@@ -5,6 +5,7 @@ import 'dart:ui';
 // Local Imports
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 // PinyinPal Imports
 import 'package:pinyinpal/databasecontrol.dart';
@@ -12,9 +13,15 @@ import 'package:pinyinpal/finishedset.dart';
 import 'package:pinyinpal/home.dart';
 import 'package:pinyinpal/login.dart';
 import 'package:pinyinpal/popups.dart';
+import 'package:pinyinpal/config.dart';
 
 
-void main() {
+
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load();
+  await AppConfig.setup();
   runApp(const MainApp());
 }
 
