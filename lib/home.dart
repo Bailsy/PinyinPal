@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:neon/neon.dart';
 import 'package:pinyinpal/main.dart';
 
 class HomePage extends StatefulWidget {
@@ -18,23 +19,32 @@ class HomePageState extends State<HomePage> {
         child: Stack(
           children: <Widget>[
             Container(
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/images/back.jpg"),
-                  fit: BoxFit.cover,
-                ),
+                 decoration: const BoxDecoration(
+                color: Color.fromARGB(255, 26, 26, 26),
               ),
+
             ),
-            Container(
-              child: Align(
-                alignment: Alignment.center,
-                child: IconButton(
-                icon: Image.asset('assets/images/start.png'),
-                iconSize: 10,
-                onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => const LandingPage()));},
-              )
-              ),
+
+        Align(
+          alignment: Alignment.center,
+          child: InkWell(
+
+          child: Neon(
+              text: 'PinYin Pal',
+              color: Colors.blue,
+              fontSize: 40,
+              font: NeonFont.Beon,
+              flickeringText: true,
+              flickeringLetters: null,
+              glowingDuration: new Duration(seconds: 1),  
             ),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => LandingPage()));
+              
+            },
+          ),
+            )
+
           ],
         ),
       ),
