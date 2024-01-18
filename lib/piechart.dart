@@ -10,15 +10,19 @@ class MyPieChart extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return PieChart(
+      swapAnimationDuration: const Duration(milliseconds: 750),
+      swapAnimationCurve: Curves.easeInOutQuint,
       PieChartData(
         sections: [
           PieChartSectionData(
+            showTitle: false,
             value: value1.toDouble(),
-            color: Color.fromARGB(255, 48, 201, 86).withOpacity(0.4),
+            color: Color.fromARGB(255, 48, 201, 86),
           ),
           PieChartSectionData(
+            showTitle: false,
             value: value2.toDouble(),
-            color: Color.fromARGB(255, 201, 48, 48).withOpacity(0.4),
+            color: Color.fromARGB(255, 201, 48, 48),
           )
         ]
       ),
