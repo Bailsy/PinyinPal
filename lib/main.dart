@@ -1,12 +1,18 @@
+// Dart Imports
 import 'dart:ffi';
+import 'dart:ui';
+
+// Local Imports
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+
+// PinyinPal Imports
 import 'package:pinyinpal/databasecontrol.dart';
 import 'package:pinyinpal/finishedset.dart';
 import 'package:pinyinpal/home.dart';
 import 'package:pinyinpal/login.dart';
 import 'package:pinyinpal/popups.dart';
-import 'package:auto_size_text/auto_size_text.dart';
-import 'dart:ui';
+
 
 void main() {
   runApp(const MainApp());
@@ -18,7 +24,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return  MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MyHomePage(),
+      home: LoginPage(),
     );
   }
 }

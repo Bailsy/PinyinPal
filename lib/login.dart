@@ -4,14 +4,14 @@ import 'package:http/http.dart' as http;
 import 'package:pinyinpal/home.dart';
 
 
-class MyHomePage extends StatefulWidget {
+class LoginPage extends StatefulWidget {
 
-   MyHomePage({Key? key});
+   LoginPage({Key? key});
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _LoginPageState createState() => _LoginPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _LoginPageState extends State<LoginPage> {
   //For LinearProgressIndicator.
   bool _visible = false;
 
@@ -31,8 +31,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
     // Getting username and password from Controller
     var data = {
-      'username': userController.text,
-      'password': pwdController.text,
+      'username': userController.text.trim(),
+      'password': pwdController.text.trim(),
     };
 
     //Starting Web API Call.
