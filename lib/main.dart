@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:pinyinpal/databasecontrol.dart';
 import 'package:pinyinpal/finishedset.dart';
 import 'package:pinyinpal/home.dart';
+import 'package:pinyinpal/login.dart';
 import 'package:pinyinpal/popups.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'dart:ui';
@@ -15,9 +16,9 @@ class MainApp extends StatelessWidget {
   const MainApp({Key? key});
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: MyHomePage(),
     );
   }
 }
