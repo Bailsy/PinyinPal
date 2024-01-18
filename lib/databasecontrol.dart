@@ -8,7 +8,7 @@ class DataBaseIntegration {
     host: 'mydatabase.cr8csc4s4i51.eu-north-1.rds.amazonaws.com',
     port: 3306,
     user: 'admin',
-    password: '******',
+    password: '*****',
     db: 'hsk',
   );
 

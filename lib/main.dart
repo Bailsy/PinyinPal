@@ -41,9 +41,10 @@ class _LandingPage extends State<LandingPage> {
   int count = 0;
   int max = 0;
   double height = 0;
-  int correct = 0;
-  int incorrect = 0;
+  int correct = 5;
+  int incorrect = 4;
   String hanzi = "nothing";
+  int maxcount = 1;
 
   @override
   void initState() {
@@ -87,13 +88,15 @@ class _LandingPage extends State<LandingPage> {
                   controller: pinyinController,
                   onFieldSubmitted: (value) {
                     //when the enter button is pressed on the keyboard this is the text which will be printed
-                    if(count == 20){
+                    if(count == maxcount){
                       Navigator.push(context, MaterialPageRoute(builder: (context) => FinishedSet(Tcorrect: correct, Tincorrect: incorrect,)));
                     }
-                    if (pinyinController.text == hanzi) {
+                    if (pinyinController.text == hanzi  && count !=maxcount) {
                       correct++;
                       AnswerDialog.successPopup(context, hanzi);
-                    } else {
+
+                    }
+                    if(pinyinController.text != hanzi && count != maxcount){
                       incorrect++;
                       AnswerDialog.failurePopup(context, hanzi);
                     }
