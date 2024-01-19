@@ -1,10 +1,7 @@
-import 'dart:html';
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:neon/neon.dart';
-import 'package:pinyinpal/main.dart';
-import 'package:pinyinpal/page/flashcard.dart';
+import 'package:pinyinpal/page/flashcardtimed.dart';
 import 'package:pinyinpal/page/profile.dart';
 
 class HomePage extends StatefulWidget {
@@ -20,46 +17,48 @@ class HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(onPressed: (){
-           Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfilePage()));
-        }, icon: const Icon(LineAwesomeIcons.user)),
+        leading: IconButton(
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const ProfilePage()));
+            },
+            icon: const Icon(LineAwesomeIcons.user)),
         actions: [
-
-          PopupMenuButton(itemBuilder: (context) => [
-            
-            const PopupMenuItem(child: Text("PROFILE")),
-            const PopupMenuItem(child: Text("SETTINGS")),
-            const PopupMenuItem(child: Text("LOGOUT"))
-          ])
+          PopupMenuButton(
+              itemBuilder: (context) => [
+                    const PopupMenuItem(child: Text("PROFILE")),
+                    const PopupMenuItem(child: Text("SETTINGS")),
+                    const PopupMenuItem(child: Text("LOGOUT"))
+                  ])
         ],
       ),
       body: Center(
         child: Stack(
           children: <Widget>[
             Container(
-                 decoration: const BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Color.fromARGB(255, 26, 26, 26),
               ),
-            
             ),
-        Align(
-          alignment: Alignment.center,
-          child: InkWell(
-
-          child: Neon(
-              text: 'PinYin Pal',
-              color: Colors.blue,
-              fontSize: 40,
-              font: NeonFont.Beon,
-              flickeringText: true,
-              flickeringLetters: null,
-              glowingDuration: new Duration(seconds: 1),  
-            ),
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => FlashCardTimed()));
-              
-            },
-          ),
+            Align(
+              alignment: Alignment.center,
+              child: InkWell(
+                child: Neon(
+                  text: 'PinYin Pal',
+                  color: Colors.blue,
+                  fontSize: 40,
+                  font: NeonFont.Beon,
+                  flickeringText: true,
+                  flickeringLetters: null,
+                  glowingDuration: new Duration(seconds: 1),
+                ),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => FlashCardTimed()));
+                },
+              ),
             ),
           ],
         ),

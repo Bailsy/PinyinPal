@@ -3,10 +3,8 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:pinyinpal/page/home.dart';
 
-
 class LoginPage extends StatefulWidget {
-
-   LoginPage({Key? key});
+  LoginPage({Key? key});
   @override
   _LoginPageState createState() => _LoginPageState();
 }
@@ -89,7 +87,7 @@ class _LoginPageState extends State<LoginPage> {
         );
       },
     );
-    throw{print("Unable to display the message!")};
+    throw {print("Unable to display the message!")};
   }
 
   final _formKey = GlobalKey<FormState>();
@@ -258,7 +256,8 @@ class _LoginPageState extends State<LoginPage> {
                           padding: EdgeInsets.all(16.0),
                           child: Text(
                             'Submit',
-                            style: TextStyle(fontSize: 18.0, color: Colors.white),
+                            style:
+                                TextStyle(fontSize: 18.0, color: Colors.white),
                           ),
                         ),
                         style: ButtonStyle(

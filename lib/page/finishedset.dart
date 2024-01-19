@@ -8,8 +8,6 @@ class FinishedSet extends StatefulWidget {
   final int Tcorrect;
   final int Tincorrect;
 
-
-
   FinishedSet({required this.Tcorrect, required this.Tincorrect, Key? key})
       : super(key: key);
 
@@ -31,12 +29,13 @@ class _FinishedSet extends State<FinishedSet> {
     countScore();
     controller.play();
   }
-  void countScore(){
-      targetscore = widget.Tcorrect*100;
-      const time = Duration(milliseconds: 5);
-      //here we use a time to count to the score
-  
-     _timer = Timer.periodic(time, (timer) {
+
+  void countScore() {
+    targetscore = widget.Tcorrect * 100;
+    const time = Duration(milliseconds: 5);
+    //here we use a time to count to the score
+
+    _timer = Timer.periodic(time, (timer) {
       if (score < targetscore) {
         setState(() {
           score++;
@@ -45,7 +44,6 @@ class _FinishedSet extends State<FinishedSet> {
         _timer.cancel();
       }
     });
-
   }
 
   Widget confetti(BuildContext context) {
@@ -75,14 +73,10 @@ class _FinishedSet extends State<FinishedSet> {
                 color: Color.fromARGB(255, 26, 26, 26),
               ),
             ),
-
             Align(
               alignment: Alignment.center,
               child: Container(
-      
-  
                 child: ExperiencePoints(totaltime: score),
-                
               ),
             ),
             Align(
@@ -125,7 +119,7 @@ class _FinishedSet extends State<FinishedSet> {
               ),
             ),
           ],
-        ),      
+        ),
       ),
     );
   }

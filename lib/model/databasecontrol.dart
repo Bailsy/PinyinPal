@@ -19,7 +19,8 @@ class DataBaseIntegration {
 
     var conn = await MySqlConnection.connect(settings);
 
-    var results = await conn.query('select simplified, pinyin_tones, translation from hsk.vocabulary where id = $counter');
+    var results = await conn.query(
+        'select simplified, pinyin_tones, translation from hsk.vocabulary where id = $counter');
 
     for (var row in results) {
       items[0] = row[0];

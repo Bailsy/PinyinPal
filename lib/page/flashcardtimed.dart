@@ -1,6 +1,4 @@
-
 // Dart Imports
-import 'dart:ffi';
 import 'dart:ui';
 
 // Local Imports
@@ -9,13 +7,11 @@ import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:pinyinpal/constants/colour.dart';
 
-
 // PinyinPal Imports
 import 'package:pinyinpal/model/databasecontrol.dart';
 import 'package:pinyinpal/page/finishedset.dart';
 import 'package:pinyinpal/page/home.dart';
 import 'package:pinyinpal/widget/popups.dart';
-
 
 class FlashCardTimed extends StatefulWidget {
   const FlashCardTimed({Key? key});
@@ -26,8 +22,6 @@ class FlashCardTimed extends StatefulWidget {
 
 class _FlashCardTimed extends State<FlashCardTimed> {
   final TextEditingController pinyinController = TextEditingController();
-
-  
 
   @override
   void dispose() {
@@ -65,19 +59,20 @@ class _FlashCardTimed extends State<FlashCardTimed> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: <Widget>[
-      
-       Center(
+        body: Stack(children: <Widget>[
+      Center(
         child: Stack(
           children: <Widget>[
-
-                                AppBar(
-        leading: IconButton(onPressed: (){
-           Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
-        }, icon: const Icon(LineAwesomeIcons.angle_left)),
-      ),
-
+            AppBar(
+              leading: IconButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const HomePage()));
+                  },
+                  icon: const Icon(LineAwesomeIcons.angle_left)),
+            ),
             Container(
               child: buildFutureBuilder(),
             ),
@@ -88,40 +83,42 @@ class _FlashCardTimed extends State<FlashCardTimed> {
                 child: TextField(
                   controller: pinyinController,
                   textAlign: TextAlign.center,
-                  
                   style: const TextStyle(
                       color: pWhiteColour,
                       fontSize: 20,
                       fontFamily: 'LibreFranklin'),
-
                   decoration: const InputDecoration(
                     hintText: 'Enter Pinyin',
                     hintStyle: TextStyle(color: pDarkGreyColour),
-
                     labelStyle: TextStyle(color: pWhiteColour),
                     enabledBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: pWhiteColour),
                     ),
-                    
                     focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: pWhiteColour),
                     ),
                   ),
                   onSubmitted: (value) {
                     //when the enter button is pressed on the keyboard this is the text which will be printed
-                      if(count == maxcount){
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => FinishedSet(Tcorrect: correct, Tincorrect: incorrect,)));
-                      }
-                      if (pinyinController.text == hanzi  && count !=maxcount) {
+                    if (count == maxcount) {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => FinishedSet(
+                                    Tcorrect: correct,
+                                    Tincorrect: incorrect,
+                                  )));
+                    }
+                    if (pinyinController.text == hanzi && count != maxcount) {
                       correct++;
                       AnswerDialog.successPopup(context, hanzi);
-                      }
-                      if(pinyinController.text != hanzi && count != maxcount){
+                    }
+                    if (pinyinController.text != hanzi && count != maxcount) {
                       incorrect++;
                       AnswerDialog.failurePopup(context, hanzi);
-                      }
-                      _incrementCounter();
-                      pinyinController.clear();
+                    }
+                    _incrementCounter();
+                    pinyinController.clear();
                   },
                 ),
               ),
@@ -129,9 +126,7 @@ class _FlashCardTimed extends State<FlashCardTimed> {
           ],
         ),
       ),
-        ]
-      )
-    );
+    ]));
   }
 
   Widget buildFutureBuilder() {
@@ -156,7 +151,7 @@ class _FlashCardTimed extends State<FlashCardTimed> {
                   Container(
                     child: ConstrainedBox(
                       constraints: BoxConstraints(
-                        minWidth:  300.0,
+                        minWidth: 300.0,
                         maxWidth: 300.0,
                         minHeight: 30.0,
                         maxHeight: 100.0,
@@ -164,14 +159,17 @@ class _FlashCardTimed extends State<FlashCardTimed> {
                       child: AutoSizeText(
                         normalList[2],
                         textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 30.0, fontFamily: 'LibreFranklin',color: pWhiteColour),
+                        style: TextStyle(
+                            fontSize: 30.0,
+                            fontFamily: 'LibreFranklin',
+                            color: pWhiteColour),
                       ),
                     ),
                   ),
                   Text(
                     (count).toString(),
                     style: TextStyle(
-                      color:  pWhiteColour,
+                      color: pWhiteColour,
                       fontSize: 45,
                     ),
                   ),
