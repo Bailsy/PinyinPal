@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
-import 'package:pinyinpal/experiencepoints.dart';
-import 'package:pinyinpal/piechart.dart';
+import 'package:pinyinpal/widget/experiencepoints.dart';
+import 'package:pinyinpal/widget/piechart.dart';
 
 class FinishedSet extends StatefulWidget {
   final int Tcorrect;

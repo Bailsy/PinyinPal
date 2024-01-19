@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:neon/neon.dart';
-import 'package:pinyinpal/main.dart';
+import 'package:pinyinpal/page/main.dart';
 
 class HomePage extends StatefulWidget {
   // It is essential to give the class a key and make it constant

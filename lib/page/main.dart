@@ -8,12 +8,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 // PinyinPal Imports
-import 'package:pinyinpal/databasecontrol.dart';
-import 'package:pinyinpal/finishedset.dart';
-import 'package:pinyinpal/home.dart';
-import 'package:pinyinpal/login.dart';
-import 'package:pinyinpal/popups.dart';
-import 'package:pinyinpal/config.dart';
+import 'package:pinyinpal/model/databasecontrol.dart';
+import 'package:pinyinpal/page/finishedset.dart';
+import 'package:pinyinpal/page/home.dart';
+import 'package:pinyinpal/page/login.dart';
+import 'package:pinyinpal/widget/popups.dart';
+import 'package:pinyinpal/model/config.dart';
 
 
 
