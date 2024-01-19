@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
+import 'package:pinyinpal/constants/colour.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:pinyinpal/page/home.dart';
 import 'package:pinyinpal/widget/experiencepoints.dart';
@@ -81,7 +82,7 @@ class _FinishedSet extends State<FinishedSet> {
             PopScope(canPop: false, child: Container()),
             Container(
               decoration: const BoxDecoration(
-                color: Color.fromARGB(255, 26, 26, 26),
+                color: pGreyColour,
               ),
             ),
             Align(
@@ -109,24 +110,14 @@ class _FinishedSet extends State<FinishedSet> {
             ),
             Align(
               alignment: Alignment.center,
-              child: TextButton(
-                style: TextButton.styleFrom(
-                  side: const BorderSide(
-                    color: Color.fromARGB(255, 73, 73, 73),
-                  ),
+              child: Text(
+                score.toString(),
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontSize: 30.0,
+                  fontFamily: 'LibreFranklin',
+                  color: pWhiteColour,
                 ),
-                child: Text(
-                  score.toString(),
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 30.0,
-                    fontFamily: 'LibreFranklin',
-                    color: Color.fromARGB(255, 255, 255, 255),
-                  ),
-                ),
-                onPressed: () {
-                  print('pressed!');
-                },
               ),
             ),
           ],
