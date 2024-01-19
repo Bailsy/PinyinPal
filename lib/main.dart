@@ -6,12 +6,14 @@ import 'dart:ui';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:pinyinpal/constants/colour.dart';
 import 'package:pinyinpal/constants/themes.dart';
 
 // PinyinPal Imports
 import 'package:pinyinpal/model/databasecontrol.dart';
 import 'package:pinyinpal/page/finishedset.dart';
 import 'package:pinyinpal/page/login.dart';
+import 'package:pinyinpal/page/home.dart';
 import 'package:pinyinpal/page/profile.dart';
 import 'package:pinyinpal/widget/popups.dart';
 import 'package:pinyinpal/model/config.dart';
@@ -32,7 +34,7 @@ class MainApp extends StatelessWidget {
     return  MaterialApp(
       theme: myTheme,
       debugShowCheckedModeBanner: false,
-      home: ProfilePage(),
+      home: HomePage(),
     );
   }
 }
@@ -89,45 +91,54 @@ class _LandingPage extends State<LandingPage> {
           children: <Widget>[
             Container(
               decoration: const BoxDecoration(
-                color: Color.fromARGB(255, 26, 26, 26),
+                color: pGreyColour,
               ),
             ),
             Container(
               child: buildFutureBuilder(),
             ),
             Container(
-              padding: EdgeInsets.only(top: height / 3, left: 40, right: 40),
+              padding: EdgeInsets.only(top: height / 3, left: 80, right: 80),
               child: Align(
                 alignment: Alignment.topCenter,
-                child: TextFormField(
+                child: TextField(
                   controller: pinyinController,
-                  onFieldSubmitted: (value) {
-                    //when the enter button is pressed on the keyboard this is the text which will be printed
-                    if(count == maxcount){
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => FinishedSet(Tcorrect: correct, Tincorrect: incorrect,)));
-                    }
-                    if (pinyinController.text == hanzi  && count !=maxcount) {
-                      correct++;
-                      AnswerDialog.successPopup(context, hanzi);
-
-                    }
-                    if(pinyinController.text != hanzi && count != maxcount){
-                      incorrect++;
-                      AnswerDialog.failurePopup(context, hanzi);
-                    }
-                    _incrementCounter();
-                    pinyinController.clear();
-                  },
                   textAlign: TextAlign.center,
+                  
                   style: const TextStyle(
-                      color: Color.fromARGB(255, 0, 0, 0),
+                      color: pWhiteColour,
                       fontSize: 20,
                       fontFamily: 'LibreFranklin'),
+
                   decoration: const InputDecoration(
-                    fillColor: Colors.white,
-                    border: OutlineInputBorder(),
-                    filled: true,
+                    hintText: 'Enter Pinyin',
+                    hintStyle: TextStyle(color: pDarkGreyColour),
+
+                    labelStyle: TextStyle(color: pWhiteColour),
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: pWhiteColour),
+                    ),
+                    
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: pWhiteColour),
+                    ),
                   ),
+                  onSubmitted: (value) {
+                    //when the enter button is pressed on the keyboard this is the text which will be printed
+                      if(count == maxcount){
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => FinishedSet(Tcorrect: correct, Tincorrect: incorrect,)));
+                      }
+                      if (pinyinController.text == hanzi  && count !=maxcount) {
+                      correct++;
+                      AnswerDialog.successPopup(context, hanzi);
+                      }
+                      if(pinyinController.text != hanzi && count != maxcount){
+                      incorrect++;
+                      AnswerDialog.failurePopup(context, hanzi);
+                      }
+                      _incrementCounter();
+                      pinyinController.clear();
+                  },
                 ),
               ),
             ),
@@ -167,14 +178,14 @@ class _LandingPage extends State<LandingPage> {
                       child: AutoSizeText(
                         normalList[2],
                         textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 30.0, fontFamily: 'LibreFranklin',color: Color.fromARGB(255, 255, 255, 255)),
+                        style: TextStyle(fontSize: 30.0, fontFamily: 'LibreFranklin',color: pWhiteColour),
                       ),
                     ),
                   ),
                   Text(
                     (count).toString(),
                     style: TextStyle(
-                      color:  Color.fromARGB(255, 255, 255, 255),
+                      color:  pWhiteColour,
                       fontSize: 45,
                     ),
                   ),
