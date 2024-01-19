@@ -19,14 +19,10 @@ class DeviceInfo {
   }
 
   static double get height {
-    print(
-        "physicalHeight / devicePixelRatio: ${physicalHeight / devicePixelRatio}");
     return physicalHeight / devicePixelRatio;
   }
 
   static double get width {
-    print(
-        "physicalWidth / devicePixelRatio: ${physicalWidth / devicePixelRatio}");
     return physicalWidth / devicePixelRatio;
   }
 }
