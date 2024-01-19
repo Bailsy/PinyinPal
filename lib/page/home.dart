@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:neon/neon.dart';
+import 'package:pinyinpal/constants/colour.dart';
 import 'package:pinyinpal/page/flashcardtimed.dart';
 import 'package:pinyinpal/page/profile.dart';
 
@@ -37,7 +38,7 @@ class HomePageState extends State<HomePage> {
           children: <Widget>[
             Container(
               decoration: const BoxDecoration(
-                color: Color.fromARGB(255, 26, 26, 26),
+                color: pGreyColour,
               ),
             ),
             Align(

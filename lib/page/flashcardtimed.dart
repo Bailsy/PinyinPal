@@ -89,7 +89,7 @@ class _FlashCardTimed extends State<FlashCardTimed> {
                       fontFamily: 'LibreFranklin'),
                   decoration: const InputDecoration(
                     hintText: 'Enter Pinyin',
-                    hintStyle: TextStyle(color: pDarkGreyColour),
+                    hintStyle: TextStyle(color: pLightGreyColour),
                     labelStyle: TextStyle(color: pWhiteColour),
                     enabledBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: pWhiteColour),
