@@ -69,7 +69,7 @@ class _FinishedSet extends State<FinishedSet> {
       body: Center(
         child: Stack(
           children: <Widget>[
-           
+            PopScope(canPop: false, child: Container()),
             Container(
               decoration: const BoxDecoration(
                 color: Color.fromARGB(255, 26, 26, 26),

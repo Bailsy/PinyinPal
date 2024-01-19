@@ -21,9 +21,7 @@ class _ProfilePageState extends State<ProfilePage>{
 
 
   @override
-  Widget build(BuildContext context){
-    var isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
-    isDark = true;
+  Widget build(BuildContext context){ 
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(onPressed: (){
@@ -63,8 +61,9 @@ class _ProfilePageState extends State<ProfilePage>{
                ProfileWidgets(title: "User Management", icon: LineAwesomeIcons.user_check, onPress: () {print("user check");}),
                const Divider(color: Colors.grey),
                const SizedBox(height: 10),
-               ProfileWidgets(title: 'Logout', icon: LineAwesomeIcons.alternate_sign_out, textColor: Colors.red, endIcon: false, onPress: () {},)
-
+               ProfileWidgets(title: 'Logout', icon: LineAwesomeIcons.alternate_sign_out, textColor: Colors.red, endIcon: false, onPress: () {},
+               ),
+               PopScope(canPop: false, child: Container()),
             ],
           )
         ),

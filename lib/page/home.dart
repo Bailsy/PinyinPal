@@ -23,9 +23,8 @@ class HomePageState extends State<HomePage> {
                  decoration: const BoxDecoration(
                 color: Color.fromARGB(255, 26, 26, 26),
               ),
-
+            
             ),
-
         Align(
           alignment: Alignment.center,
           child: InkWell(
@@ -44,8 +43,7 @@ class HomePageState extends State<HomePage> {
               
             },
           ),
-            )
-
+            ),
           ],
         ),
       ),
