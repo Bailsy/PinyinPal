@@ -146,11 +146,12 @@ class _LoginPageState extends State<LoginPage> {
                             Color.fromRGBO(84, 87, 90, 0.5), //placeholder color
                       ),
                       child: TextFormField(
+                        style: TextStyle(color: Colors.white),
                         controller: userController,
                         decoration: InputDecoration(
                           focusedBorder: new OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: Color.fromRGBO(84, 87, 90, 0.5),
+                              color: Color.fromRGBO(255, 255, 255, 1),
                               style: BorderStyle.solid,
                             ),
                           ),
@@ -199,12 +200,13 @@ class _LoginPageState extends State<LoginPage> {
                             Color.fromRGBO(84, 87, 90, 0.5), //placeholder color
                       ),
                       child: TextFormField(
+                        style: TextStyle(color: Colors.white),
                         controller: pwdController,
                         obscureText: true,
                         decoration: InputDecoration(
                           focusedBorder: new OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: Color.fromRGBO(84, 87, 90, 0.5),
+                              color: Color.fromRGBO(255, 255, 255, 1),
                               style: BorderStyle.solid,
                             ),
                           ),

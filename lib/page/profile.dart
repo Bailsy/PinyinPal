@@ -4,37 +4,9 @@
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:pinyinpal/constants/imagepaths.dart';
+import 'package:pinyinpal/widget/profilemenu.dart';
 
 
-class ProfileWidgets extends StatelessWidget{
-
-  const ProfileWidgets({Key? key}): super(key: key);
-   @override
-    Widget build(BuildContext context){
-    return ListTile(
-                leading: Container(
-                  width: 40,
-                  height: 40,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(100),
-                    color: Color.fromARGB(255, 76, 152, 238).withOpacity(0.1),
-                  ),
-                  child: const Icon(LineAwesomeIcons.cog, color: Color.fromARGB(255, 76, 152, 238) ,),
-                ),
-
-                title: Text("Settings", style: Theme.of(context).textTheme.bodyLarge,),
-                trailing:Container(
-                  width: 30,
-                  height: 30,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(100),
-                    color: Colors.grey.withOpacity(0.1),
-                  ),
-                  child: const Icon(LineAwesomeIcons.angle_right, color: Colors.grey),
-                ),
-     );
-  }
-}
 
 class ProfilePage extends StatefulWidget{
   const ProfilePage({Key? key}): super(key: key);
@@ -55,7 +27,6 @@ class _ProfilePageState extends State<ProfilePage>{
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(onPressed: (){}, icon: const Icon(LineAwesomeIcons.angle_left)),
-        title: Text("Profile", style: Theme.of(context).textTheme.headlineMedium,),
         actions: [
           IconButton(onPressed: () {}, icon: const Icon(LineAwesomeIcons.moon))
         ],
@@ -82,12 +53,16 @@ class _ProfilePageState extends State<ProfilePage>{
                child: ElevatedButton(onPressed: () {},
                child: const Text("Edit Profile", style: TextStyle(color: Color.fromARGB(255, 26, 26, 26))))),
                const SizedBox(height: 30,),
-               const Divider(),
                const SizedBox(height: 10,),
-               const ProfileWidgets(),
-               const ProfileWidgets(),
-               const ProfileWidgets(),
-               const ProfileWidgets(),
+
+
+               ProfileWidgets(title: "Settings", icon: LineAwesomeIcons.cog, onPress: () {print("settings");}),
+               ProfileWidgets(title: "Billing Details", icon: LineAwesomeIcons.wallet, onPress: () {print("wallet");}),
+               ProfileWidgets(title: "User Management", icon: LineAwesomeIcons.user_check, onPress: () {print("user check");}),
+               const Divider(color: Colors.grey),
+               const SizedBox(height: 10),
+               ProfileWidgets(title: 'Logout', icon: LineAwesomeIcons.alternate_sign_out, textColor: Colors.red, endIcon: false, onPress: () {},)
+
             ],
           )
         ),
@@ -95,3 +70,4 @@ class _ProfilePageState extends State<ProfilePage>{
     );
   }
 }
+

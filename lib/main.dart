@@ -11,6 +11,7 @@ import 'package:pinyinpal/constants/themes.dart';
 // PinyinPal Imports
 import 'package:pinyinpal/model/databasecontrol.dart';
 import 'package:pinyinpal/page/finishedset.dart';
+import 'package:pinyinpal/page/login.dart';
 import 'package:pinyinpal/page/profile.dart';
 import 'package:pinyinpal/widget/popups.dart';
 import 'package:pinyinpal/model/config.dart';
