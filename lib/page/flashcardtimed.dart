@@ -148,9 +148,16 @@ class _FlashCardTimed extends State<FlashCardTimed> {
               alignment: Alignment.topCenter,
               child: Column(
                 children: <Widget>[
+                 Text(
+                    (count).toString(),
+                    style: const TextStyle(
+                      color: pWhiteColour,
+                      fontSize: 45,
+                    ),
+                  ),
                   Container(
                     child: ConstrainedBox(
-                      constraints: BoxConstraints(
+                      constraints: const BoxConstraints(
                         minWidth: 300.0,
                         maxWidth: 300.0,
                         minHeight: 30.0,
@@ -159,18 +166,11 @@ class _FlashCardTimed extends State<FlashCardTimed> {
                       child: AutoSizeText(
                         normalList[2],
                         textAlign: TextAlign.center,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 30.0,
                             fontFamily: 'LibreFranklin',
                             color: pWhiteColour),
                       ),
-                    ),
-                  ),
-                  Text(
-                    (count).toString(),
-                    style: TextStyle(
-                      color: pWhiteColour,
-                      fontSize: 45,
                     ),
                   ),
                 ],

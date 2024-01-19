@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:pinyinpal/constants/imagepaths.dart';
 import 'package:pinyinpal/page/home.dart';
+import 'package:pinyinpal/page/login.dart';
 import 'package:pinyinpal/widget/profilemenu.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -87,7 +88,8 @@ class _ProfilePageState extends State<ProfilePage> {
               icon: LineAwesomeIcons.alternate_sign_out,
               textColor: Colors.red,
               endIcon: false,
-              onPress: () {},
+              onPress: () {              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) =>  LoginPage()));},
             ),
             PopScope(canPop: false, child: Container()),
           ],

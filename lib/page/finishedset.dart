@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
+import 'package:line_awesome_flutter/line_awesome_flutter.dart';
+import 'package:pinyinpal/page/home.dart';
 import 'package:pinyinpal/widget/experiencepoints.dart';
 import 'package:pinyinpal/widget/piechart.dart';
 
@@ -64,6 +66,15 @@ class _FinishedSet extends State<FinishedSet> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+      appBar: AppBar(
+        leading: IconButton(
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const HomePage()));
+            },
+            icon: const Icon(LineAwesomeIcons.angle_left)),
+      ),
       body: Center(
         child: Stack(
           children: <Widget>[

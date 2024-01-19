@@ -48,7 +48,7 @@ class HomePageState extends State<HomePage> {
                   color: Colors.blue,
                   fontSize: 40,
                   font: NeonFont.Beon,
-                  flickeringText: true,
+                  flickeringText: false,
                   flickeringLetters: null,
                   glowingDuration: new Duration(seconds: 1),
                 ),

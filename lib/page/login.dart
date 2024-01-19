@@ -46,7 +46,6 @@ class _LoginPageState extends State<LoginPage> {
           //hide progress indicator
           _visible = false;
         });
-
         // Navigate to Home Screen
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => HomePage()));
