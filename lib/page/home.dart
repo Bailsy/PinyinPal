@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:neon/neon.dart';
 import 'package:pinyinpal/main.dart';
+import 'package:pinyinpal/page/flashcard.dart';
 
 class HomePage extends StatefulWidget {
   // It is essential to give the class a key and make it constant
@@ -39,7 +40,7 @@ class HomePageState extends State<HomePage> {
               glowingDuration: new Duration(seconds: 1),  
             ),
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => LandingPage()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => FlashCardTimed()));
               
             },
           ),
