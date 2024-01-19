@@ -6,6 +6,7 @@ import 'dart:ui';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:pinyinpal/constants/themes.dart';
 
 // PinyinPal Imports
 import 'package:pinyinpal/model/databasecontrol.dart';
@@ -13,8 +14,6 @@ import 'package:pinyinpal/page/finishedset.dart';
 import 'package:pinyinpal/page/profile.dart';
 import 'package:pinyinpal/widget/popups.dart';
 import 'package:pinyinpal/model/config.dart';
-
-
 
 
 void main() async {
@@ -28,7 +27,9 @@ class MainApp extends StatelessWidget {
   const MainApp({Key? key});
   @override
   Widget build(BuildContext context) {
+    
     return  MaterialApp(
+      theme: myTheme,
       debugShowCheckedModeBanner: false,
       home: ProfilePage(),
     );

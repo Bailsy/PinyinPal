@@ -1,0 +1,30 @@
+
+import'package:flutter/material.dart';
+
+class ProfileWidgets extends StatelessWidget{
+   @override
+    Widget build(BuildContext context){
+    return ListTile(
+                leading: Container(
+                  width: 40,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(100),
+                    color: Color.fromARGB(255, 76, 152, 238).withOpacity(0.1),
+                  ),
+                  child: const Icon(LineAwesomeIcons.cog, color: Color.fromARGB(255, 76, 152, 238) ,),
+                ),
+
+                title: Text("Settings", style: Theme.of(context).textTheme.bodyLarge,),
+                trailing:Container(
+                  width: 30,
+                  height: 30,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(100),
+                    color: Colors.grey.withOpacity(0.1),
+                  ),
+                  child: const Icon(LineAwesomeIcons.angle_right, color: Colors.grey),
+                ),
+     );
+  }
+}
