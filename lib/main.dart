@@ -34,7 +34,7 @@ class MainApp extends StatelessWidget {
     return  MaterialApp(
       theme: myTheme,
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: ProfilePage(),
     );
   }
 }
