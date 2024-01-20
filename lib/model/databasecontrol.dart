@@ -3,11 +3,11 @@ import 'package:pinyinpal/model/config.dart';
 
 class DataBaseIntegration {
   static int requestNumber = 0;
+  static int dbSize = 0;
 
-  static Future<List<String>> connectToDB(int counter) async {
+  static Future<List<ResultRow>> fetchDataFromDB(List<String> columns) async {
     requestNumber++;
     print("requests: $requestNumber");
-    List<String> items = ['...', '...', '...'];
 
     var settings = ConnectionSettings(
       host: AppConfig.dbHost,
@@ -19,39 +19,23 @@ class DataBaseIntegration {
 
     var conn = await MySqlConnection.connect(settings);
 
-    var results = await conn.query(
-        'select simplified, pinyin_tones, translation from hsk.vocabulary where id = $counter');
+    try {
+      // Form a comma-separated string of column names
+      String selectedColumns = columns.join(', ');
+      print('select $selectedColumns from hsk.vocabulary');
 
-    for (var row in results) {
-      items[0] = row[0];
-      items[1] = row[1];
-      items[2] = row[2];
+      var results = await conn.query(
+        'select $selectedColumns from hsk.vocabulary',
+      );
+
+      print(
+          'Data array: ${results.toList()}'); // Add this line to print the entire data array
+
+      return results.toList();
+    } finally {
+      await conn.close();
     }
-
-    await conn.close();
-    return items;
-  }
-
-  static Future<int> getDBsize() async {
-    int size = 0;
-
-    var settings = ConnectionSettings(
-      host: AppConfig.dbHost,
-      port: AppConfig.dbPort,
-      user: AppConfig.dbUser,
-      password: AppConfig.dbPassword,
-      db: AppConfig.dbName,
-    );
-
-    var conn = await MySqlConnection.connect(settings);
-
-    var results = await conn.query('select count(id) from hsk.vocabulary');
-
-    for (var row in results) {
-      size = row[0];
-    }
-
-    await conn.close();
-    return size;
   }
 }
+
+// add get db size
