@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:pinyinpal/constants/imagepaths.dart';
+import 'package:pinyinpal/model/profilemodel.dart';
 import 'package:pinyinpal/page/home.dart';
 import 'package:pinyinpal/page/login.dart';
 import 'package:pinyinpal/widget/profilemenu.dart';
@@ -15,6 +16,8 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
+    ProfileModel currentProfile = ProfileModelSingleton().profileModel;
+
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -37,15 +40,15 @@ class _ProfilePageState extends State<ProfilePage> {
               height: 120,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(100),
-                child: const Image(image: AssetImage(pUserProfileImage)),
+                child: Image.network(currentProfile.profileImage),
               ),
             ),
             const SizedBox(height: 10),
             Text(
-              "大卫's profile",
+              "${currentProfile.username}'s profile",
               style: Theme.of(context).textTheme.headlineMedium,
             ),
-            Text("david@pinyinpal.com",
+            Text(currentProfile.email,
                 style: Theme.of(context).textTheme.bodyLarge),
             const SizedBox(
               height: 20,
@@ -88,8 +91,10 @@ class _ProfilePageState extends State<ProfilePage> {
               icon: LineAwesomeIcons.alternate_sign_out,
               textColor: Colors.red,
               endIcon: false,
-              onPress: () {              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) =>  LoginPage()));},
+              onPress: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => LoginPage()));
+              },
             ),
             PopScope(canPop: false, child: Container()),
           ],
