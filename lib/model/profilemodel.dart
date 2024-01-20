@@ -1,49 +1,57 @@
-import 'package:flutter/foundation.dart';
-
 class ProfileModel {
   final String email;
   final String profileImage;
   final int userId;
-  final String username;
   final String userType;
+  final int experience;
+  final String username;
 
   ProfileModel({
     required this.email,
     required this.profileImage,
     required this.userId,
-    required this.username,
+    required this.experience,
     required this.userType,
+    required this.username,
   });
+}
 
-  factory ProfileModel.fromJson(Map<String, dynamic> json) {
-    return ProfileModel(
-      email: json['EMAIL'],
-      profileImage: json['PROFILEIMAGE'],
-      userId: json['UID'],
-      username: json['USERNAME'],
-      userType: json['USERTYPE'],
+class ProfileModelSingleton {
+  static final ProfileModelSingleton _instance =
+      ProfileModelSingleton._internal();
+
+  factory ProfileModelSingleton() {
+    return _instance;
+  }
+
+  ProfileModelSingleton._internal();
+
+  ProfileModel _profileModel = ProfileModel(
+      email: '',
+      profileImage: '',
+      userId: 0,
+      experience: 0,
+      userType: '',
+      username: '');
+
+  ProfileModel get profileModel => _profileModel;
+
+  // Method to update profile model with new data
+  void updateProfileModel({
+    required String email,
+    required String profileImage,
+    required int userId,
+    required int experience,
+    required String userType,
+    required String username,
+  }) {
+    _profileModel = ProfileModel(
+      email: email,
+      profileImage: profileImage,
+      userId: userId,
+      experience: experience,
+      userType: userType,
+      username: username,
     );
   }
 }
-
-class ProfileProvider extends ChangeNotifier {
-  ProfileModel? _currentProfile;
-
-  ProfileModel? get currentProfile => _currentProfile;
-
-  void setProfile(ProfileModel profile) {
-    _currentProfile = profile;
-    notifyListeners();
-  }
-
-  void clearProfile() {
-    _currentProfile = null;
-    notifyListeners();
-  }
-
-  void setProfileFromJson(Map<String, dynamic> json) {
-    final profile = ProfileModel.fromJson(json);
-    setProfile(profile);
-  }
-}
-

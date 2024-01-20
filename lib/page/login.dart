@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:pinyinpal/model/profilemodel.dart';
 import 'package:pinyinpal/page/home.dart';
+import 'package:pinyinpal/setprofile.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({Key? key});
@@ -20,7 +22,7 @@ class _LoginPageState extends State<LoginPage> {
   Future userLogin() async {
     //Login API URL
     //use your local IP address instead of localhost or use Web API
-    String url = "https://pinyinpal.com/login_api/user_login.php";
+    String userUrl = "https://pinyinpal.com/login_api/user_login.php";
 
     // Showing LinearProgressIndicator.
     setState(() {
@@ -34,11 +36,12 @@ class _LoginPageState extends State<LoginPage> {
     };
 
     //Starting Web API Call.
-    var response = await http.post(Uri.parse(url), body: json.encode(data));
+    var response = await http.post(Uri.parse(userUrl), body: json.encode(data));
     if (response.statusCode == 200) {
       //Server response into variable
-      print(response.body);
       var msg = jsonDecode(response.body);
+
+      //Server pics up profile details
 
       //Check Login Status
       if (msg['loginStatus'] == true) {
@@ -46,6 +49,10 @@ class _LoginPageState extends State<LoginPage> {
           //hide progress indicator
           _visible = false;
         });
+
+        SetProfile setProfile = SetProfile();
+        await setProfile.setDetails(msg);
+
         // Navigate to Home Screen
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => HomePage()));

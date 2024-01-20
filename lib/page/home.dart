@@ -24,14 +24,6 @@ class HomePageState extends State<HomePage> {
                   MaterialPageRoute(builder: (context) => const ProfilePage()));
             },
             icon: const Icon(LineAwesomeIcons.user)),
-        actions: [
-          PopupMenuButton(
-              itemBuilder: (context) => [
-                    const PopupMenuItem(child: Text("PROFILE")),
-                    const PopupMenuItem(child: Text("SETTINGS")),
-                    const PopupMenuItem(child: Text("LOGOUT"))
-                  ])
-        ],
       ),
       body: Center(
         child: Stack(

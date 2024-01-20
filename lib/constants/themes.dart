@@ -71,7 +71,7 @@ final ThemeData myTheme = ThemeData(
       color: Colors.white,
     ),
   ),
-  appBarTheme: AppBarTheme(
+  appBarTheme: const AppBarTheme(
     backgroundColor: Color(0xFF1A1A1A), // Background color for app bar
     foregroundColor: Colors.white, // Text color for app bar
     iconTheme: IconThemeData(color: Colors.white), // Icon color for app bar
