@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-import 'package:neon/neon.dart';
-import 'package:pinyinpal/constants/colour.dart';
-import 'package:pinyinpal/constants/deviceinfo.dart';
-import 'package:pinyinpal/page/flashcardtimed.dart';
 import 'package:pinyinpal/page/home.dart';
 import 'package:pinyinpal/widget/arrow.dart';
 import 'package:pinyinpal/widget/lessonbutton.dart';

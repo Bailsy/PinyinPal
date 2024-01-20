@@ -64,7 +64,7 @@ class LessonButtonState extends State<LessonButton>
     _animationController =
         AnimationController(vsync: this, duration: Duration(milliseconds: 500));
     _animationController.repeat(reverse: true);
-    _animation = Tween(begin: 2.0, end: 5).animate(_animationController)
+    _animation = Tween(begin: 2.0, end: 10.0).animate(_animationController)
       ..addListener(() {
         setState(() {});
       });

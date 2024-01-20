@@ -4,9 +4,11 @@ import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:neon/neon.dart';
 import 'package:pinyinpal/constants/colour.dart';
 import 'package:pinyinpal/constants/deviceinfo.dart';
-import 'package:pinyinpal/page/flashcardtimed.dart';
+import 'package:pinyinpal/page/modes/flashcardrace/flashcardtimed.dart';
 import 'package:pinyinpal/page/profile.dart';
 import 'package:pinyinpal/page/progression.dart';
+import 'package:pinyinpal/page/userstats.dart';
+import 'package:pinyinpal/widget/homebutton.dart';
 
 class HomePage extends StatefulWidget {
   // It is essential to give the class a key and make it constant
@@ -28,101 +30,64 @@ class HomePageState extends State<HomePage> {
             },
             icon: const Icon(LineAwesomeIcons.user)),
       ),
-      body: Center(
-        child: Stack(
-          children: <Widget>[
-            Container(
-              decoration: const BoxDecoration(
-                color: pGreyColour,
-              ),
+      body: Stack(
+        children: <Widget>[
+          Container(
+            decoration: const BoxDecoration(
+              color: pGreyColour,
             ),
-            Container(
-              padding: EdgeInsets.only(
-                  bottom: DeviceInfo.physicalHeight / 8, left: 60, right: 60),
-              child: Align(
-                alignment: Alignment.center,
-                child: InkWell(
-                  child: Neon(
-                    text: 'PinYin Pal',
-                    color: Colors.blue,
-                    fontSize: 40,
-                    font: NeonFont.Beon,
-                    flickeringText: false,
-                    flickeringLetters: null,
-                    glowingDuration: new Duration(seconds: 1),
-                  ),
-                  onTap: () {},
+          ),
+          Container(
+            padding: EdgeInsets.only(
+                bottom: DeviceInfo.physicalHeight / 8, left: 60, right: 60),
+            child: Align(
+              alignment: Alignment.center,
+              child: InkWell(
+                child: Neon(
+                  text: 'PinYin Pal',
+                  color: Colors.blue,
+                  fontSize: 40,
+                  font: NeonFont.Beon,
+                  flickeringText: false,
+                  flickeringLetters: null,
+                  glowingDuration: new Duration(seconds: 1),
                 ),
+                onTap: () {},
               ),
             ),
-            Container(
-                padding: EdgeInsets.only(
-                    top: DeviceInfo.physicalHeight / 80, left: 60, right: 60),
-                child: Align(
-                  alignment: Alignment.center,
-                  child: ConstrainedBox(
-                    constraints: BoxConstraints(
-                      minWidth: 300.0,
-                      maxWidth: 300.0,
-                      minHeight: DeviceInfo.physicalHeight / 30,
-                      maxHeight: DeviceInfo.physicalHeight / 25,
-                    ),
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: pLightGreyColour,
-                      ),
-                      child: InkWell(
-                        child: Neon(
-                          text: "Flashcards|抽认卡",
-                          color: Colors.blue,
-                          font: NeonFont.Beon,
-                          fontSize: 15,
-                        ),
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const FlashCardTimed()));
-                      },
-                    ),
-                  ),
-                )),
-            Container(
-                padding: EdgeInsets.only(
-                    top: DeviceInfo.physicalHeight / 9, left: 60, right: 60),
-                child: Align(
-                  alignment: Alignment.center,
-                  child: ConstrainedBox(
-                    constraints: BoxConstraints(
-                      minWidth: 300.0,
-                      maxWidth: 300.0,
-                      minHeight: DeviceInfo.physicalHeight / 30,
-                      maxHeight: DeviceInfo.physicalHeight / 25,
-                    ),
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: pLightGreyColour,
-                      ),
-                      child: InkWell(
-                        child: Neon(
-                          text: "Lessons|课程",
-                          color: Colors.blue,
-                          font: NeonFont.Beon,
-                          fontSize: 15,
-                        ),
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const ProgressionPage()));
-                      },
-                    ),
-                  ),
-                ))
-          ],
-        ),
+          ),
+          Container(
+            padding: EdgeInsets.only(top: DeviceInfo.height / 3),
+            child: Column(
+              children: <Widget>[
+                HomeButton(
+                    onPress: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const FlashCardTimed()));
+                    },
+                    buttonText: "flashcards|抽认卡"),
+                HomeButton(
+                    onPress: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ProgressionPage()));
+                    },
+                    buttonText: "lessons|课程"),
+                HomeButton(
+                    onPress: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const UserStats()));
+                    },
+                    buttonText: "stats|用户统计")
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

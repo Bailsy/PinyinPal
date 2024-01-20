@@ -3,16 +3,17 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:pinyinpal/model/profilemodel.dart';
 import 'package:pinyinpal/page/home.dart';
+import 'package:pinyinpal/page/login.dart';
 import 'package:pinyinpal/page/signup.dart';
 import 'package:pinyinpal/setprofile.dart';
 
-class LoginPage extends StatefulWidget {
-  LoginPage({Key? key});
+class SignUpPage extends StatefulWidget {
+  SignUpPage({Key? key});
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _SignUpPageState createState() => _SignUpPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SignUpPageState extends State<SignUpPage> {
   //For LinearProgressIndicator.
   bool _visible = false;
 
@@ -117,7 +118,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             Container(
-              height: 100.0,
+              height: 10,
             ),
             Icon(
               Icons.group,
@@ -128,7 +129,7 @@ class _LoginPageState extends State<LoginPage> {
               height: 10.0,
             ),
             Text(
-              'Login Here',
+              'Sign Up Here',
               style: TextStyle(
                   color: Theme.of(context).primaryColor,
                   fontSize: 25.0,
@@ -173,9 +174,9 @@ class _LoginPageState extends State<LoginPage> {
                               style: BorderStyle.solid,
                             ),
                           ),
-                          labelText: 'Enter User Name',
+                          labelText: 'Enter Your email',
                           prefixIcon: const Icon(
-                            Icons.person,
+                            Icons.mail,
                             color: Color.fromRGBO(84, 87, 90, 0.5),
                           ),
                           border: new OutlineInputBorder(
@@ -184,7 +185,7 @@ class _LoginPageState extends State<LoginPage> {
                               style: BorderStyle.solid,
                             ),
                           ),
-                          hintText: 'User Name',
+                          hintText: 'email',
                         ),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
@@ -252,11 +253,66 @@ class _LoginPageState extends State<LoginPage> {
                     SizedBox(
                       height: 20.0,
                     ),
+                    Theme(
+                      data: new ThemeData(
+                        primaryColor: Color.fromRGBO(84, 87, 90, 0.5),
+                        primaryColorDark: Color.fromRGBO(84, 87, 90, 0.5),
+                        hintColor:
+                            Color.fromRGBO(84, 87, 90, 0.5), //placeholder color
+                      ),
+                      child: TextFormField(
+                        style: TextStyle(color: Colors.white),
+                        controller: pwdController,
+                        obscureText: true,
+                        decoration: InputDecoration(
+                          focusedBorder: new OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color.fromRGBO(255, 255, 255, 1),
+                              style: BorderStyle.solid,
+                            ),
+                          ),
+                          enabledBorder: new OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color.fromRGBO(84, 87, 90, 0.5),
+                              style: BorderStyle.solid,
+                            ),
+                          ),
+                          errorBorder: new OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.red,
+                              width: 1.0,
+                              style: BorderStyle.solid,
+                            ),
+                          ),
+                          border: new OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color.fromRGBO(84, 87, 90, 0.5),
+                              style: BorderStyle.solid,
+                            ),
+                          ),
+                          labelText: 'Confirm Password',
+                          prefixIcon: const Icon(
+                            Icons.lock,
+                            color: Color.fromRGBO(84, 87, 90, 0.5),
+                          ),
+                          hintText: 'Password',
+                        ),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please Confirm Password';
+                          }
+                          return null;
+                        },
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20.0,
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Text(
-                          "Don't have an account? ",
+                          "Have an account? ",
                           style: TextStyle(
                               fontSize: 18.0,
                               color: Colors.white.withOpacity(0.2)),
@@ -264,7 +320,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         InkWell(
                           child: Text(
-                            "Sign Up",
+                            "Login",
                             style:
                                 TextStyle(fontSize: 18.0, color: Colors.blue),
                             textAlign: TextAlign.center,
@@ -273,7 +329,7 @@ class _LoginPageState extends State<LoginPage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => SignUpPage()));
+                                    builder: (context) => LoginPage()));
                           },
                         )
                       ],

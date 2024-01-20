@@ -67,7 +67,6 @@ class _FinishedSet extends State<FinishedSet> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       appBar: AppBar(
         leading: IconButton(
             onPressed: () {
