@@ -32,10 +32,10 @@ class _FlashCardTimed extends State<FlashCardTimed> {
   int count = 0;
   int max = 0;
   double height = 0;
-  int correct = 5;
-  int incorrect = 4;
+  int correct = 0;
+  int incorrect = 0;
   String hanzi = "nothing";
-  int maxcount = 1;
+  int maxcount = 5;
 
   @override
   void initState() {
@@ -148,7 +148,7 @@ class _FlashCardTimed extends State<FlashCardTimed> {
               alignment: Alignment.topCenter,
               child: Column(
                 children: <Widget>[
-                 Text(
+                  Text(
                     (count).toString(),
                     style: const TextStyle(
                       color: pWhiteColour,
