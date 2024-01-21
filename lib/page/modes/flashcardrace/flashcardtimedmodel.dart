@@ -11,7 +11,8 @@ class FlashCardTimedModel extends ChangeNotifier {
   int _incorrect = 0;
   String _currHanzi = "";
   String _currTranslation = ""; // Add translation
-  int _maxCount = 2;
+  int _maxCount = 5;
+  List<ResultRow> _hsk1data = [];
 
   int get count => _count;
   double get deviceHeight => _deviceHeight;
@@ -20,15 +21,12 @@ class FlashCardTimedModel extends ChangeNotifier {
   String get currentHanzi => _currHanzi;
   String get currTranslation => _currTranslation; // Getter for translation
   int get maxCount => _maxCount;
-  List<ResultRow> hsk1data = [];
+  List<ResultRow> get hsk1data => _hsk1data;
 
   // increase correct
   void increaseCorrect() {
     _correct++;
     increaseCount();
-
-    //causes re-render
-    notifyListeners();
   }
 
   // increase incorrect
@@ -54,18 +52,19 @@ class FlashCardTimedModel extends ChangeNotifier {
   void nextQuestion() {
     _currHanzi = hsk1data[_count]['simplified'].toString();
     _currTranslation = hsk1data[_count]['translation'].toString();
-    print(_currHanzi);
-    notifyListeners(); // Notify listeners that the state has changed
+    print('answer: ${_currHanzi}');
+
+    print(hsk1data);
+    // Notify listeners that the state has changed
+    notifyListeners();
   }
 
   // Initialize data from the database
   Future<void> initializeDataFromDatabase() async {
     _deviceHeight = DeviceInfo.height;
-    hsk1data =
+    _hsk1data =
         await DataBaseIntegration.fetchDataFromDB(['simplified', 'translation'])
           ..shuffle();
     nextQuestion();
-    print(hsk1data[count]);
-    notifyListeners();
   }
 }
