@@ -10,14 +10,12 @@ class DataBaseIntegration {
     port: AppConfig.dbPort,
     user: AppConfig.dbUser,
     password: AppConfig.dbPassword,
-    db: AppConfig.dbName,
   );
 
   static Future<List<ResultRow>> fetchDataFromDB(List<String> columns) async {
     requestNumber++;
     print("requests: $requestNumber");
-    List<String> items = ['...', '...', '...'];
-
+  
     var conn = await MySqlConnection.connect(settings);
 
     try {

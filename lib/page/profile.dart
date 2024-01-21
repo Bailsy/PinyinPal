@@ -84,6 +84,12 @@ class _ProfilePageState extends State<ProfilePage> {
                 onPress: () {
                   print("user check");
                 }),
+            ProfileWidgets(
+                title: "Add Friends",
+                icon: LineAwesomeIcons.user_friends,
+                onPress: () {
+                  print("user check");
+                }),
             const Divider(color: Colors.grey),
             const SizedBox(height: 10),
             ProfileWidgets(

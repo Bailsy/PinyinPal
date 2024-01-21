@@ -21,7 +21,6 @@ class SetProfile {
 
   Future<void> loadUserProfile(jsonString) async {
     // Create a UserProfile object
-
     ProfileModelSingleton().updateProfileModel(
         email: jsonString['EMAIL'],
         profileImage: jsonString['PROFILEPIC'],
