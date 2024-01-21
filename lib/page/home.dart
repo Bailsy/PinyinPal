@@ -5,6 +5,7 @@ import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:neon/neon.dart';
 import 'package:pinyinpal/constants/colour.dart';
 import 'package:pinyinpal/constants/deviceinfo.dart';
+import 'package:pinyinpal/constants/imagepaths.dart';
 import 'package:pinyinpal/page/modes/flashcardrace/flashcardtimed.dart';
 import 'package:pinyinpal/page/profile.dart';
 import 'package:pinyinpal/page/progression.dart';
@@ -22,7 +23,6 @@ class HomePage extends StatefulWidget {
 class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    final String assetName = 'assets/images/logoc.svg';
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(

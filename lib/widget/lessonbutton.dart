@@ -86,7 +86,7 @@ class LessonButtonState extends State<LessonButton>
           splashColor: Colors.transparent,
           highlightColor: Colors.transparent,
           hoverColor: Colors.transparent,
-          onTap: () => widget.onPress,
+          onTap: widget.onPress,
           child: CustomPaint(
             foregroundPainter: BorderPainter(borderColor: widget.borderColor),
             child: Container(

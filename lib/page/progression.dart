@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:pinyinpal/page/home.dart';
+import 'package:pinyinpal/page/lessons/lesson1.dart';
 import 'package:pinyinpal/widget/arrow.dart';
 import 'package:pinyinpal/widget/lessonbutton.dart';
 
@@ -57,7 +58,8 @@ class ProgressionPageState extends State<ProgressionPage> {
               borderColor: Colors.blue,
               isAnimated: true,
               onPress: () {
-                print("Pressed");
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const Lesson1()));
               },
             ),
             Arrow(arrowColor: Colors.blue),
