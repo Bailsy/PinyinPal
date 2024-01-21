@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:neon/neon.dart';
 import 'package:pinyinpal/constants/colour.dart';
@@ -21,6 +22,7 @@ class HomePage extends StatefulWidget {
 class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    final String assetName = 'assets/images/logoc.svg';
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -33,9 +35,14 @@ class HomePageState extends State<HomePage> {
       body: Stack(
         children: <Widget>[
           Container(
-            decoration: const BoxDecoration(
-              color: pGreyColour,
-            ),
+            padding: EdgeInsets.only(
+                bottom: DeviceInfo.physicalHeight / 4.5, left: 60, right: 60),
+            child: Align(
+                alignment: Alignment.center,
+                child: Container(
+                  child: SvgPicture.asset(assetName),
+                  height: 300,
+                )),
           ),
           Container(
             padding: EdgeInsets.only(

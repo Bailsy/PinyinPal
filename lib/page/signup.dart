@@ -6,6 +6,7 @@ import 'package:pinyinpal/page/home.dart';
 import 'package:pinyinpal/page/login.dart';
 import 'package:pinyinpal/page/signup.dart';
 import 'package:pinyinpal/setprofile.dart';
+import 'package:pinyinpal/widget/popups.dart';
 
 class SignUpPage extends StatefulWidget {
   SignUpPage({Key? key});
@@ -18,13 +19,15 @@ class _SignUpPageState extends State<SignUpPage> {
   bool _visible = false;
 
   //Textediting Controller for Username and Password Input
+  final emailController = TextEditingController();
   final userController = TextEditingController();
   final pwdController = TextEditingController();
+  final pwdConfirmController = TextEditingController();
 
-  Future userLogin() async {
+  Future userSignUp() async {
     //Login API URL
     //use your local IP address instead of localhost or use Web API
-    String userUrl = "https://pinyinpal.com/login_api/user_login.php";
+    String userUrl = "https://pinyinpal.com/login_api/user_signup.php";
 
     // Showing LinearProgressIndicator.
     setState(() {
@@ -33,6 +36,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
     // Getting username and password from Controller
     var data = {
+      'email': emailController.text.trim(),
       'username': userController.text.trim(),
       'password': pwdController.text.trim(),
     };
@@ -46,18 +50,15 @@ class _SignUpPageState extends State<SignUpPage> {
       //Server pics up profile details
 
       //Check Login Status
-      if (msg['loginStatus'] == true) {
+      if (msg['signupStatus'] == true) {
         setState(() {
           //hide progress indicator
           _visible = false;
         });
 
-        SetProfile setProfile = SetProfile();
-        await setProfile.setDetails(msg);
-
         // Navigate to Home Screen
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => HomePage()));
+            context, MaterialPageRoute(builder: (context) => LoginPage()));
       } else {
         setState(() {
           //hide progress indicator
@@ -153,7 +154,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                       child: TextFormField(
                         style: TextStyle(color: Colors.white),
-                        controller: userController,
+                        controller: emailController,
                         decoration: InputDecoration(
                           focusedBorder: new OutlineInputBorder(
                             borderSide: BorderSide(
@@ -186,6 +187,60 @@ class _SignUpPageState extends State<SignUpPage> {
                             ),
                           ),
                           hintText: 'email',
+                        ),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please Enter Email';
+                          }
+                          return null;
+                        },
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20.0,
+                    ),
+                    Theme(
+                      data: new ThemeData(
+                        primaryColor: Color.fromRGBO(84, 87, 90, 0.5),
+                        primaryColorDark: Color.fromRGBO(24, 75, 126, 0.498),
+                        hintColor:
+                            Color.fromRGBO(84, 87, 90, 0.5), //placeholder color
+                      ),
+                      child: TextFormField(
+                        style: TextStyle(color: Colors.white),
+                        controller: userController,
+                        decoration: InputDecoration(
+                          focusedBorder: new OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color.fromRGBO(255, 255, 255, 1),
+                              style: BorderStyle.solid,
+                            ),
+                          ),
+                          enabledBorder: new OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color.fromRGBO(84, 87, 90, 0.5),
+                              style: BorderStyle.solid,
+                            ),
+                          ),
+                          errorBorder: new OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.red,
+                              width: 1.0,
+                              style: BorderStyle.solid,
+                            ),
+                          ),
+                          labelText: 'Enter User Name',
+                          prefixIcon: const Icon(
+                            Icons.person,
+                            color: Color.fromRGBO(84, 87, 90, 0.5),
+                          ),
+                          border: new OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color.fromRGBO(84, 87, 90, 0.5),
+                              style: BorderStyle.solid,
+                            ),
+                          ),
+                          hintText: 'User Name',
                         ),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
@@ -246,6 +301,11 @@ class _SignUpPageState extends State<SignUpPage> {
                           if (value == null || value.isEmpty) {
                             return 'Please Enter Password';
                           }
+                          if (pwdConfirmController.text.trim() !=
+                              pwdController.text.trim()) {
+                            return 'Enter Matching Passwords!';
+                          }
+
                           return null;
                         },
                       ),
@@ -262,7 +322,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                       child: TextFormField(
                         style: TextStyle(color: Colors.white),
-                        controller: pwdController,
+                        controller: pwdConfirmController,
                         obscureText: true,
                         decoration: InputDecoration(
                           focusedBorder: new OutlineInputBorder(
@@ -301,6 +361,11 @@ class _SignUpPageState extends State<SignUpPage> {
                           if (value == null || value.isEmpty) {
                             return 'Please Confirm Password';
                           }
+                          if (pwdConfirmController.text.trim() !=
+                              pwdController.text.trim()) {
+                            return 'Enter Matching Passwords!';
+                          }
+
                           return null;
                         },
                       ),
@@ -342,7 +407,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       child: ElevatedButton(
                         onPressed: () => {
                           // Validate returns true if the form is valid, or false otherwise.
-                          if (_formKey.currentState!.validate()) {userLogin()}
+                          if (_formKey.currentState!.validate()) {userSignUp()}
                         },
                         child: Padding(
                           padding: EdgeInsets.all(16.0),

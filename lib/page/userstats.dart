@@ -52,55 +52,6 @@ class UserStatsState extends State<UserStats> {
               padding: const EdgeInsets.only(left: 60, right: 60),
               child: const Divider(color: Colors.grey),
             ),
-            Container(
-              child: FutureBuilder(
-                future: DataBaseIntegration.getUserStats(),
-                builder: (context, snapshot) {
-                  if (snapshot.connectionState == ConnectionState.waiting) {
-                    return Text("");
-                  } else if (snapshot.hasError) {
-                    return Text('Error: ${snapshot.error}');
-                  } else {
-                    List<ResultRow> normalList =
-                        snapshot.data as List<ResultRow>;
-
-                    return Container(
-                        child: Align(
-                      alignment: Alignment.topCenter,
-                      child: Column(
-                        children: <Widget>[
-                          Text(
-                            "Name: " + "${normalList[0]['UNAME'].toString()}",
-                            style: const TextStyle(
-                              color: Colors.grey,
-                              fontSize: 30,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                          Text(
-                            "Rank Level: " +
-                                "${normalList[0]['USERTYPE'].toString()}",
-                            style: const TextStyle(
-                              color: Colors.grey,
-                              fontSize: 30,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                          Text(
-                            "XP Level: " + "${normalList[0]['XP'].toString()}",
-                            style: const TextStyle(
-                              color: Colors.grey,
-                              fontSize: 30,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
-                      ),
-                    ));
-                  }
-                },
-              ),
-            )
           ],
         )));
   }

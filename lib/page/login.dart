@@ -41,9 +41,6 @@ class _LoginPageState extends State<LoginPage> {
     if (response.statusCode == 200) {
       //Server response into variable
       var msg = jsonDecode(response.body);
-
-      //Server pics up profile details
-
       //Check Login Status
       if (msg['loginStatus'] == true) {
         setState(() {

@@ -11,7 +11,7 @@ class FlashCardTimedModel extends ChangeNotifier {
   int _incorrect = 0;
   String _currHanzi = "";
   String _currTranslation = ""; // Add translation
-  int _maxCount = 2;
+  int _maxCount = 10;
 
   int get count => _count;
   double get deviceHeight => _deviceHeight;
