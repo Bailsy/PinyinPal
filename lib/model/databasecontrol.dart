@@ -35,12 +35,12 @@ class DataBaseIntegration {
     }
   }
 
-  static Future<List> getUserStats() async {
+  static Future<List> getUserStats(String userId) async {
     ProfileModel currentProfile = ProfileModelSingleton().profileModel;
     var conn = await MySqlConnection.connect(settings);
     var results = await conn.query(
         "SELECT users.UNAME, profiles.* FROM accounts.users JOIN accounts.profiles ON accounts.users.UID = accounts.profiles.UID WHERE accounts.profiles.UID = " +
-            currentProfile.userId.toString());
+            userId);
     await conn.close();
     return results.toList();
   }
