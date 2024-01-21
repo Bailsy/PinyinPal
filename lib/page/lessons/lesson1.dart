@@ -168,6 +168,7 @@ class Lesson1State extends State<Lesson1> {
                       maxHeight: 100.0,
                     ),
                     child: Text.rich(
+                      textAlign: TextAlign.center,
                       TextSpan(
                         children: <TextSpan>[
                           TextSpan(
@@ -200,6 +201,7 @@ class Lesson1State extends State<Lesson1> {
                       maxHeight: 100.0,
                     ),
                     child: Text.rich(
+                      textAlign: TextAlign.center,
                       TextSpan(
                         children: <TextSpan>[
                           TextSpan(

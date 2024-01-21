@@ -7,13 +7,17 @@ class SetProfile {
   String profileUrl = "https://pinyinpal.com/login_api/user_profile.php";
 
   Future<void> setDetails(msg) async {
-    //var idofuser = {'idofuser': msg['userInfo']['UID']};
-    // var profilegrab = await http.post(Uri.parse(profileUrl), body: json.encode(idofuser));
-    // var profdetails = jsonDecode(profilegrab.body);
-    // print("working!");
-
     Future<List<dynamic>> futureList =
         DataBaseIntegration.getUserStats(msg['userInfo']['UID'].toString());
+    List<dynamic> normalList = await futureList;
+
+    loadUserProfile(normalList[0]);
+  }
+
+  Future<void> reloadDetails() async {
+    ProfileModel currentProfile = ProfileModelSingleton().profileModel;
+    Future<List<dynamic>> futureList =
+        DataBaseIntegration.getUserStats(currentProfile.userId.toString());
     List<dynamic> normalList = await futureList;
 
     loadUserProfile(normalList[0]);

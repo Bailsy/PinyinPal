@@ -15,7 +15,7 @@ class DataBaseIntegration {
   static Future<List<ResultRow>> fetchDataFromDB(List<String> columns) async {
     requestNumber++;
     print("requests: $requestNumber");
-  
+
     var conn = await MySqlConnection.connect(settings);
 
     try {
@@ -41,5 +41,14 @@ class DataBaseIntegration {
             userId);
     await conn.close();
     return results.toList();
+  }
+
+  static void updateXP(int experience) async {
+    ProfileModel currentProfile = ProfileModelSingleton().profileModel;
+    var conn = await MySqlConnection.connect(settings);
+    await conn.query(
+        "UPDATE accounts.profiles SET XP = XP + $experience WHERE UID = " +
+            currentProfile.userId.toString());
+    await conn.close();
   }
 }
