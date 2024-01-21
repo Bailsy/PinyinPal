@@ -63,7 +63,7 @@ class _FlashCardTimedBodyState extends State<FlashCardTimedBody> {
       AnswerDialog.successPopup(
           context, '${flashCardModel.currentHanzi} is correct!');
 
-      //Check if that was it
+      //Check if that was the last question
       if (flashCardModel.count == flashCardModel.maxCount) {
         Navigator.push(
           context,

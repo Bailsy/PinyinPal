@@ -29,9 +29,6 @@ class DataBaseIntegration {
         'select $selectedColumns from hsk.vocabulary',
       );
 
-      print(
-          'Data array: ${results.toList()}'); // Add this line to print the entire data array
-
       return results.toList();
     } finally {
       await conn.close();
