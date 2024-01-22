@@ -17,14 +17,6 @@ class ProgressionPageState extends State<ProgressionPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const HomePage()));
-            },
-            icon: const Icon(LineAwesomeIcons.angle_left)),
-      ),
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[

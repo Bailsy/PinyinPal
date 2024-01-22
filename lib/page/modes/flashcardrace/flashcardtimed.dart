@@ -40,6 +40,8 @@ class _FlashCardTimedBodyState extends State<FlashCardTimedBody> {
   @override
   void initState() {
     super.initState();
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => const FlashCardTimed()));
     final flashCardModel = context.read<FlashCardTimedModel>();
     flashCardModel.initializeDataFromDatabase();
   }
@@ -90,7 +92,6 @@ class _FlashCardTimedBodyState extends State<FlashCardTimedBody> {
 
     return Stack(
       children: <Widget>[
-        AppBarWidget(),
         Container(
           padding: EdgeInsets.only(
             top: DeviceInfo.height / 5,

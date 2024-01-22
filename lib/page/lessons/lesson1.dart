@@ -32,7 +32,7 @@ class Lesson1State extends State<Lesson1> {
 
   String currentIcon = "";
   String phrase = "现在我在商店 这是很酷";
-  String phrase2 = "Now I am in the store. This is cool";
+  String phrase2 = "Now ... in the ... This ...";
 
   String getLeftPart(String input, String substring, int occurrenceIndex) {
     int index = -1;
@@ -93,19 +93,19 @@ class Lesson1State extends State<Lesson1> {
     iconChanger(Ion.watch);
     await Future.delayed(Duration(seconds: 1));
     stringSplitterChinese("我在");
-    stringSplitterEnglish("I am in");
+    stringSplitterEnglish("... in");
     iconChanger(MaterialSymbols.arrow_downward);
     await Future.delayed(Duration(seconds: 1));
     stringSplitterChinese("商店");
-    stringSplitterEnglish("the store");
+    stringSplitterEnglish("the ...");
     iconChanger(Ion.storefront);
     await Future.delayed(Duration(seconds: 1));
     iconChanger(Ph.dots_three);
-    stringSplitterChinese("这是");
-    stringSplitterEnglish("This is");
+    stringSplitterChinese("这");
+    stringSplitterEnglish("This");
     await Future.delayed(Duration(seconds: 1));
     stringSplitterChinese("很酷");
-    stringSplitterEnglish("cool");
+    stringSplitterEnglish("...");
     iconChanger(Ion.glasses);
     await Future.delayed(Duration(seconds: 1));
   }
@@ -113,119 +113,109 @@ class Lesson1State extends State<Lesson1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const HomePage()));
-              },
-              icon: const Icon(LineAwesomeIcons.angle_left)),
-        ),
         body: SingleChildScrollView(
             child: Column(
-          children: <Widget>[
-            Container(
-                child: ConstrainedBox(
-              constraints: const BoxConstraints(
-                minWidth: 300.0,
-                maxWidth: 300.0,
-                minHeight: 30.0,
-                maxHeight: 100.0,
-              ),
-              child: const Text(
-                "PinYin Basics\n拼音基础 ",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                    fontSize: 30,
-                    fontFamily: 'LibreFranklin',
-                    color: Colors.grey),
-              ),
-            )),
-            Container(
-                child: ConstrainedBox(
-              constraints: const BoxConstraints(
-                minWidth: 300.0,
-                maxWidth: 300.0,
-                minHeight: 30.0,
-                maxHeight: 100.0,
-              ),
-              child: Iconify(
-                currentIcon,
-                color: Colors.blue,
-                size: 100,
-              ),
-            )),
-            Container(
-              padding: const EdgeInsets.only(left: 60, right: 60),
-              child: const Divider(color: Colors.grey),
-            ),
-            Container(
-                child: ConstrainedBox(
-                    constraints: const BoxConstraints(
-                      minWidth: 300.0,
-                      maxWidth: 300.0,
-                      minHeight: 30.0,
-                      maxHeight: 100.0,
-                    ),
-                    child: Text.rich(
-                      textAlign: TextAlign.center,
+      children: <Widget>[
+        Container(
+            child: ConstrainedBox(
+          constraints: const BoxConstraints(
+            minWidth: 300.0,
+            maxWidth: 300.0,
+            minHeight: 30.0,
+            maxHeight: 100.0,
+          ),
+          child: const Text(
+            "PinYin Basics\n拼音基础 ",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                fontSize: 30, fontFamily: 'LibreFranklin', color: Colors.grey),
+          ),
+        )),
+        Container(
+            child: ConstrainedBox(
+          constraints: const BoxConstraints(
+            minWidth: 300.0,
+            maxWidth: 300.0,
+            minHeight: 30.0,
+            maxHeight: 100.0,
+          ),
+          child: Iconify(
+            currentIcon,
+            color: Colors.blue,
+            size: 100,
+          ),
+        )),
+        Container(
+          padding: const EdgeInsets.only(left: 60, right: 60),
+          child: const Divider(color: Colors.grey),
+        ),
+        Container(
+            child: ConstrainedBox(
+                constraints: const BoxConstraints(
+                  minWidth: 300.0,
+                  maxWidth: 300.0,
+                  minHeight: 30.0,
+                  maxHeight: 100.0,
+                ),
+                child: Text.rich(
+                  textAlign: TextAlign.center,
+                  TextSpan(
+                    children: <TextSpan>[
                       TextSpan(
-                        children: <TextSpan>[
-                          TextSpan(
-                              text: textLeft,
-                              style: TextStyle(
-                                  fontSize: 20,
-                                  fontFamily: 'LibreFranklin',
-                                  color: Colors.grey)),
-                          TextSpan(
-                              text: highlighted,
-                              style: TextStyle(
-                                  fontSize: 20,
-                                  fontFamily: 'LibreFranklin',
-                                  color: Colors.blue)),
-                          TextSpan(
-                              text: textRight,
-                              style: TextStyle(
-                                  fontSize: 20,
-                                  fontFamily: 'LibreFranklin',
-                                  color: Colors.grey)),
-                        ],
-                      ),
-                    ))),
-            Container(
-                child: ConstrainedBox(
-                    constraints: const BoxConstraints(
-                      minWidth: 300.0,
-                      maxWidth: 300.0,
-                      minHeight: 30.0,
-                      maxHeight: 100.0,
-                    ),
-                    child: Text.rich(
-                      textAlign: TextAlign.center,
+                          text: textLeft,
+                          style: TextStyle(
+                              fontSize: 24,
+                              fontFamily: 'LibreFranklin',
+                              color: Colors.grey)),
                       TextSpan(
-                        children: <TextSpan>[
-                          TextSpan(
-                              text: textLeft2,
-                              style: TextStyle(
-                                  fontSize: 17,
-                                  fontFamily: 'LibreFranklin',
-                                  color: Colors.grey)),
-                          TextSpan(
-                              text: highlighted2,
-                              style: TextStyle(
-                                  fontSize: 17,
-                                  fontFamily: 'LibreFranklin',
-                                  color: Colors.blue)),
-                          TextSpan(
-                              text: textRight2,
-                              style: TextStyle(
-                                  fontSize: 17,
-                                  fontFamily: 'LibreFranklin',
-                                  color: Colors.grey)),
-                        ],
-                      ),
-                    ))),
-          ],
-        )));
+                          text: highlighted,
+                          style: TextStyle(
+                              fontSize: 24,
+                              fontFamily: 'LibreFranklin',
+                              color: Colors.blue)),
+                      TextSpan(
+                          text: textRight,
+                          style: TextStyle(
+                              fontSize: 24,
+                              fontFamily: 'LibreFranklin',
+                              color: Colors.grey)),
+                    ],
+                  ),
+                ))),
+        Container(
+            child: ConstrainedBox(
+                constraints: const BoxConstraints(
+                  minWidth: 300.0,
+                  maxWidth: 300.0,
+                  minHeight: 30.0,
+                  maxHeight: 100.0,
+                ),
+                child: Text.rich(
+                  textAlign: TextAlign.center,
+                  TextSpan(
+                    children: <TextSpan>[
+                      TextSpan(
+                          text: textLeft2,
+                          style: TextStyle(
+                              fontSize: 17,
+                              fontFamily: 'LibreFranklin',
+                              color: Colors.grey)),
+                      TextSpan(
+                          text: highlighted2,
+                          style: TextStyle(
+                              fontSize: 17,
+                              fontFamily: 'LibreFranklin',
+                              color: Colors.blue)),
+                      TextSpan(
+                          text: textRight2,
+                          style: TextStyle(
+                              fontSize: 17,
+                              fontFamily: 'LibreFranklin',
+                              color: Colors.grey)),
+                    ],
+                  ),
+                ))),
+      ],
+    )));
   }
 }

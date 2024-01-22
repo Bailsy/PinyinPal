@@ -4,6 +4,7 @@ import 'package:pinyinpal/constants/imagepaths.dart';
 import 'package:pinyinpal/model/profilemodel.dart';
 import 'package:pinyinpal/page/home.dart';
 import 'package:pinyinpal/page/login.dart';
+import 'package:pinyinpal/page/newhome.dart';
 import 'package:pinyinpal/widget/profilemenu.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -23,7 +24,7 @@ class _ProfilePageState extends State<ProfilePage> {
         leading: IconButton(
             onPressed: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const HomePage()));
+                  MaterialPageRoute(builder: (context) => const NewHomePage()));
             },
             icon: const Icon(LineAwesomeIcons.angle_left)),
         actions: [

@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:pinyinpal/model/profilemodel.dart';
 import 'package:pinyinpal/page/home.dart';
+import 'package:pinyinpal/page/newhome.dart';
 import 'package:pinyinpal/page/signup.dart';
 import 'package:pinyinpal/setprofile.dart';
 
@@ -51,9 +52,10 @@ class _LoginPageState extends State<LoginPage> {
         SetProfile setProfile = SetProfile();
         await setProfile.setDetails(msg);
 
-        // Navigate to Home Screen
+        // Navigate to Home Screen#
+
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => HomePage()));
+            context, MaterialPageRoute(builder: (context) => NewHomePage()));
       } else {
         setState(() {
           //hide progress indicator
