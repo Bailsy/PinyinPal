@@ -11,7 +11,7 @@ class FlashCardTimedModel extends ChangeNotifier {
   int _incorrect = 0;
   String _currHanzi = "";
   String _currTranslation = ""; // Add translation
-  int _maxCount = 5;
+  int _maxCount = 150;
   List<ResultRow> _hsk1data = [];
 
   int get count => _count;

@@ -34,6 +34,7 @@ class HomePageState extends State<HomePage> {
       ),
       body: Stack(
         children: <Widget>[
+          // SVG Picture
           Container(
             padding: EdgeInsets.only(
                 bottom: DeviceInfo.physicalHeight / 4.5, left: 60, right: 60),
@@ -44,6 +45,8 @@ class HomePageState extends State<HomePage> {
                   height: 300,
                 )),
           ),
+
+          // Neon Text
           Container(
             padding: EdgeInsets.only(
                 bottom: DeviceInfo.physicalHeight / 8, left: 60, right: 60),
@@ -74,7 +77,7 @@ class HomePageState extends State<HomePage> {
                           MaterialPageRoute(
                               builder: (context) => const FlashCardTimed()));
                     },
-                    buttonText: "flashcards|抽认卡"),
+                    buttonText: "flashcards - 抽认卡"),
                 HomeButton(
                     onPress: () {
                       Navigator.push(
@@ -82,7 +85,7 @@ class HomePageState extends State<HomePage> {
                           MaterialPageRoute(
                               builder: (context) => const ProgressionPage()));
                     },
-                    buttonText: "lessons|课程"),
+                    buttonText: "lessons - 课程"),
                 HomeButton(
                     onPress: () {
                       Navigator.push(
@@ -90,7 +93,15 @@ class HomePageState extends State<HomePage> {
                           MaterialPageRoute(
                               builder: (context) => const UserStats()));
                     },
-                    buttonText: "stats|用户统计")
+                    buttonText: "Collection - 收藏"),
+                HomeButton(
+                    onPress: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const UserStats()));
+                    },
+                    buttonText: "stats - 用户统计")
               ],
             ),
           ),
