@@ -1,4 +1,4 @@
-import 'package:pinyinpal/page/modes/flashcardrace/flashcardtimedmodel.dart';
+import 'package:pinyinpal/pages/modes/flashcardrace/flashcardtimedmodel.dart';
 
 class LoadingScreenController {
   static Map<String, Function> gameModes = {

@@ -10,10 +10,10 @@ import 'package:provider/provider.dart';
 // PinyinPal Imports
 import 'package:pinyinpal/constants/deviceinfo.dart';
 import 'package:pinyinpal/constants/stylingconstants.dart';
-import 'package:pinyinpal/page/finishedset.dart';
+import 'package:pinyinpal/pages/finishedset.dart';
 import 'package:pinyinpal/widget/popups.dart';
 import 'package:pinyinpal/widget/appbarwidget.dart';
-import 'package:pinyinpal/page/modes/flashcardrace/flashcardtimedmodel.dart';
+import 'package:pinyinpal/pages/modes/flashcardrace/flashcardtimedmodel.dart';
 
 class FlashCardTimed extends StatelessWidget {
   const FlashCardTimed({Key? key}) : super(key: key);

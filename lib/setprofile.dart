@@ -1,7 +1,5 @@
-import 'dart:convert';
-import 'package:http/http.dart' as http;
-import 'package:pinyinpal/model/databasecontrol.dart';
-import 'package:pinyinpal/model/profilemodel.dart';
+import 'package:pinyinpal/models/databasecontrol.dart';
+import 'package:pinyinpal/models/profilemodel.dart';
 
 class SetProfile {
   String profileUrl = "https://pinyinpal.com/login_api/user_profile.php";

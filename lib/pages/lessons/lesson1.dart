@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:iconify_flutter/icons/material_symbols.dart';
 import 'package:iconify_flutter/icons/ph.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-import 'package:pinyinpal/page/home.dart';
+import 'package:pinyinpal/pages/home.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 
 import 'package:iconify_flutter/icons/ion.dart';

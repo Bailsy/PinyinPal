@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:mysql1/mysql1.dart';
 import 'package:pinyinpal/constants/deviceinfo.dart';
-import 'package:pinyinpal/model/databasecontrol.dart';
+import 'package:pinyinpal/models/databasecontrol.dart';
 
 class FlashCardTimedModel extends ChangeNotifier {
   int _count = 0;

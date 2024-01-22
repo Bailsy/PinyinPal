@@ -1,6 +1,6 @@
 import 'package:mysql1/mysql1.dart';
-import 'package:pinyinpal/model/config.dart';
-import 'package:pinyinpal/model/profilemodel.dart';
+import 'package:pinyinpal/models/config.dart';
+import 'package:pinyinpal/models/profilemodel.dart';
 
 class DataBaseIntegration {
   static int requestNumber = 0;

@@ -1,16 +1,29 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:neon/neon.dart';
-import 'package:pinyinpal/constants/colour.dart';
+import 'package:provider/provider.dart';
+
+//Pages
+import 'package:pinyinpal/pages/modes/flashcardrace/flashcardtimed.dart';
+import 'package:pinyinpal/pages/profile.dart';
+import 'package:pinyinpal/pages/progression.dart';
+import 'package:pinyinpal/pages/collection/collection_page.dart';
+import 'package:pinyinpal/pages/userstats.dart';
+
+//Providers
+import 'package:pinyinpal/providers/collection_provider.dart';
+
+//Models
+import 'package:pinyinpal/models/collection_model.dart';
+
+//Widgets
+import 'package:pinyinpal/widget/homebutton.dart';
+
+//Constants
+
 import 'package:pinyinpal/constants/deviceinfo.dart';
 import 'package:pinyinpal/constants/imagepaths.dart';
-import 'package:pinyinpal/page/modes/flashcardrace/flashcardtimed.dart';
-import 'package:pinyinpal/page/profile.dart';
-import 'package:pinyinpal/page/progression.dart';
-import 'package:pinyinpal/page/userstats.dart';
-import 'package:pinyinpal/widget/homebutton.dart';
 
 class HomePage extends StatefulWidget {
   // It is essential to give the class a key and make it constant
@@ -91,7 +104,10 @@ class HomePageState extends State<HomePage> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const UserStats()));
+                              builder: (context) => ChangeNotifierProvider(
+                                    create: (_) => CollectionModel(),
+                                    child: const CollectionPage(),
+                                  )));
                     },
                     buttonText: "Collection - 收藏"),
                 HomeButton(

@@ -3,8 +3,8 @@ import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import 'package:pinyinpal/constants/colour.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-import 'package:pinyinpal/model/databasecontrol.dart';
-import 'package:pinyinpal/page/home.dart';
+import 'package:pinyinpal/models/databasecontrol.dart';
+import 'package:pinyinpal/pages/home.dart';
 import 'package:pinyinpal/widget/experiencepoints.dart';
 import 'package:pinyinpal/widget/piechart.dart';
 

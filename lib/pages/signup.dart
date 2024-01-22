@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:pinyinpal/model/profilemodel.dart';
-import 'package:pinyinpal/page/home.dart';
-import 'package:pinyinpal/page/login.dart';
-import 'package:pinyinpal/page/signup.dart';
-import 'package:pinyinpal/setprofile.dart';
-import 'package:pinyinpal/widget/popups.dart';
+import 'package:pinyinpal/pages/login.dart';
 
 class SignUpPage extends StatefulWidget {
   SignUpPage({Key? key});

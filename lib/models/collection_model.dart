@@ -1,0 +1,34 @@
+import 'dart:convert';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'hsk_entry.dart';
+
+class CollectionModel extends ChangeNotifier {
+  List<HskEntry> _hskEntries = [];
+
+  List<HskEntry> get hskEntries => _hskEntries;
+
+  CollectionModel() {
+    // Initialize the data when the model is created
+    loadData();
+  }
+
+  Future<void> loadData() async {
+    try {
+      // Load JSON data from assets
+      String jsonString = await rootBundle.loadString('assets/hsk_data.json');
+      List<dynamic> jsonList = json.decode(jsonString);
+
+      // Convert JSON to a list of HskEntry objects
+      _hskEntries = jsonList.map((entryJson) {
+        return HskEntry.fromJson(entryJson);
+      }).toList();
+
+      // Notify listeners that the data has been loaded
+      notifyListeners();
+    } catch (e) {
+      // Handle errors during data loading
+      print('Error loading data: $e');
+    }
+  }
+}

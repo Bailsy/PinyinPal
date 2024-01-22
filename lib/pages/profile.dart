@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-import 'package:pinyinpal/constants/imagepaths.dart';
-import 'package:pinyinpal/model/profilemodel.dart';
-import 'package:pinyinpal/page/home.dart';
-import 'package:pinyinpal/page/login.dart';
+import 'package:pinyinpal/models/profilemodel.dart';
+import 'package:pinyinpal/pages/home.dart';
+import 'package:pinyinpal/pages/login.dart';
 import 'package:pinyinpal/widget/profilemenu.dart';
 
 class ProfilePage extends StatefulWidget {

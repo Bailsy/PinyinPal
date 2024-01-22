@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-import 'package:mysql1/mysql1.dart';
-import 'package:pinyinpal/constants/colour.dart';
-import 'package:pinyinpal/model/databasecontrol.dart';
-import 'package:pinyinpal/model/profilemodel.dart';
-import 'package:pinyinpal/page/home.dart';
+import 'package:pinyinpal/models/profilemodel.dart';
+import 'package:pinyinpal/pages/home.dart';
 import 'package:pinyinpal/setprofile.dart';
 
 class UserStats extends StatefulWidget {

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:pinyinpal/constants/themes.dart';
-import 'package:pinyinpal/model/config.dart';
-import 'package:pinyinpal/page/login.dart';
-import 'package:pinyinpal/page/progression.dart';
+import 'package:pinyinpal/models/config.dart';
+import 'package:pinyinpal/pages/home.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,7 +20,7 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       theme: myTheme,
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      home: HomePage(),
     );
   }
 }
