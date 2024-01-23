@@ -32,6 +32,19 @@ class NewHomePageState extends State<NewHomePage> {
   Widget build(BuildContext context) {
     SystemNav.setNavBar();
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(LineAwesomeIcons.user),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const ProfilePage(),
+              ),
+            );
+          },
+        ),
+      ),
       bottomNavigationBar: BottomNavBar(
         onIndexChanged: (index) {
           setState(() {
