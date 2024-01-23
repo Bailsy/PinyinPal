@@ -25,6 +25,8 @@ class CollectionModel extends ChangeNotifier {
         return HskEntry.fromJson(entryJson);
       }).toList();
 
+      print('Loaded ${_hskEntries.length} entries');
+      print(_hskEntries);
       // Notify listeners that the data has been loaded
       notifyListeners();
     } catch (e) {

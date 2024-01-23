@@ -13,7 +13,7 @@ class CollectionProvider extends StatelessWidget {
     // Use the Provider to provide the CollectionModel to the widget tree
     return ChangeNotifierProvider(
       create: (_) => CollectionModel(),
-      child: const CollectionPage(),
+      child: CollectionPage(),
     );
   }
 }
