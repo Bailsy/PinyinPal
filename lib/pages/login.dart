@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:pinyinpal/pages/home.dart';
+import 'package:pinyinpal/pages/newhome.dart';
 import 'package:pinyinpal/pages/signup.dart';
 import 'package:pinyinpal/setprofile.dart';
 
@@ -52,7 +53,7 @@ class _LoginPageState extends State<LoginPage> {
 
         // Navigate to Home Screen
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => HomePage()));
+            context, MaterialPageRoute(builder: (context) => NewHomePage()));
       } else {
         setState(() {
           //hide progress indicator

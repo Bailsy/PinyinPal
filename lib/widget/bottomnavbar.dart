@@ -29,19 +29,19 @@ class _BottomNavBarState extends State<BottomNavBar> {
           tabs: const [
             GButton(
               icon: Icons.home,
-              text: "Home",
+              text: " Lessons",
             ),
             GButton(
               icon: Icons.card_membership,
-              text: "Flashcards",
+              text: " Flashcards",
             ),
             GButton(
               icon: Icons.school,
-              text: "Lessons",
+              text: " Collection",
             ),
             GButton(
               icon: Icons.bar_chart,
-              text: "Stats",
+              text: " Stats",
             ),
           ],
         ),

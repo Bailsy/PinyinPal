@@ -131,8 +131,8 @@ class _FlashCardTimedBodyState extends State<FlashCardTimedBody> {
           ),
         ),
         Container(
-          padding:
-              EdgeInsets.only(top: DeviceInfo.height / 3, left: 80, right: 80),
+          padding: EdgeInsets.only(
+              top: DeviceInfo.height / 2.5, left: 80, right: 80),
           child: Align(
             alignment: Alignment.topCenter,
             child: TextField(

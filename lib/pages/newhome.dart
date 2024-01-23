@@ -56,9 +56,9 @@ class NewHomePageState extends State<NewHomePage> {
       body: IndexedStack(
         index: indexPos,
         children: const [
-          CollectionProvider(),
-          FlashCardTimedProvider(),
           ProgressionPage(),
+          FlashCardTimedProvider(),
+          CollectionProvider(),
           UserStats(),
         ],
       ),

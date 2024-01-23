@@ -14,9 +14,6 @@ class CollectionPage extends StatelessWidget {
       create: (_) =>
           CollectionModel(), // You need to create your CollectionModel
       child: Scaffold(
-        appBar: AppBar(
-          title: const Text('Collection Page'),
-        ),
         body: _buildBody(),
       ),
     );
@@ -25,7 +22,7 @@ class CollectionPage extends StatelessWidget {
   Widget _buildBody() {
     // Your CollectionPage content goes here
     return Center(
-      child: Text('Collection Page'),
+      child: Text('<-- Coming soon -->'),
     );
   }
 }

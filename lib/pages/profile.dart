@@ -3,6 +3,7 @@ import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:pinyinpal/models/profilemodel.dart';
 import 'package:pinyinpal/pages/home.dart';
 import 'package:pinyinpal/pages/login.dart';
+import 'package:pinyinpal/pages/newhome.dart';
 import 'package:pinyinpal/widget/profilemenu.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -22,12 +23,9 @@ class _ProfilePageState extends State<ProfilePage> {
         leading: IconButton(
             onPressed: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const HomePage()));
+                  MaterialPageRoute(builder: (context) => const NewHomePage()));
             },
             icon: const Icon(LineAwesomeIcons.angle_left)),
-        actions: [
-          IconButton(onPressed: () {}, icon: const Icon(LineAwesomeIcons.moon))
-        ],
       ),
       body: SingleChildScrollView(
         child: Container(
