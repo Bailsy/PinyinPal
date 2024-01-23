@@ -92,7 +92,7 @@ class _FlashCardTimedBodyState extends State<FlashCardTimedBody> {
       children: <Widget>[
         Container(
           padding: EdgeInsets.only(
-            top: DeviceInfo.height / 5,
+            top: DeviceInfo.height / 7,
             left: 60,
             right: 60,
           ),
@@ -132,7 +132,7 @@ class _FlashCardTimedBodyState extends State<FlashCardTimedBody> {
         ),
         Container(
           padding:
-              EdgeInsets.only(top: DeviceInfo.height / 2, left: 80, right: 80),
+              EdgeInsets.only(top: DeviceInfo.height / 3, left: 80, right: 80),
           child: Align(
             alignment: Alignment.topCenter,
             child: TextField(
@@ -142,11 +142,15 @@ class _FlashCardTimedBodyState extends State<FlashCardTimedBody> {
                 color: pWhiteColour,
                 fontSize: StylingConstants.pFontSizeSmall,
                 fontFamily: StylingConstants.pStandartFont,
+                decoration: TextDecoration.none,
+                decorationThickness: 0,
               ),
               decoration: const InputDecoration(
                 hintText: 'Enter Pinyin',
                 hintStyle: TextStyle(color: pLightGreyColour),
-                labelStyle: TextStyle(color: pWhiteColour),
+                labelStyle: TextStyle(
+                    color: pWhiteColour, //underline color
+                    fontSize: StylingConstants.pFontSizeSmall),
                 enabledBorder: UnderlineInputBorder(
                   borderSide: BorderSide(color: pWhiteColour),
                 ),
