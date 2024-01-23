@@ -79,48 +79,6 @@ class HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          Container(
-            padding: EdgeInsets.only(top: DeviceInfo.height / 3),
-            child: Column(
-              children: <Widget>[
-                HomeButton(
-                    onPress: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const FlashCardTimed()));
-                    },
-                    buttonText: "flashcards - 抽认卡"),
-                HomeButton(
-                    onPress: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const ProgressionPage()));
-                    },
-                    buttonText: "lessons - 课程"),
-                HomeButton(
-                    onPress: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => ChangeNotifierProvider(
-                                    create: (_) => CollectionModel(),
-                                    child: const CollectionPage(),
-                                  )));
-                    },
-                    buttonText: "Collection - 收藏"),
-                HomeButton(
-                    onPress: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const UserStats()));
-                    },
-                    buttonText: "stats - 用户统计")
-              ],
-            ),
-          ),
         ],
       ),
     );

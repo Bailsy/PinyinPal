@@ -3,6 +3,8 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:pinyinpal/constants/themes.dart';
 import 'package:pinyinpal/models/config.dart';
 import 'package:pinyinpal/pages/home.dart';
+import 'package:pinyinpal/pages/login.dart';
+import 'package:pinyinpal/pages/newhome.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +22,7 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       theme: myTheme,
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: NewHomePage(),
     );
   }
 }

@@ -40,8 +40,6 @@ class _FlashCardTimedBodyState extends State<FlashCardTimedBody> {
   @override
   void initState() {
     super.initState();
-    Navigator.push(context,
-        MaterialPageRoute(builder: (context) => const FlashCardTimed()));
     final flashCardModel = context.read<FlashCardTimedModel>();
     flashCardModel.initializeDataFromDatabase();
   }

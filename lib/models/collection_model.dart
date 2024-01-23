@@ -16,7 +16,8 @@ class CollectionModel extends ChangeNotifier {
   Future<void> loadData() async {
     try {
       // Load JSON data from assets
-      String jsonString = await rootBundle.loadString('assets/hsk_data.json');
+      String jsonString =
+          await rootBundle.loadString('assets/json/hsk_data.json');
       List<dynamic> jsonList = json.decode(jsonString);
 
       // Convert JSON to a list of HskEntry objects
