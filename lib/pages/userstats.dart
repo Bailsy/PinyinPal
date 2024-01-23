@@ -14,70 +14,62 @@ class UserStats extends StatefulWidget {
 
 class UserStatsState extends State<UserStats> {
   ProfileModel currentProfile = ProfileModelSingleton().profileModel;
-  SetProfile sp = SetProfile();
+  //SetProfile sp = SetProfile();
   @override
   void initState() {
     super.initState();
-    sp.reloadDetails();
+    //sp.reloadDetails();
   }
 
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const HomePage()));
-              },
-              icon: const Icon(LineAwesomeIcons.angle_left)),
-        ),
         body: SingleChildScrollView(
             child: Column(
-          children: <Widget>[
-            Align(
-                alignment: Alignment.center,
-                child: Container(
-                    child: ConstrainedBox(
-                  constraints: const BoxConstraints(
-                    minWidth: 300.0,
-                    maxWidth: 300.0,
-                    minHeight: 30.0,
-                    maxHeight: 100.0,
-                  ),
-                  child: const Text(
-                    "USER STATISTICS\n用户统计 ",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontSize: 30,
-                        fontFamily: 'LibreFranklin',
-                        color: Colors.grey),
-                  ),
-                ))),
-            const SizedBox(height: 10),
-            Container(
-              padding: const EdgeInsets.only(left: 60, right: 60),
-              child: const Divider(color: Colors.grey),
-            ),
-            Align(
-                alignment: Alignment.center,
-                child: Container(
-                    child: ConstrainedBox(
-                  constraints: const BoxConstraints(
-                    minWidth: 300.0,
-                    maxWidth: 300.0,
-                    minHeight: 30.0,
-                    maxHeight: 100.0,
-                  ),
-                  child: Text(
-                    currentProfile.experience.toString(),
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                        fontSize: 30,
-                        fontFamily: 'LibreFranklin',
-                        color: Colors.grey),
-                  ),
-                ))),
-          ],
-        )));
+      children: <Widget>[
+        Align(
+            alignment: Alignment.center,
+            child: Container(
+                child: ConstrainedBox(
+              constraints: const BoxConstraints(
+                minWidth: 300.0,
+                maxWidth: 300.0,
+                minHeight: 30.0,
+                maxHeight: 100.0,
+              ),
+              child: const Text(
+                "USER STATISTICS\n用户统计 ",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontSize: 30,
+                    fontFamily: 'LibreFranklin',
+                    color: Colors.grey),
+              ),
+            ))),
+        const SizedBox(height: 10),
+        Container(
+          padding: const EdgeInsets.only(left: 60, right: 60),
+          child: const Divider(color: Colors.grey),
+        ),
+        Align(
+            alignment: Alignment.center,
+            child: Container(
+                child: ConstrainedBox(
+              constraints: const BoxConstraints(
+                minWidth: 300.0,
+                maxWidth: 300.0,
+                minHeight: 30.0,
+                maxHeight: 100.0,
+              ),
+              child: Text(
+                currentProfile.experience.toString(),
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                    fontSize: 30,
+                    fontFamily: 'LibreFranklin',
+                    color: Colors.grey),
+              ),
+            ))),
+      ],
+    )));
   }
 }
