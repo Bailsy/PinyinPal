@@ -37,14 +37,6 @@ class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const ProfilePage()));
-            },
-            icon: const Icon(LineAwesomeIcons.user)),
-      ),
       body: Stack(
         children: <Widget>[
           // SVG Picture
