@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-import 'package:pinyinpal/pages/home.dart';
-import 'package:pinyinpal/pages/modes/flashcardrace/flashcardtimed.dart';
 import 'package:pinyinpal/pages/profile.dart';
 import 'package:pinyinpal/pages/progression.dart';
 import 'package:pinyinpal/pages/userstats.dart';
+import 'package:pinyinpal/providers/collection_provider.dart';
+import 'package:pinyinpal/providers/flashcardtimed_provider.dart';
 import 'package:pinyinpal/widget/bottomnavbar.dart';
 
 class SystemNav {
@@ -56,8 +56,8 @@ class NewHomePageState extends State<NewHomePage> {
       body: IndexedStack(
         index: indexPos,
         children: const [
-          HomePage(),
-          FlashCardTimed(),
+          CollectionProvider(),
+          FlashCardTimedProvider(),
           ProgressionPage(),
           UserStats(),
         ],
