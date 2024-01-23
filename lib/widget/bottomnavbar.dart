@@ -28,7 +28,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
           },
           tabs: const [
             GButton(
-              icon: Icons.home,
+              icon: Icons.school,
               text: " Lessons",
             ),
             GButton(
@@ -36,7 +36,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
               text: " Flashcards",
             ),
             GButton(
-              icon: Icons.school,
+              icon: Icons.collections_bookmark,
               text: " Collection",
             ),
             GButton(
