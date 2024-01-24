@@ -43,6 +43,13 @@ class DataBaseIntegration {
     return results.toList();
   }
 
+  static Future<List> getUsernames() async {
+    var conn = await MySqlConnection.connect(settings);
+    var results = await conn.query("SELECT UNAME FROM accounts.users");
+    await conn.close();
+    return results.toList();
+  }
+
   static void updateXP(int experience) async {
     ProfileModel currentProfile = ProfileModelSingleton().profileModel;
     var conn = await MySqlConnection.connect(settings);

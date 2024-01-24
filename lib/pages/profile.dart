@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:pinyinpal/models/profilemodel.dart';
+import 'package:pinyinpal/pages/friends.dart';
 import 'package:pinyinpal/pages/home.dart';
 import 'package:pinyinpal/pages/login.dart';
 import 'package:pinyinpal/pages/newhome.dart';
+import 'package:pinyinpal/providers/friendprovider.dart';
 import 'package:pinyinpal/widget/profilemenu.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -85,7 +87,10 @@ class _ProfilePageState extends State<ProfilePage> {
                 title: "Add Friends",
                 icon: LineAwesomeIcons.user_friends,
                 onPress: () {
-                  print("user check");
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const FriendProvider()));
                 }),
             const Divider(color: Colors.grey),
             const SizedBox(height: 10),
