@@ -3,9 +3,6 @@ import 'package:pinyinpal/models/friends_model.dart';
 import 'package:pinyinpal/pages/friends.dart';
 import 'package:provider/provider.dart';
 
-import 'package:pinyinpal/pages/modes/flashcardrace/flashcardtimed.dart';
-import 'package:pinyinpal/models/flashcardtimedmodel.dart';
-
 class FriendProvider extends StatelessWidget {
   const FriendProvider({Key? key}) : super(key: key);
 
