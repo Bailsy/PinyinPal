@@ -23,24 +23,10 @@ class FriendsPageState extends State<FriendsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(LineAwesomeIcons.user),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const ProfilePage(),
-              ),
-            );
-          },
-        ),
-      ),
       bottomNavigationBar: FriendsNavBar(
         onIndexChanged: (index) {
           setState(() {
             indexPos = index;
-            print(indexPos);
           });
         },
       ),
@@ -93,8 +79,7 @@ class FriendRequestState extends State<FriendRequest> {
     return Consumer<FriendModel>(
       builder: (context, FriendModel, child) {
         if (FriendModel.usernames.isEmpty) {
-          // If characters are not loaded, trigger loading
-          FriendModel.loadData();
+          // If characters are not loaded, trigger loadin
           return Center(child: CircularProgressIndicator());
         } else {
           // Build the grid with loaded characters
@@ -170,7 +155,23 @@ class FriendFinder extends StatefulWidget {
 }
 
 class FriendFinderState extends State<FriendFinder> {
-  final TextEditingController searchController = TextEditingController();
+  TextEditingController searchController = TextEditingController();
+
+  String searchTerm = "";
+  String previousSearchTerm = "";
+
+  void initState() {
+    super.initState();
+    searchController = TextEditingController()
+      ..addListener(() {
+        setState(() {
+          if (searchController.text.isNotEmpty) {
+            searchTerm = searchController.text;
+          }
+        });
+      });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -236,9 +237,16 @@ class FriendFinderState extends State<FriendFinder> {
   Widget _buildBody() {
     return Consumer<FriendModel>(
       builder: (context, FriendModel, child) {
-        if (FriendModel.usernames.isEmpty) {
+        if (searchTerm != previousSearchTerm) {
+          // If search term has changed, trigger loading
+          FriendModel.loadData(searchTerm);
+          // Update the current search term in FriendModel
+          previousSearchTerm = searchTerm;
+        }
+        if (FriendModel.usernames.isEmpty && searchController.text.isNotEmpty) {
           // If characters are not loaded, trigger loading
-          FriendModel.loadData();
+          FriendModel.loadData(searchTerm);
+
           return Center(child: CircularProgressIndicator());
         } else {
           // Build the grid with loaded characters
@@ -283,15 +291,19 @@ class FriendFinderState extends State<FriendFinder> {
             Container(
               width: 100,
             ),
-            InkWell(
-              onTap: () {
-                print("Character tapped: ${username}");
-              },
-              child: Icon(LineAwesomeIcons.user_friends,
-                  color: pBlueColour, size: 45),
-            ),
-            Container(
-              width: 10,
+            Column(
+              // Align icons vertically using Column
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(height: 30),
+                InkWell(
+                  onTap: () {
+                    print("Character tapped: ${username}");
+                  },
+                  child: Icon(LineAwesomeIcons.user_friends,
+                      color: pBlueColour, size: 45),
+                ),
+              ],
             ),
           ],
         ),

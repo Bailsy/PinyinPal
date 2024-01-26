@@ -43,9 +43,13 @@ class DataBaseIntegration {
     return results.toList();
   }
 
-  static Future<List> getUsernames() async {
+  static Future<List> getUsernames(String nameSearch) async {
     var conn = await MySqlConnection.connect(settings);
-    var results = await conn.query("SELECT UNAME FROM accounts.users");
+    print("getting the usernames");
+    var results = await conn.query(
+        "SELECT UNAME FROM accounts.users WHERE UNAME LIKE '" +
+            nameSearch +
+            "%'");
     await conn.close();
     return results.toList();
   }
