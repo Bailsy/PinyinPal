@@ -55,9 +55,11 @@ class CollectionPage extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => CharacterProfilePage(),
+            builder: (context) =>
+                CharacterProfileBody(selectedCharacter: character),
           ),
         );
+        print(character.simplified);
       },
       child: Container(
         decoration: BoxDecoration(

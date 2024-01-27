@@ -5,19 +5,6 @@ import 'package:pinyinpal/models/hsk_entry.dart';
 import 'package:pinyinpal/providers/character_profile_provider.dart';
 import 'package:provider/provider.dart';
 
-class CharacterProfilePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    HskEntry selectedCharacter =
-        context.read<CollectionModel>().selectedCharacter!;
-
-    return ChangeNotifierProvider(
-      create: (_) => CharacterProfileProvider(),
-      child: CharacterProfileBody(selectedCharacter: selectedCharacter),
-    );
-  }
-}
-
 class CharacterProfileBody extends StatelessWidget {
   final HskEntry selectedCharacter;
 
@@ -27,21 +14,17 @@ class CharacterProfileBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<CharacterProfileProvider>(
-      builder: (context, characterProfileProvider, child) {
-        // Use characterProfileProvider to access character profile information
-        // Display relevant information on the page
+    // Use characterProfileProvider to access character profile information
+    // Display relevant information on the page
 
-        return Scaffold(
-          appBar: AppBar(
-            title: Text(selectedCharacter.simplified),
-          ),
-          body: Center(
-            child: Text(characterProfileProvider.characterProfileModel.pinyin),
-            // Display other relevant information
-          ),
-        );
-      },
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(selectedCharacter.simplified),
+      ),
+      body: Center(
+        child: Text(selectedCharacter.pinyin_tones),
+        // Display other relevant information
+      ),
     );
   }
 }
