@@ -1,6 +1,8 @@
+// collection_page.dart
 import 'package:flutter/material.dart';
 import 'package:pinyinpal/models/collection_model.dart';
 import 'package:pinyinpal/models/hsk_entry.dart';
+import 'package:pinyinpal/pages/character_profile/character_profile.dart';
 import 'package:provider/provider.dart';
 
 class CollectionPage extends StatelessWidget {
@@ -12,8 +14,6 @@ class CollectionPage extends StatelessWidget {
     );
   }
 
-  //init stat
-
   Widget _buildBody() {
     return Consumer<CollectionModel>(
       builder: (context, collectionModel, child) {
@@ -24,7 +24,7 @@ class CollectionPage extends StatelessWidget {
         } else {
           // Build the grid with loaded characters
           return Container(
-            margin: EdgeInsets.all(16.0), // Adjust the margin as needed
+            margin: EdgeInsets.all(16.0),
             child: GridView.builder(
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 3,
@@ -34,7 +34,11 @@ class CollectionPage extends StatelessWidget {
               ),
               itemCount: collectionModel.hskEntries.length,
               itemBuilder: (context, index) {
-                return _buildCharacterItem(collectionModel.hskEntries[index]);
+                return _buildCharacterItem(
+                  context,
+                  collectionModel,
+                  collectionModel.hskEntries[index],
+                );
               },
             ),
           );
@@ -43,10 +47,17 @@ class CollectionPage extends StatelessWidget {
     );
   }
 
-  Widget _buildCharacterItem(HskEntry character) {
+  Widget _buildCharacterItem(BuildContext context,
+      CollectionModel collectionModel, HskEntry character) {
     return GestureDetector(
-      onTap: () {
-        print("Character tapped: ${character.simplified}");
+      onTap: () async {
+        // Navigate to CharacterProfilePage
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => CharacterProfilePage(),
+          ),
+        );
       },
       child: Container(
         decoration: BoxDecoration(

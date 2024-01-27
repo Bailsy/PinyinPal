@@ -5,8 +5,10 @@ import 'hsk_entry.dart';
 
 class CollectionModel extends ChangeNotifier {
   List<HskEntry> _hskEntries = [];
-
   List<HskEntry> get hskEntries => _hskEntries;
+
+  HskEntry? _selectedCharacter;
+  HskEntry? get selectedCharacter => _selectedCharacter;
 
   CollectionModel() {
     // Initialize the data when the model is created
@@ -33,5 +35,10 @@ class CollectionModel extends ChangeNotifier {
       // Handle errors during data loading
       print('Error loading data: $e');
     }
+  }
+
+  void onCharacterTap(HskEntry character) {
+    _selectedCharacter = character;
+    notifyListeners();
   }
 }
