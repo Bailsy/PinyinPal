@@ -1,15 +1,11 @@
 // character_profile_page.dart
 import 'package:flutter/material.dart';
-import 'package:pinyinpal/models/collection_model.dart';
+import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:pinyinpal/models/hsk_entry.dart';
-import 'package:pinyinpal/providers/character_profile_provider.dart';
-import 'package:provider/provider.dart';
+import 'package:pinyinpal/pages/newhome.dart';
 
 class CharacterProfileBody extends StatelessWidget {
   final HskEntry selectedCharacter;
-
-  // init data from provider
-
   const CharacterProfileBody({required this.selectedCharacter});
 
   @override
@@ -19,7 +15,12 @@ class CharacterProfileBody extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(selectedCharacter.simplified),
+        leading: IconButton(
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const NewHomePage()));
+            },
+            icon: const Icon(LineAwesomeIcons.angle_left)),
       ),
       body: Center(
         child: Text(selectedCharacter.pinyin_tones),

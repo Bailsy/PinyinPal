@@ -24,8 +24,7 @@ class _ProfilePageState extends State<ProfilePage> {
       appBar: AppBar(
         leading: IconButton(
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const NewHomePage()));
+              Navigator.pop(context);
             },
             icon: const Icon(LineAwesomeIcons.angle_left)),
       ),

@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:pinyinpal/pages/home.dart';
 import 'package:pinyinpal/pages/newhome.dart';
 import 'package:pinyinpal/pages/signup.dart';
 import 'package:pinyinpal/setprofile.dart';
 
 class LoginPage extends StatefulWidget {
-  LoginPage({Key? key});
+  const LoginPage({Key? key});
   @override
   _LoginPageState createState() => _LoginPageState();
 }

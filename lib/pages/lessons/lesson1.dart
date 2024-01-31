@@ -117,10 +117,7 @@ class Lesson1State extends State<Lesson1> {
         appBar: AppBar(
           leading: IconButton(
               onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const NewHomePage()));
+                Navigator.pop(context);
               },
               icon: const Icon(LineAwesomeIcons.angle_left)),
         ),

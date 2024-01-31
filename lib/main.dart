@@ -22,7 +22,11 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       theme: myTheme,
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      initialRoute: '/login',
+      routes: {
+        '/login': (context) => const LoginPage(),
+        '/home': (context) => const NewHomePage(),
+      },
     );
   }
 }

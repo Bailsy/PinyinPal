@@ -39,7 +39,7 @@ class NewHomePageState extends State<NewHomePage> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const ProfilePage(),
+                builder: (context) => ProfilePage(),
               ),
             );
           },
@@ -55,7 +55,7 @@ class NewHomePageState extends State<NewHomePage> {
       ),
       body: IndexedStack(
         index: indexPos,
-        children: const [
+        children: [
           ProgressionPage(),
           FlashCardTimedProvider(),
           CollectionProvider(),
