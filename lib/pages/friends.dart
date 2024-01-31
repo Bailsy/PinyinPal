@@ -24,6 +24,14 @@ class FriendsPageState extends State<FriendsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(LineAwesomeIcons.angle_left),
+        ),
+      ),
       bottomNavigationBar: FriendsNavBar(
         onIndexChanged: (index) {
           setState(() {
@@ -50,28 +58,18 @@ class FriendRequestState extends State<FriendRequest> {
   final TextEditingController searchController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const ProfilePage()));
-            },
-            icon: const Icon(LineAwesomeIcons.angle_left),
-          ),
-        ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              Container(
-                  height: DeviceInfo.height / 1.2,
-                  child: ChangeNotifierProvider(
-                    create: (_) => CollectionModel(),
-                    child: _buildBody(),
-                  ))
-            ],
-          ),
-        ));
+    return SingleChildScrollView(
+      child: Column(
+        children: <Widget>[
+          Container(
+              height: DeviceInfo.height / 1.2,
+              child: ChangeNotifierProvider(
+                create: (_) => CollectionModel(),
+                child: _buildBody(),
+              ))
+        ],
+      ),
+    );
   }
 
   //init stat
@@ -162,28 +160,18 @@ class FriendCircleState extends State<FriendCircle> {
   final TextEditingController searchController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const ProfilePage()));
-            },
-            icon: const Icon(LineAwesomeIcons.angle_left),
-          ),
-        ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              Container(
-                  height: DeviceInfo.height / 1.2,
-                  child: ChangeNotifierProvider(
-                    create: (_) => CollectionModel(),
-                    child: _buildBody(),
-                  ))
-            ],
-          ),
-        ));
+    return SingleChildScrollView(
+      child: Column(
+        children: <Widget>[
+          Container(
+              height: DeviceInfo.height / 1.2,
+              child: ChangeNotifierProvider(
+                create: (_) => CollectionModel(),
+                child: _buildBody(),
+              ))
+        ],
+      ),
+    );
   }
 
   //init stat
@@ -281,62 +269,52 @@ class FriendFinderState extends State<FriendFinder> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const ProfilePage()));
-            },
-            icon: const Icon(LineAwesomeIcons.angle_left),
-          ),
-        ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              Container(
-                padding: EdgeInsets.only(
-                    top: DeviceInfo.height / 100, left: 80, right: 80),
-                child: Align(
-                  alignment: Alignment.topCenter,
-                  child: TextField(
-                    controller: searchController,
-                    //textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      color: pWhiteColour,
-                      fontSize: StylingConstants.pFontSizeSmall,
-                      fontFamily: StylingConstants.pStandartFont,
-                      decoration: TextDecoration.none,
-                      decorationThickness: 0,
-                    ),
-                    decoration: const InputDecoration(
-                        hintText: 'Friend Name',
-                        hintStyle: TextStyle(color: pLightGreyColour),
-                        labelStyle: TextStyle(
-                            color: pWhiteColour, //underline color
-                            fontSize: StylingConstants.pFontSizeSmall),
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: pWhiteColour),
-                        ),
-                        focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: pWhiteColour),
-                        ),
-                        prefixIcon: Icon(
-                          LineAwesomeIcons.search,
-                          color: pLightGreyColour,
-                        )),
-                  ),
+    return SingleChildScrollView(
+      child: Column(
+        children: <Widget>[
+          Container(
+            padding: EdgeInsets.only(
+                top: DeviceInfo.height / 100, left: 80, right: 80),
+            child: Align(
+              alignment: Alignment.topCenter,
+              child: TextField(
+                controller: searchController,
+                //textAlign: TextAlign.center,
+                style: const TextStyle(
+                  color: pWhiteColour,
+                  fontSize: StylingConstants.pFontSizeSmall,
+                  fontFamily: StylingConstants.pStandartFont,
+                  decoration: TextDecoration.none,
+                  decorationThickness: 0,
                 ),
+                decoration: const InputDecoration(
+                    hintText: 'Friend Name',
+                    hintStyle: TextStyle(color: pLightGreyColour),
+                    labelStyle: TextStyle(
+                        color: pWhiteColour, //underline color
+                        fontSize: StylingConstants.pFontSizeSmall),
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: pWhiteColour),
+                    ),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: pWhiteColour),
+                    ),
+                    prefixIcon: Icon(
+                      LineAwesomeIcons.search,
+                      color: pLightGreyColour,
+                    )),
               ),
-              Container(
-                  height: DeviceInfo.height / 1.2,
-                  child: ChangeNotifierProvider(
-                    create: (_) => CollectionModel(),
-                    child: _buildBody(),
-                  ))
-            ],
+            ),
           ),
-        ));
+          Container(
+              height: DeviceInfo.height / 1.2,
+              child: ChangeNotifierProvider(
+                create: (_) => CollectionModel(),
+                child: _buildBody(),
+              ))
+        ],
+      ),
+    );
   }
 
   //init stat

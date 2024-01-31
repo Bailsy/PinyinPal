@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-import 'package:pinyinpal/pages/home.dart';
+import 'package:pinyinpal/pages/newhome.dart';
 
 class AppBarWidget extends StatelessWidget {
   @override
@@ -10,7 +10,7 @@ class AppBarWidget extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const HomePage()),
+            MaterialPageRoute(builder: (context) => const NewHomePage()),
           );
         },
         icon: const Icon(LineAwesomeIcons.angle_left),
