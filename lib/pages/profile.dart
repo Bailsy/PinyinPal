@@ -99,8 +99,8 @@ class _ProfilePageState extends State<ProfilePage> {
               textColor: Colors.red,
               endIcon: false,
               onPress: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => LoginPage()));
+                Navigator.pushNamedAndRemoveUntil(
+                    context, '/login', (route) => false);
               },
             ),
             PopScope(canPop: false, child: Container()),

@@ -51,8 +51,10 @@ class _LoginPageState extends State<LoginPage> {
         await setProfile.setDetails(msg);
 
         // Navigate to Home Screen
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => NewHomePage()));
+        Navigator.pushReplacementNamed(
+          context,
+          '/home',
+        );
       } else {
         setState(() {
           //hide progress indicator
