@@ -7,6 +7,7 @@ import 'package:pinyinpal/models/collection_model.dart';
 import 'package:pinyinpal/models/friends_model.dart';
 import 'package:pinyinpal/models/hsk_entry.dart';
 import 'package:pinyinpal/pages/profile.dart';
+import 'package:pinyinpal/models/sendfriendrequest.dart';
 import 'package:pinyinpal/widget/friendnavbar.dart';
 import 'package:provider/provider.dart';
 
@@ -32,7 +33,7 @@ class FriendsPageState extends State<FriendsPage> {
       ),
       body: IndexedStack(
         index: indexPos,
-        children: const [FriendFinder(), FriendRequest()],
+        children: const [FriendFinder(), FriendRequest(), FriendCircle()],
       ),
     );
   }
@@ -78,9 +79,8 @@ class FriendRequestState extends State<FriendRequest> {
   Widget _buildBody() {
     return Consumer<FriendModel>(
       builder: (context, FriendModel, child) {
-        if (FriendModel.usernames.isEmpty) {
-          // If characters are not loaded, trigger loadin
-          return Center(child: CircularProgressIndicator());
+        if (FriendModel.requests.isEmpty) {
+          return Center(child: Text("No Requests found"));
         } else {
           // Build the grid with loaded characters
           return Container(
@@ -92,10 +92,121 @@ class FriendRequestState extends State<FriendRequest> {
                 mainAxisSpacing: 8.0,
                 childAspectRatio: 4,
               ),
-              itemCount: FriendModel.usernames.length,
+              itemCount: FriendModel.requests.length,
               itemBuilder: (context, index) {
-                return _buildCharacterItem(
-                    FriendModel.usernames[index]["UNAME"]);
+                return _buildCharacterItem(FriendModel.requests[index]["UNAME"],
+                    FriendModel.requests[index]["UID"]);
+              },
+            ),
+          );
+        }
+      },
+    );
+  }
+
+  Widget _buildCharacterItem(String username, String identification) {
+    return GestureDetector(
+      child: Container(
+        decoration: BoxDecoration(
+          color: Color(0xff303238).withOpacity(0),
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Container(
+              width: 10,
+            ),
+            Text(
+              username,
+              style: TextStyle(color: Colors.grey, fontSize: 30),
+            ),
+            Container(
+              width: 100,
+            ),
+            InkWell(
+              onTap: () {
+                SendFriendRequest sf = SendFriendRequest();
+                sf.denyRequest(identification);
+                print("Character tapped: ${username}");
+              },
+              child: Icon(LineAwesomeIcons.times, color: Colors.red, size: 45),
+            ),
+            InkWell(
+              onTap: () {
+                SendFriendRequest sf = SendFriendRequest();
+                sf.acceptRequest(identification);
+                print("Character tapped: ${username}");
+              },
+              child:
+                  Icon(LineAwesomeIcons.check, color: Colors.green, size: 45),
+            ),
+            Container(
+              width: 10,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class FriendCircle extends StatefulWidget {
+  const FriendCircle({Key? key}) : super(key: key);
+
+  @override
+  FriendCircleState createState() => FriendCircleState();
+}
+
+class FriendCircleState extends State<FriendCircle> {
+  final TextEditingController searchController = TextEditingController();
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          leading: IconButton(
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const ProfilePage()));
+            },
+            icon: const Icon(LineAwesomeIcons.angle_left),
+          ),
+        ),
+        body: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              Container(
+                  height: DeviceInfo.height / 1.2,
+                  child: ChangeNotifierProvider(
+                    create: (_) => CollectionModel(),
+                    child: _buildBody(),
+                  ))
+            ],
+          ),
+        ));
+  }
+
+  //init stat
+
+  Widget _buildBody() {
+    return Consumer<FriendModel>(
+      builder: (context, FriendModel, child) {
+        if (FriendModel.friends.isEmpty) {
+          return Center(child: Text("No Friends"));
+        } else {
+          // Build the grid with loaded characters
+          return Container(
+            margin: EdgeInsets.all(16.0), // Adjust the margin as needed
+            child: GridView.builder(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 1,
+                crossAxisSpacing: 8.0,
+                mainAxisSpacing: 8.0,
+                childAspectRatio: 4,
+              ),
+              itemCount: FriendModel.friends.length,
+              itemBuilder: (context, index) {
+                return _buildCharacterItem(FriendModel.friends[index]["UNAME"]);
               },
             ),
           );
@@ -124,21 +235,17 @@ class FriendRequestState extends State<FriendRequest> {
             Container(
               width: 100,
             ),
-            InkWell(
-              onTap: () {
-                print("Character tapped: ${username}");
-              },
-              child: Icon(LineAwesomeIcons.times, color: Colors.red, size: 45),
-            ),
-            InkWell(
-              onTap: () {
-                print("Character tapped: ${username}");
-              },
-              child:
-                  Icon(LineAwesomeIcons.check, color: Colors.green, size: 45),
-            ),
-            Container(
-              width: 10,
+            Column(
+              // Align icons vertically using Column
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(height: 30),
+                InkWell(
+                  onTap: () {},
+                  child: Icon(LineAwesomeIcons.circle,
+                      color: pBlueColour, size: 45),
+                ),
+              ],
             ),
           ],
         ),
@@ -239,13 +346,13 @@ class FriendFinderState extends State<FriendFinder> {
       builder: (context, FriendModel, child) {
         if (searchTerm != previousSearchTerm) {
           // If search term has changed, trigger loading
-          FriendModel.loadData(searchTerm);
+          FriendModel.loadUsers(searchTerm);
           // Update the current search term in FriendModel
           previousSearchTerm = searchTerm;
         }
         if (FriendModel.usernames.isEmpty && searchController.text.isNotEmpty) {
           // If characters are not loaded, trigger loading
-          FriendModel.loadData(searchTerm);
+          FriendModel.loadUsers(searchTerm);
 
           return Center(child: CircularProgressIndicator());
         } else {
@@ -262,7 +369,8 @@ class FriendFinderState extends State<FriendFinder> {
               itemCount: FriendModel.usernames.length,
               itemBuilder: (context, index) {
                 return _buildCharacterItem(
-                    FriendModel.usernames[index]["UNAME"]);
+                    FriendModel.usernames[index]["UNAME"],
+                    FriendModel.usernames[index]["UID"]);
               },
             ),
           );
@@ -271,7 +379,7 @@ class FriendFinderState extends State<FriendFinder> {
     );
   }
 
-  Widget _buildCharacterItem(String username) {
+  Widget _buildCharacterItem(String username, String friendID) {
     return GestureDetector(
       child: Container(
         decoration: BoxDecoration(
@@ -298,7 +406,10 @@ class FriendFinderState extends State<FriendFinder> {
                 Container(height: 30),
                 InkWell(
                   onTap: () {
-                    print("Character tapped: ${username}");
+                    print("Character tapped: ${friendID}");
+                    SendFriendRequest sf = SendFriendRequest();
+
+                    sf.sendRequest(friendID);
                   },
                   child: Icon(LineAwesomeIcons.user_friends,
                       color: pBlueColour, size: 45),

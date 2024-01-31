@@ -16,7 +16,7 @@ class FriendsNavBarState extends State<FriendsNavBar> {
     return Container(
       color: Colors.black,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20),
         child: GNav(
           backgroundColor: Colors.black,
           color: Colors.white,
@@ -34,6 +34,10 @@ class FriendsNavBarState extends State<FriendsNavBar> {
             GButton(
               icon: Icons.mail_rounded,
               text: "Requests",
+            ),
+            GButton(
+              icon: Icons.circle,
+              text: "Circle",
             ),
           ],
         ),
