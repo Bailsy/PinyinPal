@@ -15,26 +15,12 @@ import 'package:pinyinpal/widget/popups.dart';
 import 'package:pinyinpal/widget/appbarwidget.dart';
 import 'package:pinyinpal/models/flashcardtimedmodel.dart';
 
-class FlashCardTimed extends StatelessWidget {
-  const FlashCardTimed({Key? key}) : super(key: key);
-
+class FlashCardTimed extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: ChangeNotifierProvider(
-        create: (context) => FlashCardTimedModel(),
-        child: FlashCardTimedBody(),
-      ),
-    );
-  }
+  _FlashCardTimedState createState() => _FlashCardTimedState();
 }
 
-class FlashCardTimedBody extends StatefulWidget {
-  @override
-  _FlashCardTimedBodyState createState() => _FlashCardTimedBodyState();
-}
-
-class _FlashCardTimedBodyState extends State<FlashCardTimedBody> {
+class _FlashCardTimedState extends State<FlashCardTimed> {
   final TextEditingController pinyinController = TextEditingController();
 
   @override

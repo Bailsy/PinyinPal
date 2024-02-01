@@ -10,11 +10,6 @@ class CollectionModel extends ChangeNotifier {
   HskEntry? _selectedCharacter;
   HskEntry? get selectedCharacter => _selectedCharacter;
 
-  CollectionModel() {
-    // Initialize the data when the model is created
-    loadData();
-  }
-
   Future<void> loadData() async {
     try {
       // Load JSON data from assets

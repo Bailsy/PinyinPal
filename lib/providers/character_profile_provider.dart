@@ -1,26 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:pinyinpal/models/character_profile_model.dart';
 import 'package:pinyinpal/models/hsk_entry.dart';
-import 'package:pinyinpal/services/api_service.dart';
+import 'package:pinyinpal/pages/character_profile/character_profile.dart';
+import 'package:provider/provider.dart';
 
-class CharacterProfileProvider extends ChangeNotifier {
-  late CharacterProfileModel _characterProfileModel;
+class CharacterProfileProvider extends StatelessWidget {
+  final HskEntry hskCharacter; // Add this line
 
-  CharacterProfileModel get characterProfileModel => _characterProfileModel;
+  const CharacterProfileProvider({Key? key, required this.hskCharacter})
+      : super(key: key);
 
-  Future<void> fetchData(HskEntry hskEntry) async {
-    final audioData = await ApiService.fetchAudioData(hskEntry.simplified);
-    final exampleSentences = await ApiService.fetchExampleSentences(
-        hskEntry.simplified, 'Elementary');
-
-    _characterProfileModel = CharacterProfileModel(
-      character: hskEntry.simplified,
-      pinyin: hskEntry
-          .pinyin_tones, // You need to replace this with the actual pinyin.a
-      audioData: audioData,
-      meaning: hskEntry
-          .translation, // You need to replace this with the actual meaning.
-      exampleSentences: exampleSentences,
+  @override
+  Widget build(BuildContext context) {
+    // Use the Provider to provide the CharacterProfileModel to the widget tree
+    return ChangeNotifierProvider(
+      create: (_) => CharacterProfileModel(),
+      child: CharacterProfilePage(
+          selectedCharacter: hskCharacter), // Pass the HskCharacter
     );
   }
 }

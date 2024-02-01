@@ -33,7 +33,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => const FlashCardTimed(),
+            builder: (context) => FlashCardTimed(),
           ),
         );
       },

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:pinyinpal/models/collection_model.dart';
 import 'package:pinyinpal/models/hsk_entry.dart';
 import 'package:pinyinpal/pages/character_profile/character_profile.dart';
+import 'package:pinyinpal/providers/character_profile_provider.dart';
 import 'package:provider/provider.dart';
 
 class CollectionPage extends StatelessWidget {
@@ -49,7 +50,7 @@ class CollectionPage extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) =>
-                CharacterProfileBody(selectedCharacter: character),
+                CharacterProfileProvider(hskCharacter: character),
           ),
         );
         print(character.simplified);

@@ -19,9 +19,9 @@ class ApiService {
   }
 
   static Future<List<ExampleSentence>> fetchExampleSentences(
-      String word, String level) async {
-    final response = await http.get(Uri.parse(
-        'https://pinyin-word-api.vercel.app/api/sentences/$word?level=$level'));
+      String word) async {
+    final response = await http.get(
+        Uri.parse('https://pinyin-word-api.vercel.app/api/sentences/$word'));
     // Process the response and convert it to List<ExampleSentence>
 
     // Placeholder: Handle the response and return a List<ExampleSentence>

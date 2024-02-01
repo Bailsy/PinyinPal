@@ -11,7 +11,7 @@ class FlashCardTimedProvider extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (_) => FlashCardTimedModel(),
-      child: const FlashCardTimed(),
+      child: FlashCardTimed(),
     );
   }
 }
