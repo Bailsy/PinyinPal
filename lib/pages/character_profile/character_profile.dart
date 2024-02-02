@@ -2,6 +2,9 @@
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'package:iconify_flutter/iconify_flutter.dart';
+import 'package:iconify_flutter/icons/ion.dart';
+import 'package:iconify_flutter/icons/ph.dart';
 import 'package:pinyinpal/constants/stylingconstants.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:pinyinpal/models/character_profile_model.dart';
@@ -71,19 +74,35 @@ class _CharacterProfileBodyState extends State<CharacterProfileBody> {
                   ),
                 ),
                 // Audio playback button for the selected character
+                Container(
+                  width: 20,
+                ),
                 ElevatedButton(
                   //_playaudio is in model
                   onPressed: () =>
                       characterProfileModel.playAudio(widget.selectedCharacter),
-                  child: const Text('Play Audio'),
+                  child: const Iconify(
+                    Ph.speaker_high_fill,
+                    color: Colors.blue,
+                    size: 20,
+                  ),
                 ),
               ],
             ),
             // Display other relevant information
 
             // Example sentences section
+
             ExpansionTile(
-              title: Text('Example Sentences'),
+              title: const Text(
+                'Example Sentences',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontSize: 20,
+                    fontFamily: 'LibreFranklin',
+                    color: Colors.grey),
+              ),
+              collapsedIconColor: Colors.grey,
               textColor: Colors.white,
               children: [
                 Column(

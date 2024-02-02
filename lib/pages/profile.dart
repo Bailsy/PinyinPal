@@ -5,6 +5,7 @@ import 'package:pinyinpal/pages/friends.dart';
 import 'package:pinyinpal/pages/newhome.dart';
 import 'package:pinyinpal/pages/login.dart';
 import 'package:pinyinpal/pages/newhome.dart';
+import 'package:pinyinpal/pages/scanner.dart';
 import 'package:pinyinpal/providers/friendprovider.dart';
 import 'package:pinyinpal/widget/profilemenu.dart';
 
@@ -81,6 +82,13 @@ class _ProfilePageState extends State<ProfilePage> {
                 icon: LineAwesomeIcons.user_check,
                 onPress: () {
                   print("user check");
+                }),
+            ProfileWidgets(
+                title: "Scan",
+                icon: LineAwesomeIcons.qrcode,
+                onPress: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const Scanner()));
                 }),
             ProfileWidgets(
                 title: "Add Friends",
