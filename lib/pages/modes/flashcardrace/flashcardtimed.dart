@@ -42,10 +42,24 @@ class _FlashCardTimedState extends State<FlashCardTimed> {
 
     if (userAnswer != flashCardModel.currentHanzi) {
       //Incorrect Answer!
+      flashCardModel.increaseIncorrect();
       AnswerDialog.failurePopup(context, "Try again!");
+      if (flashCardModel.count == flashCardModel.maxCount) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => FinishedSet(
+              Tcorrect: flashCardModel.correct,
+              Tincorrect: flashCardModel.incorrect,
+            ),
+          ),
+        );
+      }
+      flashCardModel.nextQuestion();
     } else {
       //Correct Answer!
       flashCardModel.increaseCorrect();
+      flashCardModel.updateScore();
       AnswerDialog.successPopup(
           context, '${flashCardModel.currentHanzi} is correct!');
 

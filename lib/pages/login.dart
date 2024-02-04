@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:pinyinpal/pages/newhome.dart';
 import 'package:pinyinpal/pages/signup.dart';
+import 'package:pinyinpal/services/json_downloader.dart';
 import 'package:pinyinpal/setprofile.dart';
 
 class LoginPage extends StatefulWidget {
@@ -49,6 +50,9 @@ class _LoginPageState extends State<LoginPage> {
 
         SetProfile setProfile = SetProfile();
         await setProfile.setDetails(msg);
+
+        DownloadJson js = DownloadJson();
+        js.downloadJson();
 
         // Navigate to Home Screen
         Navigator.pushReplacementNamed(

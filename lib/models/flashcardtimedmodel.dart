@@ -1,6 +1,11 @@
 // FlashCardTimedModel.dart
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:mysql1/mysql1.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:pinyinpal/constants/deviceinfo.dart';
 import 'package:pinyinpal/models/databasecontrol.dart';
 
@@ -11,7 +16,7 @@ class FlashCardTimedModel extends ChangeNotifier {
   int _incorrect = 0;
   String _currHanzi = "";
   String _currTranslation = ""; // Add translation
-  int _maxCount = 150;
+  int _maxCount = 5;
   List<ResultRow> _hsk1data = [];
 
   int get count => _count;
@@ -47,6 +52,30 @@ class FlashCardTimedModel extends ChangeNotifier {
   // translation getter
   String getCurrTranslation() {
     return _currTranslation;
+  }
+
+  Future<void> updateScore() async {
+    // Read the JSON file
+    Directory documentsDirectory = await getApplicationDocumentsDirectory();
+    String filePath = '${documentsDirectory.path}/stats.json';
+
+    File file = File(filePath);
+    String jsonString = await file.readAsString();
+
+    // Parse JSON content into a Dart list of maps
+    List<dynamic> jsonList = jsonDecode(jsonString);
+    List<Map<String, dynamic>> data = List<Map<String, dynamic>>.from(jsonList);
+
+    // Update the score based on the character
+    for (var item in data) {
+      if (item['simplified'] == hsk1data[_count]['simplified'].toString()) {
+        item['score'] = item['score'] + 1;
+        break; // Assuming each character is unique, no need to continue searching
+      }
+    }
+    // Write the updated data structure back to the JSON file
+    file.writeAsStringSync(jsonEncode(data));
+    print(file.readAsString());
   }
 
   void nextQuestion() {
