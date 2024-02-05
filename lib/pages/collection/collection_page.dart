@@ -1,11 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pinyinpal/models/collection_model.dart';
 import 'package:pinyinpal/models/hsk_entry.dart';
-import 'package:pinyinpal/pages/character_profile/character_profile.dart';
 import 'package:pinyinpal/providers/character_profile_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -83,7 +81,7 @@ class _CollectionPageState extends State<CollectionPage> {
       return Container(
         margin: EdgeInsets.all(16.0),
         child: GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 3,
             crossAxisSpacing: 8.0,
             mainAxisSpacing: 8.0,
@@ -109,8 +107,10 @@ class _CollectionPageState extends State<CollectionPage> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) =>
-                CharacterProfileProvider(hskCharacter: character),
+            builder: (context) => CharacterProfileProvider(
+              hskCharacter: character,
+              confidence: confidenceColor,
+            ),
           ),
         );
         print(character.simplified);

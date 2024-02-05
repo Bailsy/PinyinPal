@@ -5,9 +5,11 @@ import 'package:pinyinpal/pages/character_profile/character_profile.dart';
 import 'package:provider/provider.dart';
 
 class CharacterProfileProvider extends StatelessWidget {
-  final HskEntry hskCharacter; // Add this line
+  final HskEntry hskCharacter;
+  final Color confidence; // Add this line
 
-  const CharacterProfileProvider({Key? key, required this.hskCharacter})
+  const CharacterProfileProvider(
+      {Key? key, required this.hskCharacter, required this.confidence})
       : super(key: key);
 
   @override
@@ -16,7 +18,9 @@ class CharacterProfileProvider extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (_) => CharacterProfileModel(),
       child: CharacterProfilePage(
-          selectedCharacter: hskCharacter), // Pass the HskCharacter
+        selectedCharacter: hskCharacter,
+        confidence: confidence,
+      ), // Pass the HskCharacter
     );
   }
 }

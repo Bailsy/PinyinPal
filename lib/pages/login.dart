@@ -2,12 +2,9 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:pinyinpal/cachelogin.dart';
-import 'package:pinyinpal/pages/newhome.dart';
 import 'package:pinyinpal/pages/signup.dart';
 import 'package:pinyinpal/services/json_downloader.dart';
-import 'package:pinyinpal/services/json_uploader.dart';
 import 'package:pinyinpal/setprofile.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key});

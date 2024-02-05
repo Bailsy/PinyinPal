@@ -1,7 +1,7 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class CacheLogin {
-  static final storage = const FlutterSecureStorage();
+  static const storage = FlutterSecureStorage();
 
   static void saveCredentials(String username, String password) async {
     await storage.write(key: "username", value: username);
