@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:pinyinpal/cachelogin.dart';
 import 'package:pinyinpal/pages/newhome.dart';
 import 'package:pinyinpal/pages/signup.dart';
 import 'package:pinyinpal/services/json_downloader.dart';
 import 'package:pinyinpal/services/json_uploader.dart';
 import 'package:pinyinpal/setprofile.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key});
@@ -14,6 +16,20 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  @override
+  void initState() {
+    super.initState();
+    checkCache();
+  }
+
+  void checkCache() async {
+    bool credentialsExist = await CacheLogin.credentialsExist();
+    if (credentialsExist) {
+      List<String> loginInfo = await CacheLogin.retrieveCredentials();
+      userLogin(loginInfo[0], loginInfo[1]);
+    }
+  }
+
   //For LinearProgressIndicator.
   bool _visible = false;
 
@@ -21,9 +37,14 @@ class _LoginPageState extends State<LoginPage> {
   final userController = TextEditingController();
   final pwdController = TextEditingController();
 
-  Future userLogin() async {
-    //Login API URL
-    //use your local IP address instead of localhost or use Web API
+  Future userLogin(String username, String password) async {
+    // Create storage
+    // Create storage
+    CacheLogin.saveCredentials(username, password);
+
+    //userController.text.trim()
+    //pwdController.text.trim()
+
     String userUrl = "https://pinyinpal.com/login_api/user_login.php";
 
     // Showing LinearProgressIndicator.
@@ -33,8 +54,8 @@ class _LoginPageState extends State<LoginPage> {
 
     // Getting username and password from Controller
     var data = {
-      'username': userController.text.trim(),
-      'password': pwdController.text.trim(),
+      'username': username,
+      'password': password,
     };
 
     //Starting Web API Call.
@@ -290,7 +311,11 @@ class _LoginPageState extends State<LoginPage> {
                       child: ElevatedButton(
                         onPressed: () => {
                           // Validate returns true if the form is valid, or false otherwise.
-                          if (_formKey.currentState!.validate()) {userLogin()}
+                          if (_formKey.currentState!.validate())
+                            {
+                              userLogin(userController.text.trim(),
+                                  pwdController.text.trim())
+                            }
                         },
                         child: Padding(
                           padding: EdgeInsets.all(16.0),

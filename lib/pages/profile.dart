@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
+import 'package:pinyinpal/cachelogin.dart';
 import 'package:pinyinpal/models/profilemodel.dart';
 import 'package:pinyinpal/pages/friends.dart';
 import 'package:pinyinpal/pages/newhome.dart';
@@ -107,6 +108,7 @@ class _ProfilePageState extends State<ProfilePage> {
               textColor: Colors.red,
               endIcon: false,
               onPress: () {
+                CacheLogin.deleteCredentials();
                 Navigator.pushNamedAndRemoveUntil(
                     context, '/login', (route) => false);
               },
