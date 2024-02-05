@@ -29,8 +29,8 @@ class DownloadJson {
           Directory appDocumentsDir = await getApplicationDocumentsDirectory();
 
           // Create a new file in the ApplicationDocumentsDirectory
-          File newFile = File('${appDocumentsDir.path}/stats.json');
 
+          File newFile = File('${appDocumentsDir.path}/stats.json');
           List<dynamic> jsonList = jsonDecode(msg['stats']['json_data']);
           List<Map<String, dynamic>> dataList =
               List<Map<String, dynamic>>.from(jsonList);
