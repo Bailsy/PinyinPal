@@ -2,18 +2,48 @@ import 'package:flutter/material.dart';
 import 'package:pinyinpal/models/player.dart';
 import 'package:preload_page_view/preload_page_view.dart';
 
-class VideoPage extends StatelessWidget {
-  final String videoId;
+class CircularList<T> {
+  List<T> _items;
+  int _currentIndex = 0;
 
-  VideoPage(this.videoId);
+  CircularList(this._items) {
+    _items = _items;
+  }
+
+  int get length => _items.length;
+
+  T operator [](int index) {
+    return _items[_getNormalizedIndex(index)];
+  }
+
+  void operator []=(int index, T value) {
+    _items[_getNormalizedIndex(index)] = value;
+  }
+
+  _getNormalizedIndex(int index) {
+    if (length == 0) {
+      throw StateError("List is empty");
+    }
+    // Normalize the index to be within the bounds of the list
+    return (index % length + length) % length;
+  }
+}
+
+class VideoPage extends StatelessWidget {
+  final int pos;
+  var myList =
+      CircularList<int>([740348490, 416499210, 613729649, 63710700, 63710700]);
+
+  VideoPage(this.pos);
 
   @override
   Widget build(BuildContext context) {
+    print(myList[myList._getNormalizedIndex(pos)]);
     return Container(
       child: AspectRatio(
-        aspectRatio: 16 / 9, // adjust aspect ratio as per your video
-        child: VimeoPlayer(videoId: videoId),
-      ),
+          aspectRatio: 16 / 9, // adjust aspect ratio as per your video
+          child: VimeoPlayer(
+              videoId: myList[myList._getNormalizedIndex(pos)].toString())),
     );
   }
 }
@@ -29,15 +59,12 @@ class _PreloadPageViewState extends State<PreloadPageViewDemo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("PreloadPageView Demo"),
-      ),
       body: Container(
         child: PreloadPageView.builder(
           scrollDirection: Axis.vertical,
           preloadPagesCount: 5,
           itemBuilder: (BuildContext context, int position) =>
-              VideoPage("351593873"),
+              VideoPage(position),
           controller: PreloadPageController(initialPage: 1),
           onPageChanged: (int position) {
             print('page changed. current: $position');

@@ -4,6 +4,7 @@ import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:pinyinpal/pages/profile.dart';
 import 'package:pinyinpal/pages/progression.dart';
 import 'package:pinyinpal/pages/userstats.dart';
+import 'package:pinyinpal/pages/productivescroll.dart';
 import 'package:pinyinpal/providers/collection_provider.dart';
 import 'package:pinyinpal/providers/flashcardtimed_provider.dart';
 import 'package:pinyinpal/widget/bottomnavbar.dart';
@@ -12,7 +13,6 @@ class SystemNav {
   static void setNavBar() {
     var mySystemTheme = SystemUiOverlayStyle.light
         .copyWith(systemNavigationBarColor: Colors.black);
-
     //SystemChrome.setSystemUIOverlayStyle(mySystemTheme);
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
   }
@@ -57,7 +57,7 @@ class NewHomePageState extends State<NewHomePage> {
       body: IndexedStack(
         index: indexPos,
         children: [
-          ProgressionPage(),
+          PreloadPageViewDemo(),
           FlashCardTimedProvider(),
           CollectionProvider(),
           UserStats(),
