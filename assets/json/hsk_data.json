@@ -1,152 +1,4014 @@
 [
-    {"simplified": "爱", "pinyin_tones": "ài", "translation": "love"},
-    {"simplified": "八", "pinyin_tones": "bā", "translation": "eight"},
-    {"simplified": "爸爸", "pinyin_tones": "bàba", "translation": "Dad"},
-    {"simplified": "杯子", "pinyin_tones": "bēizi", "translation": "cup; glass"},
-    {"simplified": "北京", "pinyin_tones": "Běijīng", "translation": "Beijing"},
-    {"simplified": "本", "pinyin_tones": "běn", "translation": "measure word for books"},
-    {"simplified": "不客气", "pinyin_tones": "bú kèqi", "translation": "you're welcome; don't be polite"},
-    {"simplified": "不", "pinyin_tones": "bù", "translation": "no; not"},
-    {"simplified": "菜", "pinyin_tones": "cài", "translation": "dish (type of food); vegetables"},
-    {"simplified": "茶", "pinyin_tones": "chá", "translation": "tea"},
-    {"simplified": "吃", "pinyin_tones": "chī", "translation": "eat"},
-    {"simplified": "出租车", "pinyin_tones": "chūzūchē", "translation": "taxi; cab"},
-    {"simplified": "打电话", "pinyin_tones": "dǎ diànhuà", "translation": "make a phone call"},
-    {"simplified": "大", "pinyin_tones": "dà", "translation": "big; large"},
-    {"simplified": "的", "pinyin_tones": "de", "translation": "indicates possession, like adding 's to a noun"},
-    {"simplified": "点", "pinyin_tones": "diǎn", "translation": "a dot; a little; o'clock"},
-    {"simplified": "电脑", "pinyin_tones": "diànnǎo", "translation": "computer"},
-    {"simplified": "电视", "pinyin_tones": "diànshì", "translation": "television; TV"},
-    {"simplified": "电影", "pinyin_tones": "diànyǐng", "translation": "movie; film"},
-    {"simplified": "东西", "pinyin_tones": "dōngxi", "translation": "things; stuff"},
-    {"simplified": "都", "pinyin_tones": "dōu", "translation": "all; both"},
-    {"simplified": "读", "pinyin_tones": "dú", "translation": "to read; to study"},
-    {"simplified": "对不起", "pinyin_tones": "duìbuqǐ", "translation": "sorry"},
-    {"simplified": "多", "pinyin_tones": "duō", "translation": "many"},
-    {"simplified": "多少", "pinyin_tones": "duōshao", "translation": "how much?; how many?"},
-    {"simplified": "儿子", "pinyin_tones": "érzi", "translation": "son"},
-    {"simplified": "二", "pinyin_tones": "èr", "translation": "two"},
-    {"simplified": "饭店", "pinyin_tones": "fàndiàn", "translation": "restaurant; hotel"},
-    {"simplified": "飞机", "pinyin_tones": "fēijī", "translation": "airplane"},
-    {"simplified": "分钟", "pinyin_tones": "fēnzhōng", "translation": "minute; (measure word for time)"},
-    {"simplified": "高兴", "pinyin_tones": "gāoxìng", "translation": "happy; glad"},
-    {"simplified": "个", "pinyin_tones": "ge", "translation": "general measure word"},
-    {"simplified": "工作", "pinyin_tones": "gōngzuò", "translation": "work; a job"},
-    {"simplified": "狗", "pinyin_tones": "gǒu", "translation": "dog"},
-    {"simplified": "汉语", "pinyin_tones": "Hànyǔ", "translation": "Chinese language"},
-    {"simplified": "好", "pinyin_tones": "hǎo", "translation": "good"},
-    {"simplified": "号", "pinyin_tones": "hào", "translation": "number; day of a month"},
-    {"simplified": "喝", "pinyin_tones": "hē", "translation": "to drink"},
-    {"simplified": "和", "pinyin_tones": "hé", "translation": "and; with"},
-    {"simplified": "很", "pinyin_tones": "hěn", "translation": "very; quite"},
-    {"simplified": "后面", "pinyin_tones": "hòumian", "translation": "back; behind"},
-    {"simplified": "回", "pinyin_tones": "huí", "translation": "to return; to reply; to go back"},
-    {"simplified": "会", "pinyin_tones": "huì", "translation": "know how to"},
-    {"simplified": "几", "pinyin_tones": "jǐ", "translation": "how many; several; a few"},
-    {"simplified": "家", "pinyin_tones": "jiā", "translation": "family; home"},
-    {"simplified": "叫", "pinyin_tones": "jiào", "translation": "to be called"},
-    {"simplified": "今天", "pinyin_tones": "jīntiān", "translation": "today"},
-    {"simplified": "九", "pinyin_tones": "jiǔ", "translation": "nine"},
-    {"simplified": "开", "pinyin_tones": "kāi", "translation": "to open; to start; to operate (a vehicle)"},
-    {"simplified": "看", "pinyin_tones": "kàn", "translation": "see; look at; to watch"},
-    {"simplified": "看见", "pinyin_tones": "kànjiàn", "translation": "see; catch sight of"},
-    {"simplified": "块", "pinyin_tones": "kuài", "translation": "lump; piece; sum of money"},
-    {"simplified": "来", "pinyin_tones": "lái", "translation": "come; arrive; ever since; next"},
-    {"simplified": "老师", "pinyin_tones": "lǎoshī", "translation": "teacher"},
-    {"simplified": "了", "pinyin_tones": "le", "translation": "indicates a completed or finished action"},
-    {"simplified": "冷", "pinyin_tones": "lěng", "translation": "cold"},
-    {"simplified": "里", "pinyin_tones": "lǐ", "translation": "inside; Chinese mile (~0.5 km)"},
-    {"simplified": "六", "pinyin_tones": "liù", "translation": "six"},
-    {"simplified": "妈妈", "pinyin_tones": "māma", "translation": "mom; mum"},
-    {"simplified": "吗", "pinyin_tones": "ma", "translation": "indicates a yes/no question (added to a statement)"},
-    {"simplified": "买", "pinyin_tones": "mǎi", "translation": "to buy"},
-    {"simplified": "猫", "pinyin_tones": "māo", "translation": "cat"},
-    {"simplified": "没关系", "pinyin_tones": "méi guānxi", "translation": "it doesn't matter; never mind"},
-    {"simplified": "没有", "pinyin_tones": "méiyǒu", "translation": "not have; there is not"},
-    {"simplified": "米饭", "pinyin_tones": "mǐfàn", "translation": "(cooked) rice"},
-    {"simplified": "明天", "pinyin_tones": "míngtiān", "translation": "tomorrow"},
-    {"simplified": "名字", "pinyin_tones": "míngzi", "translation": "name"},
-    {"simplified": "哪", "pinyin_tones": "nǎ", "translation": "which; how"},
-    {"simplified": "哪儿", "pinyin_tones": "nǎr", "translation": "where? (Beijing accent)"},
-    {"simplified": "那", "pinyin_tones": "nà", "translation": "that; then"},
-    {"simplified": "呢", "pinyin_tones": "ne", "translation": "indicates a question; how about...?"},
-    {"simplified": "能", "pinyin_tones": "néng", "translation": "can; be able"},
-    {"simplified": "你", "pinyin_tones": "nǐ", "translation": "you (singular)"},
-    {"simplified": "年", "pinyin_tones": "nián", "translation": "year"},
-    {"simplified": "女儿", "pinyin_tones": "nǚ'ér", "translation": "daughter"},
-    {"simplified": "朋友", "pinyin_tones": "péngyou", "translation": "friend"},
-    {"simplified": "漂亮", "pinyin_tones": "piàoliang", "translation": "pretty; beautiful"},
-    {"simplified": "苹果", "pinyin_tones": "píngguǒ", "translation": "apple"},
-    {"simplified": "七", "pinyin_tones": "qī", "translation": "seven"},
-    {"simplified": "钱", "pinyin_tones": "qián", "translation": "money; coin"},
-    {"simplified": "前面", "pinyin_tones": "qiánmiàn", "translation": "in front"},
-    {"simplified": "请", "pinyin_tones": "qǐng", "translation": "please; invite; to treat someone to something"},
-    {"simplified": "去", "pinyin_tones": "qù", "translation": "go; to leave"},
-    {"simplified": "热", "pinyin_tones": "rè", "translation": "heat; hot"},
-    {"simplified": "人", "pinyin_tones": "rén", "translation": "person; man; people"},
-    {"simplified": "认识", "pinyin_tones": "rènshi", "translation": "recognize; know (a person)"},
-    {"simplified": "三", "pinyin_tones": "sān", "translation": "three"},
-    {"simplified": "商店", "pinyin_tones": "shāngdiàn", "translation": "shop; store"},
-    {"simplified": "上", "pinyin_tones": "shàng", "translation": "above; up"},
-    {"simplified": "上午", "pinyin_tones": "shàngwǔ", "translation": "late morning (before noon)"},
-    {"simplified": "少", "pinyin_tones": "shǎo", "translation": "few; little"},
-    {"simplified": "谁", "pinyin_tones": "shéi", "translation": "who"},
-    {"simplified": "什么", "pinyin_tones": "shénme", "translation": "what? (replaces the noun to turn a statement into a question)"},
-    {"simplified": "十", "pinyin_tones": "shí", "translation": "ten"},
-    {"simplified": "时候", "pinyin_tones": "shíhou", "translation": "time"},
-    {"simplified": "是", "pinyin_tones": "shì", "translation": "be; is; are; am"},
-    {"simplified": "书", "pinyin_tones": "shū", "translation": "book; letter"},
-    {"simplified": "水", "pinyin_tones": "shuǐ", "translation": "water"},
-    {"simplified": "水果", "pinyin_tones": "shuǐguǒ", "translation": "fruit"},
-    {"simplified": "睡觉", "pinyin_tones": "shuì jiào", "translation": "to sleep; go to bed"},
-    {"simplified": "说", "pinyin_tones": "shuō", "translation": "speak"},
-    {"simplified": "四", "pinyin_tones": "sì", "translation": "four"},
-    {"simplified": "岁", "pinyin_tones": "suì", "translation": "years old; age"},
-    {"simplified": "他", "pinyin_tones": "tā", "translation": "he; him"},
-    {"simplified": "她", "pinyin_tones": "tā", "translation": "she"},
-    {"simplified": "太", "pinyin_tones": "tài", "translation": "too (much)"},
-    {"simplified": "天气", "pinyin_tones": "tiānqì", "translation": "weather"},
-    {"simplified": "听", "pinyin_tones": "tīng", "translation": "listen; hear"},
-    {"simplified": "同学", "pinyin_tones": "tóngxué", "translation": "fellow student; schoolmate"},
-    {"simplified": "喂", "pinyin_tones": "wèi", "translation": "hello (on the phone)"},
-    {"simplified": "我", "pinyin_tones": "wǒ", "translation": "I; me"},
-    {"simplified": "我们", "pinyin_tones": "wǒmen", "translation": "we; us"},
-    {"simplified": "五", "pinyin_tones": "wǔ", "translation": "five"},
-    {"simplified": "喜欢", "pinyin_tones": "xǐhuan", "translation": "to like"},
-    {"simplified": "下", "pinyin_tones": "xià", "translation": "fall; below"},
-    {"simplified": "下午", "pinyin_tones": "xiàwǔ", "translation": "afternoon"},
-    {"simplified": "下雨", "pinyin_tones": "xiàyǔ", "translation": "to rain"},
-    {"simplified": "先生", "pinyin_tones": "xiānsheng", "translation": "Mr.; Sir"},
-    {"simplified": "现在", "pinyin_tones": "xiànzài", "translation": "now"},
-    {"simplified": "想", "pinyin_tones": "xiǎng", "translation": "think; believe; suppose; would like to"},
-    {"simplified": "小", "pinyin_tones": "xiǎo", "translation": "small; young"},
-    {"simplified": "小姐", "pinyin_tones": "xiǎojie", "translation": "young lady; miss; Ms."},
-    {"simplified": "些", "pinyin_tones": "xiē", "translation": "some; few; several"},
-    {"simplified": "写", "pinyin_tones": "xiě", "translation": "to write; to compose"},
-    {"simplified": "谢谢", "pinyin_tones": "xièxie", "translation": "thank you"},
-    {"simplified": "星期", "pinyin_tones": "xīngqī", "translation": "week"},
-    {"simplified": "学生", "pinyin_tones": "xuésheng", "translation": "student"},
-    {"simplified": "学习", "pinyin_tones": "xuéxí", "translation": "learn; to study"},
-    {"simplified": "学校", "pinyin_tones": "xuéxiào", "translation": "school"},
-    {"simplified": "一", "pinyin_tones": "yī", "translation": "one; once; a"},
-    {"simplified": "衣服", "pinyin_tones": "yīfu", "translation": "clothes"},
-    {"simplified": "医生", "pinyin_tones": "yīshēng", "translation": "doctor"},
-    {"simplified": "医院", "pinyin_tones": "yīyuàn", "translation": "hospital"},
-    {"simplified": "椅子", "pinyin_tones": "yǐzi", "translation": "chair"},
-    {"simplified": "一点儿", "pinyin_tones": "yìdiǎnr", "translation": "a bit; a few"},
-    {"simplified": "有", "pinyin_tones": "yǒu", "translation": "have"},
-    {"simplified": "月", "pinyin_tones": "yuè", "translation": "moon; month"},
-    {"simplified": "在", "pinyin_tones": "zài", "translation": "at; on; in; indicates an action in progress"},
-    {"simplified": "再见", "pinyin_tones": "zàijiàn", "translation": "goodbye; see you later"},
-    {"simplified": "怎么", "pinyin_tones": "zěnme", "translation": "how?"},
-    {"simplified": "怎么样", "pinyin_tones": "zěnmeyàng", "translation": "how about?; how is/was it?"},
-    {"simplified": "这", "pinyin_tones": "zhè", "translation": "this"},
-    {"simplified": "中国", "pinyin_tones": "Zhōngguó", "translation": "China"},
-    {"simplified": "中午", "pinyin_tones": "zhōngwǔ", "translation": "noon; midday"},
-    {"simplified": "住", "pinyin_tones": "zhù", "translation": "to live; reside; to stop"},
-    {"simplified": "桌子", "pinyin_tones": "zhuōzi", "translation": "table; desk"},
-    {"simplified": "字", "pinyin_tones": "zì", "translation": "letter; character"},
-    {"simplified": "昨天", "pinyin_tones": "zuótiān", "translation": "yesterday"},
-    {"simplified": "做", "pinyin_tones": "zuò", "translation": "do; make"},
-    {"simplified": "坐", "pinyin_tones": "zuò", "translation": "sit"}
-]  
+	{
+		"simplified": "爱",
+		"pinyin_tones": "ài",
+		"translation": "love",
+		"examples": [
+			{
+				"sentence": "我爱你。",
+				"translation": "I love you."
+			},
+			{
+				"sentence": "他们之间充满了爱。",
+				"translation": "There is love between them."
+			},
+			{
+				"sentence": "这本书是关于爱的故事。",
+				"translation": "This book is a story about love."
+			},
+			{
+				"sentence": "她对动物有很深的爱。",
+				"translation": "She has a deep love for animals."
+			},
+			{
+				"sentence": "学习是一种对知识的爱。",
+				"translation": "Studying is a form of love for knowledge."
+			}
+		]
+	},
+	{
+		"simplified": "八",
+		"pinyin_tones": "bā",
+		"translation": "eight",
+		"examples": [
+			{
+				"sentence": "这个箱子有八个苹果。",
+				"translation": "There are eight apples in this box."
+			},
+			{
+				"sentence": "八月是我的生日月份。",
+				"translation": "August is my birthday month."
+			},
+			{
+				"sentence": "我们家有八口人。",
+				"translation": "There are eight people in my family."
+			},
+			{
+				"sentence": "她八点钟去上班。",
+				"translation": "She goes to work at eight o'clock."
+			},
+			{
+				"sentence": "这个星期有八天吗？",
+				"translation": "Does this week have eight days?"
+			}
+		]
+	},
+	{
+		"simplified": "爸爸",
+		"pinyin_tones": "bàba",
+		"translation": "Dad",
+		"examples": [
+			{
+				"sentence": "我爸爸是医生。",
+				"translation": "My dad is a doctor."
+			},
+			{
+				"sentence": "爸爸每天早上都会喝咖啡。",
+				"translation": "Dad drinks coffee every morning."
+			},
+			{
+				"sentence": "我爸爸的生日是五月十五号。",
+				"translation": "My dad's birthday is on May 15th."
+			},
+			{
+				"sentence": "爸爸喜欢唱歌。",
+				"translation": "Dad likes to sing."
+			},
+			{
+				"sentence": "我爸爸很高，有一米八。",
+				"translation": "My dad is tall, 180 cm."
+			}
+		]
+	},
+	{
+		"simplified": "杯子",
+		"pinyin_tones": "bēizi",
+		"translation": "cup; glass",
+		"examples": [
+			{
+				"sentence": "请给我一杯水。",
+				"translation": "Please give me a glass of water."
+			},
+			{
+				"sentence": "这个杯子很漂亮。",
+				"translation": "This cup is very pretty."
+			},
+			{
+				"sentence": "他喜欢用大杯子喝牛奶。",
+				"translation": "He likes to drink milk from a big cup."
+			},
+			{
+				"sentence": "这个杯子是中国的传统工艺品。",
+				"translation": "This cup is a traditional Chinese handicraft."
+			},
+			{
+				"sentence": "她每天早上都喝一杯咖啡。",
+				"translation": "She drinks a cup of coffee every morning."
+			}
+		]
+	},
+	{
+		"simplified": "北京",
+		"pinyin_tones": "Běijīng",
+		"translation": "Beijing",
+		"examples": [
+			{
+				"sentence": "我想去北京旅游。",
+				"translation": "I want to travel to Beijing."
+			},
+			{
+				"sentence": "北京是中国的首都。",
+				"translation": "Beijing is the capital of China."
+			},
+			{
+				"sentence": "北京有很多历史古迹。",
+				"translation": "Beijing has many historical sites."
+			},
+			{
+				"sentence": "去年夏天我在北京工作。",
+				"translation": "I worked in Beijing last summer."
+			},
+			{
+				"sentence": "北京的冬天很冷。",
+				"translation": "Winter in Beijing is very cold."
+			}
+		]
+	},
+	{
+		"simplified": "本",
+		"pinyin_tones": "běn",
+		"translation": "measure word for books",
+		"examples": [
+			{
+				"sentence": "这是一本好书。",
+				"translation": "This is a good book."
+			},
+			{
+				"sentence": "我的书包里有五本书。",
+				"translation": "There are five books in my backpack."
+			},
+			{
+				"sentence": "这个图书馆有很多书。",
+				"translation": "This library has many books."
+			},
+			{
+				"sentence": "他正在图书馆借一本小说。",
+				"translation": "He is borrowing a novel from the library."
+			},
+			{
+				"sentence": "这本书很有趣，你应该读一读。",
+				"translation": "This book is interesting; you should read it."
+			}
+		]
+	},
+	{
+		"simplified": "不客气",
+		"pinyin_tones": "bú kèqi",
+		"translation": "you're welcome; don't be polite",
+		"examples": [
+			{
+				"sentence": "谢谢你的帮助。",
+				"translation": "Thank you for your help."
+			},
+			{
+				"sentence": "不客气，我很乐意帮助你。",
+				"translation": "You're welcome; I'm happy to help you."
+			},
+			{
+				"sentence": "请喝茶，不客气。",
+				"translation": "Please have some tea; don't be polite."
+			},
+			{
+				"sentence": "你对我说谢谢，我说不客气。",
+				"translation": "You say thank you to me, and I say you're welcome."
+			},
+			{
+				"sentence": "她对每个人都很不客气。",
+				"translation": "She is not polite to everyone."
+			}
+		]
+	},
+	{
+		"simplified": "不",
+		"pinyin_tones": "bù",
+		"translation": "no; not",
+		"examples": [
+			{
+				"sentence": "我不喜欢吃辣的食物。",
+				"translation": "I don't like to eat spicy food."
+			},
+			{
+				"sentence": "他不想去学校。",
+				"translation": "He doesn't want to go to school."
+			},
+			{
+				"sentence": "这个电影不好看。",
+				"translation": "This movie is not interesting."
+			},
+			{
+				"sentence": "我不知道答案。",
+				"translation": "I don't know the answer."
+			},
+			{
+				"sentence": "她不想和他说话。",
+				"translation": "She doesn't want to talk to him."
+			}
+		]
+	},
+	{
+		"simplified": "菜",
+		"pinyin_tones": "cài",
+		"translation": "dish (type of food); vegetables",
+		"examples": [
+			{
+				"sentence": "这家餐厅的菜很好吃。",
+				"translation": "The dishes in this restaurant are delicious."
+			},
+			{
+				"sentence": "我喜欢吃中国菜。",
+				"translation": "I like to eat Chinese food."
+			},
+			{
+				"sentence": "今天晚上我们吃素菜。",
+				"translation": "Tonight we are eating vegetarian dishes."
+			},
+			{
+				"sentence": "这是一道很简单的菜。",
+				"translation": "This is a very simple dish."
+			},
+			{
+				"sentence": "她会做很多不同的菜。",
+				"translation": "She can cook many different dishes."
+			}
+		]
+	},
+	{
+		"simplified": "茶",
+		"pinyin_tones": "chá",
+		"translation": "tea",
+		"examples": [
+			{
+				"sentence": "我喜欢喝绿茶。",
+				"translation": "I like to drink green tea."
+			},
+			{
+				"sentence": "每天早上我都喝一杯咖啡。",
+				"translation": "Every morning I drink a cup of coffee."
+			},
+			{
+				"sentence": "茶是中国传统的饮料之一。",
+				"translation": "Tea is one of the traditional drinks in China."
+			},
+			{
+				"sentence": "你想喝红茶还是白茶？",
+				"translation": "Do you want to drink black tea or white tea?"
+			},
+			{
+				"sentence": "这个茶壶是从日本买来的。",
+				"translation": "This teapot was bought from Japan."
+			}
+		]
+	},
+	{
+		"simplified": "吃",
+		"pinyin_tones": "chī",
+		"translation": "eat",
+		"examples": [
+			{
+				"sentence": "你想吃什么？",
+				"translation": "What do you want to eat?"
+			},
+			{
+				"sentence": "我今天吃了两顿饭。",
+				"translation": "I ate two meals today."
+			},
+			{
+				"sentence": "他喜欢吃辣的食物。",
+				"translation": "He likes to eat spicy food."
+			},
+			{
+				"sentence": "这家餐厅的菜很好吃。",
+				"translation": "The dishes in this restaurant are delicious."
+			},
+			{
+				"sentence": "你吃过中国菜吗？",
+				"translation": "Have you ever eaten Chinese food?"
+			}
+		]
+	},
+	{
+		"simplified": "出租车",
+		"pinyin_tones": "chūzūchē",
+		"translation": "taxi; cab",
+		"examples": [
+			{
+				"sentence": "我在机场坐了一辆出租车。",
+				"translation": "I took a taxi at the airport."
+			},
+			{
+				"sentence": "请帮我叫一辆出租车。",
+				"translation": "Please help me call a taxi."
+			},
+			{
+				"sentence": "出租车司机很熟练地开车。",
+				"translation": "The taxi driver drives very skillfully."
+			},
+			{
+				"sentence": "出租车费用有点贵。",
+				"translation": "The taxi fare is a bit expensive."
+			},
+			{
+				"sentence": "我们需要一辆出租车去火车站。",
+				"translation": "We need a taxi to go to the train station."
+			}
+		]
+	},
+	{
+		"simplified": "打电话",
+		"pinyin_tones": "dǎ diànhuà",
+		"translation": "make a phone call",
+		"examples": [
+			{
+				"sentence": "我要打电话给我的朋友。",
+				"translation": "I want to call my friend."
+			},
+			{
+				"sentence": "他每天都给家人打电话。",
+				"translation": "He calls his family every day."
+			},
+			{
+				"sentence": "你可以用手机打电话。",
+				"translation": "You can use a mobile phone to make a call."
+			},
+			{
+				"sentence": "请等一下，我要打电话。",
+				"translation": "Please wait a moment; I need to make a call."
+			},
+			{
+				"sentence": "他打电话给我，说他晚一点到。",
+				"translation": "He called me and said he would be a little late."
+			}
+		]
+	},
+	{
+		"simplified": "大",
+		"pinyin_tones": "dà",
+		"translation": "big; large",
+		"examples": [
+			{
+				"sentence": "这是一个很大的城市。",
+				"translation": "This is a very big city."
+			},
+			{
+				"sentence": "他有一张大桌子。",
+				"translation": "He has a large table."
+			},
+			{
+				"sentence": "我喜欢大海。",
+				"translation": "I like the big sea."
+			},
+			{
+				"sentence": "这个箱子太大了，我搬不动。",
+				"translation": "This suitcase is too big; I can't move it."
+			},
+			{
+				"sentence": "他有一个大家庭，有七个兄弟姐妹。",
+				"translation": "He has a big family with seven siblings."
+			}
+		]
+	},
+	{
+		"simplified": "的",
+		"pinyin_tones": "de",
+		"translation": "indicates possession, like adding 's to a noun",
+		"examples": [
+			{
+				"sentence": "这是我的书。",
+				"translation": "This is my book."
+			},
+			{
+				"sentence": "那是你的手机吗？",
+				"translation": "Is that your phone?"
+			},
+			{
+				"sentence": "这个包是她的。",
+				"translation": "This bag is hers."
+			},
+			{
+				"sentence": "我们的家在城市里。",
+				"translation": "Our home is in the city."
+			},
+			{
+				"sentence": "这些照片是我的父母。",
+				"translation": "These photos are of my parents."
+			}
+		]
+	},
+	{
+		"simplified": "点",
+		"pinyin_tones": "diǎn",
+		"translation": "a dot; a little; o'clock",
+		"examples": [
+			{
+				"sentence": "这里有一个点。",
+				"translation": "There is a dot here."
+			},
+			{
+				"sentence": "我要买一点水果。",
+				"translation": "I want to buy some fruit."
+			},
+			{
+				"sentence": "请等一下，我需要点时间。",
+				"translation": "Please wait a moment; I need some time."
+			},
+			{
+				"sentence": "现在是几点了？",
+				"translation": "What time is it now?"
+			},
+			{
+				"sentence": "我们八点在餐厅见面。",
+				"translation": "Let's meet at the restaurant at eight o'clock."
+			}
+		]
+	},
+	{
+		"simplified": "电脑",
+		"pinyin_tones": "diànnǎo",
+		"translation": "computer",
+		"examples": [
+			{
+				"sentence": "我工作需要用电脑。",
+				"translation": "I need to use a computer for work."
+			},
+			{
+				"sentence": "他有一台新电脑。",
+				"translation": "He has a new computer."
+			},
+			{
+				"sentence": "学生们都有自己的电脑。",
+				"translation": "All the students have their own computers."
+			},
+			{
+				"sentence": "这台电脑很快。",
+				"translation": "This computer is fast."
+			},
+			{
+				"sentence": "你会使用电脑吗？",
+				"translation": "Can you use a computer?"
+			}
+		]
+	},
+	{
+		"simplified": "电视",
+		"pinyin_tones": "diànshì",
+		"translation": "television; TV",
+		"examples": [
+			{
+				"sentence": "我喜欢在晚上看电视。",
+				"translation": "I like to watch TV in the evening."
+			},
+			{
+				"sentence": "这是一台新电视。",
+				"translation": "This is a new television."
+			},
+			{
+				"sentence": "我们家有两台电视。",
+				"translation": "There are two TVs in our house."
+			},
+			{
+				"sentence": "请把电视关掉。",
+				"translation": "Please turn off the TV."
+			},
+			{
+				"sentence": "这个电视有很多频道。",
+				"translation": "This TV has many channels."
+			}
+		]
+	},
+	{
+		"simplified": "电影",
+		"pinyin_tones": "diànyǐng",
+		"translation": "movie; film",
+		"examples": [
+			{
+				"sentence": "我们今晚去看电影吧。",
+				"translation": "Let's go watch a movie tonight."
+			},
+			{
+				"sentence": "这是一部好电影。",
+				"translation": "This is a good movie."
+			},
+			{
+				"sentence": "他喜欢看动作电影。",
+				"translation": "He likes to watch action movies."
+			},
+			{
+				"sentence": "这个城市有很多电影院。",
+				"translation": "This city has many movie theaters."
+			},
+			{
+				"sentence": "我昨天晚上在家看了一部电影。",
+				"translation": "I watched a movie at home last night."
+			}
+		]
+	},
+	{
+		"simplified": "东西",
+		"pinyin_tones": "dōngxi",
+		"translation": "things; stuff",
+		"examples": [
+			{
+				"sentence": "我的包里有很多东西。",
+				"translation": "There are many things in my bag."
+			},
+			{
+				"sentence": "这个房间里有一些东西。",
+				"translation": "There are some things in this room."
+			},
+			{
+				"sentence": "你想要买什么东西？",
+				"translation": "What things do you want to buy?"
+			},
+			{
+				"sentence": "把这些东西放在桌子上。",
+				"translation": "Put these things on the table."
+			},
+			{
+				"sentence": "这是我最喜欢的东西之一。",
+				"translation": "This is one of my favorite things."
+			}
+		]
+	},
+	{
+		"simplified": "都",
+		"pinyin_tones": "dōu",
+		"translation": "all; both",
+		"examples": [
+			{
+				"sentence": "他们都是我的朋友。",
+				"translation": "They are all my friends."
+			},
+			{
+				"sentence": "这两个国家都很大。",
+				"translation": "Both of these countries are very big."
+			},
+			{
+				"sentence": "他们都喜欢吃中国菜。",
+				"translation": "They both like to eat Chinese food."
+			},
+			{
+				"sentence": "这些书都很有趣。",
+				"translation": "All these books are interesting."
+			},
+			{
+				"sentence": "我们都准备好了。",
+				"translation": "We are both ready."
+			}
+		]
+	},
+	{
+		"simplified": "读",
+		"pinyin_tones": "dú",
+		"translation": "to read; to study",
+		"examples": [
+			{
+				"sentence": "我喜欢读书。",
+				"translation": "I like to read books."
+			},
+			{
+				"sentence": "他正在图书馆读一本小说。",
+				"translation": "He is reading a novel in the library."
+			},
+			{
+				"sentence": "这是我读过的最好的文章之一。",
+				"translation": "This is one of the best articles I've ever read."
+			},
+			{
+				"sentence": "你能帮我读一下这个单词吗？",
+				"translation": "Can you help me read this word?"
+			},
+			{
+				"sentence": "他花了一小时读完了整本书。",
+				"translation": "He spent an hour reading the entire book."
+			}
+		]
+	},
+	{
+		"simplified": "对不起",
+		"pinyin_tones": "duìbuqǐ",
+		"translation": "sorry",
+		"examples": [
+			{
+				"sentence": "对不起，我迟到了。",
+				"translation": "Sorry, I'm late."
+			},
+			{
+				"sentence": "对不起，我弄破了你的杯子。",
+				"translation": "Sorry, I broke your glass."
+			},
+			{
+				"sentence": "她向他道歉并说对不起。",
+				"translation": "She apologized to him and said sorry."
+			},
+			{
+				"sentence": "请原谅我的错误，对不起。",
+				"translation": "Please forgive my mistake, I'm sorry."
+			},
+			{
+				"sentence": "对不起，我没有听清楚你说的话。",
+				"translation": "Sorry, I didn't hear what you said clearly."
+			}
+		]
+	},
+	{
+		"simplified": "多",
+		"pinyin_tones": "duō",
+		"translation": "many",
+		"examples": [
+			{
+				"sentence": "这个城市有很多高楼。",
+				"translation": "This city has many tall buildings."
+			},
+			{
+				"sentence": "多谢你的帮助。",
+				"translation": "Thank you very much for your help."
+			},
+			{
+				"sentence": "我们去过很多国家。",
+				"translation": "We have been to many countries."
+			},
+			{
+				"sentence": "多年来，他一直在这里工作。",
+				"translation": "He has been working here for many years."
+			},
+			{
+				"sentence": "这是一本很多人都喜欢的书。",
+				"translation": "This is a book that many people like."
+			}
+		]
+	},
+	{
+		"simplified": "多少",
+		"pinyin_tones": "duōshao",
+		"translation": "how much?; how many?",
+		"examples": [
+			{
+				"sentence": "你有多少钱？",
+				"translation": "How much money do you have?"
+			},
+			{
+				"sentence": "这里有多少人？",
+				"translation": "How many people are here?"
+			},
+			{
+				"sentence": "你想要多少苹果？",
+				"translation": "How many apples do you want?"
+			},
+			{
+				"sentence": "请告诉我你有多少兄弟姐妹。",
+				"translation": "Please tell me how many siblings you have."
+			},
+			{
+				"sentence": "你知道这座城市有多少人口吗？",
+				"translation": "Do you know how many people live in this city?"
+			}
+		]
+	},
+	{
+		"simplified": "儿子",
+		"pinyin_tones": "érzi",
+		"translation": "son",
+		"examples": [
+			{
+				"sentence": "我的儿子今年五岁了。",
+				"translation": "My son is five years old this year."
+			},
+			{
+				"sentence": "他是我的独生儿子。",
+				"translation": "He is my only son."
+			},
+			{
+				"sentence": "儿子在学校学习很努力。",
+				"translation": "My son studies very hard at school."
+			},
+			{
+				"sentence": "我们的儿子是这个家庭的骄傲。",
+				"translation": "Our son is the pride of this family."
+			},
+			{
+				"sentence": "儿子喜欢玩电脑游戏。",
+				"translation": "The son likes to play computer games."
+			}
+		]
+	},
+	{
+		"simplified": "二",
+		"pinyin_tones": "èr",
+		"translation": "two",
+		"examples": [
+			{
+				"sentence": "这是我们的二次机会。",
+				"translation": "This is our second chance."
+			},
+			{
+				"sentence": "他的生日是十二月二日。",
+				"translation": "His birthday is on the second of December."
+			},
+			{
+				"sentence": "我们有二个孩子。",
+				"translation": "We have two children."
+			},
+			{
+				"sentence": "这是二十一世纪。",
+				"translation": "This is the twenty-first century."
+			},
+			{
+				"sentence": "请给我来二杯咖啡。",
+				"translation": "Please give me two cups of coffee."
+			}
+		]
+	},
+	{
+		"simplified": "饭店",
+		"pinyin_tones": "fàndiàn",
+		"translation": "restaurant; hotel",
+		"examples": [
+			{
+				"sentence": "我们晚上要去饭店吃饭。",
+				"translation": "We are going to the restaurant for dinner tonight."
+			},
+			{
+				"sentence": "这家饭店的菜很好吃。",
+				"translation": "The food at this restaurant is delicious."
+			},
+			{
+				"sentence": "这是一家五星级饭店。",
+				"translation": "This is a five-star hotel."
+			},
+			{
+				"sentence": "我们在饭店里订了一间房间。",
+				"translation": "We booked a room at the hotel."
+			},
+			{
+				"sentence": "这个城市有很多好吃的饭店。",
+				"translation": "This city has many good restaurants."
+			}
+		]
+	},
+	{
+		"simplified": "飞机",
+		"pinyin_tones": "fēijī",
+		"translation": "airplane",
+		"examples": [
+			{
+				"sentence": "我们明天坐飞机去北京。",
+				"translation": "We will take a plane to Beijing tomorrow."
+			},
+			{
+				"sentence": "飞机飞得很高。",
+				"translation": "The airplane is flying very high."
+			},
+			{
+				"sentence": "这是一架大型飞机。",
+				"translation": "This is a large airplane."
+			},
+			{
+				"sentence": "飞机起飞的时间是下午三点。",
+				"translation": "The plane takes off at three o'clock in the afternoon."
+			},
+			{
+				"sentence": "你坐过飞机吗？",
+				"translation": "Have you ever flown on an airplane?"
+			}
+		]
+	},
+	{
+		"simplified": "分钟",
+		"pinyin_tones": "fēnzhōng",
+		"translation": "minute",
+		"examples": [
+			{
+				"sentence": "我等了他十分钟。",
+				"translation": "I waited for him for ten minutes."
+			},
+			{
+				"sentence": "这个会议将持续三十分钟。",
+				"translation": "This meeting will last for thirty minutes."
+			},
+			{
+				"sentence": "我迟到了五分钟。",
+				"translation": "I was five minutes late."
+			},
+			{
+				"sentence": "请你等一下，我只需要一分钟。",
+				"translation": "Please wait, I just need one minute."
+			},
+			{
+				"sentence": "他们的对话持续了四十五分钟。",
+				"translation": "Their conversation lasted for forty-five minutes."
+			}
+		]
+	},
+	{
+		"simplified": "高兴",
+		"pinyin_tones": "gāoxìng",
+		"translation": "happy; glad",
+		"examples": [
+			{
+				"sentence": "她听到这个消息感到很高兴。",
+				"translation": "She was very happy to hear the news."
+			},
+			{
+				"sentence": "我非常高兴见到你。",
+				"translation": "I'm very happy to meet you."
+			},
+			{
+				"sentence": "他成功了，心情格外高兴。",
+				"translation": "He succeeded, and he was particularly happy."
+			},
+			{
+				"sentence": "你的微笑总是能让我感到高兴。",
+				"translation": "Your smile always makes me happy."
+			},
+			{
+				"sentence": "看到你取得进步，我感到很高兴。",
+				"translation": "I'm happy to see you making progress."
+			}
+		]
+	},
+	{
+		"simplified": "个",
+		"pinyin_tones": "ge",
+		"translation": "general measure word",
+		"examples": [
+			{
+				"sentence": "我有一个好朋友。",
+				"translation": "I have a good friend."
+			},
+			{
+				"sentence": "请给我两个苹果。",
+				"translation": "Please give me two apples."
+			},
+			{
+				"sentence": "这是我的三个建议。",
+				"translation": "These are my three suggestions."
+			},
+			{
+				"sentence": "我们有四个季节。",
+				"translation": "We have four seasons."
+			},
+			{
+				"sentence": "他买了五个新书。",
+				"translation": "He bought five new books."
+			}
+		]
+	},
+	{
+		"simplified": "工作",
+		"pinyin_tones": "gōngzuò",
+		"translation": "work; a job",
+		"examples": [
+			{
+				"sentence": "她在一家大公司工作。",
+				"translation": "She works at a big company."
+			},
+			{
+				"sentence": "我每天都很早开始工作。",
+				"translation": "I start work very early every day."
+			},
+			{
+				"sentence": "这是一份有挑战性的工作。",
+				"translation": "This is a challenging job."
+			},
+			{
+				"sentence": "他的工作很忙碌，但很有意义。",
+				"translation": "His job is busy but meaningful."
+			},
+			{
+				"sentence": "我希望找到一份满意的工作。",
+				"translation": "I hope to find a satisfying job."
+			}
+		]
+	},
+	{
+		"simplified": "狗",
+		"pinyin_tones": "gǒu",
+		"translation": "dog",
+		"examples": [
+			{
+				"sentence": "这是我的小狗，名字叫小白。",
+				"translation": "This is my little dog, named Xiao Bai."
+			},
+			{
+				"sentence": "他家养了一只很可爱的狗。",
+				"translation": "They have a very cute dog at home."
+			},
+			{
+				"sentence": "在公园里，有很多人遛狗。",
+				"translation": "In the park, many people walk their dogs."
+			},
+			{
+				"sentence": "那只狗对陌生人很友好。",
+				"translation": "That dog is very friendly to strangers."
+			},
+			{
+				"sentence": "狗是人类忠实的朋友之一。",
+				"translation": "Dogs are one of humans' loyal friends."
+			}
+		]
+	},
+	{
+		"simplified": "汉语",
+		"pinyin_tones": "Hànyǔ",
+		"translation": "Chinese language",
+		"examples": [
+			{
+				"sentence": "学习汉语对我来说是一种挑战。",
+				"translation": "Learning Chinese is a challenge for me."
+			},
+			{
+				"sentence": "她非常流利地说汉语。",
+				"translation": "She speaks Chinese very fluently."
+			},
+			{
+				"sentence": "在学校里，我每周上两次汉语课。",
+				"translation": "I take Chinese classes twice a week at school."
+			},
+			{
+				"sentence": "他在汉语考试中取得了好成绩。",
+				"translation": "He got good grades in the Chinese exam."
+			},
+			{
+				"sentence": "这是我第一次学习汉语。",
+				"translation": "This is my first time learning Chinese."
+			}
+		]
+	},
+	{
+		"simplified": "好",
+		"pinyin_tones": "hǎo",
+		"translation": "good; well",
+		"examples": [
+			{
+				"sentence": "这是一本好书。",
+				"translation": "This is a good book."
+			},
+			{
+				"sentence": "你做得很好，继续努力。",
+				"translation": "You did well, keep up the good work."
+			},
+			{
+				"sentence": "他是一个好人，值得信任。",
+				"translation": "He is a good person and trustworthy."
+			},
+			{
+				"sentence": "今天的天气真好，阳光明媚。",
+				"translation": "The weather is really good today, sunny and bright."
+			},
+			{
+				"sentence": "他的建议是很好的，我们应该听从。",
+				"translation": "His advice is very good, and we should follow it."
+			}
+		]
+	},
+	{
+		"simplified": "喝",
+		"pinyin_tones": "hē",
+		"translation": "to drink",
+		"examples": [
+			{
+				"sentence": "每天喝八杯水对健康有好处。",
+				"translation": "Drinking eight glasses of water every day is good for your health."
+			},
+			{
+				"sentence": "他不喝咖啡，只喝茶。",
+				"translation": "He doesn't drink coffee, only tea."
+			},
+			{
+				"sentence": "在这家咖啡店，你可以喝到世界上最好喝的咖啡。",
+				"translation": "In this coffee shop, you can drink the best coffee in the world."
+			},
+			{
+				"sentence": "请问你想喝什么？",
+				"translation": "May I ask what you would like to drink?"
+			},
+			{
+				"sentence": "在这个城市，人们喜欢喝冰咖啡。",
+				"translation": "In this city, people like to drink iced coffee."
+			}
+		]
+	},
+	{
+		"simplified": "和",
+		"pinyin_tones": "hé",
+		"translation": "and",
+		"examples": [
+			{
+				"sentence": "我喜欢喝茶和咖啡。",
+				"translation": "I like to drink tea and coffee."
+			},
+			{
+				"sentence": "他和她是一对幸福的夫妻。",
+				"translation": "He and she are a happy couple."
+			},
+			{
+				"sentence": "昨天是雨天，和今天一样。",
+				"translation": "Yesterday was rainy, and today is the same."
+			},
+			{
+				"sentence": "这个工作需要勇气和智慧。",
+				"translation": "This job requires courage and wisdom."
+			},
+			{
+				"sentence": "学习语言需要耐心和毅力。",
+				"translation": "Learning a language requires patience and perseverance."
+			}
+		]
+	},
+	{
+		"simplified": "很",
+		"pinyin_tones": "hěn",
+		"translation": "very",
+		"examples": [
+			{
+				"sentence": "他是一个很聪明的学生。",
+				"translation": "He is a very intelligent student."
+			},
+			{
+				"sentence": "这个城市的夜景很美。",
+				"translation": "The night view of this city is very beautiful."
+			},
+			{
+				"sentence": "她的演唱会门票卖得很快，很受欢迎。",
+				"translation": "Her concert tickets sold out quickly and were very popular."
+			},
+			{
+				"sentence": "我很高兴认识你。",
+				"translation": "I'm very happy to meet you."
+			},
+			{
+				"sentence": "这个问题很复杂，需要仔细考虑。",
+				"translation": "This problem is very complex and requires careful consideration."
+			}
+		]
+	},
+	{
+		"simplified": "后面",
+		"pinyin_tones": "hòumian",
+		"translation": "back; behind",
+		"examples": [
+			{
+				"sentence": "请坐在我后面的椅子上。",
+				"translation": "Please sit in the chair behind me."
+			},
+			{
+				"sentence": "他站在我后面，我看不到他的脸。",
+				"translation": "He stood behind me, and I couldn't see his face."
+			},
+			{
+				"sentence": "这个建筑的后面有一个美丽的花园。",
+				"translation": "Behind this building, there is a beautiful garden."
+			},
+			{
+				"sentence": "请紧跟在我后面。",
+				"translation": "Please follow closely behind me."
+			},
+			{
+				"sentence": "车子停在房子的后面。",
+				"translation": "The car is parked behind the house."
+			}
+		]
+	},
+	{
+		"simplified": "回",
+		"pinyin_tones": "huí",
+		"translation": "to return; to reply; to go back",
+		"examples": [
+			{
+				"sentence": "他明天就会回家了。",
+				"translation": "He will return home tomorrow."
+			},
+			{
+				"sentence": "请回答我的问题。",
+				"translation": "Please answer my question."
+			},
+			{
+				"sentence": "我想回一封电子邮件。",
+				"translation": "I want to reply to an email."
+			},
+			{
+				"sentence": "他回头看了一眼。",
+				"translation": "He turned back and took a look."
+			},
+			{
+				"sentence": "一切都会回到正轨的。",
+				"translation": "Everything will go back to normal."
+			}
+		]
+	},
+	{
+		"simplified": "会",
+		"pinyin_tones": "huì",
+		"translation": "know how to",
+		"examples": [
+			{
+				"sentence": "他会弹钢琴。",
+				"translation": "He knows how to play the piano."
+			},
+			{
+				"sentence": "她会说三种语言。",
+				"translation": "She can speak three languages."
+			},
+			{
+				"sentence": "你会骑自行车吗？",
+				"translation": "Do you know how to ride a bicycle?"
+			},
+			{
+				"sentence": "我会游泳，但不太擅长。",
+				"translation": "I can swim, but I'm not very good at it."
+			},
+			{
+				"sentence": "你会做饭吗？",
+				"translation": "Can you cook?"
+			}
+		]
+	},
+	{
+		"simplified": "几",
+		"pinyin_tones": "jǐ",
+		"translation": "how many; several; a few",
+		"examples": [
+			{
+				"sentence": "你有几个兄弟姐妹？",
+				"translation": "How many siblings do you have?"
+			},
+			{
+				"sentence": "我们还有几天就要出发了。",
+				"translation": "We have a few days left before we leave."
+			},
+			{
+				"sentence": "请等一下，我马上就回来。",
+				"translation": "Please wait a moment; I'll be right back."
+			},
+			{
+				"sentence": "这个问题我只需要几分钟就能解决。",
+				"translation": "I only need a few minutes to solve this problem."
+			},
+			{
+				"sentence": "我学了几年中文。",
+				"translation": "I have been learning Chinese for several years."
+			}
+		]
+	},
+	{
+		"simplified": "家",
+		"pinyin_tones": "jiā",
+		"translation": "family; home",
+		"examples": [
+			{
+				"sentence": "我们一家人都很喜欢旅行。",
+				"translation": "Our whole family loves to travel."
+			},
+			{
+				"sentence": "他家有三口人。",
+				"translation": "There are three people in his family."
+			},
+			{
+				"sentence": "这是我家的大门。",
+				"translation": "This is the gate to my home."
+			},
+			{
+				"sentence": "我家离学校很近。",
+				"translation": "My home is very close to the school."
+			},
+			{
+				"sentence": "他家的狗叫什么名字？",
+				"translation": "What is the name of his family's dog?"
+			}
+		]
+	},
+	{
+		"simplified": "叫",
+		"pinyin_tones": "jiào",
+		"translation": "to be called",
+		"examples": [
+			{
+				"sentence": "这个花园的名字叫做“春之梦”。",
+				"translation": "The name of this garden is called 'Dream of Spring'."
+			},
+			{
+				"sentence": "他叫什么名字？",
+				"translation": "What is his name?"
+			},
+			{
+				"sentence": "这种花叫什么花？",
+				"translation": "What is the name of this flower?"
+			},
+			{
+				"sentence": "那只小猫叫“奶茶”。",
+				"translation": "That little cat is called 'Milk Tea'."
+			},
+			{
+				"sentence": "这座山脉叫做喜马拉雅山。",
+				"translation": "This mountain range is called the Himalayas."
+			}
+		]
+	},
+	{
+		"simplified": "今天",
+		"pinyin_tones": "jīntiān",
+		"translation": "today",
+		"examples": [
+			{
+				"sentence": "今天是星期几？",
+				"translation": "What day of the week is today?"
+			},
+			{
+				"sentence": "我今天有一个重要的会议。",
+				"translation": "I have an important meeting today."
+			},
+			{
+				"sentence": "今天的天气真好，阳光明媚。",
+				"translation": "The weather is really good today, sunny and bright."
+			},
+			{
+				"sentence": "今天是个特别的日子。",
+				"translation": "Today is a special day."
+			},
+			{
+				"sentence": "今天晚上我不打算出去。",
+				"translation": "I don't plan to go out tonight."
+			}
+		]
+	},
+	{
+		"simplified": "九",
+		"pinyin_tones": "jiǔ",
+		"translation": "nine",
+		"examples": [
+			{
+				"sentence": "九月是秋天的开始。",
+				"translation": "September marks the beginning of autumn."
+			},
+			{
+				"sentence": "这里有九只小猫。",
+				"translation": "There are nine kittens here."
+			},
+			{
+				"sentence": "他九点才下班。",
+				"translation": "He gets off work at nine o'clock."
+			},
+			{
+				"sentence": "我学了九年的钢琴。",
+				"translation": "I have been learning the piano for nine years."
+			},
+			{
+				"sentence": "这个故事有九章。",
+				"translation": "This story has nine chapters."
+			}
+		]
+	},
+	{
+		"simplified": "开",
+		"pinyin_tones": "kāi",
+		"translation": "to open; to start; to operate (a vehicle)",
+		"examples": [
+			{
+				"sentence": "请你把门开一下。",
+				"translation": "Please open the door."
+			},
+			{
+				"sentence": "学校每天早上八点开门。",
+				"translation": "The school opens at eight o'clock every morning."
+			},
+			{
+				"sentence": "他开车送我去车站。",
+				"translation": "He drives and takes me to the train station."
+			},
+			{
+				"sentence": "今天是他的生日，他决定开个派对。",
+				"translation": "Today is his birthday, and he decides to throw a party."
+			},
+			{
+				"sentence": "这个商店从早上九点开到晚上九点。",
+				"translation": "This store is open from nine in the morning until nine at night."
+			}
+		]
+	},
+	{
+		"simplified": "看",
+		"pinyin_tones": "kàn",
+		"translation": "see; look at; to watch",
+		"examples": [
+			{
+				"sentence": "请你看一下这张照片。",
+				"translation": "Please take a look at this photo."
+			},
+			{
+				"sentence": "他在看书，不能打扰他。",
+				"translation": "He is reading; don't disturb him."
+			},
+			{
+				"sentence": "这个电影很好看，你应该去看看。",
+				"translation": "This movie is very good; you should go and see it."
+			},
+			{
+				"sentence": "他喜欢看体育比赛。",
+				"translation": "He likes to watch sports games."
+			},
+			{
+				"sentence": "你看到那边的山了吗？",
+				"translation": "Did you see the mountain over there?"
+			}
+		]
+	},
+	{
+		"simplified": "看见",
+		"pinyin_tones": "kànjiàn",
+		"translation": "see; catch sight of",
+		"examples": [
+			{
+				"sentence": "我看见他在公园里散步。",
+				"translation": "I saw him taking a walk in the park."
+			},
+			{
+				"sentence": "你有没有看见我的钱包？",
+				"translation": "Did you see my wallet?"
+			},
+			{
+				"sentence": "他看见了一只漂亮的小鸟。",
+				"translation": "He caught sight of a beautiful little bird."
+			},
+			{
+				"sentence": "她看见了远处的海。",
+				"translation": "She saw the sea in the distance."
+			},
+			{
+				"sentence": "昨天晚上我看见一个流星。",
+				"translation": "Last night, I saw a shooting star."
+			}
+		]
+	},
+	{
+		"simplified": "块",
+		"pinyin_tones": "kuài",
+		"translation": "lump; piece; sum of money",
+		"examples": [
+			{
+				"sentence": "这块巧克力很好吃。",
+				"translation": "This piece of chocolate is delicious."
+			},
+			{
+				"sentence": "他捡起一块漂亮的石头。",
+				"translation": "He picked up a beautiful stone."
+			},
+			{
+				"sentence": "我买了一块新手机。",
+				"translation": "I bought a new mobile phone."
+			},
+			{
+				"sentence": "请给我一块儿糖。",
+				"translation": "Please give me a lump of sugar."
+			},
+			{
+				"sentence": "这块布料很适合做窗帘。",
+				"translation": "This piece of fabric is perfect for making curtains."
+			}
+		]
+	},
+	{
+		"simplified": "来",
+		"pinyin_tones": "lái",
+		"translation": "come; arrive; ever since; next",
+		"examples": [
+			{
+				"sentence": "他明天会来参加我的生日派对。",
+				"translation": "He will come to my birthday party tomorrow."
+			},
+			{
+				"sentence": "我从中国来。",
+				"translation": "I come from China."
+			},
+			{
+				"sentence": "他来了，我们开始吃饭。",
+				"translation": "He arrived, and we started eating."
+			},
+			{
+				"sentence": "请问这里怎么来图书馆？",
+				"translation": "Excuse me, how do I get to the library from here?"
+			},
+			{
+				"sentence": "明天下午我会来你的办公室。",
+				"translation": "I will come to your office tomorrow afternoon."
+			}
+		]
+	},
+	{
+		"simplified": "老师",
+		"pinyin_tones": "lǎoshī",
+		"translation": "teacher",
+		"examples": [
+			{
+				"sentence": "这位老师很有耐心。",
+				"translation": "This teacher is very patient."
+			},
+			{
+				"sentence": "学校的老师都很专业。",
+				"translation": "The teachers at the school are all very professional."
+			},
+			{
+				"sentence": "明天是老师的生日，我们要为她庆祝。",
+				"translation": "Tomorrow is the teacher's birthday, and we're going to celebrate for her."
+			},
+			{
+				"sentence": "我喜欢我的英语老师。",
+				"translation": "I like my English teacher."
+			},
+			{
+				"sentence": "老师，请您再解释一遍这个问题。",
+				"translation": "Teacher, could you please explain this question again?"
+			}
+		]
+	},
+	{
+		"simplified": "了",
+		"pinyin_tones": "le",
+		"translation": "(modal particle intensifying preceding clause) / (completed action marker)",
+		"examples": [
+			{
+				"sentence": "我吃完饭了。",
+				"translation": "I have finished eating."
+			},
+			{
+				"sentence": "他昨天买了一辆新车。",
+				"translation": "He bought a new car yesterday."
+			},
+			{
+				"sentence": "这个问题我知道了。",
+				"translation": "I know the answer to this question now."
+			},
+			{
+				"sentence": "他昨天晚上来找我了。",
+				"translation": "He came to find me last night."
+			},
+			{
+				"sentence": "我不了解这个情况。",
+				"translation": "I don't know about this situation."
+			}
+		]
+	},
+	{
+		"simplified": "冷",
+		"pinyin_tones": "lěng",
+		"translation": "cold",
+		"examples": [
+			{
+				"sentence": "今天天气很冷，记得穿厚一点。",
+				"translation": "The weather is very cold today, remember to wear something thick."
+			},
+			{
+				"sentence": "冬天的时候，外面很冷，要多穿衣服。",
+				"translation": "In winter, it's very cold outside; you should wear more clothes."
+			},
+			{
+				"sentence": "这个冷饮很受欢迎，尤其是夏天。",
+				"translation": "This cold drink is very popular, especially in the summer."
+			},
+			{
+				"sentence": "北方的冬天特别冷，南方的冬天相对温暖一些。",
+				"translation": "The winter in the north is especially cold, while the winter in the south is relatively warmer."
+			},
+			{
+				"sentence": "她喜欢冬天，因为她喜欢寒冷的天气。",
+				"translation": "She likes winter because she enjoys cold weather."
+			}
+		]
+	},
+	{
+		"simplified": "里",
+		"pinyin_tones": "lǐ",
+		"translation": "inside; Chinese mile (~0.5 km)",
+		"examples": [
+			{
+				"sentence": "请把书放到箱子里。",
+				"translation": "Please put the book inside the box."
+			},
+			{
+				"sentence": "我家离公司很近，开车只需要十分钟。",
+				"translation": "My home is very close to the company; it only takes ten minutes by car."
+			},
+			{
+				"sentence": "这个箱子里有很多衣服。",
+				"translation": "There are many clothes inside this box."
+			},
+			{
+				"sentence": "请问卫生间在这个大楼里面吗？",
+				"translation": "Excuse me, is the bathroom inside this building?"
+			},
+			{
+				"sentence": "他在书店里买了一本新书。",
+				"translation": "He bought a new book inside the bookstore."
+			}
+		]
+	},
+	{
+		"simplified": "六",
+		"pinyin_tones": "liù",
+		"translation": "six",
+		"examples": [
+			{
+				"sentence": "一周有七天，星期六是周末的第一天。",
+				"translation": "There are seven days in a week, and Saturday is the first day of the weekend."
+			},
+			{
+				"sentence": "六月是一年中最热的月份之一。",
+				"translation": "June is one of the hottest months of the year."
+			},
+			{
+				"sentence": "这个教室里有六十个学生。",
+				"translation": "There are sixty students in this classroom."
+			},
+			{
+				"sentence": "我们六个人一起去旅行。",
+				"translation": "The six of us are traveling together."
+			},
+			{
+				"sentence": "他的生日是每年的六月六号。",
+				"translation": "His birthday is on June 6th every year."
+			}
+		]
+	},
+	{
+		"simplified": "妈妈",
+		"pinyin_tones": "māma",
+		"translation": "mom; mum",
+		"examples": [
+			{
+				"sentence": "妈妈每天都给我做好吃的。",
+				"translation": "Mom makes delicious food for me every day."
+			},
+			{
+				"sentence": "我妈妈是一位医生。",
+				"translation": "My mom is a doctor."
+			},
+			{
+				"sentence": "妈妈在厨房里做晚饭。",
+				"translation": "Mom is cooking dinner in the kitchen."
+			},
+			{
+				"sentence": "我妈妈的生日是在五月。",
+				"translation": "My mom's birthday is in May."
+			},
+			{
+				"sentence": "妈妈喜欢在花园里种花。",
+				"translation": "Mom likes planting flowers in the garden."
+			}
+		]
+	},
+	{
+		"simplified": "吗",
+		"pinyin_tones": "ma",
+		"translation": "indicates a yes/no question (added to a statement)",
+		"examples": [
+			{
+				"sentence": "你是学生吗？",
+				"translation": "Are you a student?"
+			},
+			{
+				"sentence": "今天天气很好吗？",
+				"translation": "Is the weather nice today?"
+			},
+			{
+				"sentence": "你喜欢吃中国菜吗？",
+				"translation": "Do you like to eat Chinese food?"
+			},
+			{
+				"sentence": "这个电影很有趣吗？",
+				"translation": "Is this movie interesting?"
+			},
+			{
+				"sentence": "你们家有宠物吗？",
+				"translation": "Do you have pets at home?"
+			}
+		]
+	},
+	{
+		"simplified": "买",
+		"pinyin_tones": "mǎi",
+		"translation": "to buy",
+		"examples": [
+			{
+				"sentence": "我想买一本新书。",
+				"translation": "I want to buy a new book."
+			},
+			{
+				"sentence": "你喜欢在网上买东西吗？",
+				"translation": "Do you like to buy things online?"
+			},
+			{
+				"sentence": "他每个月都会买新衣服。",
+				"translation": "He buys new clothes every month."
+			},
+			{
+				"sentence": "你去超市买了什么？",
+				"translation": "What did you buy at the supermarket?"
+			},
+			{
+				"sentence": "我喜欢买新鲜的水果。",
+				"translation": "I like to buy fresh fruits."
+			}
+		]
+	},
+	{
+		"simplified": "猫",
+		"pinyin_tones": "māo",
+		"translation": "cat",
+		"examples": [
+			{
+				"sentence": "我家养了一只可爱的猫。",
+				"translation": "We have an adorable cat at home."
+			},
+			{
+				"sentence": "猫喜欢吃鱼。",
+				"translation": "Cats like to eat fish."
+			},
+			{
+				"sentence": "这只猫的毛很柔软。",
+				"translation": "The fur of this cat is very soft."
+			},
+			{
+				"sentence": "猫喜欢晒太阳。",
+				"translation": "Cats like to sunbathe."
+			},
+			{
+				"sentence": "这是我的宠物猫，名字叫小花。",
+				"translation": "This is my pet cat, and her name is Xiaohua."
+			}
+		]
+	},
+	{
+		"simplified": "没关系",
+		"pinyin_tones": "méi guānxi",
+		"translation": "it doesn't matter; never mind",
+		"examples": [
+			{
+				"sentence": "对不起，我迟到了。没关系。",
+				"translation": "I'm sorry I'm late. It's okay."
+			},
+			{
+				"sentence": "我把你的书弄丢了，真的很抱歉。没关系，我有备份。",
+				"translation": "I lost your book, and I'm really sorry. It's okay, I have a backup."
+			},
+			{
+				"sentence": "我刚才踩到你的脚了，对不起。没关系，没受伤。",
+				"translation": "I accidentally stepped on your foot just now. I'm sorry. It's okay; no harm done."
+			},
+			{
+				"sentence": "我弄翻了你的咖啡，太对不起了。没关系，不要紧。",
+				"translation": "I spilled your coffee; I'm so sorry. It's okay; no big deal."
+			},
+			{
+				"sentence": "我不小心打破了你的花瓶，对不起。没关系，花瓶不贵重。",
+				"translation": "I accidentally broke your vase; I'm sorry. It's okay; the vase wasn't expensive."
+			}
+		]
+	},
+	{
+		"simplified": "没有",
+		"pinyin_tones": "méiyǒu",
+		"translation": "not have; there is not",
+		"examples": [
+			{
+				"sentence": "我家里没有宠物。",
+				"translation": "There are no pets in my house."
+			},
+			{
+				"sentence": "他们没有时间参加聚会。",
+				"translation": "They don't have time to attend the gathering."
+			},
+			{
+				"sentence": "这个城市没有地铁。",
+				"translation": "This city doesn't have a subway."
+			},
+			{
+				"sentence": "你有没有兄弟姐妹？我没有。",
+				"translation": "Do you have siblings? I don't have any."
+			},
+			{
+				"sentence": "这家餐馆没有素食选项。",
+				"translation": "This restaurant doesn't have vegetarian options."
+			}
+		]
+	},
+	{
+		"simplified": "米饭",
+		"pinyin_tones": "mǐfàn",
+		"translation": "(cooked) rice",
+		"examples": [
+			{
+				"sentence": "中国人的主食是米饭。",
+				"translation": "The staple food for Chinese people is rice."
+			},
+			{
+				"sentence": "晚饭吃什么？我想吃米饭。",
+				"translation": "What should we eat for dinner? I want to eat rice."
+			},
+			{
+				"sentence": "我每天都吃一碗米饭。",
+				"translation": "I eat a bowl of rice every day."
+			},
+			{
+				"sentence": "这家餐馆的米饭很好吃。",
+				"translation": "The rice at this restaurant is delicious."
+			},
+			{
+				"sentence": "他不喜欢吃米饭，更喜欢面条。",
+				"translation": "He doesn't like to eat rice and prefers noodles instead."
+			}
+		]
+	},
+	{
+		"simplified": "明天",
+		"pinyin_tones": "míngtiān",
+		"translation": "tomorrow",
+		"examples": [
+			{
+				"sentence": "今天很累，明天休息一整天。",
+				"translation": "I'm very tired today; I'll rest the entire day tomorrow."
+			},
+			{
+				"sentence": "明天有重要的会议，你记得参加。",
+				"translation": "There is an important meeting tomorrow; remember to attend."
+			},
+			{
+				"sentence": "明天的天气预报说会下雨。",
+				"translation": "The weather forecast for tomorrow says it will rain."
+			},
+			{
+				"sentence": "我明天要去机场接我的朋友。",
+				"translation": "I will go to the airport tomorrow to pick up my friend."
+			},
+			{
+				"sentence": "明天是周末，我们可以一起去公园玩。",
+				"translation": "Tomorrow is the weekend; we can go to the park together."
+			}
+		]
+	},
+	{
+		"simplified": "名字",
+		"pinyin_tones": "míngzi",
+		"translation": "name",
+		"examples": [
+			{
+				"sentence": "你叫什么名字？",
+				"translation": "What is your name?"
+			},
+			{
+				"sentence": "我不知道她的名字。",
+				"translation": "I don't know her name."
+			},
+			{
+				"sentence": "这个城市的名字很特别。",
+				"translation": "The name of this city is very unique."
+			},
+			{
+				"sentence": "给你的文件起个名字。",
+				"translation": "Give a name to your document."
+			},
+			{
+				"sentence": "我的名字在名单上吗？",
+				"translation": "Is my name on the list?"
+			}
+		]
+	},
+	{
+		"simplified": "哪",
+		"pinyin_tones": "nǎ",
+		"translation": "which; how",
+		"examples": [
+			{
+				"sentence": "哪个是你的书包？",
+				"translation": "Which one is your schoolbag?"
+			},
+			{
+				"sentence": "你喜欢哪种颜色？",
+				"translation": "Which color do you like?"
+			},
+			{
+				"sentence": "这是哪个城市的地图？",
+				"translation": "Which city's map is this?"
+			},
+			{
+				"sentence": "哪个菜是辣的？",
+				"translation": "Which dish is spicy?"
+			},
+			{
+				"sentence": "哪辆车是你的？",
+				"translation": "Which car is yours?"
+			}
+		]
+	},
+	{
+		"simplified": "哪儿",
+		"pinyin_tones": "nǎr",
+		"translation": "where? (Beijing accent)",
+		"examples": [
+			{
+				"sentence": "你家在哪儿？",
+				"translation": "Where is your home?"
+			},
+			{
+				"sentence": "这个商店在哪儿？",
+				"translation": "Where is this store?"
+			},
+			{
+				"sentence": "我们明天在哪儿见面？",
+				"translation": "Where will we meet tomorrow?"
+			},
+			{
+				"sentence": "你上次见到他是在哪儿？",
+				"translation": "Where did you last see him?"
+			},
+			{
+				"sentence": "哪儿有好吃的饭馆？",
+				"translation": "Where is a good restaurant?"
+			}
+		]
+	},
+	{
+		"simplified": "那",
+		"pinyin_tones": "nà",
+		"translation": "that; then",
+		"examples": [
+			{
+				"sentence": "你喜欢这本书吗？那本书更有趣。",
+				"translation": "Do you like this book? That book is more interesting."
+			},
+			{
+				"sentence": "这是我的手机，那是你的电脑。",
+				"translation": "This is my phone; that is your computer."
+			},
+			{
+				"sentence": "你要吃这个还是那个？",
+				"translation": "Do you want to eat this one or that one?"
+			},
+			{
+				"sentence": "这次考试很容易，那次很难。",
+				"translation": "This exam is easy; that one was difficult."
+			},
+			{
+				"sentence": "今天下午很热，那昨天下雨。",
+				"translation": "It's hot this afternoon; it rained yesterday."
+			}
+		]
+	},
+	{
+		"simplified": "呢",
+		"pinyin_tones": "ne",
+		"translation": "indicates a question; how about...?",
+		"examples": [
+			{
+				"sentence": "你喜欢喝咖啡，你呢？",
+				"translation": "You like to drink coffee, how about you?"
+			},
+			{
+				"sentence": "我喜欢去海边度假，你呢？",
+				"translation": "I like to vacation by the seaside; how about you?"
+			},
+			{
+				"sentence": "我去过很多国家，你呢？",
+				"translation": "I have been to many countries; how about you?"
+			},
+			{
+				"sentence": "她最喜欢的运动是游泳，你呢？",
+				"translation": "Her favorite sport is swimming; how about you?"
+			},
+			{
+				"sentence": "我学了很多语言，你呢？",
+				"translation": "I have learned many languages; how about you?"
+			}
+		]
+	},
+	{
+		"simplified": "能",
+		"pinyin_tones": "néng",
+		"translation": "can; be able",
+		"examples": [
+			{
+				"sentence": "你能帮我一个忙吗？",
+				"translation": "Can you help me with something?"
+			},
+			{
+				"sentence": "他能讲几种语言。",
+				"translation": "He can speak several languages."
+			},
+			{
+				"sentence": "这个问题你能回答吗？",
+				"translation": "Can you answer this question?"
+			},
+			{
+				"sentence": "她能独自完成这个项目。",
+				"translation": "She can complete this project on her own."
+			},
+			{
+				"sentence": "你们明天能来吗？",
+				"translation": "Can you come tomorrow?"
+			}
+		]
+	},
+	{
+		"simplified": "你",
+		"pinyin_tones": "nǐ",
+		"translation": "you (singular)",
+		"examples": [
+			{
+				"sentence": "你好吗？",
+				"translation": "How are you?"
+			},
+			{
+				"sentence": "你喜欢吃什么？",
+				"translation": "What do you like to eat?"
+			},
+			{
+				"sentence": "你的手机在哪儿？",
+				"translation": "Where is your phone?"
+			},
+			{
+				"sentence": "你的家人都很健康吧？",
+				"translation": "Your family members are all healthy, right?"
+			},
+			{
+				"sentence": "你最喜欢的颜色是什么？",
+				"translation": "What is your favorite color?"
+			}
+		]
+	},
+	{
+		"simplified": "年",
+		"pinyin_tones": "nián",
+		"translation": "year",
+		"examples": [
+			{
+				"sentence": "你今年几岁？",
+				"translation": "How old are you this year?"
+			},
+			{
+				"sentence": "过年的时候，我们都会回家。",
+				"translation": "During the Chinese New Year, we all go back home."
+			},
+			{
+				"sentence": "我去年去过上海。",
+				"translation": "I went to Shanghai last year."
+			},
+			{
+				"sentence": "明年我要学会弹吉他。",
+				"translation": "Next year, I want to learn to play the guitar."
+			},
+			{
+				"sentence": "你来中国多久了？",
+				"translation": "How long have you been in China?"
+			}
+		]
+	},
+	{
+		"simplified": "女儿",
+		"pinyin_tones": "nǚ'ér",
+		"translation": "daughter",
+		"examples": [
+			{
+				"sentence": "我有一个女儿和两个儿子。",
+				"translation": "I have one daughter and two sons."
+			},
+			{
+				"sentence": "我的女儿是个优秀的学生。",
+				"translation": "My daughter is an excellent student."
+			},
+			{
+				"sentence": "女儿的生日快到了。",
+				"translation": "My daughter's birthday is coming soon."
+			},
+			{
+				"sentence": "她女儿是个可爱的小姑娘。",
+				"translation": "Her daughter is a lovely little girl."
+			},
+			{
+				"sentence": "女儿喜欢画画吗？",
+				"translation": "Does your daughter like to draw?"
+			}
+		]
+	},
+	{
+		"simplified": "朋友",
+		"pinyin_tones": "péngyou",
+		"translation": "friend",
+		"examples": [
+			{
+				"sentence": "他是我的好朋友。",
+				"translation": "He is my good friend."
+			},
+			{
+				"sentence": "我们是多年的朋友了。",
+				"translation": "We have been friends for many years."
+			},
+			{
+				"sentence": "她有很多朋友，但是我是最好的一个。",
+				"translation": "She has many friends, but I am the best one."
+			},
+			{
+				"sentence": "我正在找我的朋友，你见到他了吗？",
+				"translation": "I am looking for my friend; have you seen him?"
+			},
+			{
+				"sentence": "朋友之间应该互相帮助。",
+				"translation": "Friends should help each other."
+			}
+		]
+	},
+	{
+		"simplified": "漂亮",
+		"pinyin_tones": "piàoliang",
+		"translation": "pretty; beautiful",
+		"examples": [
+			{
+				"sentence": "这个城市的夜景很漂亮。",
+				"translation": "The night view of this city is very beautiful."
+			},
+			{
+				"sentence": "她穿着一身漂亮的礼服。",
+				"translation": "She is wearing a beautiful dress."
+			},
+			{
+				"sentence": "这是一个漂亮的花园。",
+				"translation": "This is a beautiful garden."
+			},
+			{
+				"sentence": "你有一张漂亮的照片。",
+				"translation": "You have a beautiful photo."
+			},
+			{
+				"sentence": "今天的天气真漂亮。",
+				"translation": "The weather today is really beautiful."
+			}
+		]
+	},
+	{
+		"simplified": "苹果",
+		"pinyin_tones": "píngguǒ",
+		"translation": "apple",
+		"examples": [
+			{
+				"sentence": "我喜欢吃苹果。",
+				"translation": "I like to eat apples."
+			},
+			{
+				"sentence": "这个苹果很甜。",
+				"translation": "This apple is very sweet."
+			},
+			{
+				"sentence": "苹果是我的最爱。",
+				"translation": "Apples are my favorite."
+			},
+			{
+				"sentence": "这家店卖新鲜的苹果。",
+				"translation": "This store sells fresh apples."
+			},
+			{
+				"sentence": "你喜欢红色的苹果还是绿色的？",
+				"translation": "Do you like red apples or green apples?"
+			}
+		]
+	},
+	{
+		"simplified": "七",
+		"pinyin_tones": "qī",
+		"translation": "seven",
+		"examples": [
+			{
+				"sentence": "这是我们第七次见面。",
+				"translation": "This is our seventh meeting."
+			},
+			{
+				"sentence": "一周有七天。",
+				"translation": "There are seven days in a week."
+			},
+			{
+				"sentence": "他七岁的时候学会了游泳。",
+				"translation": "He learned to swim when he was seven years old."
+			},
+			{
+				"sentence": "这里有七个人。",
+				"translation": "There are seven people here."
+			},
+			{
+				"sentence": "我们需要七张票。",
+				"translation": "We need seven tickets."
+			}
+		]
+	},
+	{
+		"simplified": "钱",
+		"pinyin_tones": "qián",
+		"translation": "money; coin",
+		"examples": [
+			{
+				"sentence": "我没有带足够的钱。",
+				"translation": "I didn't bring enough money."
+			},
+			{
+				"sentence": "这个包包很贵，我没那么多钱。",
+				"translation": "This bag is expensive; I don't have that much money."
+			},
+			{
+				"sentence": "这是一张十元的人民币。",
+				"translation": "This is a ten yuan bill."
+			},
+			{
+				"sentence": "我想存一点钱到银行。",
+				"translation": "I want to deposit some money in the bank."
+			},
+			{
+				"sentence": "这里没有零钱可以找。",
+				"translation": "There is no change here."
+			}
+		]
+	},
+	{
+		"simplified": "前面",
+		"pinyin_tones": "qiánmiàn",
+		"translation": "in front",
+		"examples": [
+			{
+				"sentence": "请跟我来，我会在前面带路。",
+				"translation": "Please follow me; I will lead the way in front."
+			},
+			{
+				"sentence": "前面的路堵车了。",
+				"translation": "The road in front is congested."
+			},
+			{
+				"sentence": "请坐在我前面。",
+				"translation": "Please sit in front of me."
+			},
+			{
+				"sentence": "我看见你在前面的队伍里。",
+				"translation": "I saw you in the line in front."
+			},
+			{
+				"sentence": "前面有一个好看的商店。",
+				"translation": "There is a nice store up ahead."
+			}
+		]
+	},
+	{
+		"simplified": "请",
+		"pinyin_tones": "qǐng",
+		"translation": "please; invite; to treat someone to something",
+		"examples": [
+			{
+				"sentence": "请坐。",
+				"translation": "Please sit down."
+			},
+			{
+				"sentence": "请给我一杯咖啡。",
+				"translation": "Please give me a cup of coffee."
+			},
+			{
+				"sentence": "请你告诉我你的名字。",
+				"translation": "Please tell me your name."
+			},
+			{
+				"sentence": "请等一下，我马上回来。",
+				"translation": "Please wait a moment; I'll be right back."
+			},
+			{
+				"sentence": "请你帮我一个忙。",
+				"translation": "Please help me with something."
+			},
+			{
+				"sentence": "请问，你要去哪里？",
+				"translation": "May I ask where you are going?"
+			}
+		]
+	},
+	{
+		"simplified": "去",
+		"pinyin_tones": "qù",
+		"translation": "go; to leave",
+		"examples": [
+			{
+				"sentence": "我明天要去北京。",
+				"translation": "I am going to Beijing tomorrow."
+			},
+			{
+				"sentence": "你想去哪儿？",
+				"translation": "Where do you want to go?"
+			},
+			{
+				"sentence": "他去年去过巴黎。",
+				"translation": "He went to Paris last year."
+			},
+			{
+				"sentence": "我们一起去吧。",
+				"translation": "Let's go together."
+			},
+			{
+				"sentence": "请问这边怎么去故宫？",
+				"translation": "Excuse me, how do I get to the Forbidden City from here?"
+			}
+		]
+	},
+	{
+		"simplified": "热",
+		"pinyin_tones": "rè",
+		"translation": "heat; hot",
+		"examples": [
+			{
+				"sentence": "今天很热，我不想出去。",
+				"translation": "It's very hot today; I don't want to go out."
+			},
+			{
+				"sentence": "这杯咖啡太热了，我喝不了。",
+				"translation": "This coffee is too hot; I can't drink it."
+			},
+			{
+				"sentence": "他们在热锅上的蚂蚁一样忙。",
+				"translation": "They are as busy as ants on a hot pot."
+			},
+			{
+				"sentence": "我最喜欢吃热的火锅。",
+				"translation": "I love to eat hot pot."
+			},
+			{
+				"sentence": "天气热的时候，我们喜欢去游泳。",
+				"translation": "When the weather is hot, we like to go swimming."
+			}
+		]
+	},
+	{
+		"simplified": "人",
+		"pinyin_tones": "rén",
+		"translation": "person; man; people",
+		"examples": [
+			{
+				"sentence": "这是我认识的人。",
+				"translation": "These are people I know."
+			},
+			{
+				"sentence": "人生有很多不确定性。",
+				"translation": "Life has a lot of uncertainties."
+			},
+			{
+				"sentence": "这个城市有很多人。",
+				"translation": "This city has a lot of people."
+			},
+			{
+				"sentence": "我们都是普通人。",
+				"translation": "We are all ordinary people."
+			},
+			{
+				"sentence": "他是一个好人。",
+				"translation": "He is a good person."
+			},
+			{
+				"sentence": "人们常说生活就像一场戏。",
+				"translation": "People often say life is like a drama."
+			}
+		]
+	},
+	{
+		"simplified": "认识",
+		"pinyin_tones": "rènshi",
+		"translation": "recognize; know (a person)",
+		"examples": [
+			{
+				"sentence": "你认识这个人吗？",
+				"translation": "Do you know this person?"
+			},
+			{
+				"sentence": "我在学校认识了很多朋友。",
+				"translation": "I made a lot of friends at school."
+			},
+			{
+				"sentence": "她不认识我，我也不认识她。",
+				"translation": "She doesn't know me, and I don't know her."
+			},
+			{
+				"sentence": "我们在公司认识的。",
+				"translation": "We met at the company."
+			},
+			{
+				"sentence": "认识一个人需要时间。",
+				"translation": "It takes time to get to know someone."
+			},
+			{
+				"sentence": "通过旅行，我认识了许多不同文化的人。",
+				"translation": "Through traveling, I have met people from many different cultures."
+			}
+		]
+	},
+	{
+		"simplified": "三",
+		"pinyin_tones": "sān",
+		"translation": "three",
+		"examples": [
+			{
+				"sentence": "我们三个人一起去吧。",
+				"translation": "Let's go together, the three of us."
+			},
+			{
+				"sentence": "这是我们第三次见面了。",
+				"translation": "This is our third meeting."
+			},
+			{
+				"sentence": "三个月有多少天？",
+				"translation": "How many days are there in three months?"
+			},
+			{
+				"sentence": "他今年三十岁。",
+				"translation": "He is thirty years old this year."
+			},
+			{
+				"sentence": "我们三点见面，记得别迟到。",
+				"translation": "We'll meet at three; remember not to be late."
+			},
+			{
+				"sentence": "你知道这三个字的意思吗？",
+				"translation": "Do you know the meaning of these three characters?"
+			}
+		]
+	},
+	{
+		"simplified": "商店",
+		"pinyin_tones": "shāngdiàn",
+		"translation": "shop; store",
+		"examples": [
+			{
+				"sentence": "下雨了，记得带上伞和去商店买些零食。",
+				"translation": "It's raining, remember to take an umbrella and go to the store to buy some snacks."
+			},
+			{
+				"sentence": "这附近有一家很大的商店。",
+				"translation": "There is a large store nearby."
+			},
+			{
+				"sentence": "商店里有各种各样的商品。",
+				"translation": "The store has a variety of goods."
+			},
+			{
+				"sentence": "我们可以在商店里找到所需的东西。",
+				"translation": "We can find what we need in the store."
+			},
+			{
+				"sentence": "今天商店打折，我们去买些东西吧。",
+				"translation": "Today there's a sale at the store; let's go buy some things."
+			}
+		]
+	},
+	{
+		"simplified": "上",
+		"pinyin_tones": "shàng",
+		"translation": "above; up",
+		"examples": [
+			{
+				"sentence": "请把箱子放在上面。",
+				"translation": "Please put the box on top."
+			},
+			{
+				"sentence": "我上楼去一下，马上回来。",
+				"translation": "I'll go upstairs for a moment and come right back."
+			},
+			{
+				"sentence": "我家上有个小阳台。",
+				"translation": "There is a small balcony upstairs in my house."
+			},
+			{
+				"sentence": "这是上次的照片，我家后面是一片大草原。",
+				"translation": "This is a photo from last time; behind my house is a large grassland."
+			},
+			{
+				"sentence": "上面的书你能帮我取一下吗？",
+				"translation": "Can you help me get the book on top?"
+			}
+		]
+	},
+	{
+		"simplified": "上午",
+		"pinyin_tones": "shàngwǔ",
+		"translation": "late morning (before noon)",
+		"examples": [
+			{
+				"sentence": "我上午有一个重要的会议。",
+				"translation": "I have an important meeting in the late morning."
+			},
+			{
+				"sentence": "上午十点我们一起去喝咖啡吧。",
+				"translation": "Let's go for coffee together at 10 in the morning."
+			},
+			{
+				"sentence": "上午好！你今天过得如何？",
+				"translation": "Good morning! How's your day going?"
+			},
+			{
+				"sentence": "我上午都在忙工作，很晚才回家。",
+				"translation": "I was busy working all morning and didn't get home until late."
+			},
+			{
+				"sentence": "他们上午都在图书馆学习。",
+				"translation": "They study at the library all morning."
+			}
+		]
+	},
+	{
+		"simplified": "少",
+		"pinyin_tones": "shǎo",
+		"translation": "few; little",
+		"examples": [
+			{
+				"sentence": "这里有很少的人。",
+				"translation": "There are very few people here."
+			},
+			{
+				"sentence": "我们只有少量的时间完成任务。",
+				"translation": "We have only a little time to complete the task."
+			},
+			{
+				"sentence": "请给我少一点糖。",
+				"translation": "Please give me a little less sugar."
+			},
+			{
+				"sentence": "他的话说得少，但很有深度。",
+				"translation": "He speaks little, but with great depth."
+			},
+			{
+				"sentence": "这个城市少雨，气候干燥。",
+				"translation": "This city has little rain and a dry climate."
+			}
+		]
+	},
+	{
+		"simplified": "谁",
+		"pinyin_tones": "shéi",
+		"translation": "who",
+		"examples": [
+			{
+				"sentence": "你知道是谁打电话吗？",
+				"translation": "Do you know who called?"
+			},
+			{
+				"sentence": "谁来了？",
+				"translation": "Who came?"
+			},
+			{
+				"sentence": "这是谁的书？",
+				"translation": "Whose book is this?"
+			},
+			{
+				"sentence": "谁说的？",
+				"translation": "Who said it?"
+			},
+			{
+				"sentence": "谁告诉你的？",
+				"translation": "Who told you?"
+			}
+		]
+	},
+	{
+		"simplified": "什么",
+		"pinyin_tones": "shénme",
+		"translation": "what? (replaces the noun to turn a statement into a question)",
+		"examples": [
+			{
+				"sentence": "你在看什么？",
+				"translation": "What are you looking at?"
+			},
+			{
+				"sentence": "你吃什么？",
+				"translation": "What are you eating?"
+			},
+			{
+				"sentence": "这是什么书？",
+				"translation": "What book is this?"
+			},
+			{
+				"sentence": "你们想要什么喝的？",
+				"translation": "What would you like to drink?"
+			},
+			{
+				"sentence": "什么时候开始下雨的？",
+				"translation": "When did it start raining?"
+			}
+		]
+	},
+	{
+		"simplified": "十",
+		"pinyin_tones": "shí",
+		"translation": "ten",
+		"examples": [
+			{
+				"sentence": "十年前我还是个学生。",
+				"translation": "Ten years ago, I was still a student."
+			},
+			{
+				"sentence": "请给我十个苹果。",
+				"translation": "Please give me ten apples."
+			},
+			{
+				"sentence": "我们十点见面，别迟到。",
+				"translation": "We'll meet at ten; don't be late."
+			},
+			{
+				"sentence": "他今年已经十岁了。",
+				"translation": "He is already ten years old this year."
+			},
+			{
+				"sentence": "这本书有十章。",
+				"translation": "This book has ten chapters."
+			}
+		]
+	},
+	{
+		"simplified": "时候",
+		"pinyin_tones": "shíhou",
+		"translation": "time",
+		"examples": [
+			{
+				"sentence": "现在是最好的时候。",
+				"translation": "Now is the best time."
+			},
+			{
+				"sentence": "过了那个时候，就晚了。",
+				"translation": "It will be too late after that time."
+			},
+			{
+				"sentence": "我有很多时候都想念家。",
+				"translation": "I miss home many times."
+			},
+			{
+				"sentence": "你什么时候有空？",
+				"translation": "When are you free?"
+			},
+			{
+				"sentence": "在我生命的这个时候，我决定做出改变。",
+				"translation": "At this time in my life, I decided to make a change."
+			}
+		]
+	},
+	{
+		"simplified": "是",
+		"pinyin_tones": "shì",
+		"translation": "be; is; are; am",
+		"examples": [
+			{
+				"sentence": "这件事是真的吗？",
+				"translation": "Is this thing true?"
+			},
+			{
+				"sentence": "他是我的朋友。",
+				"translation": "He is my friend."
+			},
+			{
+				"sentence": "你是老师吗？",
+				"translation": "Are you a teacher?"
+			},
+			{
+				"sentence": "这不是我的错。",
+				"translation": "This is not my fault."
+			},
+			{
+				"sentence": "明天是星期几？",
+				"translation": "What day of the week is it tomorrow?"
+			}
+		]
+	},
+	{
+		"simplified": "书",
+		"pinyin_tones": "shū",
+		"translation": "book; letter",
+		"examples": [
+			{
+				"sentence": "这本书很有趣，你应该看一看。",
+				"translation": "This book is very interesting; you should take a look."
+			},
+			{
+				"sentence": "我在书店买了几本新书。",
+				"translation": "I bought some new books at the bookstore."
+			},
+			{
+				"sentence": "她喜欢收集古老的书。",
+				"translation": "She likes to collect ancient books."
+			},
+			{
+				"sentence": "请把这本书还给我，谢谢。",
+				"translation": "Please return this book to me, thank you."
+			},
+			{
+				"sentence": "我喜欢在图书馆安静地看书。",
+				"translation": "I like to read quietly in the library."
+			}
+		]
+	},
+	{
+		"simplified": "水",
+		"pinyin_tones": "shuǐ",
+		"translation": "water",
+		"examples": [
+			{
+				"sentence": "请给我一杯水。",
+				"translation": "Please give me a glass of water."
+			},
+			{
+				"sentence": "这个城市的水很清新。",
+				"translation": "The water in this city is very fresh."
+			},
+			{
+				"sentence": "他喜欢喝冰水。",
+				"translation": "He likes to drink cold water."
+			},
+			{
+				"sentence": "你喜欢喝热水还是冷水？",
+				"translation": "Do you like to drink hot water or cold water?"
+			},
+			{
+				"sentence": "水是生命之源。",
+				"translation": "Water is the source of life."
+			}
+		]
+	},
+	{
+		"simplified": "水果",
+		"pinyin_tones": "shuǐguǒ",
+		"translation": "fruit",
+		"examples": [
+			{
+				"sentence": "我喜欢吃各种各样的水果。",
+				"translation": "I like to eat all kinds of fruits."
+			},
+			{
+				"sentence": "这个季节有很多新鲜的水果。",
+				"translation": "There are many fresh fruits this season."
+			},
+			{
+				"sentence": "水果对健康很好。",
+				"translation": "Fruits are good for health."
+			},
+			{
+				"sentence": "每天至少吃两份水果。",
+				"translation": "Eat at least two servings of fruit every day."
+			},
+			{
+				"sentence": "这家超市有各种各样的水果供应。",
+				"translation": "This supermarket has a variety of fruits available."
+			}
+		]
+	},
+	{
+		"simplified": "睡觉",
+		"pinyin_tones": "shuì jiào",
+		"translation": "to sleep; go to bed",
+		"examples": [
+			{
+				"sentence": "晚上十点前最好不要吃东西，影响睡觉。",
+				"translation": "It's best not to eat anything before 10 p.m., it affects sleep."
+			},
+			{
+				"sentence": "每天晚上我都八点睡觉。",
+				"translation": "I go to bed at 8 p.m. every night."
+			},
+			{
+				"sentence": "他昨晚没有睡觉，所以今天很累。",
+				"translation": "He didn't sleep last night, so he's tired today."
+			},
+			{
+				"sentence": "睡觉前喝杯温牛奶有助于入睡。",
+				"translation": "Drinking a cup of warm milk before bedtime helps with falling asleep."
+			},
+			{
+				"sentence": "他每天都很早起床，也很早睡觉。",
+				"translation": "He wakes up very early and goes to bed early every day."
+			}
+		]
+	},
+	{
+		"simplified": "说",
+		"pinyin_tones": "shuō",
+		"translation": "speak",
+		"examples": [
+			{
+				"sentence": "请不要说得太快，我听不懂。",
+				"translation": "Please don't speak too fast; I can't understand."
+			},
+			{
+				"sentence": "他在电话里说了一些很重要的事情。",
+				"translation": "He said some important things on the phone."
+			},
+			{
+				"sentence": "你能用英语说吗？",
+				"translation": "Can you speak in English?"
+			},
+			{
+				"sentence": "她很少说话，但是总是认真倾听。",
+				"translation": "She speaks rarely, but always listens attentively."
+			},
+			{
+				"sentence": "这本书是关于什么的？你能说一说吗？",
+				"translation": "What is this book about? Can you talk about it?"
+			}
+		]
+	},
+	{
+		"simplified": "四",
+		"pinyin_tones": "sì",
+		"translation": "four",
+		"examples": [
+			{
+				"sentence": "我的家里有四口人。",
+				"translation": "There are four people in my family."
+			},
+			{
+				"sentence": "请给我四个苹果。",
+				"translation": "Please give me four apples."
+			},
+			{
+				"sentence": "四季轮回，各有各的美。",
+				"translation": "The four seasons cycle, each with its own beauty."
+			},
+			{
+				"sentence": "这个城市有四百万人口。",
+				"translation": "This city has a population of four million."
+			},
+			{
+				"sentence": "他们四个人一起去旅行了。",
+				"translation": "The four of them traveled together."
+			}
+		]
+	},
+	{
+		"simplified": "岁",
+		"pinyin_tones": "suì",
+		"translation": "years old; age",
+		"examples": [
+			{
+				"sentence": "他今年五十岁。",
+				"translation": "He is fifty years old this year."
+			},
+			{
+				"sentence": "这个小女孩只有六岁。",
+				"translation": "This little girl is only six years old."
+			},
+			{
+				"sentence": "我妈妈今年四十岁。",
+				"translation": "My mom is forty years old this year."
+			},
+			{
+				"sentence": "他是一个八十岁的老人。",
+				"translation": "He is an eighty-year-old man."
+			},
+			{
+				"sentence": "这只狗已经有两岁了。",
+				"translation": "This dog is already two years old."
+			}
+		]
+	},
+	{
+		"simplified": "她",
+		"pinyin_tones": "tā",
+		"translation": "she",
+		"examples": [
+			{
+				"sentence": "她是我们的老师。",
+				"translation": "She is our teacher."
+			},
+			{
+				"sentence": "我姐姐很漂亮，她是个模特儿。",
+				"translation": "My sister is very beautiful; she is a model."
+			},
+			{
+				"sentence": "她喜欢读书和旅行。",
+				"translation": "She likes reading and traveling."
+			},
+			{
+				"sentence": "她的生日是在五月二十号。",
+				"translation": "Her birthday is on the twentieth of May."
+			},
+			{
+				"sentence": "她是一个很聪明的科学家。",
+				"translation": "She is a very intelligent scientist."
+			}
+		]
+	},
+	{
+		"simplified": "太",
+		"pinyin_tones": "tài",
+		"translation": "too (much)",
+		"examples": [
+			{
+				"sentence": "这个菜太辣了，我吃不了。",
+				"translation": "This dish is too spicy; I can't eat it."
+			},
+			{
+				"sentence": "他工作太忙，经常没有时间休息。",
+				"translation": "He is too busy with work and often has no time to rest."
+			},
+			{
+				"sentence": "这部电影太有趣了，我看了两遍。",
+				"translation": "This movie is too interesting; I watched it twice."
+			},
+			{
+				"sentence": "这个包太贵了，我买不起。",
+				"translation": "This bag is too expensive; I can't afford to buy it."
+			},
+			{
+				"sentence": "你吃得太多了，小心胃。",
+				"translation": "You eat too much; be careful with your stomach."
+			}
+		]
+	},
+	{
+		"simplified": "天气",
+		"pinyin_tones": "tiānqì",
+		"translation": "weather",
+		"examples": [
+			{
+				"sentence": "明天的天气预报说会下雨。",
+				"translation": "The weather forecast for tomorrow says it will rain."
+			},
+			{
+				"sentence": "这个城市的天气很热，夏天常常超过三十度。",
+				"translation": "The weather in this city is very hot, often exceeding thirty degrees in summer."
+			},
+			{
+				"sentence": "你喜欢冷天气还是热天气？",
+				"translation": "Do you like cold weather or hot weather?"
+			},
+			{
+				"sentence": "昨天的天气非常晴朗。",
+				"translation": "Yesterday's weather was very sunny."
+			},
+			{
+				"sentence": "天气冷的时候，记得穿厚一点。",
+				"translation": "When the weather is cold, remember to dress warmly."
+			}
+		]
+	},
+	{
+		"simplified": "听",
+		"pinyin_tones": "tīng",
+		"translation": "listen; hear",
+		"examples": [
+			{
+				"sentence": "请你安静一点，我在听音乐。",
+				"translation": "Please be quiet; I'm listening to music."
+			},
+			{
+				"sentence": "他听到了一个陌生的声音。",
+				"translation": "He heard a strange sound."
+			},
+			{
+				"sentence": "你听懂了老师的话吗？",
+				"translation": "Did you understand what the teacher said?"
+			},
+			{
+				"sentence": "在这个安静的地方，你可以听到鸟儿的叫声。",
+				"translation": "In this quiet place, you can hear the birds singing."
+			},
+			{
+				"sentence": "她喜欢听古典音乐。",
+				"translation": "She likes listening to classical music."
+			}
+		]
+	},
+	{
+		"simplified": "同学",
+		"pinyin_tones": "tóngxué",
+		"translation": "fellow student; schoolmate",
+		"examples": [
+			{
+				"sentence": "这是我的同学，我们一起上学。",
+				"translation": "This is my schoolmate; we go to school together."
+			},
+			{
+				"sentence": "和同学一起学习更有趣。",
+				"translation": "Studying with fellow students is more interesting."
+			},
+			{
+				"sentence": "我在学校有很多好朋友，都是我的同学。",
+				"translation": "I have many good friends at school, all of them are my classmates."
+			},
+			{
+				"sentence": "同学之间要互相帮助。",
+				"translation": "Classmates should help each other."
+			},
+			{
+				"sentence": "我和我的同学们一起庆祝我的生日。",
+				"translation": "I celebrated my birthday with my classmates."
+			}
+		]
+	},
+	{
+		"simplified": "喂",
+		"pinyin_tones": "wèi",
+		"translation": "hello (on the phone)",
+		"examples": [
+			{
+				"sentence": "喂，你好，我是玛丽。",
+				"translation": "Hello, this is Mary."
+			},
+			{
+				"sentence": "喂，你找我有什么事吗？",
+				"translation": "Hello, is there something you're looking for me?"
+			},
+			{
+				"sentence": "每次打电话都要先说一声喂。",
+				"translation": "You should always say hello first when making a phone call."
+			},
+			{
+				"sentence": "喂，你在吗？",
+				"translation": "Hello, are you there?"
+			},
+			{
+				"sentence": "电话那头传来一声喂，然后是熟悉的声音。",
+				"translation": "There was a hello on the other end of the phone, followed by a familiar voice."
+			}
+		]
+	},
+	{
+		"simplified": "我",
+		"pinyin_tones": "wǒ",
+		"translation": "I; me",
+		"examples": [
+			{
+				"sentence": "我是一名学生。",
+				"translation": "I am a student."
+			},
+			{
+				"sentence": "我喜欢吃中国菜。",
+				"translation": "I like to eat Chinese food."
+			},
+			{
+				"sentence": "今天我很忙，没时间休息。",
+				"translation": "I am very busy today and have no time to rest."
+			},
+			{
+				"sentence": "我想学习弹钢琴。",
+				"translation": "I want to learn to play the piano."
+			},
+			{
+				"sentence": "我不是医生，我是老师。",
+				"translation": "I am not a doctor; I am a teacher."
+			}
+		]
+	},
+	{
+		"simplified": "我们",
+		"pinyin_tones": "wǒmen",
+		"translation": "we; us",
+		"examples": [
+			{
+				"sentence": "我们是好朋友。",
+				"translation": "We are good friends."
+			},
+			{
+				"sentence": "我们一起去旅行吧。",
+				"translation": "Let's travel together."
+			},
+			{
+				"sentence": "在这个项目中，我们需要合作。",
+				"translation": "In this project, we need to cooperate."
+			},
+			{
+				"sentence": "我们都很喜欢这个城市。",
+				"translation": "We all like this city very much."
+			},
+			{
+				"sentence": "我们应该保护环境。",
+				"translation": "We should protect the environment."
+			}
+		]
+	},
+	{
+		"simplified": "五",
+		"pinyin_tones": "wǔ",
+		"translation": "five",
+		"examples": [
+			{
+				"sentence": "今天是五月五日。",
+				"translation": "Today is May 5th."
+			},
+			{
+				"sentence": "我的生日是十月五号。",
+				"translation": "My birthday is on October 5th."
+			},
+			{
+				"sentence": "这个月有五个星期。",
+				"translation": "This month has five weeks."
+			},
+			{
+				"sentence": "五个人一起去旅行，应该很有趣。",
+				"translation": "It should be fun to travel with five people."
+			},
+			{
+				"sentence": "我家有五口人。",
+				"translation": "There are five people in my family."
+			}
+		]
+	},
+	{
+		"simplified": "喜欢",
+		"pinyin_tones": "xǐhuan",
+		"translation": "to like",
+		"examples": [
+			{
+				"sentence": "我喜欢吃冰淇淋。",
+				"translation": "I like to eat ice cream."
+			},
+			{
+				"sentence": "她喜欢看电影。",
+				"translation": "She likes to watch movies."
+			},
+			{
+				"sentence": "你喜欢什么颜色？",
+				"translation": "What color do you like?"
+			},
+			{
+				"sentence": "他不喜欢吃蔬菜。",
+				"translation": "He doesn't like to eat vegetables."
+			},
+			{
+				"sentence": "喜欢音乐是一种美好的品味。",
+				"translation": "Liking music is a wonderful taste."
+			}
+		]
+	},
+	{
+		"simplified": "下",
+		"pinyin_tones": "xià",
+		"translation": "fall; below",
+		"examples": [
+			{
+				"sentence": "请把书放在桌子下。",
+				"translation": "Please put the book under the table."
+			},
+			{
+				"sentence": "他从桥上跳下去。",
+				"translation": "He jumped off the bridge."
+			},
+			{
+				"sentence": "下雨了，记得带伞。",
+				"translation": "It's raining; remember to bring an umbrella."
+			},
+			{
+				"sentence": "太阳下山了，天黑了。",
+				"translation": "The sun has set, and it's dark now."
+			},
+			{
+				"sentence": "请往下看，你会发现一个惊喜。",
+				"translation": "Please look down; you will find a surprise."
+			}
+		]
+	},
+	{
+		"simplified": "下午",
+		"pinyin_tones": "xiàwǔ",
+		"translation": "afternoon",
+		"examples": [
+			{
+				"sentence": "我们下午一起去喝茶吧。",
+				"translation": "Let's go for tea together in the afternoon."
+			},
+			{
+				"sentence": "下午三点是开会的时间。",
+				"translation": "The meeting is scheduled for three o'clock in the afternoon."
+			},
+			{
+				"sentence": "今天下午的天气很好。",
+				"translation": "The weather is nice this afternoon."
+			},
+			{
+				"sentence": "下午的阳光特别温暖。",
+				"translation": "The afternoon sun is especially warm."
+			},
+			{
+				"sentence": "你下午有空吗？我们一起出去玩。",
+				"translation": "Are you free in the afternoon? Let's go out and play together."
+			}
+		]
+	},
+	{
+		"simplified": "下雨",
+		"pinyin_tones": "xiàyǔ",
+		"translation": "to rain",
+		"examples": [
+			{
+				"sentence": "我不喜欢下雨天",
+				"translation": "I don't like rainy days."
+			},
+			{
+				"sentence": "明天可能会下雨，记得带雨伞。",
+				"translation": "It may rain tomorrow; remember to bring an umbrella."
+			},
+			{
+				"sentence": "下雨的时候最好不要出门。",
+				"translation": "It's best not to go out when it's raining."
+			},
+			{
+				"sentence": "昨天晚上突然下雨了。",
+				"translation": "It suddenly rained last night."
+			},
+			{
+				"sentence": "下雨天，最适合在家看书。",
+				"translation": "On rainy days, it's best to read at home"
+			}
+		]
+	},
+	{
+		"simplified": "先生",
+		"pinyin_tones": "xiānsheng",
+		"translation": "Mr.; Sir",
+		"examples": [
+			{
+				"sentence": "这位先生，请问您需要帮助吗？",
+				"translation": "Excuse me, sir, do you need help?"
+			},
+			{
+				"sentence": "先生，你的车停得不太好。",
+				"translation": "Sir, your car is parked in a not-so-good way."
+			},
+			{
+				"sentence": "欢迎光临，先生。",
+				"translation": "Welcome, sir."
+			},
+			{
+				"sentence": "先生，请你签字确认。",
+				"translation": "Sir, please sign to confirm."
+			},
+			{
+				"sentence": "这是先生的名片，请收好。",
+				"translation": "This is Mr.'s business card; please keep it."
+			}
+		]
+	},
+	{
+		"simplified": "现在",
+		"pinyin_tones": "xiànzài",
+		"translation": "now",
+		"examples": [
+			{
+				"sentence": "现在几点了？",
+				"translation": "What time is it now?"
+			},
+			{
+				"sentence": "我现在很忙，稍后给你打电话。",
+				"translation": "I'm busy now; I'll call you back later."
+			},
+			{
+				"sentence": "现在是你展示才华的时候。",
+				"translation": "Now is the time for you to showcase your talent."
+			},
+			{
+				"sentence": "她现在住在北京。",
+				"translation": "She now lives in Beijing."
+			},
+			{
+				"sentence": "这是我们现在的进展情况。",
+				"translation": "This is the current status of our progress."
+			}
+		]
+	},
+	{
+		"simplified": "想",
+		"pinyin_tones": "xiǎng",
+		"translation": "think; believe; suppose; would like to",
+		"examples": [
+			{
+				"sentence": "我想这是一个好主意。",
+				"translation": "I think this is a good idea."
+			},
+			{
+				"sentence": "你们想去哪里度假？",
+				"translation": "Where do you want to go for vacation?"
+			},
+			{
+				"sentence": "他想要一杯咖啡。",
+				"translation": "He would like a cup of coffee."
+			},
+			{
+				"sentence": "我想你应该知道真相。",
+				"translation": "I believe you should know the truth."
+			},
+			{
+				"sentence": "你想和我一起参加这个活动吗？",
+				"translation": "Would you like to join this activity with me?"
+			}
+		]
+	},
+	{
+		"simplified": "小",
+		"pinyin_tones": "xiǎo",
+		"translation": "small; young",
+		"examples": [
+			{
+				"sentence": "这个小狗很可爱。",
+				"translation": "This small dog is very cute."
+			},
+			{
+				"sentence": "她是我的小妹妹。",
+				"translation": "She is my younger sister."
+			},
+			{
+				"sentence": "小心！地上有蜜蜂。",
+				"translation": "Be careful! There are bees on the ground."
+			},
+			{
+				"sentence": "这是一家小餐馆，但是菜很好吃。",
+				"translation": "This is a small restaurant, but the food is delicious."
+			},
+			{
+				"sentence": "他是小说作家，写了很多畅销书。",
+				"translation": "He is a novelist and has written many best-selling books."
+			}
+		]
+	},
+	{
+		"simplified": "小姐",
+		"pinyin_tones": "xiǎojie",
+		"translation": "young lady; miss; Ms.",
+		"examples": [
+			{
+				"sentence": "这位小姐，请问你叫什么名字？",
+				"translation": "Miss, may I ask what your name is?"
+			},
+			{
+				"sentence": "小姐，你忘记了拿你的包。",
+				"translation": "Miss, you forgot to take your bag."
+			},
+			{
+				"sentence": "请问，小姐，这附近有好吃的餐厅吗？",
+				"translation": "Excuse me, miss, are there any good restaurants nearby?"
+			},
+			{
+				"sentence": "这是小姐的座位，请慢用。",
+				"translation": "This is your seat, miss; please enjoy."
+			},
+			{
+				"sentence": "小姐，你的手机落在地铁上了。",
+				"translation": "Miss, you dropped your phone on the subway."
+			}
+		]
+	},
+	{
+		"simplified": "些",
+		"pinyin_tones": "xiē",
+		"translation": "some; few; several",
+		"examples": [
+			{
+				"sentence": "这里有些问题需要解决。",
+				"translation": "There are some problems here that need to be solved."
+			},
+			{
+				"sentence": "我只想吃些简单的东西。",
+				"translation": "I just want to eat something simple."
+			},
+			{
+				"sentence": "请给我一些时间考虑。",
+				"translation": "Please give me some time to think."
+			},
+			{
+				"sentence": "这是一些新鲜水果，你尝一尝。",
+				"translation": "These are some fresh fruits; have a taste."
+			},
+			{
+				"sentence": "我们会找到一些解决办法的。",
+				"translation": "We will find some solutions."
+			}
+		]
+	},
+	{
+		"simplified": "写",
+		"pinyin_tones": "xiě",
+		"translation": "to write; to compose",
+		"examples": [
+			{
+				"sentence": "这篇文章写得很感人。",
+				"translation": "This article is written very touchingly."
+			},
+			{
+				"sentence": "他每天都会写日记。",
+				"translation": "He writes a diary every day."
+			},
+			{
+				"sentence": "写一封信给你的朋友。",
+				"translation": "Write a letter to your friend."
+			},
+			{
+				"sentence": "这本书写得很有趣。",
+				"translation": "This book is written in a very interesting way."
+			},
+			{
+				"sentence": "他写了一封感谢信。",
+				"translation": "He wrote a thank-you letter."
+			}
+		]
+	},
+	{
+		"simplified": "谢谢",
+		"pinyin_tones": "xièxie",
+		"translation": "thank you",
+		"examples": [
+			{
+				"sentence": "谢谢你的帮助。",
+				"translation": "Thank you for your help."
+			},
+			{
+				"sentence": "谢谢你的礼物，我很喜欢。",
+				"translation": "Thank you for the gift; I really like it."
+			},
+			{
+				"sentence": "谢谢大家的合作。",
+				"translation": "Thank you all for your cooperation."
+			},
+			{
+				"sentence": "谢谢您的耐心等待。",
+				"translation": "Thank you for your patient waiting."
+			},
+			{
+				"sentence": "谢谢你的理解和支持。",
+				"translation": "Thank you for your understanding and support."
+			}
+		]
+	},
+	{
+		"simplified": "星期",
+		"pinyin_tones": "xīngqī",
+		"translation": "week",
+		"examples": [
+			{
+				"sentence": "星期一到星期五我们上班。",
+				"translation": "We work from Monday to Friday."
+			},
+			{
+				"sentence": "星期六是我们放假的日子。",
+				"translation": "Saturday is our day off."
+			},
+			{
+				"sentence": "下星期我们要出差。",
+				"translation": "We have a business trip next week."
+			},
+			{
+				"sentence": "你星期天有空吗？我们可以一起出去玩。",
+				"translation": "Are you free on Sunday? We can go out together."
+			},
+			{
+				"sentence": "星期四晚上有重要的会议。",
+				"translation": "There is an important meeting on Thursday night."
+			}
+		]
+	},
+	{
+		"simplified": "学生",
+		"pinyin_tones": "xuésheng",
+		"translation": "student",
+		"examples": [
+			{
+				"sentence": "这所学校有很多优秀的学生。",
+				"translation": "This school has many excellent students."
+			},
+			{
+				"sentence": "老师关心每个学生的学习进步。",
+				"translation": "The teacher cares about the academic progress of each student."
+			},
+			{
+				"sentence": "我们是同班同学，也是好朋友。",
+				"translation": "We are classmates and also good friends."
+			},
+			{
+				"sentence": "这个学生在数学方面很有天赋。",
+				"translation": "This student is very talented in mathematics."
+			},
+			{
+				"sentence": "学生们都在为期末考试做准备。",
+				"translation": "The students are all preparing for the final exams."
+			}
+		]
+	},
+	{
+		"simplified": "学习",
+		"pinyin_tones": "xuéxí",
+		"translation": "learn; to study",
+		"examples": [
+			{
+				"sentence": "学习是一生的事业。",
+				"translation": "Learning is a lifelong pursuit."
+			},
+			{
+				"sentence": "他很用心地学习英语。",
+				"translation": "He studies English diligently."
+			},
+			{
+				"sentence": "我们应该积极地学习新知识。",
+				"translation": "We should actively learn new knowledge."
+			},
+			{
+				"sentence": "学习不仅发生在课堂上。",
+				"translation": "Learning doesn't only happen in the classroom."
+			},
+			{
+				"sentence": "她正在学习弹钢琴。",
+				"translation": "She is learning to play the piano."
+			}
+		]
+	},
+	{
+		"simplified": "学校",
+		"pinyin_tones": "xuéxiào",
+		"translation": "school",
+		"examples": [
+			{
+				"sentence": "我每天步行去学校。",
+				"translation": "I walk to school every day."
+			},
+			{
+				"sentence": "这所学校有很多优秀的老师。",
+				"translation": "This school has many excellent teachers."
+			},
+			{
+				"sentence": "他们在学校学习了很多知识。",
+				"translation": "They learned a lot of knowledge at school."
+			},
+			{
+				"sentence": "学校的图书馆很大。",
+				"translation": "The school library is very large."
+			},
+			{
+				"sentence": "这个学校提供各种课程。",
+				"translation": "This school offers various courses."
+			}
+		]
+	},
+	{
+		"simplified": "一",
+		"pinyin_tones": "yī",
+		"translation": "one; once; a",
+		"examples": [
+			{
+				"sentence": "一天有24小时。",
+				"translation": "There are 24 hours in a day."
+			},
+			{
+				"sentence": "我一周去两次健身房。",
+				"translation": "I go to the gym twice a week."
+			},
+			{
+				"sentence": "她一直在等待。",
+				"translation": "She has been waiting all along."
+			},
+			{
+				"sentence": "这是一种非常美味的食物。",
+				"translation": "This is a very delicious food."
+			},
+			{
+				"sentence": "我想买一些水果。",
+				"translation": "I want to buy some fruits."
+			}
+		]
+	},
+	{
+		"simplified": "衣服",
+		"pinyin_tones": "yīfu",
+		"translation": "clothes",
+		"examples": [
+			{
+				"sentence": "夏天穿轻薄的衣服更舒服。",
+				"translation": "It's more comfortable to wear light and thin clothes in summer."
+			},
+			{
+				"sentence": "这家店有各种风格的衣服。",
+				"translation": "This store has clothes of various styles."
+			},
+			{
+				"sentence": "我需要买一些新的工作衣服。",
+				"translation": "I need to buy some new work clothes."
+			},
+			{
+				"sentence": "这是一家专门卖婴儿衣服的店。",
+				"translation": "This is a store specialized in selling baby clothes."
+			},
+			{
+				"sentence": "衣服可以透过窗户晾晒。",
+				"translation": "Clothes can be aired through the window."
+			}
+		]
+	},
+	{
+		"simplified": "医生",
+		"pinyin_tones": "yīshēng",
+		"translation": "doctor",
+		"examples": [
+			{
+				"sentence": "这位医生很有经验。",
+				"translation": "This doctor is very experienced."
+			},
+			{
+				"sentence": "去看医生之前最好先预约。",
+				"translation": "It's best to make an appointment before seeing the doctor."
+			},
+			{
+				"sentence": "医生告诉他多休息。",
+				"translation": "The doctor told him to rest more."
+			},
+			{
+				"sentence": "她是一位心脏病专家医生。",
+				"translation": "She is a doctor specializing in heart diseases."
+			},
+			{
+				"sentence": "医生给了他一些药方。",
+				"translation": "The doctor gave him a prescription."
+			}
+		]
+	},
+	{
+		"simplified": "医院",
+		"pinyin_tones": "yīyuàn",
+		"translation": "hospital",
+		"examples": [
+			{
+				"sentence": "他昨天去医院看病了。",
+				"translation": "He went to the hospital for a check-up yesterday."
+			},
+			{
+				"sentence": "这家医院设备很先进。",
+				"translation": "This hospital has advanced medical equipment."
+			},
+			{
+				"sentence": "医院里的护士都很负责。",
+				"translation": "The nurses in the hospital are all very responsible."
+			},
+			{
+				"sentence": "医院的大厅里很安静。",
+				"translation": "The lobby of the hospital is very quiet."
+			},
+			{
+				"sentence": "这所医院专门治疗儿童疾病。",
+				"translation": "This hospital specializes in treating children's diseases."
+			}
+		]
+	},
+	{
+		"simplified": "椅子",
+		"pinyin_tones": "yǐzi",
+		"translation": "chair",
+		"examples": [
+			{
+				"sentence": "请坐在椅子上。",
+				"translation": "Please sit on the chair."
+			},
+			{
+				"sentence": "这把椅子很舒服。",
+				"translation": "This chair is very comfortable."
+			},
+			{
+				"sentence": "桌子上有一把椅子。",
+				"translation": "There is a chair on the table."
+			},
+			{
+				"sentence": "他在椅子上等了很久。",
+				"translation": "He waited on the chair for a long time."
+			},
+			{
+				"sentence": "这个椅子适合办公室使用。",
+				"translation": "This chair is suitable for office use."
+			}
+		]
+	},
+	{
+		"simplified": "一点儿",
+		"pinyin_tones": "yìdiǎnr",
+		"translation": "a bit; a few",
+		"examples": [
+			{
+				"sentence": "这里有一点儿小问题。",
+				"translation": "There is a small problem here."
+			},
+			{
+				"sentence": "我只吃了一点儿午饭。",
+				"translation": "I only ate a bit of lunch."
+			},
+			{
+				"sentence": "请再加一点儿盐。",
+				"translation": "Please add a bit more salt."
+			},
+			{
+				"sentence": "我们还差一点儿就完成了任务。",
+				"translation": "We are just a bit away from completing the task."
+			},
+			{
+				"sentence": "这只是一点儿小事，不必太担心。",
+				"translation": "This is just a small matter, don't worry too much."
+			}
+		]
+	},
+	{
+		"simplified": "有",
+		"pinyin_tones": "yǒu",
+		"translation": "have",
+		"examples": [
+			{
+				"sentence": "我有一只猫。",
+				"translation": "I have a cat."
+			},
+			{
+				"sentence": "他有很多朋友。",
+				"translation": "He has many friends."
+			},
+			{
+				"sentence": "这里有一个好消息。",
+				"translation": "There is good news here."
+			},
+			{
+				"sentence": "我们有一个共同的目标。",
+				"translation": "We have a common goal."
+			},
+			{
+				"sentence": "她有一个漂亮的花园。",
+				"translation": "She has a beautiful garden."
+			}
+		]
+	},
+	{
+		"simplified": "月",
+		"pinyin_tones": "yuè",
+		"translation": "moon; month",
+		"examples": [
+			{
+				"sentence": "今晚月亮特别明亮。",
+				"translation": "The moon is exceptionally bright tonight."
+			},
+			{
+				"sentence": "一年有十二个月。",
+				"translation": "There are twelve months in a year."
+			},
+			{
+				"sentence": "他的生日是每年的第一个月。",
+				"translation": "His birthday is in the first month of each year."
+			},
+			{
+				"sentence": "月球是地球的卫星。",
+				"translation": "The moon is the satellite of the Earth."
+			},
+			{
+				"sentence": "这个月我要去旅行。",
+				"translation": "I'm going to travel this month."
+			}
+		]
+	},
+	{
+		"simplified": "在",
+		"pinyin_tones": "zài",
+		"translation": "at; on; in; indicates an action in progress",
+		"examples": [
+			{
+				"sentence": "他在办公室工作。",
+				"translation": "He is working in the office."
+			},
+			{
+				"sentence": "书桌上有一本字典。",
+				"translation": "There is a dictionary on the desk."
+			},
+			{
+				"sentence": "我们在学校学习中文。",
+				"translation": "We are learning Chinese at school."
+			},
+			{
+				"sentence": "在大楼前有一片花园。",
+				"translation": "There is a garden in front of the building."
+			},
+			{
+				"sentence": "他在做晚饭。",
+				"translation": "He is cooking dinner."
+			}
+		]
+	},
+	{
+		"simplified": "再见",
+		"pinyin_tones": "zàijiàn",
+		"translation": "goodbye; see you later",
+		"examples": [
+			{
+				"sentence": "我要走了，再见！",
+				"translation": "I'm leaving, goodbye!"
+			},
+			{
+				"sentence": "下次见面，再见！",
+				"translation": "Until we meet again, goodbye!"
+			},
+			{
+				"sentence": "再见，祝你一路顺风。",
+				"translation": "Goodbye, wish you a smooth journey."
+			},
+			{
+				"sentence": "他挥手说再见。",
+				"translation": "He waved and said goodbye."
+			},
+			{
+				"sentence": "明天再见！",
+				"translation": "See you tomorrow!"
+			}
+		]
+	},
+	{
+		"simplified": "怎么",
+		"pinyin_tones": "zěnme",
+		"translation": "how?",
+		"examples": [
+			{
+				"sentence": "你怎么了？",
+				"translation": "What's wrong with you?"
+			},
+			{
+				"sentence": "请告诉我怎么做。",
+				"translation": "Please tell me how to do it."
+			},
+			{
+				"sentence": "这个问题怎么解决？",
+				"translation": "How can this problem be solved?"
+			},
+			{
+				"sentence": "他怎么去的学校？",
+				"translation": "How did he go to school?"
+			},
+			{
+				"sentence": "你怎么能这样说？",
+				"translation": "How can you say that?"
+			}
+		]
+	},
+	{
+		"simplified": "怎么样",
+		"pinyin_tones": "zěnmeyàng",
+		"translation": "how about?; how is/was it?",
+		"examples": [
+			{
+				"sentence": "你觉得这个提议怎么样？",
+				"translation": "What do you think of this proposal?"
+			},
+			{
+				"sentence": "这个菜怎么样？好吃吗？",
+				"translation": "How about this dish? Is it delicious?"
+			},
+			{
+				"sentence": "你考试怎么样？",
+				"translation": "How did you do in the exam?"
+			},
+			{
+				"sentence": "今天的天气怎么样？",
+				"translation": "How is the weather today?"
+			},
+			{
+				"sentence": "他的新电脑怎么样？",
+				"translation": "How is his new computer?"
+			}
+		]
+	},
+	{
+		"simplified": "这",
+		"pinyin_tones": "zhè",
+		"translation": "this",
+		"examples": [
+			{
+				"sentence": "这是我的手机。",
+				"translation": "This is my phone."
+			},
+			{
+				"sentence": "这个问题很重要。",
+				"translation": "This question is very important."
+			},
+			{
+				"sentence": "这是我们的计划。",
+				"translation": "This is our plan."
+			},
+			{
+				"sentence": "这个城市有很多高楼。",
+				"translation": "This city has many tall buildings."
+			},
+			{
+				"sentence": "这些是我的书。",
+				"translation": "These are my books."
+			}
+		]
+	},
+	{
+		"simplified": "中国",
+		"pinyin_tones": "Zhōngguó",
+		"translation": "China",
+		"examples": [
+			{
+				"sentence": "我想去中国旅行。",
+				"translation": "I want to travel to China."
+			},
+			{
+				"sentence": "中国有五千多年的历史。",
+				"translation": "China has a history of over five thousand years."
+			},
+			{
+				"sentence": "他们在中国学习中文。",
+				"translation": "They are learning Chinese in China."
+			},
+			{
+				"sentence": "中国的风景很美。",
+				"translation": "The scenery in China is very beautiful."
+			},
+			{
+				"sentence": "中国的文化很丰富。",
+				"translation": "Chinese culture is very rich."
+			}
+		]
+	},
+	{
+		"simplified": "中午",
+		"pinyin_tones": "zhōngwǔ",
+		"translation": "noon; midday",
+		"examples": [
+			{
+				"sentence": "我们通常在中午吃午饭。",
+				"translation": "We usually have lunch at noon."
+			},
+			{
+				"sentence": "今天中午天气很热。",
+				"translation": "It's hot today at noon."
+			},
+			{
+				"sentence": "中午时分，他们在公园散步。",
+				"translation": "At noon, they take a walk in the park."
+			},
+			{
+				"sentence": "中午的阳光很刺眼。",
+				"translation": "The sunlight at noon is dazzling."
+			},
+			{
+				"sentence": "中午的风景很宁静。",
+				"translation": "The scenery at noon is very tranquil."
+			}
+		]
+	},
+	{
+		"simplified": "住",
+		"pinyin_tones": "zhù",
+		"translation": "to live; reside; to stop",
+		"examples": [
+			{
+				"sentence": "我住在这座城市。",
+				"translation": "I live in this city."
+			},
+			{
+				"sentence": "他们住在一个小村庄。",
+				"translation": "They live in a small village."
+			},
+			{
+				"sentence": "这是我住的地方。",
+				"translation": "This is the place where I live."
+			},
+			{
+				"sentence": "我们住在一幢公寓楼里。",
+				"translation": "We live in an apartment building."
+			},
+			{
+				"sentence": "请问你住在哪里？",
+				"translation": "May I ask where you live?"
+			}
+		]
+	},
+	{
+		"simplified": "桌子",
+		"pinyin_tones": "zhuōzi",
+		"translation": "table; desk",
+		"examples": [
+			{
+				"sentence": "请把书放在桌子上。",
+				"translation": "Please put the book on the table."
+			},
+			{
+				"sentence": "这个桌子很大，可以容纳很多东西。",
+				"translation": "This table is big and can accommodate many things."
+			},
+			{
+				"sentence": "我在桌子上找到了我的钱包。",
+				"translation": "I found my wallet on the table."
+			},
+			{
+				"sentence": "他坐在桌子前写作业。",
+				"translation": "He sits in front of the desk doing homework."
+			},
+			{
+				"sentence": "桌子上放着一盆鲜花。",
+				"translation": "There is a pot of flowers on the table."
+			}
+		]
+	},
+	{
+		"simplified": "字",
+		"pinyin_tones": "zì",
+		"translation": "letter; character",
+		"examples": [
+			{
+				"sentence": "这个字你认识吗？",
+				"translation": "Do you recognize this character?"
+			},
+			{
+				"sentence": "他写得字很漂亮。",
+				"translation": "He writes characters beautifully."
+			},
+			{
+				"sentence": "这篇文章用了很多生僻字。",
+				"translation": "This article uses many rare characters."
+			},
+			{
+				"sentence": "请你写下你的名字。",
+				"translation": "Please write down your name."
+			},
+			{
+				"sentence": "这个字的发音是什么？",
+				"translation": "What is the pronunciation of this character?"
+			}
+		]
+	},
+	{
+		"simplified": "昨天",
+		"pinyin_tones": "zuótiān",
+		"translation": "yesterday",
+		"examples": [
+			{
+				"sentence": "昨天是星期五。",
+				"translation": "Yesterday was Friday."
+			},
+			{
+				"sentence": "我昨天见到了我的朋友。",
+				"translation": "I saw my friend yesterday."
+			},
+			{
+				"sentence": "昨天晚上我很晚才回家。",
+				"translation": "I didn't get home until very late last night."
+			},
+			{
+				"sentence": "昨天天气不错。",
+				"translation": "The weather was good yesterday."
+			},
+			{
+				"sentence": "昨天发生了一些有趣的事情。",
+				"translation": "Some interesting things happened yesterday."
+			}
+		]
+	},
+	{
+		"simplified": "做",
+		"pinyin_tones": "zuò",
+		"translation": "do; make",
+		"examples": [
+			{
+				"sentence": "他喜欢做饭。",
+				"translation": "He likes to cook."
+			},
+			{
+				"sentence": "请你不要做任何傻事。",
+				"translation": "Please don't do anything silly."
+			},
+			{
+				"sentence": "这是我做的蛋糕，你尝一尝。",
+				"translation": "This is the cake I made; have a taste."
+			},
+			{
+				"sentence": "你能做个简单的自我介绍吗？",
+				"translation": "Can you make a simple self-introduction?"
+			},
+			{
+				"sentence": "他每天都做运动保持身体健康。",
+				"translation": "He exercises every day to stay healthy."
+			}
+		]
+	},
+	{
+		"simplified": "坐",
+		"pinyin_tones": "zuò",
+		"translation": "sit",
+		"examples": [
+			{
+				"sentence": "请坐下，我们开始吧。",
+				"translation": "Please sit down; let's begin."
+			},
+			{
+				"sentence": "他喜欢坐在窗边看书。",
+				"translation": "He likes to sit by the window and read."
+			},
+			{
+				"sentence": "在公共场合，请不要随便坐在别人的座位上。",
+				"translation": "In public places, please don't randomly sit in someone else's seat."
+			},
+			{
+				"sentence": "坐飞机需要提前办理登机手续。",
+				"translation": "You need to check in early when taking a plane."
+			},
+			{
+				"sentence": "她坐在公园的长椅上欣赏风景。",
+				"translation": "She sat on the park bench and enjoyed the scenery."
+			}
+		]
+	}
+]

@@ -35,35 +35,6 @@ class _CollectionPageState extends State<CollectionPage> {
     });
   }
 
-  Color getColor(int confidenceLevel) {
-    Color confidence = Colors.grey;
-    switch (confidenceLevel) {
-      case 0:
-        confidence = Colors.red;
-        break;
-      case 1:
-        confidence = Colors.yellow;
-        break;
-      case 2:
-        confidence = Colors.amber;
-        break;
-      case 3:
-        confidence = Colors.lightGreen;
-        break;
-      case 4:
-        confidence = Colors.green;
-        break;
-      default:
-        confidence = Colors.red;
-    }
-
-    if (confidenceLevel >= 5) {
-      confidence = Colors.blue;
-    }
-
-    return confidence;
-  }
-
   @override
   Widget build(BuildContext context) {
     final collectionModel = Provider.of<CollectionModel>(context);
@@ -74,7 +45,7 @@ class _CollectionPageState extends State<CollectionPage> {
   Widget _buildBody(CollectionModel collectionModel) {
     if (collectionModel.hskEntries.isEmpty) {
       // If characters are not loaded, trigger loading
-      collectionModel.loadData();
+      collectionModel.loadCollectionData();
       return Center(child: CircularProgressIndicator());
     } else {
       // Build the grid with loaded characters
@@ -89,10 +60,16 @@ class _CollectionPageState extends State<CollectionPage> {
           ),
           itemCount: collectionModel.hskEntries.length,
           itemBuilder: (context, index) {
-            return _buildCharacterItem(
-                context,
-                collectionModel.hskEntries[index],
-                getColor(data[index]["score"]));
+            //if collectionmodel is initialist, otherwise return loading icon
+
+            if (data.isEmpty) {
+              return CircularProgressIndicator();
+            } else {
+              return _buildCharacterItem(
+                  context,
+                  collectionModel.hskEntries[index],
+                  collectionModel.getColor(data[index]["score"]));
+            }
           },
         ),
       );

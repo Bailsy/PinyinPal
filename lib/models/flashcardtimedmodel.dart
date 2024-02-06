@@ -6,6 +6,7 @@ import 'package:mysql1/mysql1.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pinyinpal/constants/deviceinfo.dart';
 import 'package:pinyinpal/models/databasecontrol.dart';
+//import collectionmodel
 
 class FlashCardTimedModel extends ChangeNotifier {
   int _count = 0;

@@ -10,7 +10,7 @@ class CollectionModel extends ChangeNotifier {
   HskEntry? _selectedCharacter;
   HskEntry? get selectedCharacter => _selectedCharacter;
 
-  Future<void> loadData() async {
+  Future<void> loadCollectionData() async {
     try {
       // Load JSON data from assets
       String jsonString =
@@ -35,5 +35,34 @@ class CollectionModel extends ChangeNotifier {
   void onCharacterTap(HskEntry character) {
     _selectedCharacter = character;
     notifyListeners();
+  }
+
+  Color getColor(int confidenceLevel) {
+    Color confidence = Colors.grey;
+    switch (confidenceLevel) {
+      case 0:
+        confidence = Colors.red;
+        break;
+      case 1:
+        confidence = Colors.yellow;
+        break;
+      case 2:
+        confidence = Colors.amber;
+        break;
+      case 3:
+        confidence = Colors.lightGreen;
+        break;
+      case 4:
+        confidence = Colors.green;
+        break;
+      default:
+        confidence = Colors.red;
+    }
+
+    if (confidenceLevel >= 5) {
+      confidence = Colors.blue;
+    }
+
+    return confidence;
   }
 }

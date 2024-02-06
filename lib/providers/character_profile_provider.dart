@@ -16,11 +16,10 @@ class CharacterProfileProvider extends StatelessWidget {
   Widget build(BuildContext context) {
     // Use the Provider to provide the CharacterProfileModel to the widget tree
     return ChangeNotifierProvider(
-      create: (_) => CharacterProfileModel(),
-      child: CharacterProfilePage(
-        selectedCharacter: hskCharacter,
-        confidence: confidence,
-      ), // Pass the HskCharacter
+      create: (_) => CharacterProfileModel(
+          hskCharacter: hskCharacter,
+          confidence: confidence), // Pass the HskCharacter
+      child: CharacterProfilePage(), // Pass the HskCharacter
     );
   }
 }

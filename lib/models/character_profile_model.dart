@@ -6,29 +6,18 @@ import 'package:just_audio/just_audio.dart';
 import 'dart:convert';
 
 class CharacterProfileModel extends ChangeNotifier {
-  String character = "";
-  String pinyin = "";
+  late HskEntry _character;
+  HskEntry get character => _character;
+
+  late Color _confidence;
+  Color get confidence => _confidence;
+
   Uint8List audioData = Uint8List(0);
-  String meaning = "";
-  List<ExampleSentence> exampleSentences = [];
 
-  // Function to fetch example sentences
-  Future<void> fetchExampleSentences(String simplified) async {
-    try {
-      final List<ExampleSentence> sentences =
-          await ApiService.fetchExampleSentences(simplified);
-
-      exampleSentences.clear();
-
-      // Add the fetched sentences to the list
-      exampleSentences.addAll(sentences);
-
-      // Call notifyListeners to trigger a rebuild
-      notifyListeners();
-    } catch (error) {
-      // Handle error
-      print('Error fetching example sentences: $error');
-    }
+  CharacterProfileModel(
+      {required HskEntry hskCharacter, required Color confidence}) {
+    _character = hskCharacter;
+    _confidence = confidence;
   }
 
   // Function to play audio for the selected character
@@ -37,7 +26,8 @@ class CharacterProfileModel extends ChangeNotifier {
       audioData = await ApiService.fetchAudioData(character.simplified);
       //play audio
       final player = AudioPlayer();
-      final durtion = player.setAudioSource(MyCustomSource(audioData));
+      final duration = player.setAudioSource(MyCustomSource(audioData));
+      player.setVolume(1000000);
       player.play();
     } catch (error) {
       // Handle error

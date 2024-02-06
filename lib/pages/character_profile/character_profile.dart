@@ -8,11 +8,6 @@ import 'package:pinyinpal/models/hsk_entry.dart';
 import 'package:provider/provider.dart';
 
 class CharacterProfilePage extends StatelessWidget {
-  final HskEntry selectedCharacter;
-  final Color confidence;
-  const CharacterProfilePage(
-      {required this.selectedCharacter, required this.confidence});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,38 +19,29 @@ class CharacterProfilePage extends StatelessWidget {
           icon: const Icon(LineAwesomeIcons.angle_left),
         ),
       ),
-      body: CharacterProfileBody(
-        selectedCharacter: selectedCharacter,
-        confidence: confidence,
-      ),
+      body: CharacterProfileBody(),
     );
   }
 }
 
 class CharacterProfileBody extends StatefulWidget {
-  final HskEntry selectedCharacter;
-  final Color confidence;
-  const CharacterProfileBody(
-      {required this.selectedCharacter, required this.confidence});
-
   @override
   _CharacterProfileBodyState createState() => _CharacterProfileBodyState();
 }
 
 class _CharacterProfileBodyState extends State<CharacterProfileBody> {
-  late List<ExampleSentence> exampleSentences = [];
-
   @override
   void initState() {
     super.initState();
+
+    // Load the data
     final characterProfileModel = context.read<CharacterProfileModel>();
-    characterProfileModel
-        .fetchExampleSentences(widget.selectedCharacter.simplified);
   }
 
   @override
   Widget build(BuildContext context) {
     final characterProfileModel = context.watch<CharacterProfileModel>();
+    final character = characterProfileModel.character;
 
     return SingleChildScrollView(
       child: Center(
@@ -67,7 +53,7 @@ class _CharacterProfileBodyState extends State<CharacterProfileBody> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  widget.selectedCharacter.pinyin_tones,
+                  characterProfileModel.character.simplified,
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                     fontSize: StylingConstants.pFontSizeMedium,
@@ -81,8 +67,7 @@ class _CharacterProfileBodyState extends State<CharacterProfileBody> {
                 ),
                 ElevatedButton(
                   //_playaudio is in model
-                  onPressed: () =>
-                      characterProfileModel.playAudio(widget.selectedCharacter),
+                  onPressed: () => characterProfileModel.playAudio(character),
                   child: const Iconify(
                     Ph.speaker_high_fill,
                     color: Colors.blue,
@@ -94,7 +79,7 @@ class _CharacterProfileBodyState extends State<CharacterProfileBody> {
                 ),
                 Iconify(
                   Ph.circle_fill,
-                  color: widget.confidence,
+                  color: characterProfileModel.confidence,
                   size: 30,
                 ),
               ],
@@ -120,7 +105,7 @@ class _CharacterProfileBodyState extends State<CharacterProfileBody> {
               children: [
                 Column(children: <Widget>[
                   Text(
-                    widget.selectedCharacter.translation,
+                    character.translation,
                     textAlign: TextAlign.left,
                     style: const TextStyle(
                       fontSize: 20,
@@ -148,11 +133,11 @@ class _CharacterProfileBodyState extends State<CharacterProfileBody> {
               textColor: Colors.white,
               children: [
                 Column(
-                  children: characterProfileModel.exampleSentences
-                      .map((sentence) => ListTile(
-                            title: Text(sentence.hanzi),
+                  children: characterProfileModel.character.exampleSentences
+                      .map((examplesentence) => ListTile(
+                            title: Text(examplesentence.sentence),
                             textColor: Colors.white,
-                            subtitle: Text(sentence.translation),
+                            subtitle: Text(examplesentence.translation),
                           ))
                       .toList(),
                 ),
