@@ -30,17 +30,18 @@ class CharacterProfileBody extends StatefulWidget {
 }
 
 class _CharacterProfileBodyState extends State<CharacterProfileBody> {
+  late CharacterProfileModel characterProfileModel;
+
   @override
   void initState() {
     super.initState();
 
     // Load the data
-    final characterProfileModel = context.read<CharacterProfileModel>();
+    characterProfileModel = context.read<CharacterProfileModel>();
   }
 
   @override
   Widget build(BuildContext context) {
-    final characterProfileModel = context.watch<CharacterProfileModel>();
     final character = characterProfileModel.character;
 
     return SingleChildScrollView(
@@ -51,75 +52,59 @@ class _CharacterProfileBodyState extends State<CharacterProfileBody> {
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
+              children: <Widget>[
+                Spacer(),
                 Text(
-                  characterProfileModel.character.simplified,
+                  character.simplified,
                   textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: StylingConstants.pFontSizeMedium,
+                  style: TextStyle(
+                    fontSize: StylingConstants.pFontSizeLarge,
                     fontFamily: StylingConstants.pStandartFont,
-                    color: Colors.white,
+                    color: characterProfileModel.confidence,
                   ),
                 ),
-                // Audio playback button for the selected character
-                Container(
-                  width: 20,
-                ),
-                ElevatedButton(
-                  //_playaudio is in model
-                  onPressed: () => characterProfileModel.playAudio(character),
-                  child: const Iconify(
-                    Ph.speaker_high_fill,
-                    color: Colors.blue,
-                    size: 20,
-                  ),
-                ),
-                Container(
-                  width: 20,
-                ),
-                Iconify(
-                  Ph.circle_fill,
-                  color: characterProfileModel.confidence,
-                  size: 30,
-                ),
-              ],
-            ),
-            // Display other relevant information
-
-            // Example sentences section
-
-            //show the translation
-            Container(height: 30),
-
-            ExpansionTile(
-              title: const Text(
-                'Translation',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                    fontSize: 20,
-                    fontFamily: 'LibreFranklin',
-                    color: Colors.grey),
-              ),
-              collapsedIconColor: Colors.grey,
-              textColor: Colors.white,
-              children: [
-                Column(children: <Widget>[
-                  Text(
-                    character.translation,
-                    textAlign: TextAlign.left,
-                    style: const TextStyle(
-                      fontSize: 20,
-                      fontFamily: StylingConstants.pStandartFont,
-                      color: Colors.white,
+                Expanded(
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: EdgeInsets.only(
+                          left: 16.0), // Adjust the padding as needed
+                      child: ElevatedButton(
+                        onPressed: () => characterProfileModel
+                            .playAudio(character.simplified),
+                        child: const Iconify(
+                          Ph.speaker_high_fill,
+                          color: Colors.blue,
+                          size: 20,
+                        ),
+                      ),
                     ),
                   ),
-                  Container(
-                    height: 19,
-                  )
-                ]),
+                ),
               ],
             ),
 
+            // Add the character's pinyin
+            Text(
+              character.pinyin_tones,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 20,
+                fontFamily: StylingConstants.pStandartFont,
+                color: Colors.grey,
+              ),
+            ),
+            Container(height: 30),
+            // Add the character's translation
+            Text(
+              character.translation,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 20,
+                fontFamily: StylingConstants.pStandartFont,
+                color: Colors.white,
+              ),
+            ),
             ExpansionTile(
               title: const Text(
                 'Example Sentences',

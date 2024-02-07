@@ -56,7 +56,7 @@ class _VimeoPlayerState extends State<VimeoPlayer> {
               </head>
               <body>
                 <iframe 
-                  src="https://player.vimeo.com/video/$videoId?autoplay=1&loop=0&controls=0&muted=0" 
+                  src="https://player.vimeo.com/video/$videoId?autoplay=0&loop=0&controls=1&muted=0" 
                   width="100%" 
                   height="100%" 
                   frameborder="0" 

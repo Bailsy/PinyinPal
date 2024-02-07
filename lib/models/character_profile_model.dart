@@ -13,19 +13,30 @@ class CharacterProfileModel extends ChangeNotifier {
   Color get confidence => _confidence;
 
   Uint8List audioData = Uint8List(0);
+  AudioPlayer player = AudioPlayer();
 
   CharacterProfileModel(
       {required HskEntry hskCharacter, required Color confidence}) {
     _character = hskCharacter;
     _confidence = confidence;
+    fetchAudioData();
+  }
+
+  // Function to fetch audio data for the selected character
+  Future<void> fetchAudioData() async {
+    try {
+      audioData = await ApiService.fetchAudioData(_character.simplified);
+      print('Fetched audio data for ${_character.simplified}');
+      notifyListeners();
+    } catch (error) {
+      // Handle error
+      print('Error fetching audio data: $error');
+    }
   }
 
   // Function to play audio for the selected character
-  void playAudio(HskEntry character) async {
+  void playAudio(String character) async {
     try {
-      audioData = await ApiService.fetchAudioData(character.simplified);
-      //play audio
-      final player = AudioPlayer();
       final duration = player.setAudioSource(MyCustomSource(audioData));
       player.setVolume(1000000);
       player.play();
@@ -48,8 +59,9 @@ class MyCustomSource extends StreamAudioSource {
       sourceLength: bytes.length,
       contentLength: end - start,
       offset: start,
-      stream: Stream.value(bytes.sublist(start, end)),
-      contentType: 'audio/mpeg',
+      stream: Stream.value(
+          Uint8List.fromList(bytes.sublist(start, end)).buffer.asUint8List()),
+      contentType: 'audio/wav',
     );
   }
 }

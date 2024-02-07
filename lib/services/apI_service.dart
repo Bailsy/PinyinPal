@@ -5,8 +5,8 @@ import 'package:pinyinpal/models/character_profile_model.dart';
 
 class ApiService {
   static Future<Uint8List> fetchAudioData(String hanzi) async {
-    final response = await http.get(
-        Uri.parse('https://pinyin-word-api.vercel.app/api/audio/pod/$hanzi'));
+    final response = await http
+        .get(Uri.parse('https://pinyin-word-api.vercel.app/api/audio/$hanzi'));
     // Process the response and convert it to Uint8List
 
     // Placeholder: Handle the response and return a Uint8List
