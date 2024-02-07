@@ -5,15 +5,13 @@ import 'package:pinyinpal/constants/deviceinfo.dart';
 import 'package:pinyinpal/constants/stylingconstants.dart';
 import 'package:pinyinpal/models/collection_model.dart';
 import 'package:pinyinpal/models/friends_model.dart';
-import 'package:pinyinpal/models/hsk_entry.dart';
-import 'package:pinyinpal/pages/profile.dart';
 import 'package:pinyinpal/models/sendfriendrequest.dart';
 import 'package:pinyinpal/widget/friendnavbar.dart';
 import 'package:provider/provider.dart';
 
 class FriendsPage extends StatefulWidget {
   // It is essential to give the class a key and make it constant
-  const FriendsPage({Key? key});
+  const FriendsPage({super.key});
   @override
   FriendsPageState createState() => FriendsPageState();
 }
@@ -48,7 +46,7 @@ class FriendsPageState extends State<FriendsPage> {
 }
 
 class FriendRequest extends StatefulWidget {
-  const FriendRequest({Key? key}) : super(key: key);
+  const FriendRequest({super.key});
 
   @override
   FriendRequestState createState() => FriendRequestState();
@@ -61,7 +59,7 @@ class FriendRequestState extends State<FriendRequest> {
     return SingleChildScrollView(
       child: Column(
         children: <Widget>[
-          Container(
+          SizedBox(
               height: DeviceInfo.height / 1.2,
               child: ChangeNotifierProvider(
                 create: (_) => CollectionModel(),
@@ -78,11 +76,11 @@ class FriendRequestState extends State<FriendRequest> {
     return Consumer<FriendModel>(
       builder: (context, FriendModel, child) {
         if (FriendModel.requests.isEmpty) {
-          return Center(child: Text("No Requests found"));
+          return const Center(child: Text("No Requests found"));
         } else {
           // Build the grid with loaded characters
           return Container(
-            margin: EdgeInsets.all(16.0), // Adjust the margin as needed
+            margin: const EdgeInsets.all(16.0), // Adjust the margin as needed
             child: GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 1,
@@ -106,7 +104,7 @@ class FriendRequestState extends State<FriendRequest> {
     return GestureDetector(
       child: Container(
         decoration: BoxDecoration(
-          color: Color(0xff303238).withOpacity(0),
+          color: const Color(0xff303238).withOpacity(0),
           borderRadius: BorderRadius.circular(12),
         ),
         child: Row(
@@ -117,7 +115,7 @@ class FriendRequestState extends State<FriendRequest> {
             ),
             Text(
               username,
-              style: TextStyle(color: Colors.grey, fontSize: 30),
+              style: const TextStyle(color: Colors.grey, fontSize: 30),
             ),
             Container(
               width: 100,
@@ -126,18 +124,19 @@ class FriendRequestState extends State<FriendRequest> {
               onTap: () {
                 SendFriendRequest sf = SendFriendRequest();
                 sf.denyRequest(identification);
-                print("Character tapped: ${username}");
+                print("Character tapped: $username");
               },
-              child: Icon(LineAwesomeIcons.times, color: Colors.red, size: 45),
+              child: const Icon(LineAwesomeIcons.times,
+                  color: Colors.red, size: 45),
             ),
             InkWell(
               onTap: () {
                 SendFriendRequest sf = SendFriendRequest();
                 sf.acceptRequest(identification);
-                print("Character tapped: ${username}");
+                print("Character tapped: $username");
               },
-              child:
-                  Icon(LineAwesomeIcons.check, color: Colors.green, size: 45),
+              child: const Icon(LineAwesomeIcons.check,
+                  color: Colors.green, size: 45),
             ),
             Container(
               width: 10,
@@ -150,7 +149,7 @@ class FriendRequestState extends State<FriendRequest> {
 }
 
 class FriendCircle extends StatefulWidget {
-  const FriendCircle({Key? key}) : super(key: key);
+  const FriendCircle({super.key});
 
   @override
   FriendCircleState createState() => FriendCircleState();
@@ -163,7 +162,7 @@ class FriendCircleState extends State<FriendCircle> {
     return SingleChildScrollView(
       child: Column(
         children: <Widget>[
-          Container(
+          SizedBox(
               height: DeviceInfo.height / 1.2,
               child: ChangeNotifierProvider(
                 create: (_) => CollectionModel(),
@@ -180,11 +179,11 @@ class FriendCircleState extends State<FriendCircle> {
     return Consumer<FriendModel>(
       builder: (context, FriendModel, child) {
         if (FriendModel.friends.isEmpty) {
-          return Center(child: Text("No Friends"));
+          return const Center(child: Text("No Friends"));
         } else {
           // Build the grid with loaded characters
           return Container(
-            margin: EdgeInsets.all(16.0), // Adjust the margin as needed
+            margin: const EdgeInsets.all(16.0), // Adjust the margin as needed
             child: GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 1,
@@ -207,7 +206,7 @@ class FriendCircleState extends State<FriendCircle> {
     return GestureDetector(
       child: Container(
         decoration: BoxDecoration(
-          color: Color(0xff303238).withOpacity(0),
+          color: const Color(0xff303238).withOpacity(0),
           borderRadius: BorderRadius.circular(12),
         ),
         child: Row(
@@ -218,7 +217,7 @@ class FriendCircleState extends State<FriendCircle> {
             ),
             Text(
               username,
-              style: TextStyle(color: Colors.grey, fontSize: 30),
+              style: const TextStyle(color: Colors.grey, fontSize: 30),
             ),
             Container(
               width: 100,
@@ -230,7 +229,7 @@ class FriendCircleState extends State<FriendCircle> {
                 Container(height: 30),
                 InkWell(
                   onTap: () {},
-                  child: Icon(LineAwesomeIcons.circle,
+                  child: const Icon(LineAwesomeIcons.circle,
                       color: pBlueColour, size: 45),
                 ),
               ],
@@ -243,7 +242,7 @@ class FriendCircleState extends State<FriendCircle> {
 }
 
 class FriendFinder extends StatefulWidget {
-  const FriendFinder({Key? key}) : super(key: key);
+  const FriendFinder({super.key});
 
   @override
   FriendFinderState createState() => FriendFinderState();
@@ -255,6 +254,7 @@ class FriendFinderState extends State<FriendFinder> {
   String searchTerm = "";
   String previousSearchTerm = "";
 
+  @override
   void initState() {
     super.initState();
     searchController = TextEditingController()
@@ -306,7 +306,7 @@ class FriendFinderState extends State<FriendFinder> {
               ),
             ),
           ),
-          Container(
+          SizedBox(
               height: DeviceInfo.height / 1.2,
               child: ChangeNotifierProvider(
                 create: (_) => CollectionModel(),
@@ -332,11 +332,11 @@ class FriendFinderState extends State<FriendFinder> {
           // If characters are not loaded, trigger loading
           FriendModel.loadUsers(searchTerm);
 
-          return Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator());
         } else {
           // Build the grid with loaded characters
           return Container(
-            margin: EdgeInsets.all(16.0), // Adjust the margin as needed
+            margin: const EdgeInsets.all(16.0), // Adjust the margin as needed
             child: GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 1,
@@ -361,7 +361,7 @@ class FriendFinderState extends State<FriendFinder> {
     return GestureDetector(
       child: Container(
         decoration: BoxDecoration(
-          color: Color(0xff303238).withOpacity(0),
+          color: const Color(0xff303238).withOpacity(0),
           borderRadius: BorderRadius.circular(12),
         ),
         child: Row(
@@ -372,7 +372,7 @@ class FriendFinderState extends State<FriendFinder> {
             ),
             Text(
               username,
-              style: TextStyle(color: Colors.grey, fontSize: 30),
+              style: const TextStyle(color: Colors.grey, fontSize: 30),
             ),
             Container(
               width: 100,
@@ -384,12 +384,12 @@ class FriendFinderState extends State<FriendFinder> {
                 Container(height: 30),
                 InkWell(
                   onTap: () {
-                    print("Character tapped: ${friendID}");
+                    print("Character tapped: $friendID");
                     SendFriendRequest sf = SendFriendRequest();
 
                     sf.sendRequest(friendID);
                   },
-                  child: Icon(LineAwesomeIcons.user_friends,
+                  child: const Icon(LineAwesomeIcons.user_friends,
                       color: pBlueColour, size: 45),
                 ),
               ],

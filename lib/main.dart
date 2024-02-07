@@ -10,12 +10,12 @@ void main() async {
   await dotenv.load();
   await AppConfig.setup();
   runApp(
-    MainApp(),
+    const MainApp(),
   );
 }
 
 class MainApp extends StatelessWidget {
-  const MainApp({Key? key});
+  const MainApp({super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

@@ -2,15 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:iconify_flutter/icons/material_symbols.dart';
 import 'package:iconify_flutter/icons/ph.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-import 'package:pinyinpal/pages/newhome.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 
 import 'package:iconify_flutter/icons/ion.dart';
-import 'package:pinyinpal/pages/newhome.dart';
 
 class Lesson1 extends StatefulWidget {
   // It is essential to give the class a key and make it constant
-  const Lesson1({Key? key});
+  const Lesson1({super.key});
 
   @override
   Lesson1State createState() => Lesson1State();
@@ -92,23 +90,23 @@ class Lesson1State extends State<Lesson1> {
     stringSplitterChinese("现在");
     stringSplitterEnglish("Now");
     iconChanger(Ion.watch);
-    await Future.delayed(Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 1));
     stringSplitterChinese("我在");
     stringSplitterEnglish("... in");
     iconChanger(MaterialSymbols.arrow_downward);
-    await Future.delayed(Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 1));
     stringSplitterChinese("商店");
     stringSplitterEnglish("the ...");
     iconChanger(Ion.storefront);
-    await Future.delayed(Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 1));
     iconChanger(Ph.dots_three);
     stringSplitterChinese("这");
     stringSplitterEnglish("This");
-    await Future.delayed(Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 1));
     stringSplitterChinese("很酷");
     stringSplitterEnglish("...");
     iconChanger(Ion.glasses);
-    await Future.delayed(Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 1));
   }
 
   @override
@@ -173,19 +171,19 @@ class Lesson1State extends State<Lesson1> {
                         children: <TextSpan>[
                           TextSpan(
                               text: textLeft,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 24,
                                   fontFamily: 'LibreFranklin',
                                   color: Colors.grey)),
                           TextSpan(
                               text: highlighted,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 24,
                                   fontFamily: 'LibreFranklin',
                                   color: Colors.blue)),
                           TextSpan(
                               text: textRight,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 24,
                                   fontFamily: 'LibreFranklin',
                                   color: Colors.grey)),
@@ -206,19 +204,19 @@ class Lesson1State extends State<Lesson1> {
                         children: <TextSpan>[
                           TextSpan(
                               text: textLeft2,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 17,
                                   fontFamily: 'LibreFranklin',
                                   color: Colors.grey)),
                           TextSpan(
                               text: highlighted2,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 17,
                                   fontFamily: 'LibreFranklin',
                                   color: Colors.blue)),
                           TextSpan(
                               text: textRight2,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 17,
                                   fontFamily: 'LibreFranklin',
                                   color: Colors.grey)),

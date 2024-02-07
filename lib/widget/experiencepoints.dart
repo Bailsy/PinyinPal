@@ -4,7 +4,7 @@ import 'package:newton_particles/newton_particles.dart';
 class ExperiencePoints extends StatelessWidget {
   final int totaltime;
 
-  const ExperiencePoints({required this.totaltime, Key? key}) : super(key: key);
+  const ExperiencePoints({required this.totaltime, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class ExperiencePoints extends StatelessWidget {
               color: const SingleParticleColor(
                   color: Color.fromARGB(255, 215, 175, 29)),
             ),
-            effectConfiguration: EffectConfiguration(emitDuration: 100))
+            effectConfiguration: const EffectConfiguration(emitDuration: 100))
       ],
     );
   }

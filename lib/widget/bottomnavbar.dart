@@ -5,7 +5,7 @@ import 'package:pinyinpal/constants/colour.dart';
 class BottomNavBar extends StatefulWidget {
   static int indexPos = 0;
   final Function(int) onIndexChanged;
-  BottomNavBar({required this.onIndexChanged});
+  const BottomNavBar({super.key, required this.onIndexChanged});
   @override
   _BottomNavBarState createState() => _BottomNavBarState();
 }
@@ -22,7 +22,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
           color: Colors.white,
           activeColor: Colors.lightBlue.withOpacity(0.4),
           tabBackgroundColor: pGreyColour,
-          padding: EdgeInsets.all(8),
+          padding: const EdgeInsets.all(8),
           onTabChange: (index) {
             widget.onIndexChanged(index);
           },

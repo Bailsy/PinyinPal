@@ -13,8 +13,7 @@ class FinishedSet extends StatefulWidget {
   final int Tcorrect;
   final int Tincorrect;
 
-  FinishedSet({required this.Tcorrect, required this.Tincorrect, Key? key})
-      : super(key: key);
+  const FinishedSet({required this.Tcorrect, required this.Tincorrect, super.key});
 
   @override
   _FinishedSet createState() => _FinishedSet();

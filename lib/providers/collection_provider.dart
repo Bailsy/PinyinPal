@@ -6,14 +6,14 @@ import 'package:provider/provider.dart';
 // Import other necessary packages and files
 
 class CollectionProvider extends StatelessWidget {
-  const CollectionProvider({Key? key}) : super(key: key);
+  const CollectionProvider({super.key});
 
   @override
   Widget build(BuildContext context) {
     // Use the Provider to provide the CollectionModel to the widget tree
     return ChangeNotifierProvider(
       create: (_) => CollectionModel(),
-      child: CollectionPage(),
+      child: const CollectionPage(),
     );
   }
 }

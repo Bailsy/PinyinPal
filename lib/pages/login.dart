@@ -7,7 +7,7 @@ import 'package:pinyinpal/services/json_downloader.dart';
 import 'package:pinyinpal/setprofile.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key});
+  const LoginPage({super.key});
   @override
   _LoginPageState createState() => _LoginPageState();
 }
@@ -99,15 +99,15 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
-  Future<dynamic> showMessage(String _msg) {
+  Future<dynamic> showMessage(String msg) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: new Text(_msg),
+          title: Text(msg),
           actions: <Widget>[
             TextButton(
-              child: new Text("OK"),
+              child: const Text("OK"),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -134,8 +134,8 @@ class _LoginPageState extends State<LoginPage> {
             Visibility(
               visible: _visible,
               child: Container(
-                margin: EdgeInsets.only(bottom: 10.0),
-                child: LinearProgressIndicator(),
+                margin: const EdgeInsets.only(bottom: 10.0),
+                child: const LinearProgressIndicator(),
               ),
             ),
             Container(
@@ -146,7 +146,7 @@ class _LoginPageState extends State<LoginPage> {
               color: Theme.of(context).primaryColor,
               size: 80.0,
             ),
-            SizedBox(
+            const SizedBox(
               height: 10.0,
             ),
             Text(
@@ -156,7 +156,7 @@ class _LoginPageState extends State<LoginPage> {
                   fontSize: 25.0,
                   fontWeight: FontWeight.bold),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10.0,
             ),
             Form(
@@ -166,29 +166,30 @@ class _LoginPageState extends State<LoginPage> {
                 child: Column(
                   children: [
                     Theme(
-                      data: new ThemeData(
-                        primaryColor: Color.fromRGBO(84, 87, 90, 0.5),
-                        primaryColorDark: Color.fromRGBO(24, 75, 126, 0.498),
-                        hintColor:
-                            Color.fromRGBO(84, 87, 90, 0.5), //placeholder color
+                      data: ThemeData(
+                        primaryColor: const Color.fromRGBO(84, 87, 90, 0.5),
+                        primaryColorDark:
+                            const Color.fromRGBO(24, 75, 126, 0.498),
+                        hintColor: const Color.fromRGBO(
+                            84, 87, 90, 0.5), //placeholder color
                       ),
                       child: TextFormField(
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                         controller: userController,
-                        decoration: InputDecoration(
-                          focusedBorder: new OutlineInputBorder(
+                        decoration: const InputDecoration(
+                          focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Color.fromRGBO(255, 255, 255, 1),
                               style: BorderStyle.solid,
                             ),
                           ),
-                          enabledBorder: new OutlineInputBorder(
+                          enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Color.fromRGBO(84, 87, 90, 0.5),
                               style: BorderStyle.solid,
                             ),
                           ),
-                          errorBorder: new OutlineInputBorder(
+                          errorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Colors.red,
                               width: 1.0,
@@ -196,11 +197,11 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ),
                           labelText: 'Enter User Name',
-                          prefixIcon: const Icon(
+                          prefixIcon: Icon(
                             Icons.person,
                             color: Color.fromRGBO(84, 87, 90, 0.5),
                           ),
-                          border: new OutlineInputBorder(
+                          border: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Color.fromRGBO(84, 87, 90, 0.5),
                               style: BorderStyle.solid,
@@ -216,48 +217,48 @@ class _LoginPageState extends State<LoginPage> {
                         },
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20.0,
                     ),
                     Theme(
-                      data: new ThemeData(
-                        primaryColor: Color.fromRGBO(84, 87, 90, 0.5),
-                        primaryColorDark: Color.fromRGBO(84, 87, 90, 0.5),
-                        hintColor:
-                            Color.fromRGBO(84, 87, 90, 0.5), //placeholder color
+                      data: ThemeData(
+                        primaryColor: const Color.fromRGBO(84, 87, 90, 0.5),
+                        primaryColorDark: const Color.fromRGBO(84, 87, 90, 0.5),
+                        hintColor: const Color.fromRGBO(
+                            84, 87, 90, 0.5), //placeholder color
                       ),
                       child: TextFormField(
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                         controller: pwdController,
                         obscureText: true,
-                        decoration: InputDecoration(
-                          focusedBorder: new OutlineInputBorder(
+                        decoration: const InputDecoration(
+                          focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Color.fromRGBO(255, 255, 255, 1),
                               style: BorderStyle.solid,
                             ),
                           ),
-                          enabledBorder: new OutlineInputBorder(
+                          enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Color.fromRGBO(84, 87, 90, 0.5),
                               style: BorderStyle.solid,
                             ),
                           ),
-                          errorBorder: new OutlineInputBorder(
+                          errorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Colors.red,
                               width: 1.0,
                               style: BorderStyle.solid,
                             ),
                           ),
-                          border: new OutlineInputBorder(
+                          border: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Color.fromRGBO(84, 87, 90, 0.5),
                               style: BorderStyle.solid,
                             ),
                           ),
                           labelText: 'Enter Password',
-                          prefixIcon: const Icon(
+                          prefixIcon: Icon(
                             Icons.lock,
                             color: Color.fromRGBO(84, 87, 90, 0.5),
                           ),
@@ -271,7 +272,7 @@ class _LoginPageState extends State<LoginPage> {
                         },
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20.0,
                     ),
                     Row(
@@ -285,7 +286,7 @@ class _LoginPageState extends State<LoginPage> {
                           textAlign: TextAlign.center,
                         ),
                         InkWell(
-                          child: Text(
+                          child: const Text(
                             "Sign Up",
                             style:
                                 TextStyle(fontSize: 18.0, color: Colors.blue),
@@ -295,12 +296,12 @@ class _LoginPageState extends State<LoginPage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => SignUpPage()));
+                                    builder: (context) => const SignUpPage()));
                           },
                         )
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20.0,
                     ),
                     Padding(
@@ -314,17 +315,17 @@ class _LoginPageState extends State<LoginPage> {
                                   pwdController.text.trim())
                             }
                         },
-                        child: Padding(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              Theme.of(context).primaryColor),
+                        ),
+                        child: const Padding(
                           padding: EdgeInsets.all(16.0),
                           child: Text(
                             'Submit',
                             style:
                                 TextStyle(fontSize: 18.0, color: Colors.white),
                           ),
-                        ),
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all<Color>(
-                              Theme.of(context).primaryColor),
                         ),
                       ),
                     ),

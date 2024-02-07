@@ -5,7 +5,7 @@ import 'package:pinyinpal/constants/colour.dart';
 class FriendsNavBar extends StatefulWidget {
   static int indexPos = 0;
   final Function(int) onIndexChanged;
-  FriendsNavBar({required this.onIndexChanged});
+  const FriendsNavBar({super.key, required this.onIndexChanged});
   @override
   FriendsNavBarState createState() => FriendsNavBarState();
 }
@@ -22,7 +22,7 @@ class FriendsNavBarState extends State<FriendsNavBar> {
           color: Colors.white,
           activeColor: Colors.lightBlue.withOpacity(0.4),
           tabBackgroundColor: pGreyColour,
-          padding: EdgeInsets.all(8),
+          padding: const EdgeInsets.all(8),
           onTabChange: (index) {
             widget.onIndexChanged(index);
           },

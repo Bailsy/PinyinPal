@@ -4,7 +4,7 @@ import 'package:preload_page_view/preload_page_view.dart';
 
 class CircularList<T> {
   List<T> _items;
-  int _currentIndex = 0;
+  final int _currentIndex = 0;
 
   CircularList(this._items) {
     _items = _items;
@@ -34,7 +34,7 @@ class VideoPage extends StatelessWidget {
   var myList =
       CircularList<int>([740348490, 416499210, 613729649, 63710700, 63710700]);
 
-  VideoPage(this.pos);
+  VideoPage(this.pos, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +49,7 @@ class VideoPage extends StatelessWidget {
 }
 
 class PreloadPageViewDemo extends StatefulWidget {
-  PreloadPageViewDemo({Key? key}) : super(key: key);
+  const PreloadPageViewDemo({super.key});
 
   @override
   _PreloadPageViewState createState() => _PreloadPageViewState();

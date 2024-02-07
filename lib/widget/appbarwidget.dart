@@ -3,6 +3,8 @@ import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:pinyinpal/pages/newhome.dart';
 
 class AppBarWidget extends StatelessWidget {
+  const AppBarWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     return AppBar(

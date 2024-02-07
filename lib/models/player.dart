@@ -1,14 +1,14 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+import 'package:http/http.dart' as http;
 
 class VimeoPlayer extends StatefulWidget {
   const VimeoPlayer({
-    Key? key,
+    super.key,
     required this.videoId,
     this.width,
     this.height,
-  }) : super(key: key);
+  });
 
   final String videoId;
   final double? width;
@@ -19,56 +19,31 @@ class VimeoPlayer extends StatefulWidget {
 }
 
 class _VimeoPlayerState extends State<VimeoPlayer> {
-  late WebViewController _controller;
+  void initState() {
+    super.initState();
+
+    print(getMp4Link(widget.videoId));
+  }
+
+  static Future<String> getMp4Link(String videoId) async {
+    final response = await http
+        .get(Uri.parse('https://player.vimeo.com/video/${videoId}/config'));
+    // Process the response and convert it to List<ExampleSentence>
+
+    // Placeholder: Handle the response and return a List<ExampleSentence>
+    if (response.statusCode == 200) {
+      var msg = jsonDecode(response.body);
+      final String videoURL = msg["request"]["progressive"]["url"];
+      return videoURL;
+    } else {
+      // Handle error case
+
+      return Future.error('Error fetching example sentences');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: widget.width,
-      height: widget.height,
-      child: WebView(
-        initialUrl: '',
-        allowsInlineMediaPlayback: true,
-        initialMediaPlaybackPolicy: AutoMediaPlaybackPolicy.always_allow,
-        javascriptMode: JavascriptMode.unrestricted,
-        onWebViewCreated: (WebViewController webViewController) {
-          _controller = webViewController;
-          _loadHtml(widget.videoId);
-        },
-      ),
-    );
-  }
-
-  void _loadHtml(String videoId) {
-    final html = '''
-            <html>
-              <head>
-                <style>
-                  body {
-                    background-color: black;
-                    margin: 0px;
-                  }
-                </style>
-                <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0">
-                <meta http-equiv="Content-Security-Policy" 
-                      content="default-src * gap:; script-src * 'unsafe-inline' 'unsafe-eval'; connect-src *; 
-                      img-src * data: blob: android-webview-video-poster:; style-src * 'unsafe-inline';">
-              </head>
-              <body>
-                <iframe 
-                  src="https://player.vimeo.com/video/$videoId?autoplay=1&loop=0&controls=0&muted=0" 
-                  width="100%" 
-                  height="100%" 
-                  frameborder="0" 
-                  allow="autoplay"
-                  webkit-playsinline="true"
-                  playsinline="true">
-                </iframe>
-              </body>
-            </html>
-            ''';
-    final String contentBase64 =
-        base64Encode(const Utf8Encoder().convert(html));
-    _controller.loadUrl('data:text/html;base64,$contentBase64');
+    return SizedBox();
   }
 }

@@ -9,8 +9,7 @@ class CharacterProfileProvider extends StatelessWidget {
   final Color confidence; // Add this line
 
   const CharacterProfileProvider(
-      {Key? key, required this.hskCharacter, required this.confidence})
-      : super(key: key);
+      {super.key, required this.hskCharacter, required this.confidence});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +18,7 @@ class CharacterProfileProvider extends StatelessWidget {
       create: (_) => CharacterProfileModel(
           hskCharacter: hskCharacter,
           confidence: confidence), // Pass the HskCharacter
-      child: CharacterProfilePage(), // Pass the HskCharacter
+      child: const CharacterProfilePage(), // Pass the HskCharacter
     );
   }
 }

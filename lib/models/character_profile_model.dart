@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:pinyinpal/models/hsk_entry.dart';
 import 'package:pinyinpal/services/apI_service.dart';
 import 'package:just_audio/just_audio.dart';
-import 'dart:convert';
 
 class CharacterProfileModel extends ChangeNotifier {
   late HskEntry _character;

@@ -62,7 +62,7 @@ class LessonButtonState extends State<LessonButton>
   @override
   void initState() {
     _animationController =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 500));
+        AnimationController(vsync: this, duration: const Duration(milliseconds: 500));
     _animationController.repeat(reverse: true);
     _animation = Tween(begin: 2.0, end: 10.0).animate(_animationController)
       ..addListener(() {
@@ -74,7 +74,7 @@ class LessonButtonState extends State<LessonButton>
   @override
   Widget build(BuildContext context) {
     double targetRadius = 0;
-    Color targetColor = Color.fromARGB(0, 0, 0, 0);
+    Color targetColor = const Color.fromARGB(0, 0, 0, 0);
 
     if (widget.isAnimated == true) {
       targetRadius = _animation.value;

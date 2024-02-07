@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 final ThemeData myTheme = ThemeData(
-  primaryColor: Color(0xFF00CCFF), // Background color
-  scaffoldBackgroundColor: Color(0xFF1A1A1A), // Background color
+  primaryColor: const Color(0xFF00CCFF), // Background color
+  scaffoldBackgroundColor: const Color(0xFF1A1A1A), // Background color
   fontFamily: 'Roboto',
   textTheme: const TextTheme(
     displayLarge: TextStyle(
@@ -76,6 +76,6 @@ final ThemeData myTheme = ThemeData(
     foregroundColor: Colors.white, // Text color for app bar
     iconTheme: IconThemeData(color: Colors.white), // Icon color for app bar
   ),
-  colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Color(0xFF1A1A1A)),
+  colorScheme: ColorScheme.fromSwatch().copyWith(secondary: const Color(0xFF1A1A1A)),
   // Add more theme properties as needed
 );
