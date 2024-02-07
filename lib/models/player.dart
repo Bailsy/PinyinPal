@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:pinyinpal/pages/productivescroll.dart';
 import 'package:video_player/video_player.dart';
 
 class VimeoPlayer extends StatefulWidget {
@@ -20,31 +21,33 @@ class VimeoPlayer extends StatefulWidget {
 }
 
 class _VimeoPlayerState extends State<VimeoPlayer> {
-  late VideoPlayerController _controller;
-  bool _isInitialized = false;
+  late VideoPlayerController _controller = VideoPlayerController.network('');
+  late Future<void> _initializeVideoPlayerFuture = Future.value();
 
   @override
   void initState() {
     super.initState();
-    _initializeVideo();
+    _initializeVideoPlayer();
   }
 
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
+  void _initializeVideoPlayer() async {
+    try {
+      final videoUrl = await getMp4Link(widget.videoId);
+      _controller = VideoPlayerController.network(videoUrl);
+      _initializeVideoPlayerFuture = _controller.initialize();
+      await _initializeVideoPlayerFuture;
+      _controller.setLooping(true);
 
-  Future<void> _initializeVideo() async {
-    final videoURL = await getMp4Link(widget.videoId);
-    _controller = VideoPlayerController.network(videoURL)
-      ..initialize().then((_) {
-        setState(() {
-          _isInitialized = true;
-          // Start playing the video automatically when initialized
-          _controller.play();
-        });
+      GlobalCode.codeStream.listen((newCode) {
+        print(newCode);
+        if (newCode.toString() == widget.videoId) {
+          playVideo();
+        }
       });
+      // Rebuild the widget after getting video URL
+    } catch (e) {
+      print('Failed to initialize video player: $e');
+    }
   }
 
   static Future<String> getMp4Link(String videoId) async {
@@ -60,12 +63,42 @@ class _VimeoPlayerState extends State<VimeoPlayer> {
   }
 
   @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void playVideo() {
+    setState(() {
+      if (_controller.value.isPlaying) {
+        _controller.pause();
+      } else {
+        _controller.play();
+      }
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return _isInitialized
-        ? AspectRatio(
-            aspectRatio: _controller.value.aspectRatio,
-            child: VideoPlayer(_controller),
-          )
-        : Center(child: CircularProgressIndicator());
+    return Scaffold(
+        body: InkWell(
+      onTap: () {
+        playVideo();
+      },
+      child: FutureBuilder(
+        future: _initializeVideoPlayerFuture,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            return Container(
+              child: VideoPlayer(_controller),
+            );
+          } else {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        },
+      ),
+    ));
   }
 }

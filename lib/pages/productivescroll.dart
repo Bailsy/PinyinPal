@@ -1,6 +1,25 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:pinyinpal/models/player.dart';
 import 'package:preload_page_view/preload_page_view.dart';
+
+class GlobalCode {
+  static int _code = 0;
+  static StreamController<int> _codeController =
+      StreamController<int>.broadcast();
+
+  static int get code => _code;
+
+  static set code(int newValue) {
+    if (_code != newValue) {
+      _code = newValue;
+      _codeController.add(_code); // Notify subscribers about the change
+    }
+  }
+
+  static Stream<int> get codeStream => _codeController.stream;
+}
 
 class CircularList<T> {
   List<T> _items;
@@ -29,21 +48,27 @@ class CircularList<T> {
   }
 }
 
-class VideoPage extends StatelessWidget {
+class VideoPage extends StatefulWidget {
   final int pos;
-  var myList =
-      CircularList<int>([740348490, 416499210, 613729649, 63710700, 63710700]);
+  // Added key parameter for super constructor
 
-  VideoPage(this.pos, {super.key});
+  VideoPage(this.pos, {super.key}); // Passing key to super constructor
 
   @override
+  _VideoPageState createState() => _VideoPageState();
+}
+
+class _VideoPageState extends State<VideoPage> {
+  var myList = CircularList<int>([740348490, 416499210, 613729649, 63710700]);
+  @override
   Widget build(BuildContext context) {
-    print(myList[myList._getNormalizedIndex(pos)]);
+    print(myList[myList._getNormalizedIndex(widget.pos)]);
     return Container(
       child: AspectRatio(
           aspectRatio: 16 / 9, // adjust aspect ratio as per your video
           child: VimeoPlayer(
-              videoId: myList[myList._getNormalizedIndex(pos)].toString())),
+              videoId:
+                  myList[myList._getNormalizedIndex(widget.pos)].toString())),
     );
   }
 }
@@ -56,18 +81,20 @@ class PreloadPageViewDemo extends StatefulWidget {
 }
 
 class _PreloadPageViewState extends State<PreloadPageViewDemo> {
+  var myList = CircularList<int>([740348490, 416499210, 613729649, 63710700]);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         child: PreloadPageView.builder(
           scrollDirection: Axis.vertical,
-          preloadPagesCount: 5,
+          preloadPagesCount: 2,
           itemBuilder: (BuildContext context, int position) =>
               VideoPage(position),
           controller: PreloadPageController(initialPage: 1),
           onPageChanged: (int position) {
-            print('page changed. current: $position');
+            GlobalCode.code = myList[myList._getNormalizedIndex(position)];
           },
         ),
       ),
