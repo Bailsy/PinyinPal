@@ -33,6 +33,7 @@ class _VimeoPlayerState extends State<VimeoPlayer> {
   void _initializeVideoPlayer() async {
     try {
       final videoUrl = await getMp4Link(widget.videoId);
+      _controller.dispose(); // Dispose the previous controller
       _controller = VideoPlayerController.network(videoUrl);
       _initializeVideoPlayerFuture = _controller.initialize();
       await _initializeVideoPlayerFuture;
@@ -42,6 +43,8 @@ class _VimeoPlayerState extends State<VimeoPlayer> {
         print(newCode);
         if (newCode.toString() == widget.videoId) {
           playVideo();
+        } else {
+          pauseVideo();
         }
       });
       // Rebuild the widget after getting video URL
@@ -70,11 +73,13 @@ class _VimeoPlayerState extends State<VimeoPlayer> {
 
   void playVideo() {
     setState(() {
-      if (_controller.value.isPlaying) {
-        _controller.pause();
-      } else {
-        _controller.play();
-      }
+      _controller.play();
+    });
+  }
+
+  void pauseVideo() {
+    setState(() {
+      _controller.pause();
     });
   }
 
@@ -83,7 +88,13 @@ class _VimeoPlayerState extends State<VimeoPlayer> {
     return Scaffold(
         body: InkWell(
       onTap: () {
-        playVideo();
+        setState(() {
+          if (_controller.value.isPlaying) {
+            _controller.pause();
+          } else {
+            _controller.play();
+          }
+        });
       },
       child: FutureBuilder(
         future: _initializeVideoPlayerFuture,
