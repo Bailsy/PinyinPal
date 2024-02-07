@@ -9,8 +9,7 @@ class CharacterProfileProvider extends StatelessWidget {
   final Color confidence; // Add this line
 
   const CharacterProfileProvider(
-      {Key? key, required this.hskCharacter, required this.confidence})
-      : super(key: key);
+      {super.key, required this.hskCharacter, required this.confidence});
 
   @override
   Widget build(BuildContext context) {

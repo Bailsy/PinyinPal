@@ -4,10 +4,11 @@ import 'package:iconify_flutter/icons/ph.dart';
 import 'package:pinyinpal/constants/stylingconstants.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:pinyinpal/models/character_profile_model.dart';
-import 'package:pinyinpal/models/hsk_entry.dart';
 import 'package:provider/provider.dart';
 
 class CharacterProfilePage extends StatelessWidget {
+  const CharacterProfilePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,12 +20,14 @@ class CharacterProfilePage extends StatelessWidget {
           icon: const Icon(LineAwesomeIcons.angle_left),
         ),
       ),
-      body: CharacterProfileBody(),
+      body: const CharacterProfileBody(),
     );
   }
 }
 
 class CharacterProfileBody extends StatefulWidget {
+  const CharacterProfileBody({super.key});
+
   @override
   _CharacterProfileBodyState createState() => _CharacterProfileBodyState();
 }

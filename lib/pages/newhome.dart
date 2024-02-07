@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:pinyinpal/pages/profile.dart';
-import 'package:pinyinpal/pages/progression.dart';
 import 'package:pinyinpal/pages/userstats.dart';
 import 'package:pinyinpal/pages/productivescroll.dart';
 import 'package:pinyinpal/providers/collection_provider.dart';
@@ -20,7 +19,7 @@ class SystemNav {
 
 class NewHomePage extends StatefulWidget {
   // It is essential to give the class a key and make it constant
-  const NewHomePage({Key? key});
+  const NewHomePage({super.key});
   @override
   NewHomePageState createState() => NewHomePageState();
 }
@@ -40,7 +39,7 @@ class NewHomePageState extends State<NewHomePage> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => ProfilePage(),
+                builder: (context) => const ProfilePage(),
               ),
             );
           },
@@ -56,7 +55,7 @@ class NewHomePageState extends State<NewHomePage> {
       ),
       body: IndexedStack(
         index: indexPos,
-        children: [
+        children: const [
           PreloadPageViewDemo(),
           FlashCardTimedProvider(),
           CollectionProvider(),

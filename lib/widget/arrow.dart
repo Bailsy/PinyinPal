@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class Arrow extends StatelessWidget {
   final Color arrowColor;
-  Arrow({required this.arrowColor, Key? key});
+  const Arrow({super.key, required this.arrowColor});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -15,7 +15,7 @@ class Arrow extends StatelessWidget {
             color: arrowColor,
             thickness: 2.0,
           ),
-          Container(
+          SizedBox(
             height: 12.0, // Adjust arrow height as needed
             child: Icon(
               Icons.arrow_downward,

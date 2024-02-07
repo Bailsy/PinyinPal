@@ -3,13 +3,12 @@ import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
 class ProfileWidgets extends StatelessWidget {
   const ProfileWidgets(
-      {Key? key,
+      {super.key,
       required this.title,
       required this.icon,
       required this.onPress,
       this.endIcon = true,
-      this.textColor})
-      : super(key: key);
+      this.textColor});
 
   final String title;
   final IconData icon;
@@ -26,9 +25,9 @@ class ProfileWidgets extends StatelessWidget {
         height: 40,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(100),
-          color: Color.fromARGB(255, 76, 152, 238).withOpacity(0.1),
+          color: const Color.fromARGB(255, 76, 152, 238).withOpacity(0.1),
         ),
-        child: Icon(icon, color: Color.fromARGB(255, 76, 152, 238)),
+        child: Icon(icon, color: const Color.fromARGB(255, 76, 152, 238)),
       ),
       title: Text(
         title,

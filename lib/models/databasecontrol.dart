@@ -37,8 +37,7 @@ class DataBaseIntegration {
     ProfileModel currentProfile = ProfileModelSingleton().profileModel;
     var conn = await MySqlConnection.connect(settings);
     var results = await conn.query(
-        "SELECT users.UNAME, profiles.* FROM accounts.users JOIN accounts.profiles ON accounts.users.UID = accounts.profiles.UID WHERE accounts.profiles.UID = " +
-            userId);
+        "SELECT users.UNAME, profiles.* FROM accounts.users JOIN accounts.profiles ON accounts.users.UID = accounts.profiles.UID WHERE accounts.profiles.UID = $userId");
     await conn.close();
     return results.toList();
   }
@@ -47,9 +46,7 @@ class DataBaseIntegration {
     var conn = await MySqlConnection.connect(settings);
     print("getting the usernames");
     var results = await conn.query(
-        "SELECT UNAME FROM accounts.users WHERE UNAME LIKE '" +
-            nameSearch +
-            "%'");
+        "SELECT UNAME FROM accounts.users WHERE UNAME LIKE '$nameSearch%'");
     await conn.close();
     return results.toList();
   }
@@ -58,8 +55,7 @@ class DataBaseIntegration {
     ProfileModel currentProfile = ProfileModelSingleton().profileModel;
     var conn = await MySqlConnection.connect(settings);
     await conn.query(
-        "UPDATE accounts.profiles SET XP = XP + $experience WHERE UID = " +
-            currentProfile.userId.toString());
+        "UPDATE accounts.profiles SET XP = XP + $experience WHERE UID = ${currentProfile.userId}");
     await conn.close();
   }
 }

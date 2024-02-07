@@ -4,7 +4,7 @@ import 'package:pinyinpal/pages/friends.dart';
 import 'package:provider/provider.dart';
 
 class FriendProvider extends StatelessWidget {
-  const FriendProvider({Key? key}) : super(key: key);
+  const FriendProvider({super.key});
 
   @override
   Widget build(BuildContext context) {

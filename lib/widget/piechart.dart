@@ -5,8 +5,7 @@ class MyPieChart extends StatelessWidget {
   final int value1;
   final int value2;
 
-  const MyPieChart({required this.value1, required this.value2, Key? key})
-      : super(key: key);
+  const MyPieChart({required this.value1, required this.value2, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,12 +16,12 @@ class MyPieChart extends StatelessWidget {
         PieChartSectionData(
           showTitle: false,
           value: value1.toDouble(),
-          color: Color.fromARGB(255, 48, 201, 86),
+          color: const Color.fromARGB(255, 48, 201, 86),
         ),
         PieChartSectionData(
           showTitle: false,
           value: value2.toDouble(),
-          color: Color.fromARGB(255, 201, 48, 48),
+          color: const Color.fromARGB(255, 201, 48, 48),
         )
       ]),
     );

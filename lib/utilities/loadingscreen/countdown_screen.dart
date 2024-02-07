@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CountdownScreen extends StatefulWidget {
   final VoidCallback onCountdownFinished;
 
-  CountdownScreen({required this.onCountdownFinished});
+  const CountdownScreen({super.key, required this.onCountdownFinished});
 
   @override
   _CountdownScreenState createState() => _CountdownScreenState();
@@ -19,7 +19,7 @@ class _CountdownScreenState extends State<CountdownScreen> {
   }
 
   void startCountdown() {
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 1), () {
       setState(() {
         countdownValue--;
         if (countdownValue > 0) {
@@ -37,7 +37,7 @@ class _CountdownScreenState extends State<CountdownScreen> {
       body: Center(
         child: Text(
           '$countdownValue...',
-          style: TextStyle(fontSize: 36.0),
+          style: const TextStyle(fontSize: 36.0),
         ),
       ),
     );

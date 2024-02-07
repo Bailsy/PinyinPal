@@ -25,7 +25,7 @@ class CacheLogin {
     String username = await storage.read(key: 'username') ?? '';
     String password = await storage.read(key: 'password') ?? '';
 
-    return username != null && password != null;
+    return password != null;
   }
 
   static Future<void> deleteCredentials() async {

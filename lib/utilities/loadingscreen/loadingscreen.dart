@@ -5,7 +5,7 @@ import 'package:pinyinpal/utilities/Loadingscreen/countdown_screen.dart';
 class LoadingScreen extends StatefulWidget {
   final String selectedMode;
 
-  LoadingScreen({required this.selectedMode});
+  const LoadingScreen({super.key, required this.selectedMode});
 
   @override
   _LoadingScreenState createState() => _LoadingScreenState();
@@ -33,7 +33,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => FlashCardTimed(),
+            builder: (context) => const FlashCardTimed(),
           ),
         );
       },

@@ -1,5 +1,4 @@
 // Dart Imports
-import 'dart:ui';
 
 // Local Imports
 import 'package:auto_size_text/auto_size_text.dart';
@@ -12,10 +11,11 @@ import 'package:pinyinpal/constants/deviceinfo.dart';
 import 'package:pinyinpal/constants/stylingconstants.dart';
 import 'package:pinyinpal/pages/finishedset.dart';
 import 'package:pinyinpal/widget/popups.dart';
-import 'package:pinyinpal/widget/appbarwidget.dart';
 import 'package:pinyinpal/models/flashcardtimedmodel.dart';
 
 class FlashCardTimed extends StatefulWidget {
+  const FlashCardTimed({super.key});
+
   @override
   _FlashCardTimedState createState() => _FlashCardTimedState();
 }

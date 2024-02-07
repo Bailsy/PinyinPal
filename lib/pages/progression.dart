@@ -5,7 +5,7 @@ import 'package:pinyinpal/widget/lessonbutton.dart';
 
 class ProgressionPage extends StatefulWidget {
   // It is essential to give the class a key and make it constant
-  const ProgressionPage({Key? key});
+  const ProgressionPage({super.key});
 
   @override
   ProgressionPageState createState() => ProgressionPageState();
@@ -52,7 +52,7 @@ class ProgressionPageState extends State<ProgressionPage> {
                     MaterialPageRoute(builder: (context) => const Lesson1()));
               },
             ),
-            Arrow(arrowColor: Colors.blue),
+            const Arrow(arrowColor: Colors.blue),
             LessonButton(
               text: "Tones",
               textColor: Colors.grey,
@@ -62,7 +62,7 @@ class ProgressionPageState extends State<ProgressionPage> {
                 print("Pressed");
               },
             ),
-            Arrow(arrowColor: Colors.grey),
+            const Arrow(arrowColor: Colors.grey),
             LessonButton(
               text: "Greetings",
               textColor: Colors.grey,
@@ -72,7 +72,7 @@ class ProgressionPageState extends State<ProgressionPage> {
                 print("Pressed");
               },
             ),
-            Arrow(arrowColor: Colors.grey),
+            const Arrow(arrowColor: Colors.grey),
             LessonButton(
               text: "Thank you!",
               textColor: Colors.grey,
@@ -82,7 +82,7 @@ class ProgressionPageState extends State<ProgressionPage> {
                 print("Pressed");
               },
             ),
-            Arrow(arrowColor: Colors.grey),
+            const Arrow(arrowColor: Colors.grey),
             LessonButton(
               text: "What's your name?",
               textColor: Colors.grey,

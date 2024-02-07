@@ -8,6 +8,8 @@ import 'package:pinyinpal/providers/character_profile_provider.dart';
 import 'package:provider/provider.dart';
 
 class CollectionPage extends StatefulWidget {
+  const CollectionPage({super.key});
+
   @override
   _CollectionPageState createState() => _CollectionPageState();
 }
@@ -46,11 +48,11 @@ class _CollectionPageState extends State<CollectionPage> {
     if (collectionModel.hskEntries.isEmpty) {
       // If characters are not loaded, trigger loading
       collectionModel.loadCollectionData();
-      return Center(child: CircularProgressIndicator());
+      return const Center(child: CircularProgressIndicator());
     } else {
       // Build the grid with loaded characters
       return Container(
-        margin: EdgeInsets.all(16.0),
+        margin: const EdgeInsets.all(16.0),
         child: GridView.builder(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 3,
@@ -63,7 +65,7 @@ class _CollectionPageState extends State<CollectionPage> {
             //if collectionmodel is initialist, otherwise return loading icon
 
             if (data.isEmpty) {
-              return CircularProgressIndicator();
+              return const CircularProgressIndicator();
             } else {
               return _buildCharacterItem(
                   context,
@@ -94,7 +96,7 @@ class _CollectionPageState extends State<CollectionPage> {
       },
       child: Container(
         decoration: BoxDecoration(
-          color: Color(0xff303238),
+          color: const Color(0xff303238),
           borderRadius: BorderRadius.circular(12),
         ),
         child: Center(

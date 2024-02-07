@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:pinyinpal/pages/login.dart';
 
 class SignUpPage extends StatefulWidget {
-  SignUpPage({Key? key});
+  const SignUpPage({super.key});
   @override
   _SignUpPageState createState() => _SignUpPageState();
 }
@@ -52,8 +52,8 @@ class _SignUpPageState extends State<SignUpPage> {
         });
 
         // Navigate to Home Screen
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => LoginPage()));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const LoginPage()));
       } else {
         setState(() {
           //hide progress indicator
@@ -74,15 +74,15 @@ class _SignUpPageState extends State<SignUpPage> {
     }
   }
 
-  Future<dynamic> showMessage(String _msg) {
+  Future<dynamic> showMessage(String msg) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: new Text(_msg),
+          title: Text(msg),
           actions: <Widget>[
             TextButton(
-              child: new Text("OK"),
+              child: const Text("OK"),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -109,8 +109,8 @@ class _SignUpPageState extends State<SignUpPage> {
             Visibility(
               visible: _visible,
               child: Container(
-                margin: EdgeInsets.only(bottom: 10.0),
-                child: LinearProgressIndicator(),
+                margin: const EdgeInsets.only(bottom: 10.0),
+                child: const LinearProgressIndicator(),
               ),
             ),
             Container(
@@ -121,7 +121,7 @@ class _SignUpPageState extends State<SignUpPage> {
               color: Theme.of(context).primaryColor,
               size: 80.0,
             ),
-            SizedBox(
+            const SizedBox(
               height: 10.0,
             ),
             Text(
@@ -131,7 +131,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   fontSize: 25.0,
                   fontWeight: FontWeight.bold),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10.0,
             ),
             Form(
@@ -141,29 +141,30 @@ class _SignUpPageState extends State<SignUpPage> {
                 child: Column(
                   children: [
                     Theme(
-                      data: new ThemeData(
-                        primaryColor: Color.fromRGBO(84, 87, 90, 0.5),
-                        primaryColorDark: Color.fromRGBO(24, 75, 126, 0.498),
-                        hintColor:
-                            Color.fromRGBO(84, 87, 90, 0.5), //placeholder color
+                      data: ThemeData(
+                        primaryColor: const Color.fromRGBO(84, 87, 90, 0.5),
+                        primaryColorDark:
+                            const Color.fromRGBO(24, 75, 126, 0.498),
+                        hintColor: const Color.fromRGBO(
+                            84, 87, 90, 0.5), //placeholder color
                       ),
                       child: TextFormField(
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                         controller: emailController,
-                        decoration: InputDecoration(
-                          focusedBorder: new OutlineInputBorder(
+                        decoration: const InputDecoration(
+                          focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Color.fromRGBO(255, 255, 255, 1),
                               style: BorderStyle.solid,
                             ),
                           ),
-                          enabledBorder: new OutlineInputBorder(
+                          enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Color.fromRGBO(84, 87, 90, 0.5),
                               style: BorderStyle.solid,
                             ),
                           ),
-                          errorBorder: new OutlineInputBorder(
+                          errorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Colors.red,
                               width: 1.0,
@@ -171,11 +172,11 @@ class _SignUpPageState extends State<SignUpPage> {
                             ),
                           ),
                           labelText: 'Enter Your email',
-                          prefixIcon: const Icon(
+                          prefixIcon: Icon(
                             Icons.mail,
                             color: Color.fromRGBO(84, 87, 90, 0.5),
                           ),
-                          border: new OutlineInputBorder(
+                          border: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Color.fromRGBO(84, 87, 90, 0.5),
                               style: BorderStyle.solid,
@@ -196,38 +197,42 @@ class _SignUpPageState extends State<SignUpPage> {
                               r'[0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\'
                               r'x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])';
                           final regex = RegExp(pattern);
-                          if (!regex.hasMatch(emailController.text.trim()))
+                          if (!regex.hasMatch(emailController.text.trim())) {
                             return "Please Enter Valid Email";
+                            return null;
+                          }
+                          return null;
                         },
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20.0,
                     ),
                     Theme(
-                      data: new ThemeData(
-                        primaryColor: Color.fromRGBO(84, 87, 90, 0.5),
-                        primaryColorDark: Color.fromRGBO(24, 75, 126, 0.498),
-                        hintColor:
-                            Color.fromRGBO(84, 87, 90, 0.5), //placeholder color
+                      data: ThemeData(
+                        primaryColor: const Color.fromRGBO(84, 87, 90, 0.5),
+                        primaryColorDark:
+                            const Color.fromRGBO(24, 75, 126, 0.498),
+                        hintColor: const Color.fromRGBO(
+                            84, 87, 90, 0.5), //placeholder color
                       ),
                       child: TextFormField(
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                         controller: userController,
-                        decoration: InputDecoration(
-                          focusedBorder: new OutlineInputBorder(
+                        decoration: const InputDecoration(
+                          focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Color.fromRGBO(255, 255, 255, 1),
                               style: BorderStyle.solid,
                             ),
                           ),
-                          enabledBorder: new OutlineInputBorder(
+                          enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Color.fromRGBO(84, 87, 90, 0.5),
                               style: BorderStyle.solid,
                             ),
                           ),
-                          errorBorder: new OutlineInputBorder(
+                          errorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Colors.red,
                               width: 1.0,
@@ -235,11 +240,11 @@ class _SignUpPageState extends State<SignUpPage> {
                             ),
                           ),
                           labelText: 'Enter User Name',
-                          prefixIcon: const Icon(
+                          prefixIcon: Icon(
                             Icons.person,
                             color: Color.fromRGBO(84, 87, 90, 0.5),
                           ),
-                          border: new OutlineInputBorder(
+                          border: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Color.fromRGBO(84, 87, 90, 0.5),
                               style: BorderStyle.solid,
@@ -255,48 +260,48 @@ class _SignUpPageState extends State<SignUpPage> {
                         },
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20.0,
                     ),
                     Theme(
-                      data: new ThemeData(
-                        primaryColor: Color.fromRGBO(84, 87, 90, 0.5),
-                        primaryColorDark: Color.fromRGBO(84, 87, 90, 0.5),
-                        hintColor:
-                            Color.fromRGBO(84, 87, 90, 0.5), //placeholder color
+                      data: ThemeData(
+                        primaryColor: const Color.fromRGBO(84, 87, 90, 0.5),
+                        primaryColorDark: const Color.fromRGBO(84, 87, 90, 0.5),
+                        hintColor: const Color.fromRGBO(
+                            84, 87, 90, 0.5), //placeholder color
                       ),
                       child: TextFormField(
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                         controller: pwdController,
                         obscureText: true,
-                        decoration: InputDecoration(
-                          focusedBorder: new OutlineInputBorder(
+                        decoration: const InputDecoration(
+                          focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Color.fromRGBO(255, 255, 255, 1),
                               style: BorderStyle.solid,
                             ),
                           ),
-                          enabledBorder: new OutlineInputBorder(
+                          enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Color.fromRGBO(84, 87, 90, 0.5),
                               style: BorderStyle.solid,
                             ),
                           ),
-                          errorBorder: new OutlineInputBorder(
+                          errorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Colors.red,
                               width: 1.0,
                               style: BorderStyle.solid,
                             ),
                           ),
-                          border: new OutlineInputBorder(
+                          border: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Color.fromRGBO(84, 87, 90, 0.5),
                               style: BorderStyle.solid,
                             ),
                           ),
                           labelText: 'Enter Password',
-                          prefixIcon: const Icon(
+                          prefixIcon: Icon(
                             Icons.lock,
                             color: Color.fromRGBO(84, 87, 90, 0.5),
                           ),
@@ -315,48 +320,48 @@ class _SignUpPageState extends State<SignUpPage> {
                         },
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20.0,
                     ),
                     Theme(
-                      data: new ThemeData(
-                        primaryColor: Color.fromRGBO(84, 87, 90, 0.5),
-                        primaryColorDark: Color.fromRGBO(84, 87, 90, 0.5),
-                        hintColor:
-                            Color.fromRGBO(84, 87, 90, 0.5), //placeholder color
+                      data: ThemeData(
+                        primaryColor: const Color.fromRGBO(84, 87, 90, 0.5),
+                        primaryColorDark: const Color.fromRGBO(84, 87, 90, 0.5),
+                        hintColor: const Color.fromRGBO(
+                            84, 87, 90, 0.5), //placeholder color
                       ),
                       child: TextFormField(
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                         controller: pwdConfirmController,
                         obscureText: true,
-                        decoration: InputDecoration(
-                          focusedBorder: new OutlineInputBorder(
+                        decoration: const InputDecoration(
+                          focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Color.fromRGBO(255, 255, 255, 1),
                               style: BorderStyle.solid,
                             ),
                           ),
-                          enabledBorder: new OutlineInputBorder(
+                          enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Color.fromRGBO(84, 87, 90, 0.5),
                               style: BorderStyle.solid,
                             ),
                           ),
-                          errorBorder: new OutlineInputBorder(
+                          errorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Colors.red,
                               width: 1.0,
                               style: BorderStyle.solid,
                             ),
                           ),
-                          border: new OutlineInputBorder(
+                          border: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Color.fromRGBO(84, 87, 90, 0.5),
                               style: BorderStyle.solid,
                             ),
                           ),
                           labelText: 'Confirm Password',
-                          prefixIcon: const Icon(
+                          prefixIcon: Icon(
                             Icons.lock,
                             color: Color.fromRGBO(84, 87, 90, 0.5),
                           ),
@@ -375,7 +380,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         },
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20.0,
                     ),
                     Row(
@@ -389,7 +394,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           textAlign: TextAlign.center,
                         ),
                         InkWell(
-                          child: Text(
+                          child: const Text(
                             "Login",
                             style:
                                 TextStyle(fontSize: 18.0, color: Colors.blue),
@@ -399,12 +404,12 @@ class _SignUpPageState extends State<SignUpPage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => LoginPage()));
+                                    builder: (context) => const LoginPage()));
                           },
                         )
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20.0,
                     ),
                     Padding(
@@ -414,17 +419,17 @@ class _SignUpPageState extends State<SignUpPage> {
                           // Validate returns true if the form is valid, or false otherwise.
                           if (_formKey.currentState!.validate()) {userSignUp()}
                         },
-                        child: Padding(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              Theme.of(context).primaryColor),
+                        ),
+                        child: const Padding(
                           padding: EdgeInsets.all(16.0),
                           child: Text(
                             'Submit',
                             style:
                                 TextStyle(fontSize: 18.0, color: Colors.white),
                           ),
-                        ),
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all<Color>(
-                              Theme.of(context).primaryColor),
                         ),
                       ),
                     ),

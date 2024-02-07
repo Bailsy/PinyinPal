@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:pinyinpal/models/profilemodel.dart';
-import 'package:pinyinpal/pages/newhome.dart';
-import 'package:pinyinpal/setprofile.dart';
 
 class UserStats extends StatefulWidget {
   // It is essential to give the class a key and make it constant
-  const UserStats({Key? key});
+  const UserStats({super.key});
 
   @override
   UserStatsState createState() => UserStatsState();
@@ -21,6 +18,7 @@ class UserStatsState extends State<UserStats> {
     //sp.reloadDetails();
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: SingleChildScrollView(

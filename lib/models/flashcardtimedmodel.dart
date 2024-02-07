@@ -15,7 +15,7 @@ class FlashCardTimedModel extends ChangeNotifier {
   int _incorrect = 0;
   String _currHanzi = "";
   String _currTranslation = ""; // Add translation
-  int _maxCount = 5;
+  final int _maxCount = 5;
   List<ResultRow> _hsk1data = [];
 
   int get count => _count;
@@ -80,7 +80,7 @@ class FlashCardTimedModel extends ChangeNotifier {
   void nextQuestion() {
     _currHanzi = hsk1data[_count]['simplified'].toString();
     _currTranslation = hsk1data[_count]['translation'].toString();
-    print('answer: ${_currHanzi}');
+    print('answer: $_currHanzi');
 
     print(hsk1data);
     // Notify listeners that the state has changed
