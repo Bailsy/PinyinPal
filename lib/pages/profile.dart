@@ -36,7 +36,7 @@ class _ProfilePageState extends State<ProfilePage> {
               height: 120,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(100),
-                child: Image.network(currentProfile.profileImage),
+                child: Image.network("http://pinyinpal.com/logo.png"),
               ),
             ),
             const SizedBox(height: 10),

@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'hsk_entry.dart';
 
+class HskPath {
+  static String hskPath = 'assets/json/hsk_data2.json';
+}
+
 class CollectionModel extends ChangeNotifier {
   List<HskEntry> _hskEntries = [];
   List<HskEntry> get hskEntries => _hskEntries;
@@ -13,8 +17,7 @@ class CollectionModel extends ChangeNotifier {
   Future<void> loadCollectionData() async {
     try {
       // Load JSON data from assets
-      String jsonString =
-          await rootBundle.loadString('assets/json/hsk_data.json');
+      String jsonString = await rootBundle.loadString(HskPath.hskPath);
       List<dynamic> jsonList = json.decode(jsonString);
 
       // Convert JSON to a list of HskEntry objects

@@ -5,7 +5,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:pinyinpal/models/profilemodel.dart';
 
 class DownloadJson {
-  Future<void> downloadJson() async {
+  Future<void> downloadJson(String hsklvl) async {
     try {
       String userUrl = "https://pinyinpal.com/stats_api/download_stats.php";
       ProfileModel currentProfile = ProfileModelSingleton().profileModel;
@@ -25,17 +25,9 @@ class DownloadJson {
           print('Successfully downloaded Stats');
           // Get the ApplicationDocumentsDirectory
           Directory appDocumentsDir = await getApplicationDocumentsDirectory();
-
-          // Create a new file in the ApplicationDocumentsDirectory
-
-          File newFile = File('${appDocumentsDir.path}/stats.json');
-          List<dynamic> jsonList = jsonDecode(msg['stats']['json_data']);
-          List<Map<String, dynamic>> dataList =
-              List<Map<String, dynamic>>.from(jsonList);
-          print(dataList);
-
-          // Write JSON string to the file
-          await newFile.writeAsString(msg['stats']['json_data']);
+          File newFile = File('${appDocumentsDir.path}/${hsklvl}.json');
+          await newFile.writeAsString(msg[hsklvl][hsklvl]);
+          print(msg[hsklvl][hsklvl]);
         } else {
           print(msg["message"]);
         }

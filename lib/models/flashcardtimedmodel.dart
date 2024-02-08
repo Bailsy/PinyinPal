@@ -2,9 +2,11 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:mysql1/mysql1.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pinyinpal/constants/deviceinfo.dart';
+import 'package:pinyinpal/models/collection_model.dart';
 import 'package:pinyinpal/models/databasecontrol.dart';
 //import collectionmodel
 
@@ -16,7 +18,7 @@ class FlashCardTimedModel extends ChangeNotifier {
   String _currHanzi = "";
   String _currTranslation = ""; // Add translation
   final int _maxCount = 5;
-  List<ResultRow> _hsk1data = [];
+  List<dynamic> _hskdata = [];
 
   int get count => _count;
   double get deviceHeight => _deviceHeight;
@@ -25,7 +27,7 @@ class FlashCardTimedModel extends ChangeNotifier {
   String get currentHanzi => _currHanzi;
   String get currTranslation => _currTranslation; // Getter for translation
   int get maxCount => _maxCount;
-  List<ResultRow> get hsk1data => _hsk1data;
+  List<dynamic> get hskdata => _hskdata;
 
   // increase correct
   void increaseCorrect() {
@@ -67,7 +69,7 @@ class FlashCardTimedModel extends ChangeNotifier {
 
     // Update the score based on the character
     for (var item in data) {
-      if (item['simplified'] == hsk1data[_count]['simplified'].toString()) {
+      if (item['simplified'] == hskdata[_count]['simplified'].toString()) {
         item['score'] = item['score'] + 1;
         break; // Assuming each character is unique, no need to continue searching
       }
@@ -78,11 +80,11 @@ class FlashCardTimedModel extends ChangeNotifier {
   }
 
   void nextQuestion() {
-    _currHanzi = hsk1data[_count]['simplified'].toString();
-    _currTranslation = hsk1data[_count]['translation'].toString();
+    _currHanzi = hskdata[_count]['simplified'].toString();
+    _currTranslation = hskdata[_count]['translation'].toString();
     print('answer: $_currHanzi');
 
-    print(hsk1data);
+    print(hskdata);
     // Notify listeners that the state has changed
     notifyListeners();
   }
@@ -90,9 +92,10 @@ class FlashCardTimedModel extends ChangeNotifier {
   // Initialize data from the database
   Future<void> initializeDataFromDatabase() async {
     _deviceHeight = DeviceInfo.height;
-    _hsk1data =
-        await DataBaseIntegration.fetchDataFromDB(['simplified', 'translation'])
-          ..shuffle();
+
+    String jsonString = await rootBundle.loadString(HskPath.hskPath);
+    List<dynamic> jsonList = json.decode(jsonString);
+    _hskdata = jsonList.toList()..shuffle();
     nextQuestion();
   }
 }

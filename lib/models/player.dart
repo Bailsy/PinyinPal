@@ -1,6 +1,9 @@
 import 'dart:convert';
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:iconify_flutter/iconify_flutter.dart';
+import 'package:iconify_flutter/icons/ph.dart';
 import 'package:pinyinpal/pages/productivescroll.dart';
 import 'package:video_player/video_player.dart';
 
@@ -86,22 +89,59 @@ class _VimeoPlayerState extends State<VimeoPlayer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: InkWell(
-      onTap: () {
-        setState(() {
-          if (_controller.value.isPlaying) {
-            _controller.pause();
-          } else {
-            _controller.play();
-          }
-        });
-      },
-      child: FutureBuilder(
+      body: FutureBuilder(
         future: _initializeVideoPlayerFuture,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             return Container(
-              child: VideoPlayer(_controller),
+              child: Stack(
+                children: <Widget>[
+                  InkWell(
+                    child: VideoPlayer(_controller),
+                    onTap: () {
+                      setState(() {
+                        if (_controller.value.isPlaying) {
+                          _controller.pause();
+                        } else {
+                          _controller.play();
+                        }
+                      });
+                    },
+                  ),
+                  Positioned(
+                    bottom: 10, // Set the distance from the bottom
+                    left: 10,
+                    right: 10,
+                    child: GlassContainer(
+                      width: 200,
+                      height: 100,
+                      borderRadius: 20,
+                      blur: 10,
+                      opacity: 0.3,
+                      child: Center(
+                        child: Row(children: <Widget>[
+                          Container(
+                            width: 10,
+                          ),
+                          SizedBox(
+                            width: 120,
+                            height: 120,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(100),
+                              child: Image.network(
+                                  "http://pinyinpal.com/logo.png"),
+                            ),
+                          ),
+                          Text("Teaching Chinese fast",
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  color: Color.fromARGB(255, 255, 255, 255)))
+                        ]),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             );
           } else {
             return Center(
@@ -110,6 +150,44 @@ class _VimeoPlayerState extends State<VimeoPlayer> {
           }
         },
       ),
-    ));
+    );
+  }
+}
+
+class GlassContainer extends StatelessWidget {
+  final double width;
+  final double height;
+  final double blur;
+  final double opacity;
+  final double borderRadius;
+  final Widget child;
+
+  const GlassContainer({
+    Key? key,
+    required this.width,
+    required this.height,
+    required this.blur,
+    required this.opacity,
+    required this.borderRadius,
+    required this.child,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(borderRadius),
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: blur, sigmaY: blur),
+        child: Container(
+          width: width,
+          height: height,
+          decoration: BoxDecoration(
+            color: Colors.white.withOpacity(opacity),
+            borderRadius: BorderRadius.circular(borderRadius),
+          ),
+          child: child,
+        ),
+      ),
+    );
   }
 }

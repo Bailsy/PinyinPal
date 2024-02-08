@@ -25,7 +25,7 @@ class _CollectionPageState extends State<CollectionPage> {
 
   Future<void> getConfidence() async {
     Directory documentsDirectory = await getApplicationDocumentsDirectory();
-    String filePath = '${documentsDirectory.path}/stats.json';
+    String filePath = '${documentsDirectory.path}/hsk2.json';
 
     File file = File(filePath);
     String jsonString = await file.readAsString();

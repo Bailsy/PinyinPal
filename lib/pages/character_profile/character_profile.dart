@@ -56,33 +56,19 @@ class _CharacterProfileBodyState extends State<CharacterProfileBody> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Spacer(),
-                Text(
-                  character.simplified,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: StylingConstants.pFontSizeLarge,
-                    fontFamily: StylingConstants.pStandartFont,
-                    color: characterProfileModel.confidence,
-                  ),
-                ),
-                Expanded(
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Padding(
-                      padding: EdgeInsets.only(
-                          left: 16.0), // Adjust the padding as needed
-                      child: ElevatedButton(
-                        onPressed: () => characterProfileModel
-                            .playAudio(character.simplified),
-                        child: const Iconify(
-                          Ph.speaker_high_fill,
-                          color: Colors.blue,
-                          size: 20,
-                        ),
-                      ),
+                InkWell(
+                  child: Text(
+                    character.simplified,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: StylingConstants.pFontSizeLarge,
+                      fontFamily: StylingConstants.pStandartFont,
+                      color: characterProfileModel.confidence,
                     ),
                   ),
+                  onTap: () {
+                    characterProfileModel.playAudio(character.simplified);
+                  },
                 ),
               ],
             ),

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:pinyinpal/cachelogin.dart';
+
 import 'package:pinyinpal/pages/signup.dart';
+import 'package:pinyinpal/cachelogin.dart';
 import 'package:pinyinpal/services/json_downloader.dart';
 import 'package:pinyinpal/setprofile.dart';
 
@@ -72,7 +73,7 @@ class _LoginPageState extends State<LoginPage> {
 
         DownloadJson js = DownloadJson();
 
-        await js.downloadJson();
+        await js.downloadJson('hsk2');
 
         // Navigate to Home Screen
         Navigator.pushReplacementNamed(
