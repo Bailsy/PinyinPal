@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:pinyinpal/models/profilemodel.dart';
 import 'package:pinyinpal/pages/profile.dart';
+import 'package:pinyinpal/widget/piechart.dart';
 
 class UserStats extends StatefulWidget {
   // It is essential to give the class a key and make it constant
@@ -83,6 +84,19 @@ class UserStatsState extends State<UserStats> {
                         color: Colors.grey),
                   ),
                 ))),
+            Container(
+              height: 30,
+            ),
+            Container(
+              child: ConstrainedBox(
+                  constraints: const BoxConstraints(
+                    minWidth: 100.0,
+                    maxWidth: 200.0,
+                    minHeight: 100.0,
+                    maxHeight: 200.0,
+                  ),
+                  child: StatsChart()),
+            ),
           ],
         )));
   }

@@ -33,13 +33,11 @@ class FlashCardTimedModel extends ChangeNotifier {
   // increase correct
   void increaseCorrect() {
     _correct++;
-    increaseCount();
   }
 
   // increase incorrect
   void increaseIncorrect() {
     _incorrect++;
-    increaseCount();
   }
 
   void increaseCount() {
@@ -70,9 +68,9 @@ class FlashCardTimedModel extends ChangeNotifier {
 
     // Update the score based on the character
     for (var item in data) {
-      if (item['simplified'] == hskdata[count - 1]['simplified'].toString()) {
+      if (item['simplified'] == _currHanzi) {
         print("we have updated the score for: " + item['simplified']);
-        item['score'] = item['score'] + 1;
+        item['score']++;
         break; // Assuming each character is unique, no need to continue searching
       }
     }

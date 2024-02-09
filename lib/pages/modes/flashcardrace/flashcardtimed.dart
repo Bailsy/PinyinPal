@@ -38,7 +38,7 @@ class _FlashCardTimedState extends State<FlashCardTimed> {
     super.dispose();
   }
 
-  void _handleTextSubmitted(String userAnswer) {
+  Future<void> _handleTextSubmitted(String userAnswer) async {
     final flashCardModel =
         Provider.of<FlashCardTimedModel>(context, listen: false);
 
@@ -48,7 +48,7 @@ class _FlashCardTimedState extends State<FlashCardTimed> {
       AnswerDialog.failurePopup(context, "Try again!");
     } else {
       //Correct Answer!
-      flashCardModel.updateScore();
+      await flashCardModel.updateScore();
       flashCardModel.increaseCorrect();
       AnswerDialog.successPopup(
           context, '${flashCardModel.currentHanzi} is correct!');
@@ -65,7 +65,7 @@ class _FlashCardTimedState extends State<FlashCardTimed> {
         ),
       );
     }
-
+    flashCardModel.increaseCount();
     flashCardModel.nextQuestion();
     pinyinController.clear();
   }

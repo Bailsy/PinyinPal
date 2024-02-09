@@ -72,7 +72,7 @@ class _LoginPageState extends State<LoginPage> {
         SetProfile setProfile = SetProfile();
         await setProfile.setDetails(msg);
         HskPath.hsklvl = 'hsk1';
-        HskPath.loadData();
+        await HskPath.loadData();
 
         // Navigate to Home Screen
         Navigator.pushReplacementNamed(

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
+import 'package:pinyinpal/constants/deviceinfo.dart';
 import 'package:pinyinpal/constants/imagepaths.dart';
 import 'package:pinyinpal/models/lvl.dart';
 import 'package:pinyinpal/models/profilemodel.dart';
 import 'package:pinyinpal/pages/collection/collection_page.dart';
 import 'package:pinyinpal/pages/profile.dart';
+import 'package:pinyinpal/widget/homebutton.dart';
 
 class CollectionSelectPage extends StatefulWidget {
   // It is essential to give the class a key and make it constant
@@ -64,67 +66,31 @@ class CollectionSelectPageState extends State<CollectionSelectPage> {
             Container(
               height: 20,
             ),
-            InkWell(
-              onTap: () async {
-                HskPath.hsklvl = 'hsk1';
-                await HskPath.loadData();
-                widget.reloadPage();
-              },
-              child: Container(
-                height: 90,
-                width: 350,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage(
-                        hsk1Button), // assuming hsk2Button is the asset path
-                    fit: BoxFit.cover, // or any other fit you desire
-                  ),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-              ),
-            ),
             Container(
-              height: 10,
-            ),
-            InkWell(
-              onTap: () async {
-                HskPath.hsklvl = 'hsk2';
-                await HskPath.loadData();
-                widget.reloadPage();
-              },
-              child: Container(
-                height: 90,
-                width: 350,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage(
-                        hsk2Button), // assuming hsk2Button is the asset path
-                    fit: BoxFit.cover, // or any other fit you desire
-                  ),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-              ),
-            ),
-            Container(
-              height: 10,
-            ),
-            InkWell(
-              onTap: () async {
-                HskPath.hsklvl = 'hsk2';
-                await HskPath.loadData();
-                widget.reloadPage();
-              },
-              child: Container(
-                height: 90,
-                width: 350,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage(
-                        hsk3Button), // assuming hsk2Button is the asset path
-                    fit: BoxFit.cover, // or any other fit you desire
-                  ),
-                  borderRadius: BorderRadius.circular(20),
-                ),
+              child: Column(
+                children: <Widget>[
+                  HomeButton(
+                      onPress: () async {
+                        HskPath.hsklvl = 'hsk1';
+                        await HskPath.loadData();
+                        widget.reloadPage();
+                      },
+                      buttonText: "HSK 1"),
+                  HomeButton(
+                      onPress: () async {
+                        HskPath.hsklvl = 'hsk2';
+                        await HskPath.loadData();
+                        widget.reloadPage();
+                      },
+                      buttonText: "HSK 2"),
+                  HomeButton(
+                      onPress: () async {
+                        HskPath.hsklvl = 'hsk1';
+                        await HskPath.loadData();
+                        widget.reloadPage();
+                      },
+                      buttonText: "HSK 3")
+                ],
               ),
             ),
           ],

@@ -32,7 +32,7 @@ class HomeButton extends StatelessWidget {
                   text: buttonText,
                   color: Colors.blue,
                   font: NeonFont.Beon,
-                  fontSize: 15,
+                  fontSize: 30,
                 ),
               ),
             ),
