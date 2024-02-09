@@ -13,7 +13,8 @@ class FinishedSet extends StatefulWidget {
   final int Tcorrect;
   final int Tincorrect;
 
-  const FinishedSet({required this.Tcorrect, required this.Tincorrect, super.key});
+  const FinishedSet(
+      {required this.Tcorrect, required this.Tincorrect, super.key});
 
   @override
   _FinishedSet createState() => _FinishedSet();
@@ -32,7 +33,7 @@ class _FinishedSet extends State<FinishedSet> {
     super.initState();
     countScore();
     UploadJson uj = UploadJson();
-    uj.uploadStats();
+    uj.uploadStats('hsk2');
     controller.play();
     DataBaseIntegration.updateXP(widget.Tcorrect * 100);
   }

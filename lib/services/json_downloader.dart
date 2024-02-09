@@ -11,9 +11,7 @@ class DownloadJson {
       ProfileModel currentProfile = ProfileModelSingleton().profileModel;
       print(currentProfile.userId.toString());
 
-      var data = {
-        'UID': currentProfile.userId.toString(),
-      };
+      var data = {'UID': currentProfile.userId.toString(), 'HSK': hsklvl};
       var response =
           await http.post(Uri.parse(userUrl), body: json.encode(data));
 
@@ -25,9 +23,9 @@ class DownloadJson {
           print('Successfully downloaded Stats');
           // Get the ApplicationDocumentsDirectory
           Directory appDocumentsDir = await getApplicationDocumentsDirectory();
-          File newFile = File('${appDocumentsDir.path}/${hsklvl}.json');
-          await newFile.writeAsString(msg[hsklvl][hsklvl]);
-          print(msg[hsklvl][hsklvl]);
+          File newFile = File('${appDocumentsDir.path}/stats.json');
+          await newFile.writeAsString(msg['stats'][hsklvl]);
+          print("here is what we have: " + msg['stats'][hsklvl]);
         } else {
           print(msg["message"]);
         }

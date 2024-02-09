@@ -110,6 +110,10 @@ class _ProfilePageState extends State<ProfilePage> {
               },
             ),
             PopScope(canPop: false, child: Container()),
+            Container(
+              height: 20,
+            ),
+            Text("ver: 00.00.03", style: Theme.of(context).textTheme.bodyLarge),
           ],
         )),
       ),

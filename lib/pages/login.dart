@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:pinyinpal/models/lvl.dart';
 
 import 'package:pinyinpal/pages/signup.dart';
 import 'package:pinyinpal/cachelogin.dart';
@@ -70,10 +71,8 @@ class _LoginPageState extends State<LoginPage> {
 
         SetProfile setProfile = SetProfile();
         await setProfile.setDetails(msg);
-
-        DownloadJson js = DownloadJson();
-
-        await js.downloadJson('hsk2');
+        HskPath.hsklvl = 'hsk1';
+        HskPath.loadData();
 
         // Navigate to Home Screen
         Navigator.pushReplacementNamed(

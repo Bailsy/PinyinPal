@@ -1,9 +1,12 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pinyinpal/models/collection_model.dart';
 import 'package:pinyinpal/models/hsk_entry.dart';
+import 'package:pinyinpal/pages/collectionselect.dart';
+import 'package:pinyinpal/pages/profile.dart';
 import 'package:pinyinpal/providers/character_profile_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -16,16 +19,25 @@ class CollectionPage extends StatefulWidget {
 
 class _CollectionPageState extends State<CollectionPage> {
   late List<Map<String, dynamic>> data;
+  bool reloaded = false;
 
   @override
   void initState() {
     super.initState();
     getConfidence();
+    print("reloaded");
+  }
+
+  void reloadPage() {
+    setState(() {
+      getConfidence();
+      reloaded = true;
+    });
   }
 
   Future<void> getConfidence() async {
     Directory documentsDirectory = await getApplicationDocumentsDirectory();
-    String filePath = '${documentsDirectory.path}/hsk2.json';
+    String filePath = '${documentsDirectory.path}/stats.json';
 
     File file = File(filePath);
     String jsonString = await file.readAsString();
@@ -45,36 +57,57 @@ class _CollectionPageState extends State<CollectionPage> {
   }
 
   Widget _buildBody(CollectionModel collectionModel) {
-    if (collectionModel.hskEntries.isEmpty) {
+    if (collectionModel.hskEntries.isEmpty || reloaded == true) {
+      reloaded = false;
       // If characters are not loaded, trigger loading
       collectionModel.loadCollectionData();
       return const Center(child: CircularProgressIndicator());
     } else {
       // Build the grid with loaded characters
-      return Container(
-        margin: const EdgeInsets.all(16.0),
-        child: GridView.builder(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3,
-            crossAxisSpacing: 8.0,
-            mainAxisSpacing: 8.0,
-            childAspectRatio: 1.0,
-          ),
-          itemCount: collectionModel.hskEntries.length,
-          itemBuilder: (context, index) {
-            //if collectionmodel is initialist, otherwise return loading icon
 
-            if (data.isEmpty) {
-              return const CircularProgressIndicator();
-            } else {
-              return _buildCharacterItem(
+      return Scaffold(
+          appBar: AppBar(
+            surfaceTintColor: Colors.transparent,
+            leading: IconButton(
+              icon: const Icon(
+                LineAwesomeIcons.book,
+              ),
+              onPressed: () {
+                Navigator.push(
                   context,
-                  collectionModel.hskEntries[index],
-                  collectionModel.getColor(data[index]["score"]));
-            }
-          },
-        ),
-      );
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        CollectionSelectPage(reloadPage: reloadPage),
+                    //here we pass in the reload page void call back so we can update the collection page
+                  ),
+                );
+              },
+            ),
+          ),
+          body: Container(
+            margin: const EdgeInsets.all(16.0),
+            child: GridView.builder(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                crossAxisSpacing: 8.0,
+                mainAxisSpacing: 8.0,
+                childAspectRatio: 1.0,
+              ),
+              itemCount: collectionModel.hskEntries.length,
+              itemBuilder: (context, index) {
+                //if collectionmodel is initialist, otherwise return loading icon
+
+                if (data.isEmpty) {
+                  return const CircularProgressIndicator();
+                } else {
+                  return _buildCharacterItem(
+                      context,
+                      collectionModel.hskEntries[index],
+                      collectionModel.getColor(data[index]["score"]));
+                }
+              },
+            ),
+          ));
     }
   }
 

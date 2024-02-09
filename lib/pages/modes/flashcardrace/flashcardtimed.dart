@@ -3,7 +3,9 @@
 // Local Imports
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:pinyinpal/constants/colour.dart';
+import 'package:pinyinpal/pages/profile.dart';
 import 'package:provider/provider.dart';
 
 // PinyinPal Imports
@@ -44,43 +46,27 @@ class _FlashCardTimedState extends State<FlashCardTimed> {
       //Incorrect Answer!
       flashCardModel.increaseIncorrect();
       AnswerDialog.failurePopup(context, "Try again!");
-      if (flashCardModel.count == flashCardModel.maxCount) {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => FinishedSet(
-              Tcorrect: flashCardModel.correct,
-              Tincorrect: flashCardModel.incorrect,
-            ),
-          ),
-        );
-      }
-      flashCardModel.nextQuestion();
     } else {
       //Correct Answer!
-      flashCardModel.increaseCorrect();
       flashCardModel.updateScore();
+      flashCardModel.increaseCorrect();
       AnswerDialog.successPopup(
           context, '${flashCardModel.currentHanzi} is correct!');
-
-      //Check if that was the last question
-      if (flashCardModel.count == flashCardModel.maxCount) {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => FinishedSet(
-              Tcorrect: flashCardModel.correct,
-              Tincorrect: flashCardModel.incorrect,
-            ),
-          ),
-        );
-      }
-
-      flashCardModel.nextQuestion(); // Call the method to update hanzi
     }
 
-    //AnswerDialog.successPopup(context, flashCardModel.currhanzi);
-    //AnswerDialog.failurePopup(context, flashCardModel.currhanzi);
+    if (flashCardModel.count == flashCardModel.maxCount) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => FinishedSet(
+            Tcorrect: flashCardModel.correct,
+            Tincorrect: flashCardModel.incorrect,
+          ),
+        ),
+      );
+    }
+
+    flashCardModel.nextQuestion();
     pinyinController.clear();
   }
 
@@ -88,81 +74,100 @@ class _FlashCardTimedState extends State<FlashCardTimed> {
   Widget build(BuildContext context) {
     final flashCardModel = context.watch<FlashCardTimedModel>();
 
-    return Stack(
-      children: <Widget>[
-        Container(
-          padding: EdgeInsets.only(
-            top: DeviceInfo.height / 7,
-            left: 60,
-            right: 60,
-          ),
-          child: Align(
-            alignment: Alignment.topCenter,
-            child: Column(
+    return Scaffold(
+        appBar: AppBar(
+            surfaceTintColor: Colors.transparent,
+            leading: Row(
               children: <Widget>[
-                Text(
-                  flashCardModel.count.toString(),
-                  style: const TextStyle(
-                    color: pWhiteColour,
-                    fontSize: StylingConstants.pFontSizeLarge,
-                  ),
-                ),
-                Container(
-                  child: ConstrainedBox(
-                    constraints: const BoxConstraints(
-                      minWidth: 300.0,
-                      maxWidth: 300.0,
-                      minHeight: 30.0,
-                      maxHeight: 100.0,
-                    ),
-                    child: AutoSizeText(
-                      flashCardModel.currTranslation, // Use currentHanzi here
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        fontSize: StylingConstants.pFontSizeMedium,
-                        fontFamily: StylingConstants.pStandartFont,
-                        color: pWhiteColour,
+                IconButton(
+                  icon: const Icon(LineAwesomeIcons.user),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ProfilePage(),
                       ),
-                    ),
-                  ),
+                    );
+                  },
                 ),
               ],
-            ),
-          ),
-        ),
-        Container(
-          padding: EdgeInsets.only(
-              top: DeviceInfo.height / 2.5, left: 80, right: 80),
-          child: Align(
-            alignment: Alignment.topCenter,
-            child: TextField(
-              controller: pinyinController,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                color: pWhiteColour,
-                fontSize: StylingConstants.pFontSizeSmall,
-                fontFamily: StylingConstants.pStandartFont,
-                decoration: TextDecoration.none,
-                decorationThickness: 0,
+            )),
+        body: Stack(
+          children: <Widget>[
+            Container(
+              padding: EdgeInsets.only(
+                top: DeviceInfo.height / 7,
+                left: 60,
+                right: 60,
               ),
-              decoration: const InputDecoration(
-                hintText: 'Enter Pinyin',
-                hintStyle: TextStyle(color: pLightGreyColour),
-                labelStyle: TextStyle(
-                    color: pWhiteColour, //underline color
-                    fontSize: StylingConstants.pFontSizeSmall),
-                enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: pWhiteColour),
-                ),
-                focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: pWhiteColour),
+              child: Align(
+                alignment: Alignment.topCenter,
+                child: Column(
+                  children: <Widget>[
+                    Text(
+                      flashCardModel.count.toString(),
+                      style: const TextStyle(
+                        color: pWhiteColour,
+                        fontSize: StylingConstants.pFontSizeLarge,
+                      ),
+                    ),
+                    Container(
+                      child: ConstrainedBox(
+                        constraints: const BoxConstraints(
+                          minWidth: 300.0,
+                          maxWidth: 300.0,
+                          minHeight: 30.0,
+                          maxHeight: 100.0,
+                        ),
+                        child: AutoSizeText(
+                          flashCardModel
+                              .currTranslation, // Use currentHanzi here
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            fontSize: StylingConstants.pFontSizeMedium,
+                            fontFamily: StylingConstants.pStandartFont,
+                            color: pWhiteColour,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              onSubmitted: _handleTextSubmitted,
             ),
-          ),
-        ),
-      ],
-    );
+            Container(
+              padding: EdgeInsets.only(
+                  top: DeviceInfo.height / 2.5, left: 80, right: 80),
+              child: Align(
+                alignment: Alignment.topCenter,
+                child: TextField(
+                  controller: pinyinController,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    color: pWhiteColour,
+                    fontSize: StylingConstants.pFontSizeSmall,
+                    fontFamily: StylingConstants.pStandartFont,
+                    decoration: TextDecoration.none,
+                    decorationThickness: 0,
+                  ),
+                  decoration: const InputDecoration(
+                    hintText: 'Enter Pinyin',
+                    hintStyle: TextStyle(color: pLightGreyColour),
+                    labelStyle: TextStyle(
+                        color: pWhiteColour, //underline color
+                        fontSize: StylingConstants.pFontSizeSmall),
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: pWhiteColour),
+                    ),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: pWhiteColour),
+                    ),
+                  ),
+                  onSubmitted: _handleTextSubmitted,
+                ),
+              ),
+            ),
+          ],
+        ));
   }
 }

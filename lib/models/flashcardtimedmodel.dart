@@ -8,6 +8,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:pinyinpal/constants/deviceinfo.dart';
 import 'package:pinyinpal/models/collection_model.dart';
 import 'package:pinyinpal/models/databasecontrol.dart';
+import 'package:pinyinpal/models/lvl.dart';
 //import collectionmodel
 
 class FlashCardTimedModel extends ChangeNotifier {
@@ -69,7 +70,8 @@ class FlashCardTimedModel extends ChangeNotifier {
 
     // Update the score based on the character
     for (var item in data) {
-      if (item['simplified'] == hskdata[_count]['simplified'].toString()) {
+      if (item['simplified'] == hskdata[count - 1]['simplified'].toString()) {
+        print("we have updated the score for: " + item['simplified']);
         item['score'] = item['score'] + 1;
         break; // Assuming each character is unique, no need to continue searching
       }

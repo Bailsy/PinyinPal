@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:pinyinpal/models/player.dart';
+import 'package:pinyinpal/pages/profile.dart';
 import 'package:preload_page_view/preload_page_view.dart';
 
 class GlobalCode {
@@ -86,6 +88,20 @@ class _PreloadPageViewState extends State<PreloadPageViewDemo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        surfaceTintColor: Colors.transparent,
+        leading: IconButton(
+          icon: const Icon(LineAwesomeIcons.user),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const ProfilePage(),
+              ),
+            );
+          },
+        ),
+      ),
       body: Container(
         child: PreloadPageView.builder(
           scrollDirection: Axis.vertical,
