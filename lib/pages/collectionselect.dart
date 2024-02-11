@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-import 'package:pinyinpal/constants/deviceinfo.dart';
-import 'package:pinyinpal/constants/imagepaths.dart';
 import 'package:pinyinpal/models/lvl.dart';
 import 'package:pinyinpal/models/profilemodel.dart';
-import 'package:pinyinpal/pages/collection/collection_page.dart';
-import 'package:pinyinpal/pages/profile.dart';
+import 'package:pinyinpal/pages/newhome.dart';
+import 'package:pinyinpal/pages/productivescroll.dart';
 import 'package:pinyinpal/widget/homebutton.dart';
 
 class CollectionSelectPage extends StatefulWidget {
@@ -24,6 +22,10 @@ class CollectionSelectPageState extends State<CollectionSelectPage> {
   void initState() {
     super.initState();
     //sp.reloadDetails();
+  }
+
+  void redirectHome() {
+    Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
   }
 
   @override
@@ -73,21 +75,21 @@ class CollectionSelectPageState extends State<CollectionSelectPage> {
                       onPress: () async {
                         HskPath.hsklvl = 'hsk1';
                         await HskPath.loadData();
-                        widget.reloadPage();
+                        redirectHome();
                       },
                       buttonText: "HSK 1"),
                   HomeButton(
                       onPress: () async {
                         HskPath.hsklvl = 'hsk2';
                         await HskPath.loadData();
-                        widget.reloadPage();
+                        redirectHome();
                       },
                       buttonText: "HSK 2"),
                   HomeButton(
                       onPress: () async {
                         HskPath.hsklvl = 'hsk1';
                         await HskPath.loadData();
-                        widget.reloadPage();
+                        redirectHome();
                       },
                       buttonText: "HSK 3")
                 ],

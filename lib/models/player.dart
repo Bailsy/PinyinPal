@@ -1,9 +1,8 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:iconify_flutter/iconify_flutter.dart';
-import 'package:iconify_flutter/icons/ph.dart';
 import 'package:pinyinpal/pages/productivescroll.dart';
 import 'package:video_player/video_player.dart';
 
@@ -26,6 +25,7 @@ class VimeoPlayer extends StatefulWidget {
 class _VimeoPlayerState extends State<VimeoPlayer> {
   late VideoPlayerController _controller = VideoPlayerController.network('');
   late Future<void> _initializeVideoPlayerFuture = Future.value();
+  late StreamSubscription<dynamic> _codeSubscription;
 
   @override
   void initState() {
@@ -36,14 +36,15 @@ class _VimeoPlayerState extends State<VimeoPlayer> {
   void _initializeVideoPlayer() async {
     try {
       final videoUrl = await getMp4Link(widget.videoId);
-      _controller.dispose(); // Dispose the previous controller
+      _controller.dispose();
+      // Dispose the previous controller
       _controller = VideoPlayerController.network(videoUrl);
       _initializeVideoPlayerFuture = _controller.initialize();
       await _initializeVideoPlayerFuture;
       _controller.setLooping(true);
 
-      GlobalCode.codeStream.listen((newCode) {
-        print(newCode);
+      _codeSubscription = GlobalCode.codeStream.listen((newCode) {
+        print("oh look new code " + newCode.toString());
         if (newCode.toString() == widget.videoId) {
           playVideo();
         } else {
@@ -70,20 +71,31 @@ class _VimeoPlayerState extends State<VimeoPlayer> {
 
   @override
   void dispose() {
-    _controller.dispose();
+    // Check if the controller is not null and is initialized before disposing
+    if (_controller.value.isInitialized) {
+      print("We have disposed");
+      _controller.dispose();
+      _codeSubscription.cancel();
+    }
     super.dispose();
   }
 
   void playVideo() {
-    setState(() {
-      _controller.play();
-    });
+    // Check if the widget is mounted before calling setState
+    if (mounted) {
+      setState(() {
+        _controller.play();
+      });
+    }
   }
 
   void pauseVideo() {
-    setState(() {
-      _controller.pause();
-    });
+    // Check if the widget is mounted before calling setState
+    if (mounted) {
+      setState(() {
+        _controller.pause();
+      });
+    }
   }
 
   @override

@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:pinyinpal/models/player.dart';
@@ -16,7 +15,7 @@ class GlobalCode {
   static set code(int newValue) {
     if (_code != newValue) {
       _code = newValue;
-      _codeController.add(_code); // Notify subscribers about the change
+      _codeController.add(_code);
     }
   }
 
