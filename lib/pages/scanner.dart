@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:pinyinpal/constants/stylingconstants.dart';
+import 'package:translator/translator.dart';
 
 class Scanner extends StatefulWidget {
   const Scanner({super.key});
@@ -197,27 +198,60 @@ class _ScannerState extends State<Scanner> with WidgetsBindingObserver {
 
 class ResultScreen extends StatelessWidget {
   final String text;
+  final translator = GoogleTranslator();
 
-  const ResultScreen({super.key, required this.text});
+  ResultScreen({Key? key, required this.text}) : super(key: key);
+
+  Future<String> translateText(String toTranslate) async {
+    final translatedText =
+        await translator.translate(toTranslate, from: 'cn', to: 'en');
+    return translatedText.text;
+  }
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(
-          title: const Text(
-            'Result',
-          ),
-        ),
-        body: Container(
-          padding: const EdgeInsets.all(30.0),
-          child: Text(
-            text,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: StylingConstants.pFontSizeMedium,
-              fontFamily: StylingConstants.pStandartFont,
-              color: Colors.white,
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Result'),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Container(
+            padding: const EdgeInsets.all(30.0),
+            child: Text(
+              text,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 20.0, // Adjust font size as needed
+                color: Colors.white,
+              ),
             ),
           ),
-        ),
-      );
+          FutureBuilder<String>(
+            future: translateText(text),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return CircularProgressIndicator(); // Placeholder while loading
+              } else if (snapshot.hasError) {
+                return Text('Error: ${snapshot.error}');
+              } else {
+                return Container(
+                  padding: const EdgeInsets.all(30.0),
+                  child: Text(
+                    snapshot.data ?? '', // Display translated text if available
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      fontSize: 20.0, // Adjust font size as needed
+                      color: Colors.white,
+                    ),
+                  ),
+                );
+              }
+            },
+          ),
+        ],
+      ),
+    );
+  }
 }

@@ -18,7 +18,7 @@ class CollectionPage extends StatefulWidget {
 }
 
 class _CollectionPageState extends State<CollectionPage> {
-  late List<Map<String, dynamic>> data;
+  List<Map<String, dynamic>> data = [];
   bool reloaded = false;
 
   @override
