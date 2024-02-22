@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-import 'package:pinyinpal/pages/profile.dart';
 import 'package:pinyinpal/pages/userstats.dart';
 import 'package:pinyinpal/pages/productivescroll.dart';
 import 'package:pinyinpal/providers/collection_provider.dart';
+import 'package:pinyinpal/providers/flashcardspoken_provider.dart';
 import 'package:pinyinpal/providers/flashcardtimed_provider.dart';
 import 'package:pinyinpal/widget/bottomnavbar.dart';
 
@@ -25,13 +24,14 @@ class NewHomePage extends StatefulWidget {
 }
 
 class NewHomePageState extends State<NewHomePage> {
-  int indexPos = 0;
+  int indexPos = 2;
 
   @override
   Widget build(BuildContext context) {
     SystemNav.setNavBar();
     return Scaffold(
       bottomNavigationBar: BottomNavBar(
+        startPos: 2,
         onIndexChanged: (index) {
           setState(() {
             indexPos = index;
@@ -45,6 +45,7 @@ class NewHomePageState extends State<NewHomePage> {
           PreloadPageViewDemo(),
           FlashCardTimedProvider(),
           CollectionProvider(),
+          FlashCardSpokenProvider(),
           UserStats(),
         ],
       ),

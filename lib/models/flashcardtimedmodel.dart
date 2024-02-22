@@ -3,11 +3,8 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:mysql1/mysql1.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pinyinpal/constants/deviceinfo.dart';
-import 'package:pinyinpal/models/collection_model.dart';
-import 'package:pinyinpal/models/databasecontrol.dart';
 import 'package:pinyinpal/models/lvl.dart';
 //import collectionmodel
 

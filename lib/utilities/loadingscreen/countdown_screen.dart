@@ -10,7 +10,8 @@ class CountdownScreen extends StatefulWidget {
 }
 
 class _CountdownScreenState extends State<CountdownScreen> {
-  int countdownValue = 3;
+  int countdownValue = 2;
+  List<String> numbers = ['一', '二', '三'];
 
   @override
   void initState() {
@@ -19,7 +20,7 @@ class _CountdownScreenState extends State<CountdownScreen> {
   }
 
   void startCountdown() {
-    Future.delayed(const Duration(seconds: 1), () {
+    Future.delayed(const Duration(milliseconds: 500), () {
       setState(() {
         countdownValue--;
         if (countdownValue > 0) {
@@ -36,7 +37,7 @@ class _CountdownScreenState extends State<CountdownScreen> {
     return Scaffold(
       body: Center(
         child: Text(
-          '$countdownValue...',
+          '${numbers[countdownValue]}',
           style: const TextStyle(fontSize: 36.0),
         ),
       ),

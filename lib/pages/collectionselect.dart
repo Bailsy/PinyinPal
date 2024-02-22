@@ -4,6 +4,7 @@ import 'package:pinyinpal/models/lvl.dart';
 import 'package:pinyinpal/models/profilemodel.dart';
 import 'package:pinyinpal/pages/newhome.dart';
 import 'package:pinyinpal/pages/productivescroll.dart';
+import 'package:pinyinpal/utilities/loadingscreen/loadingscreen.dart';
 import 'package:pinyinpal/widget/homebutton.dart';
 
 class CollectionSelectPage extends StatefulWidget {
@@ -17,6 +18,7 @@ class CollectionSelectPage extends StatefulWidget {
 
 class CollectionSelectPageState extends State<CollectionSelectPage> {
   ProfileModel currentProfile = ProfileModelSingleton().profileModel;
+  bool flag = false;
   //SetProfile sp = SetProfile();
   @override
   void initState() {
@@ -25,7 +27,10 @@ class CollectionSelectPageState extends State<CollectionSelectPage> {
   }
 
   void redirectHome() {
-    Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => LoadingScreen()),
+    );
   }
 
   @override
@@ -34,7 +39,9 @@ class CollectionSelectPageState extends State<CollectionSelectPage> {
         appBar: AppBar(
           leading: IconButton(
               onPressed: () {
-                Navigator.pop(context);
+                if (flag == false) {
+                  Navigator.pop(context);
+                }
               },
               icon: const Icon(LineAwesomeIcons.angle_left)),
         ),
@@ -74,6 +81,7 @@ class CollectionSelectPageState extends State<CollectionSelectPage> {
                   HomeButton(
                       onPress: () async {
                         HskPath.hsklvl = 'hsk1';
+                        flag = true;
                         await HskPath.loadData();
                         redirectHome();
                       },
@@ -81,6 +89,7 @@ class CollectionSelectPageState extends State<CollectionSelectPage> {
                   HomeButton(
                       onPress: () async {
                         HskPath.hsklvl = 'hsk2';
+                        flag = true;
                         await HskPath.loadData();
                         redirectHome();
                       },
@@ -88,6 +97,7 @@ class CollectionSelectPageState extends State<CollectionSelectPage> {
                   HomeButton(
                       onPress: () async {
                         HskPath.hsklvl = 'hsk1';
+                        flag = true;
                         await HskPath.loadData();
                         redirectHome();
                       },

@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:pinyinpal/models/lvl.dart';
-
 import 'package:pinyinpal/pages/signup.dart';
 import 'package:pinyinpal/cachelogin.dart';
-import 'package:pinyinpal/services/json_downloader.dart';
 import 'package:pinyinpal/setprofile.dart';
 
 class LoginPage extends StatefulWidget {
@@ -23,9 +21,13 @@ class _LoginPageState extends State<LoginPage> {
 
   void checkCache() async {
     bool credentialsExist = await CacheLogin.credentialsExist();
-    if (credentialsExist) {
-      List<String> loginInfo = await CacheLogin.retrieveCredentials();
-      userLogin(loginInfo[0], loginInfo[1]);
+    try {
+      if (credentialsExist) {
+        List<String> loginInfo = await CacheLogin.retrieveCredentials();
+        userLogin(loginInfo[0], loginInfo[1]);
+      }
+    } catch (error) {
+      print("failed to check cache!");
     }
   }
 

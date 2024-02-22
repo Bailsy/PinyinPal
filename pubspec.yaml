@@ -48,6 +48,7 @@ flutter:
     fonts:
     - asset: assets/fonts/LibreFranklin-SemiBold.ttf
     - asset: assets/fonts/LibreFranklin-Bold.ttf
+   
   uses-material-design: true
   assets:
     - assets/images/

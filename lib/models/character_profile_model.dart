@@ -4,29 +4,14 @@ import 'package:pinyinpal/models/hsk_entry.dart';
 import 'package:pinyinpal/services/apI_service.dart';
 import 'package:just_audio/just_audio.dart';
 
-class CharacterProfileModel extends ChangeNotifier {
-  late HskEntry _character;
-  HskEntry get character => _character;
-
-  late Color _confidence;
-  Color get confidence => _confidence;
-
+class Player {
   Uint8List audioData = Uint8List(0);
   AudioPlayer player = AudioPlayer();
 
-  CharacterProfileModel(
-      {required HskEntry hskCharacter, required Color confidence}) {
-    _character = hskCharacter;
-    _confidence = confidence;
-    fetchAudioData();
-  }
-
-  // Function to fetch audio data for the selected character
-  Future<void> fetchAudioData() async {
+  Future<void> fetchAudioData(String audioString) async {
     try {
-      audioData = await ApiService.fetchAudioData(_character.simplified);
-      print('Fetched audio data for ${_character.simplified}');
-      notifyListeners();
+      audioData = await ApiService.fetchAudioData(audioString);
+      print('Fetched audio data for ${audioString}');
     } catch (error) {
       // Handle error
       print('Error fetching audio data: $error');
@@ -34,10 +19,10 @@ class CharacterProfileModel extends ChangeNotifier {
   }
 
   // Function to play audio for the selected character
-  void playAudio(String character) async {
+  void playAudio() async {
     try {
       final duration = player.setAudioSource(MyCustomSource(audioData));
-      player.setVolume(1000000);
+      player.setVolume(10);
       player.play();
     } catch (error) {
       // Handle error
@@ -46,9 +31,30 @@ class CharacterProfileModel extends ChangeNotifier {
   }
 }
 
+class CharacterProfileModel extends ChangeNotifier {
+  late HskEntry _character;
+  HskEntry get character => _character;
+
+  late Color _confidence;
+  Color get confidence => _confidence;
+
+  Player audioPlayer = Player();
+
+  CharacterProfileModel(
+      {required HskEntry hskCharacter, required Color confidence}) {
+    _character = hskCharacter;
+    _confidence = confidence;
+    // audioPlayer.fetchAudioData(_character.simplified);
+  }
+
+  // Function to fetch audio data for the selected character
+}
+
 class MyCustomSource extends StreamAudioSource {
   final List<int> bytes;
-  MyCustomSource(this.bytes);
+  MyCustomSource(
+    this.bytes,
+  );
 
   @override
   Future<StreamAudioResponse> request([int? start, int? end]) async {

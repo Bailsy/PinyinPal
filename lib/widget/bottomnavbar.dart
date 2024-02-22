@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:pinyinpal/constants/colour.dart';
+import 'package:iconify_flutter/icons/ph.dart';
+import 'package:iconify_flutter/iconify_flutter.dart';
 
 class BottomNavBar extends StatefulWidget {
-  static int indexPos = 0;
+  final int startPos;
   final Function(int) onIndexChanged;
-  const BottomNavBar({super.key, required this.onIndexChanged});
+
+  const BottomNavBar(
+      {super.key, required this.startPos, required this.onIndexChanged});
   @override
   _BottomNavBarState createState() => _BottomNavBarState();
 }
@@ -18,6 +22,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20),
         child: GNav(
+          selectedIndex: widget.startPos,
           backgroundColor: Colors.black,
           color: Colors.white,
           activeColor: Colors.lightBlue.withOpacity(0.4),
@@ -28,7 +33,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
           },
           tabs: const [
             GButton(
-              icon: Icons.school,
+              icon: Icons.castle_outlined,
               text: " Lessons",
             ),
             GButton(
@@ -40,6 +45,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
               text: " Collection",
             ),
             GButton(
+              icon: Icons.mic,
+              text: " Stats",
+            ),
+            GButton(
               icon: Icons.bar_chart,
               text: " Stats",
             ),
@@ -48,4 +57,5 @@ class _BottomNavBarState extends State<BottomNavBar> {
       ),
     );
   }
+  // Function to automatically click on a button 才华
 }

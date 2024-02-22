@@ -46,6 +46,7 @@ class _CharacterProfileBodyState extends State<CharacterProfileBody> {
   @override
   Widget build(BuildContext context) {
     final character = characterProfileModel.character;
+    final AudioPlayer = Player();
 
     return SingleChildScrollView(
       child: Center(
@@ -66,8 +67,10 @@ class _CharacterProfileBodyState extends State<CharacterProfileBody> {
                       color: characterProfileModel.confidence,
                     ),
                   ),
-                  onTap: () {
-                    characterProfileModel.playAudio(character.simplified);
+                  onTap: () async {
+                    await characterProfileModel.audioPlayer
+                        .fetchAudioData(character.simplified);
+                    characterProfileModel.audioPlayer.playAudio();
                   },
                 ),
               ],

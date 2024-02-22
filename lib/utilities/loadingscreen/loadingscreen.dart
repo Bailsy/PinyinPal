@@ -3,9 +3,7 @@ import 'package:pinyinpal/pages/modes/flashcardrace/flashcardtimed.dart';
 import 'package:pinyinpal/utilities/Loadingscreen/countdown_screen.dart';
 
 class LoadingScreen extends StatefulWidget {
-  final String selectedMode;
-
-  const LoadingScreen({super.key, required this.selectedMode});
+  const LoadingScreen({super.key});
 
   @override
   _LoadingScreenState createState() => _LoadingScreenState();
@@ -30,12 +28,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
       onCountdownFinished: () {
         // Navigator will wait for loadingFuture to complete
 
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const FlashCardTimed(),
-          ),
-        );
+        Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
       },
     );
   }

@@ -113,7 +113,7 @@ class _ProfilePageState extends State<ProfilePage> {
             Container(
               height: 20,
             ),
-            Text("ver: 00.00.03", style: Theme.of(context).textTheme.bodyLarge),
+            Text("ver: 00.00.04", style: Theme.of(context).textTheme.bodyLarge),
           ],
         )),
       ),
