@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:pinyinpal/constants/colour.dart';
-import 'package:iconify_flutter/icons/ph.dart';
-import 'package:iconify_flutter/iconify_flutter.dart';
 
 class BottomNavBar extends StatefulWidget {
   final int startPos;
@@ -32,10 +30,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
             widget.onIndexChanged(index);
           },
           tabs: const [
-            GButton(
-              icon: Icons.castle_outlined,
-              text: " Lessons",
-            ),
             GButton(
               icon: Icons.card_membership,
               text: " Flashcards",

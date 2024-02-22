@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pinyinpal/pages/modes/flashcard/flashcardtimed.dart';
+import 'package:pinyinpal/pages/games/flashcard/flashcardtimed.dart';
 import 'package:pinyinpal/utilities/Loadingscreen/countdown_screen.dart';
 
 class LoadingScreen extends StatefulWidget {

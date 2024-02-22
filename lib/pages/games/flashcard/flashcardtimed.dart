@@ -11,7 +11,7 @@ import 'package:provider/provider.dart';
 // PinyinPal Imports
 import 'package:pinyinpal/constants/deviceinfo.dart';
 import 'package:pinyinpal/constants/stylingconstants.dart';
-import 'package:pinyinpal/pages/finishedset.dart';
+import 'package:pinyinpal/pages/games/flashcard/finishedset.dart';
 import 'package:pinyinpal/widget/popups.dart';
 import 'package:pinyinpal/models/flashcardtimedmodel.dart';
 

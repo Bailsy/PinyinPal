@@ -16,19 +16,19 @@ class _CountdownScreenState extends State<CountdownScreen> {
   @override
   void initState() {
     super.initState();
-    startCountdown();
+    Countdown();
   }
 
-  void startCountdown() {
+  void Countdown() {
     Future.delayed(const Duration(milliseconds: 500), () {
-      setState(() {
-        countdownValue--;
-        if (countdownValue > 0) {
-          startCountdown();
-        } else {
-          widget.onCountdownFinished();
-        }
-      });
+      if (countdownValue > 0) {
+        setState(() {
+          countdownValue--;
+        });
+        Countdown();
+      } else {
+        widget.onCountdownFinished();
+      }
     });
   }
 

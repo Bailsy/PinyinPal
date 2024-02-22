@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:pinyinpal/constants/themes.dart';
 import 'package:pinyinpal/models/config.dart';
-import 'package:pinyinpal/pages/login.dart';
-import 'package:pinyinpal/pages/newhome.dart';
+import 'package:pinyinpal/pages/login/login.dart';
+import 'package:pinyinpal/widget/page_navbar.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

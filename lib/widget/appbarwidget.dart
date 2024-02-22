@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-import 'package:pinyinpal/pages/newhome.dart';
+import 'package:pinyinpal/widget/page_navbar.dart';
 
 class AppBarWidget extends StatelessWidget {
   const AppBarWidget({super.key});

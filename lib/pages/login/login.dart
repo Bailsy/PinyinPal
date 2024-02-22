@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:pinyinpal/models/lvl.dart';
-import 'package:pinyinpal/pages/signup.dart';
-import 'package:pinyinpal/cachelogin.dart';
+import 'package:pinyinpal/pages/login/signup.dart';
+import 'package:pinyinpal/services/cachelogin.dart';
 import 'package:pinyinpal/services/profile_service.dart';
 
 class LoginPage extends StatefulWidget {

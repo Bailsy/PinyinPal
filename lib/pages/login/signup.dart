@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:pinyinpal/pages/login.dart';
+import 'package:pinyinpal/pages/login/login.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});

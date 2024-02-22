@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:pinyinpal/models/lvl.dart';
 import 'package:pinyinpal/models/profilemodel.dart';
-import 'package:pinyinpal/pages/newhome.dart';
-import 'package:pinyinpal/pages/productivescroll.dart';
 import 'package:pinyinpal/utilities/loadingscreen/loadingscreen.dart';
 import 'package:pinyinpal/widget/homebutton.dart';
 

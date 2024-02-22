@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:pinyinpal/pages/userstats.dart';
-import 'package:pinyinpal/pages/productivescroll.dart';
+import 'package:pinyinpal/pages/stats/stats.dart';
 import 'package:pinyinpal/providers/collection_provider.dart';
 import 'package:pinyinpal/providers/flashcardspoken_provider.dart';
 import 'package:pinyinpal/providers/flashcardtimed_provider.dart';
-import 'package:pinyinpal/widget/bottomnavbar.dart';
+import 'package:pinyinpal/widget/page_navbar_icons.dart';
 
 class SystemNav {
   static void setNavBar() {
@@ -42,7 +41,6 @@ class NewHomePageState extends State<NewHomePage> {
       body: IndexedStack(
         index: indexPos,
         children: const [
-          PreloadPageViewDemo(),
           FlashCardTimedProvider(),
           CollectionProvider(),
           FlashCardSpokenProvider(),

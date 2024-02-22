@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:pinyinpal/constants/colour.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:pinyinpal/models/databasecontrol.dart';
-import 'package:pinyinpal/pages/newhome.dart';
+import 'package:pinyinpal/models/lvl.dart';
+import 'package:pinyinpal/widget/page_navbar.dart';
 import 'package:pinyinpal/services/json_uploader.dart';
 import 'package:pinyinpal/widget/experiencepoints.dart';
 import 'package:pinyinpal/widget/piechart.dart';
@@ -33,7 +34,7 @@ class _FinishedSet extends State<FinishedSet> {
     super.initState();
     countScore();
     UploadJson uj = UploadJson();
-    uj.uploadStats('hsk2');
+    uj.uploadStats(HskPath.hsklvl); //! ?
     controller.play();
     DataBaseIntegration.updateXP(widget.Tcorrect * 100);
   }
