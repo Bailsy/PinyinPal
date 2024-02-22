@@ -31,20 +31,20 @@ class _BottomNavBarState extends State<BottomNavBar> {
           },
           tabs: const [
             GButton(
-              icon: Icons.card_membership,
-              text: " Flashcards",
+              icon: Icons.games,
+              text: " Games",
             ),
             GButton(
               icon: Icons.collections_bookmark,
               text: " Collection",
             ),
             GButton(
-              icon: Icons.mic,
+              icon: Icons.bar_chart,
               text: " Stats",
             ),
             GButton(
-              icon: Icons.bar_chart,
-              text: " Stats",
+              icon: Icons.person,
+              text: " Profile",
             ),
           ],
         ),

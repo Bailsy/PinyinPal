@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pinyinpal/pages/stats/stats.dart';
 import 'package:pinyinpal/providers/collection_provider.dart';
-import 'package:pinyinpal/providers/flashcardspoken_provider.dart';
-import 'package:pinyinpal/providers/flashcardtimed_provider.dart';
+import 'package:pinyinpal/pages/profile/profile.dart';
+import 'package:pinyinpal/pages/games/select_page.dart';
 import 'package:pinyinpal/widget/page_navbar_icons.dart';
 
 class SystemNav {
@@ -23,14 +23,14 @@ class NewHomePage extends StatefulWidget {
 }
 
 class NewHomePageState extends State<NewHomePage> {
-  int indexPos = 2;
+  int indexPos = 1;
 
   @override
   Widget build(BuildContext context) {
     SystemNav.setNavBar();
     return Scaffold(
       bottomNavigationBar: BottomNavBar(
-        startPos: 2,
+        startPos: 1,
         onIndexChanged: (index) {
           setState(() {
             indexPos = index;
@@ -41,10 +41,10 @@ class NewHomePageState extends State<NewHomePage> {
       body: IndexedStack(
         index: indexPos,
         children: const [
-          FlashCardTimedProvider(),
+          SelectPage(),
           CollectionProvider(),
-          FlashCardSpokenProvider(),
           UserStats(),
+          ProfilePage(),
         ],
       ),
     );

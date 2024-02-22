@@ -1,12 +1,12 @@
 // Dart Imports
 
 // Local Imports
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:pinyinpal/constants/colour.dart';
 import 'package:pinyinpal/models/character_profile_model.dart';
-import 'package:pinyinpal/pages/profile/profile.dart';
+import 'package:pinyinpal/pages/games/select_page.dart';
+import 'package:pinyinpal/widget/page_navbar.dart';
 import 'package:provider/provider.dart';
 
 // PinyinPal Imports
@@ -82,12 +82,12 @@ class _FlashCardSpokenState extends State<FlashCardSpoken> {
             leading: Row(
               children: <Widget>[
                 IconButton(
-                  icon: const Icon(LineAwesomeIcons.user),
+                  icon: const Icon(LineAwesomeIcons.arrow_left),
                   onPressed: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const ProfilePage(),
+                        builder: (context) => const NewHomePage(),
                       ),
                     );
                   },
