@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pinyinpal/models/friends_model.dart';
-import 'package:pinyinpal/pages/friends.dart';
+import 'package:pinyinpal/pages/profile/friends.dart';
 import 'package:provider/provider.dart';
 
 class FriendProvider extends StatelessWidget {

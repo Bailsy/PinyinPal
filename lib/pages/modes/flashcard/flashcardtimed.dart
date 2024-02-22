@@ -5,7 +5,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:pinyinpal/constants/colour.dart';
-import 'package:pinyinpal/pages/profile.dart';
+import 'package:pinyinpal/pages/profile/profile.dart';
 import 'package:provider/provider.dart';
 
 // PinyinPal Imports

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:pinyinpal/models/profilemodel.dart';
-import 'package:pinyinpal/pages/profile.dart';
+import 'package:pinyinpal/pages/profile/profile.dart';
 import 'package:pinyinpal/widget/piechart.dart';
 
 class UserStats extends StatefulWidget {

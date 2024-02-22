@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:pinyinpal/pages/modes/flashcardrace/flashcardtimed.dart';
+import 'package:pinyinpal/pages/modes/flashcard/flashcardtimed.dart';
 import 'package:pinyinpal/models/flashcardtimedmodel.dart';
 
 class FlashCardTimedProvider extends StatelessWidget {

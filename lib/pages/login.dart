@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:pinyinpal/models/lvl.dart';
 import 'package:pinyinpal/pages/signup.dart';
 import 'package:pinyinpal/cachelogin.dart';
-import 'package:pinyinpal/setprofile.dart';
+import 'package:pinyinpal/services/profile_service.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -71,8 +71,7 @@ class _LoginPageState extends State<LoginPage> {
           _visible = false;
         });
 
-        SetProfile setProfile = SetProfile();
-        await setProfile.setDetails(msg);
+        await ProfileService.setDetails(msg);
         HskPath.hsklvl = 'hsk1';
         await HskPath.loadData();
 

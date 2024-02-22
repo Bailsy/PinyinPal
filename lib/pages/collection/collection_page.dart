@@ -5,8 +5,8 @@ import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pinyinpal/models/collection_model.dart';
 import 'package:pinyinpal/models/hsk_entry.dart';
-import 'package:pinyinpal/pages/collectionselect.dart';
-import 'package:pinyinpal/pages/profile.dart';
+import 'package:pinyinpal/pages/collection/collectionselect.dart';
+import 'package:pinyinpal/pages/profile/profile.dart';
 import 'package:pinyinpal/providers/character_profile_provider.dart';
 import 'package:provider/provider.dart';
 

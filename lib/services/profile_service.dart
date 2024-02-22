@@ -1,10 +1,14 @@
 import 'package:pinyinpal/models/databasecontrol.dart';
 import 'package:pinyinpal/models/profilemodel.dart';
 
-class SetProfile {
-  String profileUrl = "https://pinyinpal.com/login_api/user_profile.php";
+// This class is a static class that is used to interface with the profile page
+// Make it static
 
-  Future<void> setDetails(msg) async {
+class ProfileService {
+  static const String profileUrl =
+      "https://pinyinpal.com/login_api/user_profile.php";
+
+  static Future<void> setDetails(msg) async {
     Future<List<dynamic>> futureList =
         DataBaseIntegration.getUserStats(msg['userInfo']['UID'].toString());
     List<dynamic> normalList = await futureList;
@@ -12,7 +16,7 @@ class SetProfile {
     loadUserProfile(normalList[0]);
   }
 
-  Future<void> reloadDetails() async {
+  static Future<void> reloadDetails() async {
     ProfileModel currentProfile = ProfileModelSingleton().profileModel;
     Future<List<dynamic>> futureList =
         DataBaseIntegration.getUserStats(currentProfile.userId.toString());
@@ -21,7 +25,7 @@ class SetProfile {
     loadUserProfile(normalList[0]);
   }
 
-  Future<void> loadUserProfile(jsonString) async {
+  static Future<void> loadUserProfile(jsonString) async {
     // Create a UserProfile object
     ProfileModelSingleton().updateProfileModel(
         email: jsonString['EMAIL'],

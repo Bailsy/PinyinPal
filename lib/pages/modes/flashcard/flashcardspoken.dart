@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:pinyinpal/constants/colour.dart';
 import 'package:pinyinpal/models/character_profile_model.dart';
-import 'package:pinyinpal/pages/profile.dart';
+import 'package:pinyinpal/pages/profile/profile.dart';
 import 'package:provider/provider.dart';
 
 // PinyinPal Imports

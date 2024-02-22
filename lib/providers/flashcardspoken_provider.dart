@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pinyinpal/pages/modes/flashcardrace/flashcardspoken.dart';
+import 'package:pinyinpal/pages/modes/flashcard/flashcardspoken.dart';
 import 'package:provider/provider.dart';
 import 'package:pinyinpal/models/flashcardtimedmodel.dart';
 
