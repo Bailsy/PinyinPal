@@ -21,7 +21,7 @@ class _SelectPageState extends State<SelectPage> {
         crossAxisCount: 2,
         mainAxisSpacing: 16.0,
         crossAxisSpacing: 16.0,
-        padding: EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(30.0),
         children: [
           _buildGameElement(Ph.timer, 'Timed'),
           _buildGameElement(Ph.speaker_high, 'Spoken'),
@@ -47,7 +47,7 @@ class _SelectPageState extends State<SelectPage> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => gameName == 'FlashCard Timed'
+              builder: (context) => gameName == 'Timed'
                   ? const FlashCardTimedProvider()
                   : const FlashCardSpokenProvider(),
             ),
