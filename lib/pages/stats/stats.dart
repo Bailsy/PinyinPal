@@ -22,6 +22,18 @@ class UserStatsState extends State<UserStats> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+        child: Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("assets/images/back.png"),
+          fit: BoxFit.cover,
+          colorFilter: ColorFilter.mode(
+            Colors.black
+                .withOpacity(0.3), // Adjust the opacity value here (0.0 - 1.0)
+            BlendMode.dstATop,
+          ),
+        ),
+      ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment:
@@ -50,7 +62,7 @@ class UserStatsState extends State<UserStats> {
           Center(
             child: GlassmorphicContainer(
               height: 250,
-              width: 250,
+              width: 300,
               borderRadius: 7,
               border: 0.9,
               blur: 7,
@@ -120,9 +132,9 @@ class UserStatsState extends State<UserStats> {
           ),
           GlassmorphicContainer(
             height: 250,
-            width: 250,
+            width: 300,
             borderRadius: 7,
-            border: 0.6,
+            border: 0.8,
             blur: 7,
             alignment: Alignment.center,
             linearGradient: LinearGradient(
@@ -159,8 +171,11 @@ class UserStatsState extends State<UserStats> {
               child: StatsChart(),
             ),
           ),
+          Container(
+            height: 100,
+          ),
         ],
       ),
-    );
+    ));
   }
 }
