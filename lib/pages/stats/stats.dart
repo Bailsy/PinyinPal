@@ -86,28 +86,37 @@ class UserStatsState extends State<UserStats> {
               height: 250,
               width: 300,
               borderRadius: 7,
-              border: 0.9,
+              border: 0.8,
               blur: 7,
               alignment: Alignment.center,
               linearGradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [
-                  Color.fromARGB(255, 193, 193, 193).withAlpha(20),
-                  Color(0xFFffffff).withAlpha(45),
-                ],
-                stops: [0.3, 1],
-              ),
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    pColorDarkGreyBlue.withAlpha(20),
+                    pColorDarkGreyBlue
+                  ],
+                  stops: [
+                    0.3,
+                    1,
+                  ]),
               borderGradient: LinearGradient(
-                begin: Alignment.bottomRight,
-                end: Alignment.topLeft,
-                colors: [
-                  Color(0xFF4579C5).withAlpha(10),
-                  Color(0xFFFFFFF).withAlpha(55),
-                  Color.fromARGB(255, 65, 39, 179).withAlpha(10),
-                ],
-                stops: [0.06, 0.6, 1],
-              ),
+                  begin: Alignment.bottomLeft,
+                  end: Alignment.topRight,
+                  colors: [
+                    pColorWhite.withAlpha(10),
+                    pColorWhite.withAlpha(55),
+                    pColorWhite.withAlpha(10),
+                  ],
+                  stops: [
+                    // 0,
+                    // 0.6,
+                    // 1
+                    //opposite corners of that above
+                    0,
+                    0.6,
+                    1
+                  ]),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -152,6 +161,7 @@ class UserStatsState extends State<UserStats> {
           Container(
             height: 30,
           ),
+          //! put that in a widget
           GlassmorphicContainer(
             height: 250,
             width: 300,
@@ -163,24 +173,28 @@ class UserStatsState extends State<UserStats> {
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [
-                  Color.fromARGB(255, 193, 193, 193).withAlpha(20),
-                  Color(0xFFffffff).withAlpha(45),
+                  pColorDarkGreyBlue.withAlpha(20),
+                  pColorDarkGreyBlue
                 ],
                 stops: [
                   0.3,
                   1,
                 ]),
             borderGradient: LinearGradient(
-                begin: Alignment.bottomRight,
-                end: Alignment.topLeft,
+                begin: Alignment.bottomLeft,
+                end: Alignment.topRight,
                 colors: [
-                  Color(0xFF4579C5).withAlpha(100),
-                  Color(0xFFFFFFF).withAlpha(55),
-                  Color.fromARGB(255, 65, 39, 179).withAlpha(10),
+                  pColorWhite.withAlpha(10),
+                  pColorWhite.withAlpha(55),
+                  pColorWhite.withAlpha(10),
                 ],
                 stops: [
-                  0.06,
-                  0.95,
+                  // 0,
+                  // 0.6,
+                  // 1
+                  //opposite corners of that above
+                  0,
+                  0.6,
                   1
                 ]),
             child: ConstrainedBox(

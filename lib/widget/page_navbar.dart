@@ -44,7 +44,6 @@ class NewHomePageState extends State<NewHomePage> {
           SelectPage(),
           CollectionProvider(),
           UserStats(),
-          ProfilePage(),
         ],
       ),
     );

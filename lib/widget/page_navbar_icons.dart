@@ -39,10 +39,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
               text: " Collection",
             ),
             GButton(
-              icon: Icons.bar_chart,
-              text: " Stats",
-            ),
-            GButton(
               icon: Icons.person,
               text: " Profile",
             ),

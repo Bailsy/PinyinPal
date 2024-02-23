@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 class StylingConstants {
   //Font Families
   static const String pStandartFont = 'LibreFranklin';

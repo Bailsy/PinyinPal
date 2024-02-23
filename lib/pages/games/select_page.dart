@@ -48,9 +48,6 @@ class _SelectPageState extends State<SelectPage> {
                 ),
               ],
             ),
-            Container(
-              height: 100,
-            ),
             Center(
               child: GridView.count(
                 shrinkWrap: true,
