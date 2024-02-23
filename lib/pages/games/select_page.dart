@@ -73,7 +73,7 @@ class _SelectPageState extends State<SelectPage> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => gameName == 'FlashCard Timed'
+              builder: (context) => gameName == 'Timed'
                   ? const FlashCardTimedProvider()
                   : const FlashCardSpokenProvider(),
             ),

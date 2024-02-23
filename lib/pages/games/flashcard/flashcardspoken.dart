@@ -78,22 +78,8 @@ class _FlashCardSpokenState extends State<FlashCardSpoken> {
 
     return Scaffold(
         appBar: AppBar(
-            surfaceTintColor: Colors.transparent,
-            leading: Row(
-              children: <Widget>[
-                IconButton(
-                  icon: const Icon(LineAwesomeIcons.arrow_left),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const NewHomePage(),
-                      ),
-                    );
-                  },
-                ),
-              ],
-            )),
+          surfaceTintColor: Colors.transparent,
+        ),
         body: Stack(
           children: <Widget>[
             Container(

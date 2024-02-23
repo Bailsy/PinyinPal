@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pinyinpal/pages/lessons/lesson1.dart';
+import 'lessons/lesson1.dart';
 import 'package:pinyinpal/widget/arrow.dart';
 import 'package:pinyinpal/widget/lessonbutton.dart';
 
