@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:glassmorphism/glassmorphism.dart';
 import 'package:pinyinpal/models/profilemodel.dart';
 import 'package:pinyinpal/widget/piechart.dart';
 
@@ -25,23 +26,15 @@ class UserStatsState extends State<UserStats> {
             MainAxisAlignment.center, // Center the children vertically
         children: <Widget>[
           Align(
-            alignment: Alignment.center,
+            alignment: Alignment.topCenter,
             child: Container(
-              child: ConstrainedBox(
-                constraints: const BoxConstraints(
-                  minWidth: 300.0,
-                  maxWidth: 300.0,
-                  minHeight: 30.0,
-                  maxHeight: 100.0,
-                ),
-                child: const Text(
-                  "USER STATISTICS\n用户统计 ",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 30,
-                    fontFamily: 'LibreFranklin',
-                    color: Colors.grey,
-                  ),
+              child: const Text(
+                "STATS",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 30,
+                  fontFamily: 'LibreFranklin',
+                  color: Colors.grey,
                 ),
               ),
             ),
@@ -51,24 +44,51 @@ class UserStatsState extends State<UserStats> {
             padding: const EdgeInsets.only(left: 60, right: 60),
             child: const Divider(color: Colors.grey),
           ),
-          Align(
+          GlassmorphicContainer(
+            height: 50,
+            width: 250,
+            borderRadius: 7,
+            border: 0.6,
+            blur: 7,
             alignment: Alignment.center,
-            child: Container(
-              child: ConstrainedBox(
-                constraints: const BoxConstraints(
-                  minWidth: 300.0,
-                  maxWidth: 300.0,
-                  minHeight: 30.0,
-                  maxHeight: 100.0,
-                ),
-                child: Text(
-                  currentProfile.experience.toString(),
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 30,
-                    fontFamily: 'LibreFranklin',
-                    color: Colors.grey,
-                  ),
+            linearGradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  Color.fromARGB(255, 90, 129, 201).withAlpha(20),
+                  Color(0xFFffffff).withAlpha(45),
+                ],
+                stops: [
+                  0.3,
+                  1,
+                ]),
+            borderGradient: LinearGradient(
+                begin: Alignment.bottomRight,
+                end: Alignment.topLeft,
+                colors: [
+                  Color(0xFF4579C5).withAlpha(100),
+                  Color(0xFFFFFFF).withAlpha(55),
+                  Color.fromARGB(255, 65, 39, 179).withAlpha(10),
+                ],
+                stops: [
+                  0.06,
+                  0.95,
+                  1
+                ]),
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(
+                minWidth: 100.0,
+                maxWidth: 200.0,
+                minHeight: 100.0,
+                maxHeight: 200.0,
+              ),
+              child: Text(
+                currentProfile.experience.toString() + "xp",
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontSize: 30,
+                  fontFamily: 'LibreFranklin',
+                  color: Colors.grey,
                 ),
               ),
             ),
@@ -76,7 +96,37 @@ class UserStatsState extends State<UserStats> {
           Container(
             height: 30,
           ),
-          Container(
+          GlassmorphicContainer(
+            height: 250,
+            width: 250,
+            borderRadius: 7,
+            border: 0.6,
+            blur: 7,
+            alignment: Alignment.center,
+            linearGradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  Color.fromARGB(255, 90, 129, 201).withAlpha(20),
+                  Color(0xFFffffff).withAlpha(45),
+                ],
+                stops: [
+                  0.3,
+                  1,
+                ]),
+            borderGradient: LinearGradient(
+                begin: Alignment.bottomRight,
+                end: Alignment.topLeft,
+                colors: [
+                  Color(0xFF4579C5).withAlpha(100),
+                  Color(0xFFFFFFF).withAlpha(55),
+                  Color.fromARGB(255, 65, 39, 179).withAlpha(10),
+                ],
+                stops: [
+                  0.06,
+                  0.95,
+                  1
+                ]),
             child: ConstrainedBox(
               constraints: const BoxConstraints(
                 minWidth: 100.0,

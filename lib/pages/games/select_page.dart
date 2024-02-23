@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:iconify_flutter/iconify_flutter.dart';
+import 'package:pinyinpal/constants/colour.dart';
 import 'package:pinyinpal/providers/flashcardspoken_provider.dart';
 import 'package:pinyinpal/providers/flashcardtimed_provider.dart';
+import 'package:iconify_flutter/icons/ph.dart';
 
 class SelectPage extends StatefulWidget {
   const SelectPage({super.key});
@@ -20,24 +23,22 @@ class _SelectPageState extends State<SelectPage> {
         crossAxisSpacing: 16.0,
         padding: EdgeInsets.all(16.0),
         children: [
-          _buildGameElement(
-              'assets/images/gamemode_icons/flashcardtimed_icon.png',
-              'FlashCard Timed'),
-          _buildGameElement('assets/images/hsk1Button.png', 'FlashCard Spoken'),
+          _buildGameElement(Ph.timer, 'Timed'),
+          _buildGameElement(Ph.speaker_high, 'Spoken'),
           // Add more GestureDetector widgets for additional games as needed
         ],
       ),
     );
   }
 
-  Widget _buildGameElement(String imagePath, String gameName) {
+  Widget _buildGameElement(String iconName, String gameName) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white, // Set background color for the element
+        color: pLightGreyColour, // Set background color for the element
         borderRadius:
             BorderRadius.circular(8.0), // Set border radius for the element
-        border:
-            Border.all(color: Colors.black), // Set border color for the element
+        border: Border.all(
+            color: pLightGreyColour), // Set border color for the element
       ),
       child: GestureDetector(
         onTap: () {
@@ -54,16 +55,18 @@ class _SelectPageState extends State<SelectPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(imagePath,
-                height: 80.0,
-                width: 80.0), // Set height and width for the image
+            Iconify(
+              iconName,
+              color: Colors.blue,
+              size: 100,
+            ), // Set height and width for the image
             SizedBox(height: 8.0),
             Text(
               gameName,
               style: TextStyle(
                   fontSize: 16.0,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black),
+                  color: Colors.white),
             ),
           ],
         ),
