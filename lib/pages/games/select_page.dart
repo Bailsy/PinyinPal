@@ -25,6 +25,7 @@ class _SelectPageState extends State<SelectPage> {
         children: [
           _buildGameElement(Ph.timer, 'Timed'),
           _buildGameElement(Ph.speaker_high, 'Spoken'),
+          _buildGameElement(Ph.users_three, 'Multi'),
           // Add more GestureDetector widgets for additional games as needed
         ],
       ),
@@ -57,16 +58,16 @@ class _SelectPageState extends State<SelectPage> {
           children: [
             Iconify(
               iconName,
-              color: Colors.blue,
+              color: Colors.blue.withAlpha(160),
               size: 100,
             ), // Set height and width for the image
             SizedBox(height: 8.0),
             Text(
               gameName,
-              style: TextStyle(
+              style: const TextStyle(
                   fontSize: 16.0,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white),
+                  color: Colors.grey),
             ),
           ],
         ),

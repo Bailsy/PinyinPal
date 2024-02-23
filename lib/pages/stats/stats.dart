@@ -20,23 +20,22 @@ class UserStatsState extends State<UserStats> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return SingleChildScrollView(
       child: Column(
-        mainAxisAlignment:
-            MainAxisAlignment.center, // Center the children vertically
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment:
+            CrossAxisAlignment.center, // Center the children vertically
         children: <Widget>[
-          Align(
-            alignment: Alignment.topCenter,
-            child: Container(
-              child: const Text(
-                "STATS",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 30,
-                  fontFamily: 'LibreFranklin',
-                  color: Colors.grey,
-                ),
-              ),
+          Container(
+            height: 50,
+          ),
+          const Text(
+            "STATS",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 30,
+              fontFamily: 'LibreFranklin',
+              color: Colors.grey,
             ),
           ),
           const SizedBox(height: 10),
@@ -44,18 +43,19 @@ class UserStatsState extends State<UserStats> {
             padding: const EdgeInsets.only(left: 60, right: 60),
             child: const Divider(color: Colors.grey),
           ),
+          const SizedBox(height: 10),
           GlassmorphicContainer(
             height: 50,
             width: 250,
             borderRadius: 7,
-            border: 0.6,
+            border: 0.9,
             blur: 7,
             alignment: Alignment.center,
             linearGradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [
-                  Color.fromARGB(255, 90, 129, 201).withAlpha(20),
+                  Color.fromARGB(255, 125, 171, 255).withAlpha(30),
                   Color(0xFFffffff).withAlpha(45),
                 ],
                 stops: [
@@ -66,13 +66,13 @@ class UserStatsState extends State<UserStats> {
                 begin: Alignment.bottomRight,
                 end: Alignment.topLeft,
                 colors: [
-                  Color(0xFF4579C5).withAlpha(100),
+                  Color(0xFF4579C5).withAlpha(10),
                   Color(0xFFFFFFF).withAlpha(55),
                   Color.fromARGB(255, 65, 39, 179).withAlpha(10),
                 ],
                 stops: [
                   0.06,
-                  0.95,
+                  0.6,
                   1
                 ]),
             child: ConstrainedBox(
