@@ -4,6 +4,9 @@ final ThemeData myTheme = ThemeData(
   primaryColor: const Color(0xFF00CCFF), // Background color
   scaffoldBackgroundColor: const Color(0xFF1A1A1A), // Background color
   fontFamily: 'Roboto',
+  splashColor: Colors.transparent,
+  highlightColor: Colors.transparent,
+  splashFactory: NoSplash.splashFactory,
   textTheme: const TextTheme(
     displayLarge: TextStyle(
       fontSize: 96,
@@ -76,6 +79,7 @@ final ThemeData myTheme = ThemeData(
     foregroundColor: Colors.white, // Text color for app bar
     iconTheme: IconThemeData(color: Colors.white), // Icon color for app bar
   ),
-  colorScheme: ColorScheme.fromSwatch().copyWith(secondary: const Color(0xFF1A1A1A)),
+  colorScheme:
+      ColorScheme.fromSwatch().copyWith(secondary: const Color(0xFF1A1A1A)),
   // Add more theme properties as needed
 );

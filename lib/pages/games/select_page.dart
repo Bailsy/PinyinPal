@@ -15,47 +15,59 @@ class SelectPage extends StatefulWidget {
 class _SelectPageState extends State<SelectPage> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Container(
-          height: 50,
+    return Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              pLightGreyColour,
+              pGreyColour
+            ], // Add your desired colors here
+            stops: [-0.382, 0.618],
+          ),
         ),
-        Row(
+        child: Column(
           children: <Widget>[
             Container(
-              width: 30,
+              height: 50,
             ),
-            const Text(
-              "GAMES",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 50,
-                fontFamily: 'LibreFranklin',
-                color: Colors.grey,
+            Row(
+              children: <Widget>[
+                Container(
+                  width: 30,
+                ),
+                const Text(
+                  "Games",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 50,
+                    fontFamily: 'LibreFranklin',
+                    color: Colors.white,
+                  ),
+                ),
+              ],
+            ),
+            Container(
+              height: 100,
+            ),
+            Center(
+              child: GridView.count(
+                shrinkWrap: true,
+                crossAxisCount: 2,
+                mainAxisSpacing: 16.0,
+                crossAxisSpacing: 16.0,
+                padding: EdgeInsets.all(16.0),
+                children: [
+                  _buildGameElement(Ph.timer, 'Timed'),
+                  _buildGameElement(Ph.speaker_high, 'Spoken'),
+                  _buildGameElement(Ph.users_three, 'Multi'),
+                  // Add more GestureDetector widgets for additional games as needed
+                ],
               ),
-            ),
+            )
           ],
-        ),
-        Container(
-          height: 100,
-        ),
-        Center(
-          child: GridView.count(
-            shrinkWrap: true,
-            crossAxisCount: 2,
-            mainAxisSpacing: 16.0,
-            crossAxisSpacing: 16.0,
-            padding: EdgeInsets.all(16.0),
-            children: [
-              _buildGameElement(Ph.timer, 'Timed'),
-              _buildGameElement(Ph.speaker_high, 'Spoken'),
-              _buildGameElement(Ph.users_three, 'Multi'),
-              // Add more GestureDetector widgets for additional games as needed
-            ],
-          ),
-        )
-      ],
-    );
+        ));
   }
 
   Widget _buildGameElement(String iconName, String gameName) {

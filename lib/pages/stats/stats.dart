@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:glassmorphism/glassmorphism.dart';
+import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
+import 'package:pinyinpal/constants/colour.dart';
 import 'package:pinyinpal/models/profilemodel.dart';
+import 'package:pinyinpal/pages/profile/profile.dart';
 import 'package:pinyinpal/widget/piechart.dart';
 
 class UserStats extends StatefulWidget {
@@ -23,15 +26,15 @@ class UserStatsState extends State<UserStats> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
         child: Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage("assets/images/back.png"),
-          fit: BoxFit.cover,
-          colorFilter: ColorFilter.mode(
-            Colors.black
-                .withOpacity(0.3), // Adjust the opacity value here (0.0 - 1.0)
-            BlendMode.dstATop,
-          ),
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            pLightGreyColour,
+            pGreyColour
+          ], // Add your desired colors here
+          stops: [-0.382, 0.618],
         ),
       ),
       child: Column(
@@ -48,13 +51,32 @@ class UserStatsState extends State<UserStats> {
                 width: 30,
               ),
               const Text(
-                "STATS",
+                "Profile",
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 50,
+                  fontSize: 30,
                   fontFamily: 'LibreFranklin',
-                  color: Colors.grey,
+                  color: Colors.white,
                 ),
+              ),
+              Container(
+                width: 180,
+              ),
+              IconButton(
+                icon: const Icon(
+                  LineAwesomeIcons.bars,
+                  color: Colors.white,
+                  size: 30,
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ProfilePage(),
+                      //here we pass in the reload page void call back so we can update the collection page
+                    ),
+                  );
+                },
               ),
             ],
           ),
@@ -120,7 +142,7 @@ class UserStatsState extends State<UserStats> {
                     style: const TextStyle(
                       fontSize: 20,
                       fontFamily: 'LibreFranklin',
-                      color: Colors.grey,
+                      color: Colors.white,
                     ),
                   ),
                 ],

@@ -16,12 +16,12 @@ class _BottomNavBarState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: pGreyColour,
+      color: Colors.white.withOpacity(0),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20),
         child: GNav(
           selectedIndex: widget.startPos,
-          backgroundColor: pGreyColour,
+          backgroundColor: Colors.white.withOpacity(0),
           color: Colors.white,
           activeColor: Colors.lightBlue.withOpacity(0.4),
           tabBackgroundColor: pGreyColour,
