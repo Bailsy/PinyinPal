@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:glassmorphism/glassmorphism.dart';
+import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:pinyinpal/models/profilemodel.dart';
 import 'package:pinyinpal/widget/piechart.dart';
 
@@ -29,40 +30,41 @@ class UserStatsState extends State<UserStats> {
           Container(
             height: 50,
           ),
-          const Text(
-            "STATS",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 30,
-              fontFamily: 'LibreFranklin',
-              color: Colors.grey,
-            ),
+          Row(
+            children: <Widget>[
+              Container(
+                width: 30,
+              ),
+              const Text(
+                "STATS",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 50,
+                  fontFamily: 'LibreFranklin',
+                  color: Colors.grey,
+                ),
+              ),
+            ],
           ),
-          const SizedBox(height: 10),
-          Container(
-            padding: const EdgeInsets.only(left: 60, right: 60),
-            child: const Divider(color: Colors.grey),
-          ),
-          const SizedBox(height: 10),
-          GlassmorphicContainer(
-            height: 50,
-            width: 250,
-            borderRadius: 7,
-            border: 0.9,
-            blur: 7,
-            alignment: Alignment.center,
-            linearGradient: LinearGradient(
+          const SizedBox(height: 20),
+          Center(
+            child: GlassmorphicContainer(
+              height: 250,
+              width: 250,
+              borderRadius: 7,
+              border: 0.9,
+              blur: 7,
+              alignment: Alignment.center,
+              linearGradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [
-                  Color.fromARGB(255, 125, 171, 255).withAlpha(30),
+                  Color.fromARGB(255, 193, 193, 193).withAlpha(20),
                   Color(0xFFffffff).withAlpha(45),
                 ],
-                stops: [
-                  0.3,
-                  1,
-                ]),
-            borderGradient: LinearGradient(
+                stops: [0.3, 1],
+              ),
+              borderGradient: LinearGradient(
                 begin: Alignment.bottomRight,
                 end: Alignment.topLeft,
                 colors: [
@@ -70,26 +72,46 @@ class UserStatsState extends State<UserStats> {
                   Color(0xFFFFFFF).withAlpha(55),
                   Color.fromARGB(255, 65, 39, 179).withAlpha(10),
                 ],
-                stops: [
-                  0.06,
-                  0.6,
-                  1
-                ]),
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(
-                minWidth: 100.0,
-                maxWidth: 200.0,
-                minHeight: 100.0,
-                maxHeight: 200.0,
+                stops: [0.06, 0.6, 1],
               ),
-              child: Text(
-                currentProfile.experience.toString() + "xp",
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 30,
-                  fontFamily: 'LibreFranklin',
-                  color: Colors.grey,
-                ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Stack(
+                    alignment: Alignment.center,
+                    children: <Widget>[
+                      SizedBox(
+                        width: 120,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(100),
+                          child: Image.network(
+                            "http://pinyinpal.com/logo.png",
+                          ),
+                        ),
+                      ),
+                      CircularPercentIndicator(
+                        radius: 80.0,
+                        lineWidth: 13.0,
+                        animation: true,
+                        percent: 0.7,
+                        circularStrokeCap: CircularStrokeCap.round,
+                        progressColor: Colors.blue,
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                      height: 10), // Add spacing between the image and the text
+                  Text(
+                    currentProfile.experience.toString() + "xp",
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontFamily: 'LibreFranklin',
+                      color: Colors.grey,
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
@@ -107,7 +129,7 @@ class UserStatsState extends State<UserStats> {
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [
-                  Color.fromARGB(255, 90, 129, 201).withAlpha(20),
+                  Color.fromARGB(255, 193, 193, 193).withAlpha(20),
                   Color(0xFFffffff).withAlpha(45),
                 ],
                 stops: [

@@ -23,6 +23,9 @@ class _ProfilePageState extends State<ProfilePage> {
           //padding: const EdgeInsets.all()
           child: Column(
         children: [
+          Container(
+            height: 100,
+          ),
           SizedBox(
             width: 120,
             height: 120,

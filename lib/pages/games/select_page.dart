@@ -15,20 +15,46 @@ class SelectPage extends StatefulWidget {
 class _SelectPageState extends State<SelectPage> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: GridView.count(
-        shrinkWrap: true,
-        crossAxisCount: 2,
-        mainAxisSpacing: 16.0,
-        crossAxisSpacing: 16.0,
-        padding: EdgeInsets.all(16.0),
-        children: [
-          _buildGameElement(Ph.timer, 'Timed'),
-          _buildGameElement(Ph.speaker_high, 'Spoken'),
-          _buildGameElement(Ph.users_three, 'Multi'),
-          // Add more GestureDetector widgets for additional games as needed
-        ],
-      ),
+    return Column(
+      children: <Widget>[
+        Container(
+          height: 50,
+        ),
+        Row(
+          children: <Widget>[
+            Container(
+              width: 30,
+            ),
+            const Text(
+              "GAMES",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 50,
+                fontFamily: 'LibreFranklin',
+                color: Colors.grey,
+              ),
+            ),
+          ],
+        ),
+        Container(
+          height: 100,
+        ),
+        Center(
+          child: GridView.count(
+            shrinkWrap: true,
+            crossAxisCount: 2,
+            mainAxisSpacing: 16.0,
+            crossAxisSpacing: 16.0,
+            padding: EdgeInsets.all(16.0),
+            children: [
+              _buildGameElement(Ph.timer, 'Timed'),
+              _buildGameElement(Ph.speaker_high, 'Spoken'),
+              _buildGameElement(Ph.users_three, 'Multi'),
+              // Add more GestureDetector widgets for additional games as needed
+            ],
+          ),
+        )
+      ],
     );
   }
 
