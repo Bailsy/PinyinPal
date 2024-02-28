@@ -80,8 +80,7 @@ class FlashCardTimedModel extends ChangeNotifier {
     _currHanzi = hskdata[_count]['simplified'].toString();
     _currTranslation = hskdata[_count]['translation'].toString();
     print('answer: $_currHanzi');
-
-    print(hskdata);
+    Times.startTime = DateTime.now();
     // Notify listeners that the state has changed
     notifyListeners();
   }
@@ -94,5 +93,15 @@ class FlashCardTimedModel extends ChangeNotifier {
     List<dynamic> jsonList = json.decode(jsonString);
     _hskdata = jsonList.toList()..shuffle();
     nextQuestion();
+  }
+}
+
+class Times {
+  static var startTime;
+  static var endTime;
+
+  static getDuraction() {
+    Duration timeTaken = endTime.difference(startTime);
+    return timeTaken;
   }
 }

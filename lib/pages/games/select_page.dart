@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:glassmorphism/glassmorphism.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:pinyinpal/constants/colour.dart';
 import 'package:pinyinpal/providers/flashcardspoken_provider.dart';
@@ -16,65 +17,54 @@ class _SelectPageState extends State<SelectPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              pLightGreyColour,
-              pGreyColour
-            ], // Add your desired colors here
-            stops: [-0.382, 0.618],
-          ),
-        ),
         child: Column(
+      children: <Widget>[
+        Container(
+          height: 50,
+        ),
+        Row(
           children: <Widget>[
             Container(
-              height: 50,
+              width: 30,
             ),
-            Row(
-              children: <Widget>[
-                Container(
-                  width: 30,
-                ),
-                const Text(
-                  "Games",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 50,
-                    fontFamily: 'LibreFranklin',
-                    color: Colors.white,
-                  ),
-                ),
-              ],
-            ),
-            Center(
-              child: GridView.count(
-                shrinkWrap: true,
-                crossAxisCount: 2,
-                mainAxisSpacing: 16.0,
-                crossAxisSpacing: 16.0,
-                padding: EdgeInsets.all(16.0),
-                children: [
-                  _buildGameElement(Ph.timer, 'Timed'),
-                  _buildGameElement(Ph.speaker_high, 'Spoken'),
-                  _buildGameElement(Ph.users_three, 'Multi'),
-                  // Add more GestureDetector widgets for additional games as needed
-                ],
+            const Text(
+              "Games",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 50,
+                fontFamily: 'LibreFranklin',
+                color: Colors.white,
               ),
-            )
+            ),
           ],
-        ));
+        ),
+        Container(
+          height: 100,
+        ),
+        Center(
+          child: GridView.count(
+            shrinkWrap: true,
+            crossAxisCount: 2,
+            mainAxisSpacing: 16.0,
+            crossAxisSpacing: 16.0,
+            padding: EdgeInsets.all(16.0),
+            children: [
+              _buildGameElement(Ph.timer, 'Timed'),
+              _buildGameElement(Ph.speaker_high, 'Spoken'),
+              _buildGameElement(Ph.users_three, 'Multi'),
+              // Add more GestureDetector widgets for additional games as needed
+            ],
+          ),
+        )
+      ],
+    ));
   }
 
   Widget _buildGameElement(String iconName, String gameName) {
     return Container(
       decoration: BoxDecoration(
-        color: pLightGreyColour, // Set background color for the element
-        borderRadius:
-            BorderRadius.circular(8.0), // Set border radius for the element
-        border: Border.all(
-            color: pLightGreyColour), // Set border color for the element
+        color: const Color(0xff303238),
+        borderRadius: BorderRadius.circular(12),
       ),
       child: GestureDetector(
         onTap: () {
@@ -91,11 +81,26 @@ class _SelectPageState extends State<SelectPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Iconify(
-              iconName,
-              color: Colors.blue.withAlpha(160),
-              size: 100,
-            ), // Set height and width for the image
+            Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color.fromARGB(255, 108, 131, 154).withAlpha(30),
+                      blurRadius: 8.0,
+                      spreadRadius: .0,
+                      offset: const Offset(
+                        0.0,
+                        3.0,
+                      ),
+                    ),
+                  ],
+                ),
+                child: Iconify(
+                  iconName,
+                  color: Colors.blue.withAlpha(160),
+                  size: 100,
+                )), // Set height and width for the image
             SizedBox(height: 8.0),
             Text(
               gameName,

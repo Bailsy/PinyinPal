@@ -5,7 +5,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:pinyinpal/models/profilemodel.dart';
 
 class UploadJson {
-  Future<void> uploadStats(String hsklvl) async {
+  Future<void> uploadStats(String hsklvl, int correct, int incorrect) async {
     try {
       Directory documentsDirectory = await getApplicationDocumentsDirectory();
       String filePath = '${documentsDirectory.path}/stats.json';
@@ -19,7 +19,9 @@ class UploadJson {
       var data = {
         'UID': currentProfile.userId.toString(),
         'HSK': hsklvl,
-        'json_data': jsonString
+        'json_data': jsonString,
+        'correct': correct,
+        'incorrect': incorrect,
       };
       var response =
           await http.post(Uri.parse(userUrl), body: json.encode(data));

@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
 import 'package:pinyinpal/models/profilemodel.dart';
+import 'package:pinyinpal/pages/games/flashcard/finishedset.dart';
 
 class DownloadJson {
   Future<void> downloadJson(String hsklvl) async {
@@ -22,6 +23,10 @@ class DownloadJson {
         if (msg['requestStatus'] == true) {
           print('Successfully downloaded Stats');
           // Get the ApplicationDocumentsDirectory
+
+          CardTotals.correct = int.parse(msg['stats']['correct']);
+          CardTotals.incorrect = int.parse(msg['stats']['incorrect']);
+
           Directory appDocumentsDir = await getApplicationDocumentsDirectory();
           File newFile = File('${appDocumentsDir.path}/stats.json');
           await newFile.writeAsString(msg['stats'][hsklvl]);

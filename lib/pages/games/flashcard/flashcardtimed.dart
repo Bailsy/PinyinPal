@@ -7,6 +7,7 @@ import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:pinyinpal/constants/colour.dart';
 import 'package:pinyinpal/pages/profile/profile.dart';
 import 'package:pinyinpal/widget/page_navbar.dart';
+import 'package:pinyinpal/widget/timer.dart';
 import 'package:provider/provider.dart';
 
 // PinyinPal Imports
@@ -25,9 +26,11 @@ class FlashCardTimed extends StatefulWidget {
 
 class _FlashCardTimedState extends State<FlashCardTimed> {
   final TextEditingController pinyinController = TextEditingController();
+  late bool timerStart;
 
   @override
   void initState() {
+    timerStart = true;
     super.initState();
     final flashCardModel = context.read<FlashCardTimedModel>();
     flashCardModel.initializeDataFromDatabase();
@@ -46,7 +49,7 @@ class _FlashCardTimedState extends State<FlashCardTimed> {
     if (userAnswer != flashCardModel.currentHanzi) {
       //Incorrect Answer!
       flashCardModel.increaseIncorrect();
-      AnswerDialog.failurePopup(context, "Try again!");
+      AnswerDialog.failurePopup(context, "Wrong!");
     } else {
       //Correct Answer!
       await flashCardModel.updateScore();
@@ -71,6 +74,19 @@ class _FlashCardTimedState extends State<FlashCardTimed> {
     pinyinController.clear();
   }
 
+  void finishedTimer() {
+    setState(() {
+      timerStart = false;
+      final flashCardModel =
+          Provider.of<FlashCardTimedModel>(context, listen: false);
+      flashCardModel.increaseIncorrect();
+      AnswerDialog.failurePopup(context, "Timer ran out!");
+      flashCardModel.increaseCount();
+      flashCardModel.nextQuestion();
+      timerStart = true;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final flashCardModel = context.watch<FlashCardTimedModel>();
@@ -81,6 +97,21 @@ class _FlashCardTimedState extends State<FlashCardTimed> {
         ),
         body: Stack(
           children: <Widget>[
+            Container(
+                padding: EdgeInsets.only(
+                  top: DeviceInfo.height / 20,
+                  left: 60,
+                  right: 60,
+                ),
+                child: Column(
+                  children: <Widget>[
+                    if (timerStart) // Conditionally build the timer
+                      LinearTimer(
+                        durationMiliseconds: 10000,
+                        onTimerFinish: finishedTimer,
+                      ),
+                  ],
+                )),
             Container(
               padding: EdgeInsets.only(
                 top: DeviceInfo.height / 7,

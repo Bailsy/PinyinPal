@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:pinyinpal/constants/colour.dart';
 import 'package:pinyinpal/models/collection_model.dart';
 import 'package:pinyinpal/models/hsk_entry.dart';
 import 'package:pinyinpal/pages/collection/collectionselect.dart';
@@ -65,47 +66,57 @@ class _CollectionPageState extends State<CollectionPage> {
     } else {
       // Build the grid with loaded characters
 
-      return Scaffold(
-          appBar: AppBar(
-            surfaceTintColor: Colors.transparent,
-            leading: IconButton(
-              icon: const Icon(
-                LineAwesomeIcons.book,
-              ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) =>
-                        CollectionSelectPage(reloadPage: reloadPage),
-                    //here we pass in the reload page void call back so we can update the collection page
-                  ),
-                );
-              },
+      return Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [pDarkBlue, pGreyColour], // Add your desired colors here
+              stops: [-0.382, 0.618],
             ),
           ),
-          body: Container(
-            margin: const EdgeInsets.all(16.0),
-            child: GridView.builder(
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3,
-                crossAxisSpacing: 8.0,
-                mainAxisSpacing: 8.0,
-                childAspectRatio: 1.0,
+          child: Scaffold(
+            appBar: AppBar(
+              surfaceTintColor: Colors.transparent,
+              leading: IconButton(
+                icon: const Icon(
+                  LineAwesomeIcons.book,
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          CollectionSelectPage(reloadPage: reloadPage),
+                      //here we pass in the reload page void call back so we can update the collection page
+                    ),
+                  );
+                },
               ),
-              itemCount: collectionModel.hskEntries.length,
-              itemBuilder: (context, index) {
-                //if collectionmodel is initialist, otherwise return loading icon
+            ),
+            body: Container(
+              margin: const EdgeInsets.all(16.0),
+              child: GridView.builder(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                  crossAxisSpacing: 8.0,
+                  mainAxisSpacing: 8.0,
+                  childAspectRatio: 1.0,
+                ),
+                itemCount: collectionModel.hskEntries.length,
+                itemBuilder: (context, index) {
+                  //if collectionmodel is initialist, otherwise return loading icon
 
-                if (data.isEmpty) {
-                  return const CircularProgressIndicator();
-                } else {
-                  return _buildCharacterItem(
-                      context,
-                      collectionModel.hskEntries[index],
-                      collectionModel.getColor(data[index]["score"]));
-                }
-              },
+                  if (data.isEmpty) {
+                    return const CircularProgressIndicator();
+                  } else {
+                    return _buildCharacterItem(
+                        context,
+                        collectionModel.hskEntries[index],
+                        collectionModel.getColor(data[index]["score"]));
+                  }
+                },
+              ),
             ),
           ));
     }

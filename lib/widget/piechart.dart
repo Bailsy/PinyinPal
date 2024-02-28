@@ -16,18 +16,22 @@ class MyPieChart extends StatelessWidget {
     return PieChart(
       swapAnimationDuration: const Duration(milliseconds: 750),
       swapAnimationCurve: Curves.easeInOutQuint,
-      PieChartData(sections: [
-        PieChartSectionData(
-          showTitle: false,
-          value: value1.toDouble(),
-          color: const Color.fromARGB(255, 48, 201, 86),
-        ),
-        PieChartSectionData(
-          showTitle: false,
-          value: value2.toDouble(),
-          color: const Color.fromARGB(255, 201, 48, 48),
-        )
-      ]),
+      PieChartData(
+          borderData: FlBorderData(
+            show: false, // Set to true if you want to show borders
+          ),
+          sections: [
+            PieChartSectionData(
+              showTitle: false,
+              value: value1.toDouble(),
+              color: const Color.fromARGB(255, 48, 201, 86),
+            ),
+            PieChartSectionData(
+              showTitle: false,
+              value: value2.toDouble(),
+              color: const Color.fromARGB(255, 201, 48, 48),
+            )
+          ]),
     );
   }
 }

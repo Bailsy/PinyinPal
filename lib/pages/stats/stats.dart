@@ -4,6 +4,7 @@ import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:pinyinpal/constants/colour.dart';
 import 'package:pinyinpal/models/profilemodel.dart';
+import 'package:pinyinpal/pages/games/flashcard/finishedset.dart';
 import 'package:pinyinpal/pages/profile/profile.dart';
 import 'package:pinyinpal/widget/piechart.dart';
 
@@ -26,17 +27,7 @@ class UserStatsState extends State<UserStats> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
         child: Container(
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            pLightGreyColour,
-            pGreyColour
-          ], // Add your desired colors here
-          stops: [-0.382, 0.618],
-        ),
-      ),
+      decoration: const BoxDecoration(),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment:
@@ -163,7 +154,59 @@ class UserStatsState extends State<UserStats> {
           ),
           //! put that in a widget
           GlassmorphicContainer(
-            height: 250,
+              height: 250,
+              width: 300,
+              borderRadius: 7,
+              border: 0.8,
+              blur: 7,
+              alignment: Alignment.center,
+              linearGradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    pColorDarkGreyBlue.withAlpha(20),
+                    pColorDarkGreyBlue
+                  ],
+                  stops: const [
+                    0.3,
+                    1,
+                  ]),
+              borderGradient: LinearGradient(
+                  begin: Alignment.bottomLeft,
+                  end: Alignment.topRight,
+                  colors: [
+                    pColorWhite.withAlpha(10),
+                    pColorWhite.withAlpha(55),
+                    pColorWhite.withAlpha(10),
+                  ],
+                  stops: const [
+                    0,
+                    0.6,
+                    1
+                  ]),
+              child: Column(
+                children: <Widget>[
+                  Container(
+                    height: 10,
+                  ),
+                  ConstrainedBox(
+                    constraints: const BoxConstraints(
+                      minWidth: 100.0,
+                      maxWidth: 200.0,
+                      minHeight: 100.0,
+                      maxHeight: 200.0,
+                    ),
+                    child: StatsChart(),
+                  ),
+                ],
+              )),
+
+          Container(
+            height: 30,
+          ),
+
+          GlassmorphicContainer(
+            height: 300,
             width: 300,
             borderRadius: 7,
             border: 0.8,
@@ -176,7 +219,7 @@ class UserStatsState extends State<UserStats> {
                   pColorDarkGreyBlue.withAlpha(20),
                   pColorDarkGreyBlue
                 ],
-                stops: [
+                stops: const [
                   0.3,
                   1,
                 ]),
@@ -188,28 +231,55 @@ class UserStatsState extends State<UserStats> {
                   pColorWhite.withAlpha(55),
                   pColorWhite.withAlpha(10),
                 ],
-                stops: [
-                  // 0,
-                  // 0.6,
-                  // 1
-                  //opposite corners of that above
+                stops: const [
                   0,
                   0.6,
                   1
                 ]),
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(
-                minWidth: 100.0,
-                maxWidth: 200.0,
-                minHeight: 100.0,
-                maxHeight: 200.0,
-              ),
-              child: StatsChart(),
+            child: Column(
+              children: <Widget>[
+                const Text(
+                  "Total Stats",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                    fontSize: 27,
+                    fontFamily: 'LibreFranklin',
+                    color: Color.fromARGB(255, 255, 255, 255),
+                  ),
+                ),
+                Container(
+                  height: 10,
+                ),
+                Text(
+                  "Reviewed: ${CardTotals.correct + CardTotals.incorrect}",
+                  textAlign: TextAlign.left,
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontFamily: 'LibreFranklin',
+                    color: Color.fromARGB(255, 255, 255, 255),
+                  ),
+                ),
+                Text(
+                  "Correct: ${((100 * CardTotals.correct / (CardTotals.correct + CardTotals.incorrect))).toStringAsFixed(2)} %",
+                  textAlign: TextAlign.left,
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontFamily: 'LibreFranklin',
+                    color: Color.fromARGB(255, 255, 255, 255),
+                  ),
+                ),
+                Text(
+                  "Time Avg: ${((100 * CardTotals.correct / (CardTotals.correct + CardTotals.incorrect))).toStringAsFixed(2)} %",
+                  textAlign: TextAlign.left,
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontFamily: 'LibreFranklin',
+                    color: Color.fromARGB(255, 255, 255, 255),
+                  ),
+                ),
+              ],
             ),
-          ),
-          Container(
-            height: 100,
-          ),
+          )
         ],
       ),
     ));

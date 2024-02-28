@@ -21,6 +21,11 @@ class FinishedSet extends StatefulWidget {
   _FinishedSet createState() => _FinishedSet();
 }
 
+class CardTotals {
+  static int correct = 0;
+  static int incorrect = 0;
+}
+
 class _FinishedSet extends State<FinishedSet> {
   int score = 0;
   int targetscore = 0; // Set your target number here
@@ -34,7 +39,7 @@ class _FinishedSet extends State<FinishedSet> {
     super.initState();
     countScore();
     UploadJson uj = UploadJson();
-    uj.uploadStats(HskPath.hsklvl); //! ?
+    uj.uploadStats(HskPath.hsklvl, widget.Tcorrect, widget.Tincorrect); //! ?
     controller.play();
     DataBaseIntegration.updateXP(widget.Tcorrect * 100);
   }

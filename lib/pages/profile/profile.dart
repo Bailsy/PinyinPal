@@ -20,7 +20,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Profile"),
+          title: const Text("Profile Management"),
           backgroundColor: Colors.transparent,
           //make it pop the navigation stack
           leading: IconButton(
