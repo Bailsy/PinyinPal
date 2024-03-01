@@ -53,6 +53,7 @@ class DataBaseIntegration {
 
   static void updateXP(int experience) async {
     ProfileModel currentProfile = ProfileModelSingleton().profileModel;
+    print("added XP!");
     var conn = await MySqlConnection.connect(settings);
     await conn.query(
         "UPDATE accounts.profiles SET XP = XP + $experience WHERE UID = ${currentProfile.userId}");

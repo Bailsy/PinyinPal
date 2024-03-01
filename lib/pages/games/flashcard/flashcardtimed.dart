@@ -1,12 +1,11 @@
 // Dart Imports
 
+// ignore_for_file: use_build_context_synchronously
+
 // Local Imports
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:pinyinpal/constants/colour.dart';
-import 'package:pinyinpal/pages/profile/profile.dart';
-import 'package:pinyinpal/widget/page_navbar.dart';
 import 'package:pinyinpal/widget/timer.dart';
 import 'package:provider/provider.dart';
 
@@ -26,11 +25,12 @@ class FlashCardTimed extends StatefulWidget {
 
 class _FlashCardTimedState extends State<FlashCardTimed> {
   final TextEditingController pinyinController = TextEditingController();
-  late bool timerStart;
+
+  bool timerStart = true;
+  bool timerCancelled = false;
 
   @override
   void initState() {
-    timerStart = true;
     super.initState();
     final flashCardModel = context.read<FlashCardTimedModel>();
     flashCardModel.initializeDataFromDatabase();
@@ -43,48 +43,73 @@ class _FlashCardTimedState extends State<FlashCardTimed> {
   }
 
   Future<void> _handleTextSubmitted(String userAnswer) async {
+//set gotResponse to true and trigger the finishedTimer method
+
+    restartTimer();
+
     final flashCardModel =
         Provider.of<FlashCardTimedModel>(context, listen: false);
 
     if (userAnswer != flashCardModel.currentHanzi) {
       //Incorrect Answer!
       flashCardModel.increaseIncorrect();
-      AnswerDialog.failurePopup(context, "Wrong!");
+      if (flashCardModel.count < flashCardModel.maxCount) {
+        AnswerDialog.failurePopup(context, "Wrong!");
+      }
     } else {
       //Correct Answer!
       await flashCardModel.updateScore();
       flashCardModel.increaseCorrect();
-      AnswerDialog.successPopup(
-          context, '${flashCardModel.currentHanzi} is correct!');
+      if (flashCardModel.count < flashCardModel.maxCount) {
+        AnswerDialog.successPopup(
+            context, '${flashCardModel.currentHanzi} is correct!');
+      }
     }
 
     if (flashCardModel.count == flashCardModel.maxCount) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => FinishedSet(
-            Tcorrect: flashCardModel.correct,
-            Tincorrect: flashCardModel.incorrect,
+      setState(() {
+        timerCancelled = true;
+
+        Navigator.pop(context);
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+            builder: (context) => FinishedSet(
+              Tcorrect: flashCardModel.correct,
+              Tincorrect: flashCardModel.incorrect,
+            ),
           ),
-        ),
-      );
+        );
+      });
     }
+
     flashCardModel.increaseCount();
     flashCardModel.nextQuestion();
     pinyinController.clear();
   }
 
-  void finishedTimer() {
+  void finishedTimer() async {
+    print("finished Timer Start! $mounted");
     setState(() {
       timerStart = false;
-      final flashCardModel =
-          Provider.of<FlashCardTimedModel>(context, listen: false);
-      flashCardModel.increaseIncorrect();
-      AnswerDialog.failurePopup(context, "Timer ran out!");
-      flashCardModel.increaseCount();
-      flashCardModel.nextQuestion();
+    });
+    await Future.delayed(const Duration(milliseconds: 100));
+    setState(() {
+      _handleTextSubmitted('******');
       timerStart = true;
     });
+  }
+
+  void restartTimer() async {
+    print("reset Timer Start! $mounted");
+    setState(() {
+      timerStart = false;
+    });
+    await Future.delayed(const Duration(milliseconds: 100));
+    setState(() {
+      timerStart = true;
+    });
+
+    print("reset Timer End! $mounted");
   }
 
   @override
@@ -105,11 +130,12 @@ class _FlashCardTimedState extends State<FlashCardTimed> {
                 ),
                 child: Column(
                   children: <Widget>[
-                    if (timerStart) // Conditionally build the timer
+                    if (timerStart == true)
                       LinearTimer(
-                        durationMiliseconds: 10000,
+                        cancelled: timerCancelled,
+                        durationMilliseconds: 10000,
                         onTimerFinish: finishedTimer,
-                      ),
+                      )
                   ],
                 )),
             Container(

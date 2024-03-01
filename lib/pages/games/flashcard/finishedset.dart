@@ -32,7 +32,6 @@ class _FinishedSet extends State<FinishedSet> {
   late Timer _timer;
 
   bool isPlaying = false;
-  final controller = ConfettiController();
 
   @override
   void initState() {
@@ -40,8 +39,13 @@ class _FinishedSet extends State<FinishedSet> {
     countScore();
     UploadJson uj = UploadJson();
     uj.uploadStats(HskPath.hsklvl, widget.Tcorrect, widget.Tincorrect); //! ?
-    controller.play();
     DataBaseIntegration.updateXP(widget.Tcorrect * 100);
+    print("yip everything is uploaded!");
+    waiter();
+  }
+
+  void waiter() async {
+    await Future.delayed(const Duration(milliseconds: 10000));
   }
 
   void countScore() {
@@ -60,19 +64,10 @@ class _FinishedSet extends State<FinishedSet> {
     });
   }
 
-  Widget confetti(BuildContext context) {
-    return Align(
-      alignment: Alignment.topCenter,
-      child: ConfettiWidget(
-        confettiController: controller,
-        particleDrag: 0.04,
-        blastDirection: 1.570796,
-        emissionFrequency: 0.0,
-        numberOfParticles: 20,
-        minBlastForce: 5,
-        maxBlastForce: 15,
-      ),
-    );
+  @override
+  void dispose() {
+    _timer.cancel(); // Cancel the timer
+    super.dispose();
   }
 
   @override
