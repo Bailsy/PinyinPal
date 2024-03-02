@@ -6,6 +6,8 @@ import 'package:pinyinpal/constants/stylingconstants.dart';
 import 'package:pinyinpal/models/collection_model.dart';
 import 'package:pinyinpal/models/friends_model.dart';
 import 'package:pinyinpal/models/sendfriendrequest.dart';
+import 'package:pinyinpal/pages/friendstat.dart';
+import 'package:pinyinpal/pages/stats/stats.dart';
 import 'package:pinyinpal/widget/friendnavbar.dart';
 import 'package:provider/provider.dart';
 
@@ -90,7 +92,7 @@ class FriendRequestState extends State<FriendRequest> {
               ),
               itemCount: FriendModel.requests.length,
               itemBuilder: (context, index) {
-                return _buildCharacterItem(FriendModel.requests[index]["UNAME"],
+                return _buildFriendItem(FriendModel.requests[index]["UNAME"],
                     FriendModel.requests[index]["UID"]);
               },
             ),
@@ -100,7 +102,7 @@ class FriendRequestState extends State<FriendRequest> {
     );
   }
 
-  Widget _buildCharacterItem(String username, String identification) {
+  Widget _buildFriendItem(String username, String identification) {
     return GestureDetector(
       child: Container(
         decoration: BoxDecoration(
@@ -227,11 +229,28 @@ class FriendCircleState extends State<FriendCircle> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(height: 30),
-                InkWell(
-                  onTap: () {},
-                  child: const Icon(LineAwesomeIcons.circle,
-                      color: pBlueColour, size: 45),
-                ),
+                Row(
+                  children: <Widget>[
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => FriendStats(),
+                            //here we pass in the reload page void call back so we can update the collection page
+                          ),
+                        );
+                      },
+                      child: const Icon(LineAwesomeIcons.bar_chart_1,
+                          color: pBlueColour, size: 45),
+                    ),
+                    InkWell(
+                      onTap: () {},
+                      child: const Icon(LineAwesomeIcons.circle,
+                          color: pBlueColour, size: 45),
+                    ),
+                  ],
+                )
               ],
             ),
           ],

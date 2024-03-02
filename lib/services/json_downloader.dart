@@ -6,13 +6,11 @@ import 'package:pinyinpal/models/profilemodel.dart';
 import 'package:pinyinpal/pages/games/flashcard/finishedset.dart';
 
 class DownloadJson {
-  Future<void> downloadJson(String hsklvl) async {
+  Future<void> downloadJson(String hsklvl, String userId) async {
     try {
       String userUrl = "https://pinyinpal.com/stats_api/download_stats.php";
-      ProfileModel currentProfile = ProfileModelSingleton().profileModel;
-      print(currentProfile.userId.toString());
 
-      var data = {'UID': currentProfile.userId.toString(), 'HSK': hsklvl};
+      var data = {'UID': userId, 'HSK': hsklvl};
       var response =
           await http.post(Uri.parse(userUrl), body: json.encode(data));
 
