@@ -35,6 +35,8 @@ dependencies:
   translator: ^1.0.0
   glassmorphism: ^3.0.0
   percent_indicator: ^4.2.3
+  webview_flutter: ^4.7.0
+  flutter_inappwebview: ^6.0.0
 
 
 

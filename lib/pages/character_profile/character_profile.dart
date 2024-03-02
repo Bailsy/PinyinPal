@@ -4,6 +4,7 @@ import 'package:iconify_flutter/icons/ph.dart';
 import 'package:pinyinpal/constants/stylingconstants.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:pinyinpal/models/character_profile_model.dart';
+import 'package:pinyinpal/widget/characteranim.dart';
 import 'package:provider/provider.dart';
 
 class CharacterProfilePage extends StatelessWidget {
@@ -117,6 +118,30 @@ class _CharacterProfileBodyState extends State<CharacterProfileBody> {
                             subtitle: Text(examplesentence.translation),
                           ))
                       .toList(),
+                ),
+              ],
+            ),
+            ExpansionTile(
+              title: const Text(
+                'Writing',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 20,
+                  fontFamily: 'LibreFranklin',
+                  color: Colors.grey,
+                ),
+              ),
+              collapsedIconColor: Colors.grey,
+              textColor: Colors.white,
+              children: [
+                Column(
+                  children: [
+                    Container(
+                      child: CharacterAnimator(
+                          confidence: characterProfileModel.confidence,
+                          character: character.simplified),
+                    ),
+                  ],
                 ),
               ],
             ),

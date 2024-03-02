@@ -1,5 +1,6 @@
 // FlashCardTimedModel.dart
 import 'dart:convert';
+import 'dart:ffi';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -80,7 +81,7 @@ class FlashCardTimedModel extends ChangeNotifier {
     _currHanzi = hskdata[_count]['simplified'].toString();
     _currTranslation = hskdata[_count]['translation'].toString();
     print('answer: $_currHanzi');
-    Times.startTime = DateTime.now();
+
     // Notify listeners that the state has changed
     notifyListeners();
   }
@@ -102,6 +103,7 @@ class Times {
 
   static getDuraction() {
     Duration timeTaken = endTime.difference(startTime);
-    return timeTaken;
+    double seconds = timeTaken.inMilliseconds / 1000;
+    return seconds;
   }
 }

@@ -34,6 +34,7 @@ class _FlashCardTimedState extends State<FlashCardTimed> {
     super.initState();
     final flashCardModel = context.read<FlashCardTimedModel>();
     flashCardModel.initializeDataFromDatabase();
+    Times.startTime = DateTime.now();
   }
 
   @override
@@ -44,6 +45,8 @@ class _FlashCardTimedState extends State<FlashCardTimed> {
 
   Future<void> _handleTextSubmitted(String userAnswer) async {
 //set gotResponse to true and trigger the finishedTimer method
+
+    Times.endTime = DateTime.now();
 
     restartTimer();
 
@@ -85,6 +88,8 @@ class _FlashCardTimedState extends State<FlashCardTimed> {
     flashCardModel.increaseCount();
     flashCardModel.nextQuestion();
     pinyinController.clear();
+    print("${Times.getDuraction()}s");
+    Times.startTime = DateTime.now();
   }
 
   void finishedTimer() async {

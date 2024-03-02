@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 class AnswerDialog {
   static void successPopup(BuildContext context, String hanzi) {
     showGeneralDialog(
-      barrierColor: const Color.fromARGB(255, 11, 184, 54).withOpacity(0.5),
       transitionBuilder: (context, a1, a2, widget) {
         final curvedValue = Curves.easeInOutBack.transform(a1.value) - 1.0;
         return Transform(
