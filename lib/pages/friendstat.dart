@@ -3,13 +3,15 @@ import 'package:glassmorphism/glassmorphism.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:pinyinpal/constants/colour.dart';
+import 'package:pinyinpal/models/lvl.dart';
 import 'package:pinyinpal/models/profilemodel.dart';
 import 'package:pinyinpal/pages/games/flashcard/finishedset.dart';
 import 'package:pinyinpal/pages/profile/profile.dart';
 import 'package:pinyinpal/widget/piechart.dart';
 
 class FriendStats extends StatefulWidget {
-  const FriendStats({super.key});
+  final String friendName;
+  const FriendStats({required this.friendName, super.key});
 
   @override
   FriendStatsState createState() => FriendStatsState();
@@ -27,12 +29,13 @@ class FriendStatsState extends State<FriendStats> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Profile Management"),
+          title: Text("${widget.friendName}'s Stats"),
           backgroundColor: Colors.transparent,
           //make it pop the navigation stack
           leading: IconButton(
             icon: const Icon(LineAwesomeIcons.arrow_left),
-            onPressed: () {
+            onPressed: () async {
+              await HskPath.loadData();
               Navigator.pop(context);
             },
           ),

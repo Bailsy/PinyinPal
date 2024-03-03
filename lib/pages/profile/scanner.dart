@@ -1,9 +1,13 @@
 import 'dart:io';
+import 'dart:ui';
 
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
+import 'package:iconify_flutter/iconify_flutter.dart';
+import 'package:iconify_flutter/icons/ph.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:pinyinpal/constants/colour.dart';
 import 'package:pinyinpal/constants/stylingconstants.dart';
 import 'package:translator/translator.dart';
 
@@ -183,7 +187,7 @@ class _ScannerState extends State<Scanner> with WidgetsBindingObserver {
       await navigator.push(
         MaterialPageRoute(
           builder: (BuildContext context) =>
-              ResultScreen(text: recognizedText.text),
+              ResultScreen(image: file, text: recognizedText.text),
         ),
       );
     } catch (e) {
@@ -199,59 +203,104 @@ class _ScannerState extends State<Scanner> with WidgetsBindingObserver {
 class ResultScreen extends StatelessWidget {
   final String text;
   final translator = GoogleTranslator();
+  final File image;
 
-  ResultScreen({Key? key, required this.text}) : super(key: key);
+  ResultScreen({Key? key, required this.text, required this.image})
+      : super(key: key);
 
   Future<String> translateText(String toTranslate) async {
-    final translatedText =
-        await translator.translate(toTranslate, from: 'cn', to: 'en');
+    final translatedText = await translator.translate(toTranslate, to: 'en');
+    translator.translate(toTranslate, to: 'en').then(print);
+
+// prints Hola
     return translatedText.text;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Result'),
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
+        appBar: AppBar(
+          title: const Text('Result'),
+        ),
+        body: Stack(children: [
+          Image.file(
+            image,
+            fit: BoxFit.cover,
+            width: double.infinity,
+            height: double.infinity,
+          ),
           Container(
-            padding: const EdgeInsets.all(30.0),
-            child: Text(
-              text,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 20.0, // Adjust font size as needed
-                color: Colors.white,
+            width: double.infinity,
+            height: double.infinity,
+            color: Colors.black
+                .withOpacity(0.2), // Adjust opacity for glass effect
+            child: BackdropFilter(
+              filter: ImageFilter.blur(
+                  sigmaX: 10, sigmaY: 10), // Adjust blur intensity
+              child: Container(
+                color: Colors.transparent,
               ),
             ),
           ),
-          FutureBuilder<String>(
-            future: translateText(text),
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return CircularProgressIndicator(); // Placeholder while loading
-              } else if (snapshot.hasError) {
-                return Text('Error: ${snapshot.error}');
-              } else {
-                return Container(
-                  padding: const EdgeInsets.all(30.0),
-                  child: Text(
-                    snapshot.data ?? '', // Display translated text if available
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontSize: 20.0, // Adjust font size as needed
-                      color: Colors.white,
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                    padding: const EdgeInsets.all(30.0),
+                    width: 300,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: pLightGreyColour,
                     ),
-                  ),
-                );
-              }
-            },
+                    child: Column(children: [
+                      Align(
+                        alignment: Alignment.topLeft,
+                        child: Iconify(
+                          Ph.translate,
+                          color: Colors.white.withAlpha(56),
+                          size: 40,
+                        ),
+                      ),
+                      Text(
+                        text,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          fontSize: 20.0, // Adjust font size as needed
+                          color: Colors.white,
+                        ),
+                      ),
+                      Divider(
+                        color: Colors.white.withAlpha(56),
+                      ),
+                      FutureBuilder<String>(
+                        future: translateText(text),
+                        builder: (context, snapshot) {
+                          if (snapshot.connectionState ==
+                              ConnectionState.waiting) {
+                            return CircularProgressIndicator(); // Placeholder while loading
+                          } else if (snapshot.hasError) {
+                            return Text('Error: ${snapshot.error}');
+                          } else {
+                            return Container(
+                              padding: const EdgeInsets.all(30.0),
+                              child: Text(
+                                snapshot.data ??
+                                    '', // Display translated text if available
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                  fontSize: 20.0, // Adjust font size as needed
+                                  color: Colors.blue,
+                                ),
+                              ),
+                            );
+                          }
+                        },
+                      ),
+                    ])),
+              ],
+            ),
           ),
-        ],
-      ),
-    );
+        ]));
   }
 }

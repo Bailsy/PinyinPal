@@ -8,6 +8,7 @@ import 'package:pinyinpal/models/friends_model.dart';
 import 'package:pinyinpal/models/sendfriendrequest.dart';
 import 'package:pinyinpal/pages/friendstat.dart';
 import 'package:pinyinpal/pages/stats/stats.dart';
+import 'package:pinyinpal/services/json_downloader.dart';
 import 'package:pinyinpal/widget/friendnavbar.dart';
 import 'package:provider/provider.dart';
 
@@ -195,7 +196,8 @@ class FriendCircleState extends State<FriendCircle> {
               ),
               itemCount: FriendModel.friends.length,
               itemBuilder: (context, index) {
-                return _buildCharacterItem(FriendModel.friends[index]["UNAME"]);
+                return _buildCharacterItem(FriendModel.friends[index]["UNAME"],
+                    FriendModel.friends[index]["UID"]);
               },
             ),
           );
@@ -204,7 +206,8 @@ class FriendCircleState extends State<FriendCircle> {
     );
   }
 
-  Widget _buildCharacterItem(String username) {
+  Widget _buildCharacterItem(String username, String userId) {
+    DownloadJson js = DownloadJson();
     return GestureDetector(
       child: Container(
         decoration: BoxDecoration(
@@ -232,11 +235,13 @@ class FriendCircleState extends State<FriendCircle> {
                 Row(
                   children: <Widget>[
                     InkWell(
-                      onTap: () {
+                      onTap: () async {
+                        await js.downloadJson('hsk1', userId);
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => FriendStats(),
+                            builder: (context) =>
+                                FriendStats(friendName: username),
                             //here we pass in the reload page void call back so we can update the collection page
                           ),
                         );

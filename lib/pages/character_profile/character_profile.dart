@@ -1,40 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/ph.dart';
+import 'package:pinyinpal/constants/colour.dart';
 import 'package:pinyinpal/constants/stylingconstants.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:pinyinpal/models/character_profile_model.dart';
 import 'package:pinyinpal/widget/characteranim.dart';
 import 'package:provider/provider.dart';
 
-class CharacterProfilePage extends StatelessWidget {
-  const CharacterProfilePage({super.key});
+class CharacterProfilePage extends StatefulWidget {
+  const CharacterProfilePage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: const Icon(LineAwesomeIcons.angle_left),
-        ),
-      ),
-      body: const CharacterProfileBody(),
-    );
-  }
+  _CharacterProfilePageState createState() => _CharacterProfilePageState();
 }
 
-class CharacterProfileBody extends StatefulWidget {
-  const CharacterProfileBody({super.key});
-
-  @override
-  _CharacterProfileBodyState createState() => _CharacterProfileBodyState();
-}
-
-class _CharacterProfileBodyState extends State<CharacterProfileBody> {
+class _CharacterProfilePageState extends State<CharacterProfilePage> {
   late CharacterProfileModel characterProfileModel;
+  late bool displayWebview;
+  bool animateChars = false;
 
   @override
   void initState() {
@@ -42,110 +26,139 @@ class _CharacterProfileBodyState extends State<CharacterProfileBody> {
 
     // Load the data
     characterProfileModel = context.read<CharacterProfileModel>();
+    displayWebview = true;
+  }
+
+  @override
+  void dispose() {
+    // Dispose the resources
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     final character = characterProfileModel.character;
-    final AudioPlayer = Player();
 
-    return SingleChildScrollView(
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min, // Set mainAxisSize to min
-          children: [
-            Row(
+    return WillPopScope(
+      onWillPop: () async {
+        setState(() {
+          displayWebview = false;
+        });
+        return true;
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          leading: IconButton(
+            onPressed: () {
+              setState(() {
+                displayWebview = false;
+              });
+              Navigator.pop(context);
+            },
+            icon: const Icon(LineAwesomeIcons.angle_left),
+          ),
+        ),
+        body: SingleChildScrollView(
+          child: Center(
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                InkWell(
-                  child: Text(
-                    character.simplified,
+              mainAxisSize: MainAxisSize.min, // Set mainAxisSize to min
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    InkWell(
+                      child: Text(
+                        character.simplified,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: StylingConstants.pFontSizeLarge,
+                          fontFamily: StylingConstants.pStandartFont,
+                          color: characterProfileModel.confidence,
+                        ),
+                      ),
+                      onTap: () async {
+                        await characterProfileModel.audioPlayer
+                            .fetchAudioData(character.simplified);
+                        characterProfileModel.audioPlayer.playAudio();
+                      },
+                    ),
+                  ],
+                ),
+
+                // Add the character's pinyin
+                Text(
+                  character.pinyin_tones,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontFamily: StylingConstants.pStandartFont,
+                    color: Colors.grey,
+                  ),
+                ),
+                Container(height: 30),
+                // Add the character's translation
+                Text(
+                  character.translation,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontFamily: StylingConstants.pStandartFont,
+                    color: Colors.white,
+                  ),
+                ),
+                ExpansionTile(
+                  title: const Text(
+                    'Example Sentences',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: StylingConstants.pFontSizeLarge,
-                      fontFamily: StylingConstants.pStandartFont,
-                      color: characterProfileModel.confidence,
+                        fontSize: 20,
+                        fontFamily: 'LibreFranklin',
+                        color: Colors.grey),
+                  ),
+                  collapsedIconColor: Colors.grey,
+                  textColor: Colors.white,
+                  children: [
+                    Column(
+                      children: characterProfileModel.character.exampleSentences
+                          .map((examplesentence) => ListTile(
+                                title: Text(examplesentence.sentence),
+                                textColor: Colors.white,
+                                subtitle: Text(examplesentence.translation),
+                              ))
+                          .toList(),
+                    ),
+                  ],
+                ),
+                ExpansionTile(
+                  title: const Text(
+                    'Writing',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontFamily: 'LibreFranklin',
+                      color: Colors.grey,
                     ),
                   ),
-                  onTap: () async {
-                    await characterProfileModel.audioPlayer
-                        .fetchAudioData(character.simplified);
-                    characterProfileModel.audioPlayer.playAudio();
-                  },
-                ),
-              ],
-            ),
-
-            // Add the character's pinyin
-            Text(
-              character.pinyin_tones,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 20,
-                fontFamily: StylingConstants.pStandartFont,
-                color: Colors.grey,
-              ),
-            ),
-            Container(height: 30),
-            // Add the character's translation
-            Text(
-              character.translation,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 20,
-                fontFamily: StylingConstants.pStandartFont,
-                color: Colors.white,
-              ),
-            ),
-            ExpansionTile(
-              title: const Text(
-                'Example Sentences',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                    fontSize: 20,
-                    fontFamily: 'LibreFranklin',
-                    color: Colors.grey),
-              ),
-              collapsedIconColor: Colors.grey,
-              textColor: Colors.white,
-              children: [
-                Column(
-                  children: characterProfileModel.character.exampleSentences
-                      .map((examplesentence) => ListTile(
-                            title: Text(examplesentence.sentence),
-                            textColor: Colors.white,
-                            subtitle: Text(examplesentence.translation),
-                          ))
-                      .toList(),
-                ),
-              ],
-            ),
-            ExpansionTile(
-              title: const Text(
-                'Writing',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 20,
-                  fontFamily: 'LibreFranklin',
-                  color: Colors.grey,
-                ),
-              ),
-              collapsedIconColor: Colors.grey,
-              textColor: Colors.white,
-              children: [
-                Column(
+                  collapsedIconColor: Colors.grey,
+                  textColor: Colors.white,
                   children: [
-                    Container(
-                      child: CharacterAnimator(
-                          confidence: characterProfileModel.confidence,
-                          character: character.simplified),
+                    Column(
+                      children: [
+                        if (displayWebview)
+                          Container(
+                            child: CharacterAnimator(
+                              confidence: characterProfileModel.confidence,
+                              character: character.simplified,
+                            ),
+                          ),
+                      ],
                     ),
                   ],
                 ),
               ],
             ),
-          ],
+          ),
         ),
       ),
     );

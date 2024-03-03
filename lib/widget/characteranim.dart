@@ -1,3 +1,4 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:pinyinpal/constants/colour.dart';
@@ -17,11 +18,17 @@ class CharacterAnimator extends StatefulWidget {
 
 class _CharacterAnimatorState extends State<CharacterAnimator> {
   late String characterAnimatorUrl;
+  bool webViewError = false;
 
   @override
   void initState() {
     super.initState();
-    // Build the Vimeo video player URL with the provided videoId
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    // Dispose of the webview controller when the widget is disposed of
   }
 
   @override
@@ -30,10 +37,15 @@ class _CharacterAnimatorState extends State<CharacterAnimator> {
       color: pGreyColour,
       height: 300,
       width: 500,
-      child: InAppWebView(
-          initialSettings:
-              InAppWebViewSettings(underPageBackgroundColor: pGreyColour),
-          initialData: InAppWebViewInitialData(data: '''<!DOCTYPE html>
+      child: webViewError
+          ? Center(
+              child: Text('WebView Initialization Failed'),
+            )
+          : InAppWebView(
+              initialSettings: InAppWebViewSettings(
+                  underPageBackgroundColor: pGreyColour,
+                  transparentBackground: true),
+              initialData: InAppWebViewInitialData(data: '''<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -42,7 +54,7 @@ class _CharacterAnimatorState extends State<CharacterAnimator> {
       
     <style>
         body {
-            background-color: rgba(25,25,25,255);
+            background-color: transparent;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
@@ -55,16 +67,12 @@ class _CharacterAnimatorState extends State<CharacterAnimator> {
             /* Add any additional styling for the character container here */
             margin-top: 20px; /* Adjust margin as needed */
         }
-        .animate-button {
-            color: rgba(50,50,50,255);
-            margin-top: 20px; /* Adjust margin as needed */
-        }
+
     </style>
     <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script>
 </head>
 <body>
   <div id="character-target"></div>
-  <button class="animate-button">Start</button>
     <script>
         var characters = "${widget.character}"; // String of characters to animate
         var charTargets = [];
@@ -100,12 +108,27 @@ class _CharacterAnimatorState extends State<CharacterAnimator> {
             for (let i = 0; i < charTargets.length; i++) {
                 await animateCharacter(i);
             }
+            return false;
         }
 
-        document.querySelector('.animate-button').addEventListener('click', chainAnimations);
+        async function startAnimation() {
+            animate = ${true};
+            if (animate == true) {
+                animate = await chainAnimations();
+            }
+            setTimeout(startAnimation, 1000); // Check every second
+        }
+
+        startAnimation();
     </script>
 </body>
-</html>''')),
+</html>'''),
+              onLoadError: (controller, url, code, message) {
+                setState(() {
+                  webViewError = true;
+                });
+              },
+            ),
     );
   }
 }
