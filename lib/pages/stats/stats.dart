@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:glassmorphism/glassmorphism.dart';
+import 'package:iconify_flutter/iconify_flutter.dart';
+import 'package:iconify_flutter/icons/ph.dart';
+import 'package:iconify_flutter/icons/ri.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:pinyinpal/constants/colour.dart';
@@ -17,6 +20,7 @@ class UserStats extends StatefulWidget {
 
 class UserStatsState extends State<UserStats> {
   ProfileModel currentProfile = ProfileModelSingleton().profileModel;
+  int indexPos = 0;
 
   @override
   void initState() {
@@ -154,7 +158,7 @@ class UserStatsState extends State<UserStats> {
           ),
           //! put that in a widget
           GlassmorphicContainer(
-              height: 250,
+              height: 300,
               width: 300,
               borderRadius: 7,
               border: 0.8,
@@ -186,6 +190,7 @@ class UserStatsState extends State<UserStats> {
                   ]),
               child: Column(
                 children: <Widget>[
+                  MyIconWidget(increment: setIndex),
                   Container(
                     height: 30,
                   ),
@@ -196,8 +201,9 @@ class UserStatsState extends State<UserStats> {
                         minHeight: 100.0,
                         maxHeight: 200.0,
                       ),
-                      child: Container(
-                        child: StatsBarChart(),
+                      child: IndexedStack(
+                        index: indexPos,
+                        children: [StatsChart(), StatsBarChart()],
                       )),
                 ],
               )),
@@ -238,6 +244,7 @@ class UserStatsState extends State<UserStats> {
                   1
                 ]),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 const Text(
                   "Total Stats",
@@ -251,38 +258,127 @@ class UserStatsState extends State<UserStats> {
                 Container(
                   height: 10,
                 ),
-                Text(
-                  "Reviewed: ${CardTotals.correct + CardTotals.incorrect}",
-                  textAlign: TextAlign.left,
-                  style: const TextStyle(
-                    fontSize: 20,
-                    fontFamily: 'LibreFranklin',
-                    color: Color.fromARGB(255, 255, 255, 255),
+                Row(children: [
+                  Container(
+                    width: 30,
                   ),
-                ),
-                Text(
-                  "Correct: ${((100 * CardTotals.correct / (CardTotals.correct + CardTotals.incorrect))).toStringAsFixed(2)} %",
-                  textAlign: TextAlign.left,
-                  style: const TextStyle(
-                    fontSize: 20,
-                    fontFamily: 'LibreFranklin',
-                    color: Color.fromARGB(255, 255, 255, 255),
+                  const Text(
+                    "Reviewed: ",
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontFamily: 'LibreFranklin',
+                      color: Color.fromARGB(255, 255, 255, 255),
+                    ),
                   ),
-                ),
-                Text(
-                  "Time Avg: ${((100 * CardTotals.correct / (CardTotals.correct + CardTotals.incorrect))).toStringAsFixed(2)} %",
-                  textAlign: TextAlign.left,
-                  style: const TextStyle(
-                    fontSize: 20,
-                    fontFamily: 'LibreFranklin',
-                    color: Color.fromARGB(255, 255, 255, 255),
+                  Container(
+                    width: 60,
                   ),
-                ),
+                  Column(
+                    // Align icons vertically using Column
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "${CardTotals.correct + CardTotals.incorrect}",
+                        textAlign: TextAlign.right,
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontFamily: 'LibreFranklin',
+                          color: Color.fromARGB(255, 255, 255, 255),
+                        ),
+                      )
+                    ],
+                  ),
+                ]),
+                Row(children: [
+                  Container(
+                    width: 30,
+                  ),
+                  const Text(
+                    "Correct: ",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontFamily: 'LibreFranklin',
+                      color: Color.fromARGB(255, 255, 255, 255),
+                    ),
+                  ),
+                  Container(
+                    width: 60,
+                  ),
+                  Column(
+                    // Align icons vertically using Column
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        "${((100 * CardTotals.correct / (CardTotals.correct + CardTotals.incorrect))).toStringAsFixed(2)} %",
+                        textAlign: TextAlign.right,
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontFamily: 'LibreFranklin',
+                          color: Color.fromARGB(255, 255, 255, 255),
+                        ),
+                      )
+                    ],
+                  ),
+                ]),
               ],
             ),
           )
         ],
       ),
     ));
+  }
+
+  void setIndex(int num) {
+    setState(() {
+      indexPos = num;
+    });
+  }
+}
+
+class MyIconWidget extends StatefulWidget {
+  final Function increment;
+
+  MyIconWidget({required this.increment, super.key});
+
+  @override
+  _MyIconWidgetState createState() => _MyIconWidgetState();
+}
+
+class _MyIconWidgetState extends State<MyIconWidget> {
+  int activeIndex = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        buildButton(Ri.pie_chart_2_fill, 0),
+        SizedBox(width: 10),
+        buildButton(Ri.bar_chart_2_fill, 1),
+      ],
+    );
+  }
+
+  Widget buildButton(String icon, int index) {
+    Color buttonColor = index == activeIndex
+        ? Colors.white.withAlpha(160)
+        : Colors.white.withAlpha(60);
+
+    return InkWell(
+      onTap: () {
+        setState(() {
+          widget.increment(index);
+          activeIndex = index;
+          print(index);
+        });
+      },
+      child: Iconify(
+        icon,
+        color: buttonColor,
+        size: 30,
+      ),
+    );
   }
 }

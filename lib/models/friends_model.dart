@@ -23,9 +23,10 @@ class FriendModel extends ChangeNotifier {
   Future<void> loadUsers(String nameSearch) async {
     try {
       String userUrl = "https://pinyinpal.com/friend_api/list_users.php";
-
+      ProfileModel currentProfile = ProfileModelSingleton().profileModel;
       var data = {
         'username': nameSearch,
+        'UID': currentProfile.userId,
       };
       var response =
           await http.post(Uri.parse(userUrl), body: json.encode(data));

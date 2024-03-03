@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:pinyinpal/constants/colour.dart';
@@ -116,9 +117,15 @@ class FriendRequestState extends State<FriendRequest> {
             Container(
               width: 10,
             ),
-            Text(
-              username,
-              style: const TextStyle(color: Colors.grey, fontSize: 30),
+            SizedBox(
+              width: 100,
+              child: AutoSizeText(
+                username,
+                minFontSize: 25,
+                maxFontSize: 30,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(color: Colors.grey),
+              ),
             ),
             Container(
               width: 100,
@@ -220,9 +227,15 @@ class FriendCircleState extends State<FriendCircle> {
             Container(
               width: 10,
             ),
-            Text(
-              username,
-              style: const TextStyle(color: Colors.grey, fontSize: 30),
+            SizedBox(
+              width: 100,
+              child: AutoSizeText(
+                username,
+                minFontSize: 25,
+                maxFontSize: 30,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(color: Colors.grey),
+              ),
             ),
             Container(
               width: 100,
@@ -394,9 +407,15 @@ class FriendFinderState extends State<FriendFinder> {
             Container(
               width: 10,
             ),
-            Text(
-              username,
-              style: const TextStyle(color: Colors.grey, fontSize: 30),
+            SizedBox(
+              width: 200,
+              child: AutoSizeText(
+                username,
+                minFontSize: 25,
+                maxFontSize: 30,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(color: Colors.grey),
+              ),
             ),
             Container(
               width: 100,

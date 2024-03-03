@@ -50,8 +50,9 @@ class _SelectPageState extends State<SelectPage> {
             padding: EdgeInsets.all(16.0),
             children: [
               _buildGameElement(Ph.timer, 'Timed'),
-              _buildGameElement(Ph.speaker_high, 'Spoken'),
+              _buildGameElement(Ph.speaker_high, 'Listen'),
               _buildGameElement(Ph.users_three, 'Multi'),
+              _buildGameElement(Ph.microphone, 'Spoken'),
               // Add more GestureDetector widgets for additional games as needed
             ],
           ),
