@@ -28,6 +28,7 @@ class _FlashCardTimedState extends State<FlashCardTimed> {
 
   bool timerStart = true;
   bool timerCancelled = false;
+  Color backColor = Colors.transparent;
 
   @override
   void initState() {
@@ -47,6 +48,7 @@ class _FlashCardTimedState extends State<FlashCardTimed> {
 //set gotResponse to true and trigger the finishedTimer method
 
     Times.endTime = DateTime.now();
+    List<String> incorrectAnswers = [];
 
     restartTimer();
 
@@ -57,15 +59,19 @@ class _FlashCardTimedState extends State<FlashCardTimed> {
       //Incorrect Answer!
       flashCardModel.increaseIncorrect();
       if (flashCardModel.count < flashCardModel.maxCount) {
-        AnswerDialog.failurePopup(context, "Wrong!");
+        incorrectAnswers.add(userAnswer);
+        setState(() {
+          backColor = (Colors.red);
+        });
       }
     } else {
       //Correct Answer!
       await flashCardModel.updateScore();
       flashCardModel.increaseCorrect();
       if (flashCardModel.count < flashCardModel.maxCount) {
-        AnswerDialog.successPopup(
-            context, '${flashCardModel.currentHanzi} is correct!');
+        setState(() {
+          backColor = (Colors.green);
+        });
       }
     }
 
@@ -125,7 +131,8 @@ class _FlashCardTimedState extends State<FlashCardTimed> {
         appBar: AppBar(
           surfaceTintColor: Colors.transparent,
         ),
-        body: Stack(
+        body: Container(
+            child: Stack(
           children: <Widget>[
             Container(
                 padding: EdgeInsets.only(
@@ -217,6 +224,6 @@ class _FlashCardTimedState extends State<FlashCardTimed> {
               ),
             ),
           ],
-        ));
+        )));
   }
 }

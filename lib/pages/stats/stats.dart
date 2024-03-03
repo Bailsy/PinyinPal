@@ -187,17 +187,18 @@ class UserStatsState extends State<UserStats> {
               child: Column(
                 children: <Widget>[
                   Container(
-                    height: 10,
+                    height: 30,
                   ),
                   ConstrainedBox(
-                    constraints: const BoxConstraints(
-                      minWidth: 100.0,
-                      maxWidth: 200.0,
-                      minHeight: 100.0,
-                      maxHeight: 200.0,
-                    ),
-                    child: StatsChart(),
-                  ),
+                      constraints: const BoxConstraints(
+                        minWidth: 150.0,
+                        maxWidth: 250.0,
+                        minHeight: 100.0,
+                        maxHeight: 200.0,
+                      ),
+                      child: Container(
+                        child: StatsBarChart(),
+                      )),
                 ],
               )),
 

@@ -51,6 +51,8 @@ class _StatsChartState extends State<StatsChart> {
   int confidence4 = 0;
   int confidence5 = 0;
 
+  int touchedIndex = -1;
+
   @override
   void initState() {
     super.initState();
@@ -138,6 +140,119 @@ class _StatsChartState extends State<StatsChart> {
             value: confidence5.toDouble(),
             color: Colors.blue),
       ]),
+    );
+  }
+}
+
+class StatsBarChart extends StatefulWidget {
+  StatsBarChart({Key? key}) : super(key: key);
+
+  @override
+  _StatsBarChartState createState() => _StatsBarChartState();
+}
+
+class _StatsBarChartState extends State<StatsBarChart> {
+  int confidence0 = 0;
+  int confidence1 = 0;
+  int confidence2 = 0;
+  int confidence3 = 0;
+  int confidence4 = 0;
+  int confidence5 = 0;
+
+  int touchedIndex = -1;
+
+  @override
+  void initState() {
+    super.initState();
+    getConfidence();
+  }
+
+  Future<void> getConfidence() async {
+    Directory documentsDirectory = await getApplicationDocumentsDirectory();
+    String filePath = '${documentsDirectory.path}/stats.json';
+
+    File file = File(filePath);
+    String jsonString = await file.readAsString();
+
+    // Parse JSON content into a Dart list of maps
+    List<dynamic> jsonList = jsonDecode(jsonString);
+    List<Map<String, dynamic>> data = List<Map<String, dynamic>>.from(jsonList);
+
+    // Update the score based on the character
+    for (var item in data) {
+      switch (item['score']) {
+        case 0:
+          setState(() {
+            confidence0++;
+          });
+          break;
+        case 1:
+          setState(() {
+            confidence1++;
+          });
+          break;
+        case 2:
+          setState(() {
+            confidence2++;
+          });
+          break;
+        case 3:
+          setState(() {
+            confidence3++;
+          });
+          break;
+        case 4:
+          setState(() {
+            confidence4++;
+          });
+          break;
+      }
+
+      if (item['score'] >= 5) {
+        setState(() {
+          confidence5++;
+        });
+      }
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return BarChart(
+      swapAnimationDuration: const Duration(milliseconds: 750),
+      swapAnimationCurve: Curves.easeInOutQuint,
+      BarChartData(
+          groupsSpace: 0,
+          titlesData: FlTitlesData(
+              rightTitles: AxisTitles(
+                sideTitles: SideTitles(showTitles: false),
+              ),
+              topTitles: AxisTitles(
+                sideTitles: SideTitles(showTitles: false),
+              )),
+          gridData: FlGridData(show: false),
+          borderData: FlBorderData(show: false),
+          barGroups: [
+            BarChartGroupData(x: 0, barRods: [
+              BarChartRodData(color: Colors.red, toY: confidence0.toDouble())
+            ]),
+            BarChartGroupData(x: 1, barRods: [
+              BarChartRodData(color: Colors.yellow, toY: confidence1.toDouble())
+            ]),
+            BarChartGroupData(x: 2, barRods: [
+              BarChartRodData(color: Colors.amber, toY: confidence2.toDouble())
+            ]),
+            BarChartGroupData(x: 3, barRods: [
+              BarChartRodData(
+                  color: Colors.lightGreen, toY: confidence3.toDouble())
+            ]),
+            BarChartGroupData(x: 4, barRods: [
+              BarChartRodData(color: Colors.green, toY: confidence4.toDouble())
+            ]),
+            BarChartGroupData(x: 5, barRods: [
+              BarChartRodData(color: Colors.blue, toY: confidence5.toDouble())
+            ]),
+          ]),
     );
   }
 }
