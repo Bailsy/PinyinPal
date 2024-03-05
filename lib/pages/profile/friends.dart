@@ -128,7 +128,7 @@ class FriendRequestState extends State<FriendRequest> {
               ),
             ),
             Container(
-              width: 100,
+              width: 10,
             ),
             InkWell(
               onTap: () {
@@ -404,11 +404,8 @@ class FriendFinderState extends State<FriendFinder> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            Container(
-              width: 10,
-            ),
             SizedBox(
-              width: 200,
+              width: 100,
               child: AutoSizeText(
                 username,
                 minFontSize: 25,
@@ -416,9 +413,6 @@ class FriendFinderState extends State<FriendFinder> {
                 overflow: TextOverflow.ellipsis,
                 style: const TextStyle(color: Colors.grey),
               ),
-            ),
-            Container(
-              width: 100,
             ),
             Column(
               // Align icons vertically using Column

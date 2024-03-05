@@ -85,21 +85,11 @@ class _SelectPageState extends State<SelectPage> {
             Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Color.fromARGB(255, 108, 131, 154).withAlpha(30),
-                      blurRadius: 8.0,
-                      spreadRadius: .0,
-                      offset: const Offset(
-                        0.0,
-                        3.0,
-                      ),
-                    ),
-                  ],
+                  boxShadow: [],
                 ),
                 child: Iconify(
                   iconName,
-                  color: Colors.blue.withAlpha(160),
+                  color: Colors.blue,
                   size: 100,
                 )), // Set height and width for the image
             SizedBox(height: 8.0),

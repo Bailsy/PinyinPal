@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'dart:ui';
 
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
@@ -262,12 +263,18 @@ class ResultScreen extends StatelessWidget {
                           size: 40,
                         ),
                       ),
-                      Text(
-                        text,
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontSize: 20.0, // Adjust font size as needed
-                          color: Colors.white,
+                      SizedBox(
+                        width: 250,
+                        height: 300,
+                        child: AutoSizeText(
+                          text,
+                          minFontSize: 10,
+                          maxFontSize: 30,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            fontSize: 20.0, // Adjust font size as needed
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                       Divider(
@@ -284,13 +291,20 @@ class ResultScreen extends StatelessWidget {
                           } else {
                             return Container(
                               padding: const EdgeInsets.all(30.0),
-                              child: Text(
-                                snapshot.data ??
-                                    '', // Display translated text if available
-                                textAlign: TextAlign.center,
-                                style: const TextStyle(
-                                  fontSize: 20.0, // Adjust font size as needed
-                                  color: Colors.blue,
+                              child: SizedBox(
+                                width: 250,
+                                height: 300,
+                                child: AutoSizeText(
+                                  minFontSize: 10,
+                                  maxFontSize: 30,
+                                  snapshot.data ??
+                                      '', // Display translated text if available
+                                  textAlign: TextAlign.center,
+                                  style: const TextStyle(
+                                    fontSize:
+                                        20.0, // Adjust font size as needed
+                                    color: Colors.blue,
+                                  ),
                                 ),
                               ),
                             );
