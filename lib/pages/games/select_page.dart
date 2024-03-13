@@ -89,7 +89,7 @@ class _SelectPageState extends State<SelectPage> {
                 ),
                 child: Iconify(
                   iconName,
-                  color: Colors.blue,
+                  color: Color.fromARGB(255, 17, 82, 112),
                   size: 100,
                 )), // Set height and width for the image
             SizedBox(height: 8.0),
